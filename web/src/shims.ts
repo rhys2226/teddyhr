@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 Error.prototype.toJSON = function () {
 	const alt = {} as any;
 
@@ -46,12 +48,16 @@ Array.prototype.random = function () {
 	return this[Math.floor(Math.random() * this.length)];
 };
 
-HTMLButtonElement.prototype.disable = function (mode?: boolean) {
-	if (mode === false) {
-		this.removeAttribute('disabled');
-	} else {
-		this.setAttribute('disabled', 'disabled');
-	}
+HTMLButtonElement.prototype.disable = function () {
+	this.setAttribute('disabled', 'disabled');
+};
+
+HTMLButtonElement.prototype.enable = function () {
+	this.removeAttribute('disabled');
+};
+
+Date.prototype.toDayJS = function () {
+	return dayjs(this);
 };
 
 export {};

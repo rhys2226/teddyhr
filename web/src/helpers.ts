@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 
 dayjs.extend(relativeTime);
 
-export class Asker {
+export class Swal {
 	static async notice(message: string, title?: string) {
 		return toBool(await swal({ title, text: message, buttons: ['Cancel', 'Confirm'], icon: 'warning' }));
 	}
@@ -15,8 +15,8 @@ export class Asker {
 	}
 }
 
-export function outIf<T>(condition: boolean, output: T, defaultValue = ''): T {
-	return condition ? output : ((defaultValue as unknown) as T);
+export function outIf<T>(condition: boolean, output: T, defaultValue: any = ''): T {
+	return condition ? output : (defaultValue as T);
 }
 export function toBool(data: any) {
 	return data ? true : false;

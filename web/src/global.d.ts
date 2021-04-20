@@ -1,3 +1,5 @@
+import { Dayjs } from 'dayjs';
+
 declare global {
 	interface String {
 		toNumber(): number;
@@ -11,8 +13,12 @@ declare global {
 		random(): T;
 	}
 
+	interface Date {
+		toDayJS(): Dayjs;
+	}
 	interface HTMLButtonElement {
-		disable(mode?: boolean): void;
+		enable(): void;
+		disable(): void;
 	}
 
 	interface StringConstructor {
