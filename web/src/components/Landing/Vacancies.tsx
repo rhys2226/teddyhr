@@ -18,8 +18,8 @@ export default function Vacancies() {
                 </div>
                 <div className="card-footer" style={{ display: 'flex', }}>
                     <div className="row align-items-center justify-content-between align-self-right ml-auto m-2">
-                        <button className="btn btn-dark mr-1">Apply Now</button>
-                        <button className="btn btn-outline-dark mr-1">View Qualifications</button>
+                        <button data-toggle="modal" data-target=".modal-full" className="btn btn-dark mr-1">Apply Now</button>
+                        <button data-toggle="modal" data-target=".modal-full" className="btn btn-outline-dark mr-1">View Qualifications</button>
                     </div>
                 </div>
             </div>

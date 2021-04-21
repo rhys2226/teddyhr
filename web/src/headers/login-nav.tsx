@@ -9,17 +9,12 @@ export default function LoginNav() {
             </div>
             <ul className="nav">
                 <li className="nav-item">
-                    <a className="nav-link my-2 btn btn-danger mr-2" href="#" id="modeSwitcher" data-mode="light">
-                        Login as HR
+                    <a className="nav-link my-2 btn btn-danger mr-2" href="#" id="modeSwitcher" data-mode="light" data-toggle="modal" data-target=".modal-full">
+                        Login as HR / Employee
                     </a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link my-2 btn  btn-outline-light" href="#" id="modeSwitcher" data-mode="light">
-                        Vanancies
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link my-2 btn text-light mr-2" href="#" id="modeSwitcher" data-mode="light">
+                    <a className="nav-link my-2 btn-outline-light mr-2" id="modeSwitcher" data-mode="light">
                         Guest Log-in
                     </a>
                 </li>

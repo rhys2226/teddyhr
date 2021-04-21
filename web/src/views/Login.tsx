@@ -7,36 +7,33 @@ type Props = {};
 
 const Login: FC<Props> = ( props ) => {
     return (
-        <div className='wrapper vh-100 overflow-hidden'>
-            <div className='row align-items-center h-100'>
-                <form className='col-lg-3 col-md-4 col-10 mx-auto text-center'>
-                    <Link className='navbar-brand mx-auto mt-2 flex-fill text-center' to='/'>
-                        <Logo />
-                    </Link>
-                    <h1 className='h6 mb-3'>Sign In</h1>
-                    <div className='form-group'>
-                        <label htmlFor='email' className='sr-only'>
-                            Email address
-						</label>
-                        <input type='email' id='email' className='form-control form-control-lg' placeholder='Email Address' />
+        <div className='row align-items-center h-100'>
+            <form className='col-lg-12'>
+                <div className="mt-2 p-0 mr-3">
+                    <h1 className=" m-0">HMRO</h1>
+                </div>
+                <br />
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">
+                            <i className=" fe fe-user"></i>
+                        </span>
                     </div>
-                    <div className='form-group'>
-                        <label htmlFor='password' className='sr-only'>
-                            Password
-						</label>
-                        <input type='password' id='password' className='form-control form-control-lg' placeholder='Password' />
+                    <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+                </div>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">
+                            <i className=" fe fe-lock"></i>
+                        </span>
                     </div>
-                    <div className='checkbox mb-3'>
-                        <label>
-                            <input type='checkbox' value='remember-me' /> Stay logged in
-						</label>
-                    </div>
-                    <button className='btn btn-lg btn-primary btn-block' type='submit'>
-                        Login
+                    <input type="password" className="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
+                </div>
+                <button className='btn btn-lg btn-danger btn-block' type='submit'>
+                    Login
 					</button>
-                    <p className='mt-5 mb-3 text-muted'>© 2021</p>
-                </form>
-            </div>
+                <p className='mt-5 mb-3 text-muted'>© Developed By | Teddy Fuentivilla </p>
+            </form>
         </div>
     );
 };
