@@ -6,9 +6,9 @@ export default function Vacancies() {
             <div className="card shadow mb-4">
                 <div className="card-body text-center">
                     <div className="avatar avatar-lg mt-4">
-                        <a href="">
-                            <img src="./assets/avatars/face-4.jpg" alt="..." className="avatar-img rounded-circle" />
-                        </a>
+                        <span className="avatar avatar-sm mt-2">
+                            <img src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img rounded-circle" />
+                        </span>
                     </div>
                     <div className="card-text my-2">
                         <strong className="card-title my-0">Developer</strong>
