@@ -3,8 +3,8 @@ import React from 'react'
 export default function ApplicationForm() {
     return (
         <div className="container-fluid " >
-            <div className="row justify-content-center">
-                <div className="col-12 col-lg-10">
+            <div className="row align-items-center h-100">
+                <div className="col-lg-12">
                     <div className="card my-12">
                         <div className="card-header">
                             <strong >Application Form</strong>

@@ -43,9 +43,9 @@ export default function LandingUI() {
                 </div>
             </div>
             <FullScreenModal Component={
-                // <Login />
+                <Login />
                 // <Descriptions />
-                <ApplicationForm />
+                // <ApplicationForm />
             } />
         </div>
     )
