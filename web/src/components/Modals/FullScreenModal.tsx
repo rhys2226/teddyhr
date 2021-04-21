@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { FC } from 'react';
 
-export default function FullScreenModal( props: any ) {
-    return (
-        <div className="modal fade modal-full" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <button aria-label="" type="button" className="close px-2" data-dismiss="modal" aria-hidden="true">
-                <span aria-hidden="true">×</span>
-            </button>
-            <div className="modal-dialog modal-dialog-centered" role="document">
-                <div className="modal-content">
-                    <div className="modal-body text-center w-100">
-                        {props.Component}
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
+type Props = {};
+
+const FullScreenModal: FC<Props> = (props) => {
+	return (
+		<div className='modal fade modal-full pt-3' role='dialog' aria-labelledby='mySmallModalLabel' aria-hidden='true'>
+			<button aria-label='' type='button' className='close px-2' data-dismiss='modal' aria-hidden='true'>
+				<span aria-hidden='true'>×</span>
+			</button>
+			<div className='modal-dialog modal-dialog-centered modal-xl' role='document'>
+				<div className='modal-content'>
+					<div className='modal-body text-center w-100'>{props.children}</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default FullScreenModal;
