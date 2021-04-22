@@ -8,7 +8,7 @@ type Props = {};
 const Login: FC<Props> = ( props ) => {
     return (
         <div className='row align-items-center h-100'>
-            <form className='col-lg-12'>
+            <form className='col-lg-5'>
                 <div className="mt-2 p-0 mr-3">
                     <h1 className=" m-0">HRMO</h1>
                 </div>

@@ -3,19 +3,18 @@ import React from 'react'
 export default function ApplicationStep5() {
     return (
         <div>
-            <h3>Professional Photo</h3>
-
+            <h3 className="mb-0">Professional Photo</h3>
+            <p className="mt-0 text-muted">Click the image to browse photo</p>
             <div className="row mt-5 align-items-center">
                 <div className="col-md-3 text-center mb-5">
-                    <div className="avatar avatar-xl">
-                        <img src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img rounded-circle" />
+                    <div className="avatar avatar-xxl">
+                        <img style={{ cursor: 'pointer' }} src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img rounded-circle" />
                     </div>
                 </div>
                 <div className="col">
                     <div className="row align-items-center">
                         <div className="col-md-7">
                             <h4 className="mb-1">Fuentevilla, Teddy Doe</h4>
-
                             <h3 className="text-muted  mt-0">Office of Management Information System</h3>
                             <p className="small mb-3"><span className="badge bg-success-lighter text-success p-1 br-2" style={{ fontWeight: 900, }}>Application as Developer</span></p>
                         </div>

@@ -4,15 +4,14 @@ export default function Descriptions() {
     return (
         <div className="row">
             <div className="col-md-12">
-                <div className="avatar avatar-lg mt-4">
+                <div className="avatar avatar-xl mt-4">
                     <span className="avatar avatar-sm mt-2">
                         <img src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img rounded-circle" />
                     </span>
                 </div>
-                <h1 className="text-center mb-0">Developer</h1>\
+                <h1 className="h5 mt-3 mb-0">Developer</h1>
                 <h3 className="text-muted  mt-0">Office of Management Information System</h3>
             </div>
-            <br />
             <br />
             <div className="mt-5" >
                 <h1>Qualifications</h1>
