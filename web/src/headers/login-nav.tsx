@@ -5,7 +5,7 @@ export default function LoginNav() {
         <nav className="topnav navbar navbar-light  fixed-top bg-dark w-100 ml-0">
             <div className="mt-2 p-0 mr-3">
                 <p className="text-white m-0 text-muted">ILOILO STATE COLLEGE OF FISHERIES </p>
-                <h5 className="text-white m-0">HMRO</h5>
+                <h5 className="text-white m-0">HRMO</h5>
             </div>
             <ul className="nav">
                 <li className="nav-item">
