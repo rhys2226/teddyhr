@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ApplicationStep1() {
+export default function ApplicationStep1( props: any ) {
     return (
         <div>
             <h3>Personal Data</h3>
@@ -26,8 +26,7 @@ export default function ApplicationStep1() {
                     <input type='text' className='form-control' />
                 </div>
                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
-                    <button className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>
-                    <button className='btn btn-outline-success mx-2 px-md-5'>Next</button>
+                    <button onClick={() => props.makeStep( 2 )} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
                 </div>
             </section>
         </div>

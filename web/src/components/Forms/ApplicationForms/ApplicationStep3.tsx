@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ApplicationStep3() {
+export default function ApplicationStep3( props: any ) {
     return (
         <div>
             <h3 className="mb-0">Attachments</h3>
@@ -40,8 +40,8 @@ export default function ApplicationStep3() {
                 </div>
             </div>
             <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
-                <button className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>
-                <button className='btn btn-outline-success mx-2 px-md-5'>Next</button>
+                <button onClick={() => props.makeStep( 2 )} className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>
+                <button onClick={() => props.makeStep( 4 )} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
             </div>
         </div>
     )
