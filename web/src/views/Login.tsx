@@ -1,11 +1,15 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../assets/logo.svg';
+import { useHistory } from "react-router-dom";
 
 
 type Props = {};
 
 const Login: FC<Props> = ( props ) => {
+    const history = useHistory()
+
+
     return (
         <div className='row align-items-center h-100'>
             <form className='col-lg-5'>
@@ -29,9 +33,9 @@ const Login: FC<Props> = ( props ) => {
                     </div>
                     <input type="password" className="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>
-                <button className='btn btn-lg btn-danger btn-block' type='submit'>
+                <button onClick={() => history.push( 'home' )} className='btn btn-lg btn-danger btn-block' type='submit'>
                     Login
-					</button>
+                </button>
                 <p className='mt-5 mb-3 text-muted'>© Developed By | Teddy Fuentivilla </p>
             </form>
         </div>

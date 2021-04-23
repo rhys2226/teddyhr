@@ -1,16 +1,16 @@
 import { RouteProps } from 'react-router';
 import Login from './views/Login';
 import Landing from './views/Landing';
-
-export const routes = {
-    Landing: '/',
-};
-
-
+import Home from './views/Home';
 
 export const viewRoutes: RouteProps[] = [
     {
-        path: routes.Landing,
+        path: '/',
         component: Landing,
+        exact: true
+    },
+    {
+        path: '/home',
+        component: Home,
     },
 ];
