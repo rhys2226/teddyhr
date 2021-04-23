@@ -13,7 +13,7 @@ export default function Sidebar() {
 
     return (
         <aside className="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
-            <a href="#" className="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+            <a className="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
                 <i className="fe fe-x"><span className="sr-only"></span></i>
             </a>
             <nav className="vertnav navbar navbar-light">

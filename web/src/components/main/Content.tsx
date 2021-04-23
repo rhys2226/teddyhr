@@ -1,4 +1,6 @@
 import React from 'react'
+import Applicants from '../../views/Applicants'
+import Settings from '../../views/Settings'
 
 export default function Content( props: any ) {
     return (
@@ -7,8 +9,12 @@ export default function Content( props: any ) {
                 <div className="container-fluid">
                     <div className="row justify-content-center">
                         <div className="col-12">
-                            {props.children}
-                        </div></div>
+
+                            {/* <Applicants /> */}
+                            <Settings />
+
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
