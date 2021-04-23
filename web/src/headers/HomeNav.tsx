@@ -3,7 +3,7 @@ import React from 'react'
 export default function HomeNav() {
     return (
         <div>
-            <nav className="topnav navbar navbar-light  bg-dark w-100 ml-0">
+            <nav className="topnav navbar navbar-light  bg-dark ">
                 <button type="button" className="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
                     <i className="fe fe-menu navbar-toggler-icon"></i>
                 </button>
