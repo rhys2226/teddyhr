@@ -7,7 +7,7 @@ export default function Forms() {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="defaultModalLabel">Shortcuts</h5>
+                            <h5 className="modal-title" id="defaultModalLabel">Form Downloads</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -18,13 +18,13 @@ export default function Forms() {
                                     <div className="squircle bg-success justify-content-center">
                                         <i className="fe fe-cpu fe-32 align-self-center text-white"></i>
                                     </div>
-                                    <p>Control area</p>
+                                    <p>Personal Data Sheet</p>
                                 </div>
                                 <div className="col-6 text-center">
                                     <div className="squircle bg-primary justify-content-center">
                                         <i className="fe fe-activity fe-32 align-self-center text-white"></i>
                                     </div>
-                                    <p>Activity</p>
+                                    <p>Service Record</p>
                                 </div>
                             </div>
                             <div className="row align-items-center">
@@ -32,27 +32,13 @@ export default function Forms() {
                                     <div className="squircle bg-primary justify-content-center">
                                         <i className="fe fe-droplet fe-32 align-self-center text-white"></i>
                                     </div>
-                                    <p>Droplet</p>
+                                    <p>Office Performace Evaluation & Review</p>
                                 </div>
                                 <div className="col-6 text-center">
                                     <div className="squircle bg-primary justify-content-center">
                                         <i className="fe fe-upload-cloud fe-32 align-self-center text-white"></i>
                                     </div>
-                                    <p>Upload</p>
-                                </div>
-                            </div>
-                            <div className="row align-items-center">
-                                <div className="col-6 text-center">
-                                    <div className="squircle bg-primary justify-content-center">
-                                        <i className="fe fe-users fe-32 align-self-center text-white"></i>
-                                    </div>
-                                    <p>Users</p>
-                                </div>
-                                <div className="col-6 text-center">
-                                    <div className="squircle bg-primary justify-content-center">
-                                        <i className="fe fe-settings fe-32 align-self-center text-white"></i>
-                                    </div>
-                                    <p>Settings</p>
+                                    <p>Leave Card</p>
                                 </div>
                             </div>
                         </div>

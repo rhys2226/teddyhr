@@ -1,42 +1,68 @@
 
-
-export const navs = [
+export const usersNav = [
+    {
+        title: 'Applicants',
+        route: '',
+        icon: 'fe-layers'
+    },
     {
         title: 'Employees',
         route: '',
         icon: 'fe-layers'
     },
     {
-        title: 'Recruitement',
+        title: 'You',
         route: '',
         icon: 'fe-layers'
     },
-    {
-        title: 'Job Applications',
-        route: '',
-        icon: 'fe-layers'
-    },
-    {
-        title: 'Performance Management',
-        route: '',
-        icon: 'fe-layers'
-    },
-    {
-        title: 'Leaves',
-        route: '',
-        icon: 'fe-layers'
-    },
-    {
-        title: 'Awards & Recognitions',
-        route: '',
-        icon: 'fe-layers'
-    },
-    {
-        title: 'Forms',
-        route: '',
-        icon: 'fe-layers'
-    },
-
-
-
 ]
+
+
+export const recruitmentProcess = [
+    {
+        title: 'Add Vacancy',
+        route: '',
+        icon: 'fe-layers'
+    },
+]
+
+
+export const performanceManagement = [
+    {
+        title: 'Employees',
+        route: '',
+        icon: 'fe-layers'
+    },
+]
+
+
+export const HRDLearningAndDevelopment = [
+    {
+        title: 'Upcomming Seminars',
+        route: '',
+        icon: 'fe-layers'
+    },
+]
+
+export const awardsAndRecognition = [
+    {
+        title: 'Awards & Recognition',
+        route: '',
+        icon: 'fe-layers'
+    },
+]
+
+
+export const managenentOfLeaveCard = [
+    {
+        title: 'Application for Leave',
+        route: '',
+        icon: 'fe-layers'
+    },
+    {
+        title: 'Leave Balances',
+        route: '',
+        icon: 'fe-layers'
+    },
+]
+
