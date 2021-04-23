@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginNav from '../../headers/login-nav';
 import Login from '../../views/Login';
 import ApplicationForm from '../Forms/ApplicationForms/ApplicationForm';
 import FullScreenModal from '../Modals/FullScreenModal';
@@ -15,8 +16,13 @@ export default function LandingUI() {
 
     let array = [ 1, 2, 2, 3, 3, 4, 5, 56, 6, 7, 123, 12, 321 ];
 
+    const [ modal, setModal ] = React.useState( <div></div> )
+
     return (
         <div>
+            <LoginNav modal={() => {
+                setModal( <Login /> )
+            }} />
             <div className='wrapper '>
                 <br />
                 <br />
@@ -42,15 +48,15 @@ export default function LandingUI() {
                 <div className='container-fluid'>
                     <div className='row justify-content-center'>
                         {array.map( () => (
-                            <Vacancies />
+                            <Vacancies modal={( modal: any ) => {
+                                setModal( modal == 'descriptions' ? <Descriptions /> : <ApplicationForm /> )
+                            }} />
                         ) )}
                     </div>
                 </div>
             </div>
             <FullScreenModal>
-                {/* <Login /> */}
-                {/* <Descriptions /> */}
-                <ApplicationForm />
+                {modal}
             </FullScreenModal>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Vacancies() {
+export default function Vacancies( props: any ) {
     return (
         <div className="col-md-3">
             <div className="card shadow mb-4">
@@ -18,8 +18,16 @@ export default function Vacancies() {
                 </div>
                 <div className="card-footer" style={{ display: 'flex', }}>
                     <div className="row align-items-center justify-content-between align-self-right ml-auto m-2">
-                        <button data-toggle="modal" data-target=".modal-full" className="btn btn-dark mr-1">Apply Now</button>
-                        <button data-toggle="modal" data-target=".modal-full" className="btn btn-outline-dark mr-1">View Qualifications</button>
+                        <button
+                            onClick={() => {
+                                props.modal( 'apply' )
+                            }}
+                            data-toggle="modal" data-target=".modal-full" className="btn btn-dark mr-1">Apply Now</button>
+                        <button
+                            onClick={() => {
+                                props.modal( 'descriptions' )
+                            }}
+                            data-toggle="modal" data-target=".modal-full" className="btn btn-outline-dark mr-1">View Qualifications</button>
                     </div>
                 </div>
             </div>

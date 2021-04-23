@@ -6,7 +6,6 @@ import LandingUI from '../components/Landing/Landing'
 export default function Landing() {
     return (
         <div>
-            <LoginNav />
             <LandingUI />
         </div>
     )

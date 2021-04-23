@@ -19,7 +19,7 @@ const Login: FC<Props> = ( props ) => {
                             <i className=" fe fe-user"></i>
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+                    <input autoFocus type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">

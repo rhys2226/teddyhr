@@ -35,11 +35,11 @@ export default function ApplicationForm() {
                         <hr style={{ marginTop: '-20px' }} />
                         <br />
                         <div className='card-body'>
-                            {/* <ApplicationStep1 /> */}
+                            <ApplicationStep1 />
                             {/* <ApplicationStep2 /> */}
                             {/* <ApplicationStep3 /> */}
                             {/* <ApplicationStep4 /> */}
-                            <ApplicationStep5 />
+                            {/* <ApplicationStep5 /> */}
                         </div>
                     </div>
                 </div>
