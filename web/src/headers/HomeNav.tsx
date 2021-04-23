@@ -29,7 +29,28 @@ export default function HomeNav() {
 				</form>
 				<ul className='nav'>
 					<li className='nav-item'>
-						<a className='nav-link text-muted my-2' href='#' id='modeSwitcher' data-mode='light'>
+						<a
+							className='nav-link text-muted my-2'
+							href='#'
+							id='modeSwitcher'
+							data-mode='light'
+							onClick={(e) => {
+								e.preventDefault();
+								const switcher = $('#modeSwitcher');
+								const mode = switcher.attr('data-mode');
+
+								const light = $('#lightTheme');
+								const dark = $('#darkTheme');
+								if (mode === 'light') {
+									light.attr('disabled', 'true');
+									dark.removeAttr('disabled');
+									switcher.attr('data-mode', 'dark');
+								} else {
+									dark.attr('disabled', 'true');
+									light.removeAttr('disabled');
+									switcher.attr('data-mode', 'light');
+								}
+							}}>
 							<i className='fe fe-sun fe-16'></i>
 						</a>
 					</li>
