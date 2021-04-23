@@ -33,7 +33,10 @@ const Login: FC<Props> = ( props ) => {
                     </div>
                     <input type="password" className="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>
-                <button onClick={() => history.push( 'home' )} className='btn btn-lg btn-danger btn-block' type='submit'>
+                <button onClick={() => {
+                    $( '.modal-backdrop' ).toggle();
+                    history.push( 'home' )
+                }} className='btn btn-lg btn-danger btn-block' type='submit'>
                     Login
                 </button>
                 <p className='mt-5 mb-3 text-muted'>© Developed By | Teddy Fuentivilla </p>

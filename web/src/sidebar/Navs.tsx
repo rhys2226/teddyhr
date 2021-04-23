@@ -3,17 +3,17 @@ export const usersNav = [
     {
         title: 'Applicants',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-mail'
     },
     {
         title: 'Employees',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-user-check'
     },
     {
         title: 'You',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-user'
     },
 ]
 
@@ -22,16 +22,16 @@ export const recruitmentProcess = [
     {
         title: 'Add Vacancy',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-key'
     },
 ]
 
 
 export const performanceManagement = [
     {
-        title: 'Employees',
+        title: 'Performance Management ',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-bar-chart-2'
     },
 ]
 
@@ -40,7 +40,7 @@ export const HRDLearningAndDevelopment = [
     {
         title: 'Upcomming Seminars',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-mic'
     },
 ]
 
@@ -48,7 +48,7 @@ export const awardsAndRecognition = [
     {
         title: 'Awards & Recognition',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-award'
     },
 ]
 
@@ -57,12 +57,12 @@ export const managenentOfLeaveCard = [
     {
         title: 'Application for Leave',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-edit-3'
     },
     {
         title: 'Leave Balances',
         route: '',
-        icon: 'fe-layers'
+        icon: 'fe-credit-card'
     },
 ]
 

@@ -56,7 +56,7 @@ export default function HomeNav() {
                     </li>
                     <li className='nav-item'>
                         <a className='nav-link text-muted my-2' href='./#' data-toggle='modal' data-target='.modal-shortcut'>
-                            <span className='fe fe-grid fe-16'></span>
+                            <span className='fe fe-download-cloud fe-16'></span>
                         </a>
                     </li>
                     <li className='nav-item nav-notif'>
