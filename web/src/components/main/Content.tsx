@@ -9,10 +9,7 @@ export default function Content( props: any ) {
                 <div className="container-fluid">
                     <div className="row justify-content-center">
                         <div className="col-12">
-
-                            <Applicants />
-                            {/* <Settings /> */}
-
+                            {props.children}
                         </div>
                     </div>
                 </div>
