@@ -1,6 +1,6 @@
 import { useURL } from "../hooks"
 import Settings from "../views/Settings/Settings"
-import Applicants from "../views/Users/applicants/Applicants"
+import Applicants from "../views/Users/Applicants/Applicants"
 import { RouteProps } from 'react-router';
 
 
