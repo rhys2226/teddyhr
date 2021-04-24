@@ -6,6 +6,8 @@ import {
     HRDLearningAndDevelopment,
     awardsAndRecognition,
     managenentOfLeaveCard,
+    Forms,
+    employemtStatus
 
 } from './Navs'
 
@@ -124,7 +126,6 @@ export default function Sidebar() {
                     }
                     <br />
                     <br />
-                    <br />
                     {
                         awardsAndRecognition.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
@@ -136,6 +137,34 @@ export default function Sidebar() {
                             </li>
                         ) )
                     }
+                    <br />
+                    <br />
+                    {
+                        employemtStatus.map( ( nav: any, index: any ) => (
+                            <li className="nav-item w-100">
+                                <a className="nav-link">
+                                    <i className={`fe ${ nav.icon }  fe-16`}></i>
+                                    <span className="ml-3 item-text">{nav.title}</span>
+                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
+                                </a>
+                            </li>
+                        ) )
+                    }
+
+                    {
+                        Forms.map( ( nav: any, index: any ) => (
+                            <li className="nav-item w-100">
+                                <a className="nav-link">
+                                    <i className={`fe ${ nav.icon }  fe-16`}></i>
+                                    <span className="ml-3 item-text">{nav.title}</span>
+                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
+                                </a>
+                            </li>
+                        ) )
+                    }
+
+
+
                 </ul>
             </nav>
         </aside>

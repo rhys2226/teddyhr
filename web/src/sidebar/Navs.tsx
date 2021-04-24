@@ -10,11 +10,6 @@ export const usersNav = [
         route: '',
         icon: 'fe-user-check'
     },
-    {
-        title: 'You',
-        route: '',
-        icon: 'fe-user'
-    },
 ]
 
 
@@ -70,4 +65,25 @@ export const managenentOfLeaveCard = [
         icon: 'fe-credit-card'
     },
 ]
+
+
+
+export const employemtStatus = [
+    {
+        title: 'Employment Status',
+        route: '',
+        icon: 'fe-battery'
+    },
+
+]
+
+export const Forms = [
+    {
+        title: 'Forms',
+        route: '',
+        icon: 'fe-folder'
+    },
+
+]
+
 
