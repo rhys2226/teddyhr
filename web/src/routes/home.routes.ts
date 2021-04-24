@@ -1,11 +1,12 @@
 import { useURL } from "../hooks"
 import Settings from "../views/Settings/Settings"
 import Applicants from "../views/Users/applicants/Applicants"
+import { RouteProps } from 'react-router';
 
 
 const url = useURL()
 
-export const HomeRoutes = [
+export const HomeRoutes: RouteProps[]  = [
     {
         path: url( '/' ),
         component:Applicants,
