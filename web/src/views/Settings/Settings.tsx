@@ -1,4 +1,5 @@
 import React from 'react'
+import Overview from './Overview/Overview'
 import Profile from './Profile/Profile'
 
 export default function Settings() {
@@ -28,7 +29,9 @@ export default function Settings() {
                         </li>
                     </ul>
 
-                    <Profile />
+                    {/* <Profile /> */}
+                    <Overview />
+
                 </div>
             </div>
         </div>
