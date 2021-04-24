@@ -1,5 +1,5 @@
 
-export const routes = {
+export const HomeRoutes = {
     Users:'/users',
     Recruitement: '/recruitement',
     Performance:'/performance',

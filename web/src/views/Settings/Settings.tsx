@@ -1,5 +1,5 @@
 import React from 'react'
-import Profile from '../../components/Settings/Profile/Profile'
+import Profile from './Profile/Profile'
 
 export default function Settings() {
     return (

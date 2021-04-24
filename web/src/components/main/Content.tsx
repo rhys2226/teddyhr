@@ -10,8 +10,8 @@ export default function Content( props: any ) {
                     <div className="row justify-content-center">
                         <div className="col-12">
 
-                            {/* <Applicants /> */}
-                            <Settings />
+                            <Applicants />
+                            {/* <Settings /> */}
 
                         </div>
                     </div>

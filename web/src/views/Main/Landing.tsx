@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginNav from '../../headers/login-nav'
+import LoginNav from '../../headers/LoginNav'
 import LandingUI from '../../components/Landing/Landing'
 
 

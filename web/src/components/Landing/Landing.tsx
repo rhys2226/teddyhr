@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import LoginNav from '../../headers/login-nav';
+import LoginNav from '../../headers/LoginNav';
 import Login from '../../views/Main/Login';
 import ApplicationForm from '../Forms/ApplicationForms/ApplicationForm';
 import FullScreenModal from '../Modals/FullScreenModal';
-import Descriptions from '../Vacancies/Descriptions';
+import Descriptions from '../../views/Main/Vacancies/Descriptions';
 import Vacancies from './Vacancies';
 
 export default function LandingUI() {
