@@ -24,6 +24,11 @@ export const recruitmentProcess = [
         route: '',
         icon: 'fe-key'
     },
+    {
+        title: 'View Vacancies',
+        route: '',
+        icon: 'fe-layers'
+    },
 ]
 
 

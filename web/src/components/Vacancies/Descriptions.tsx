@@ -3,14 +3,13 @@ import React from 'react'
 export default function Descriptions() {
     return (
         <div className="row">
-            <div className="col-md-12">
-                <div className="avatar avatar-xl mt-4">
-                    <span className="avatar avatar-sm mt-2">
-                        <img src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img rounded-circle" />
-                    </span>
+            <div className="col-md-12 text-center">
+                <div className="m-4 d-flex" style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <img src="./assets/placeholders/dev.png" alt="..." />
                 </div>
                 <h1 className="h5 mt-3 mb-0">Developer</h1>
-                <h3 className="text-muted  mt-0">Office of Management Information System</h3>
+                <h3 className="text-danger  mt-0">Office of Management Information System</h3>
+                <h5 className="text-info  mt-0">Atleast 5 years</h5>
             </div>
             <br />
             <div className="mt-5" >

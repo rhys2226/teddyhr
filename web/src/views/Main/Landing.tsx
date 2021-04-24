@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginNav from '../headers/login-nav'
-import LandingUI from '../components/Landing/Landing'
+import LoginNav from '../../headers/login-nav'
+import LandingUI from '../../components/Landing/Landing'
 
 
 export default function Landing() {

@@ -4,7 +4,7 @@ export default function ApplicationStep3( props: any ) {
     return (
         <div>
             <h3 className="mb-0">Attachments</h3>
-            <p className="text-muted mt-0">Upload your CV or Resume, Application letter and other Supporting Doccuments</p>
+            <p className="text-muted mt-0">Upload your CV or Resume, Application letter and other Supporting Documents</p>
             <div className='card shadow mb-4 mt-5'>
                 <div className='card-body'>
                     <form action='/file-upload' className='dropzone bg-light rounded-lg' id='tinydash-dropzone'>

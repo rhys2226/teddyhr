@@ -1,6 +1,6 @@
 import React from 'react'
-import Applicants from '../../views/Applicants'
-import Settings from '../../views/Settings'
+import Applicants from '../../views/Users/applicants/Applicants'
+import Settings from '../../views/Settings/Settings'
 
 export default function Content( props: any ) {
     return (

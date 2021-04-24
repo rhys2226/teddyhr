@@ -5496,7 +5496,7 @@ a.badge-dark.focus {
 
 .list-group-item-action:active {
     color: #6c757d;
-    background-color: #e9ecef;
+    background-color: #C00002;
 }
 
 .list-group-item {
@@ -5527,7 +5527,7 @@ a.badge-dark.focus {
 .list-group-item.active {
     z-index: 2;
     color: #ffffff;
-    background-color: #1b68ff;
+    background-color: #C00002;
     border-color: #1b68ff;
 }
 
@@ -11331,8 +11331,8 @@ svg.navbar-brand-img {
 }
 
 .nav-tabs .nav-link.active {
-    color: #1b68ff;
-    border-color: #1b68ff;
+    color: #C00002;
+    border-color: #C00002;
 }
 
 

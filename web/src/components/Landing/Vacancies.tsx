@@ -7,10 +7,10 @@ export default function Vacancies( props: any ) {
                 <div className="card-body text-center">
                     <div className="avatar avatar-lg mt-4">
                         <span className="avatar avatar-sm mt-2">
-                            <img src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img rounded-circle" />
+                            <img src="./assets/placeholders/dev.png" alt="..." className="avatar-img rounded-circle" />
                         </span>
                     </div>
-                    <div className="card-text my-2">
+                    <div className="card-text my-2 ">
                         <strong className="card-title my-0">Developer</strong>
                         <p className="small  mb-0">Office of Management Information System</p>
                         <p className="small"><span className="badge badge-danger">Experience: 5 years</span></p>

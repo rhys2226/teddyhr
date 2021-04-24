@@ -1,5 +1,5 @@
 import React from 'react'
-import Applicants from '../../views/Applicants'
+import Applicants from '../../views/Users/applicants/Applicants'
 import Content from './Content'
 
 export default function Main() {

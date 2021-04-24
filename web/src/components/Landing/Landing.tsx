@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import LoginNav from '../../headers/login-nav';
-import Login from '../../views/Login';
+import Login from '../../views/Main/Login';
 import ApplicationForm from '../Forms/ApplicationForms/ApplicationForm';
 import FullScreenModal from '../Modals/FullScreenModal';
 import Descriptions from '../Vacancies/Descriptions';

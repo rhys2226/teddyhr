@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { useHistory } from "react-router-dom";
 
 

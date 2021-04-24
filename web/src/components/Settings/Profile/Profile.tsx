@@ -111,7 +111,7 @@ export default function Profile() {
                 <div className='card-body'>
                     <form action='/file-upload' className='dropzone bg-light rounded-lg' id='tinydash-dropzone'>
                         <div className='dz-message needsclick'>
-                            <div className='circle circle-lg bg-primary'>
+                            <div className='circle circle-lg bg-danger'>
                                 <i className='fe fe-upload fe-24 text-white'></i>
                             </div>
                             <h5 className='text-muted mt-4'>Drop files here or click to upload</h5>
