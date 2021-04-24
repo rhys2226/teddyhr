@@ -8,25 +8,23 @@ import AddEmployee from '../../views/Users/Add-Employee/AddEmployee'
 
 export default function Content( props: any ) {
     return (
-        <div>
-            <main role="main" className="main-content">
-                <div className="container-fluid">
-                    <div className="row justify-content-center">
-                        <div className="col-12">
+        <main role='main' className='main-content'>
+            <div className='container-fluid'>
+                <div className='row justify-content-center'>
+                    <div className='col-12'>
 
 
-                            {/* <AddVancancy /> */}
-                            {/* <Settings /> */}
-                            <AddEmployee />
-                            {/* <Applicants /> */}
-                            {/* <Employees /> */}
+                        {/* <AddVancancy /> */}
+                        {/* <Settings /> */}
+                        {/* <AddEmployee /> */}
+                        {/* <Applicants /> */}
+                        {/* <Employees /> */}
 
 
-                            {props.children}
-                        </div>
+                        {props.children}
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
     )
 }
