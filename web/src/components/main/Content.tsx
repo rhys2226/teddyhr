@@ -3,6 +3,7 @@ import Applicants from '../../views/Users/Applicants/Applicants'
 import Settings from '../../views/Settings/Settings'
 import Overview from '../../views/Settings/Overview/Overview'
 import Employees from '../../views/Users/Employees/Employees'
+import AddVancancy from '../../views/Recruitement/Add-vacancy/AddVancancy'
 
 export default function Content( props: any ) {
     return (
@@ -13,7 +14,8 @@ export default function Content( props: any ) {
                         <div className="col-12">
 
 
-                            <Settings />
+                            <AddVancancy />
+                            {/* <Settings /> */}
                             {/* <Applicants /> */}
                             {/* <Employees /> */}
 

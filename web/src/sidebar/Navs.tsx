@@ -10,6 +10,11 @@ export const usersNav = [
         route: '',
         icon: 'fe-user-check'
     },
+    {
+        title: 'Add Employee',
+        route: '',
+        icon: 'fe-user-plus'
+    },
 ]
 
 
