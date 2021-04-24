@@ -14,13 +14,13 @@ export default function Content( props: any ) {
                         <div className="col-12">
 
 
-                            <AddVancancy />
+                            {/* <AddVancancy /> */}
                             {/* <Settings /> */}
                             {/* <Applicants /> */}
                             {/* <Employees /> */}
 
 
-                            {/* {props.children} */}
+                            {props.children}
                         </div>
                     </div>
                 </div>
