@@ -28,6 +28,7 @@ export default function PersonalForms() {
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <a className="dropdown-item" href="#">Edit</a>
+                                    <a className="dropdown-item" href="#">View</a>
                                     <a className="dropdown-item" href="#">Remove</a>
                                 </div>
                             </div>
@@ -45,6 +46,7 @@ export default function PersonalForms() {
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <a className="dropdown-item" href="#">Edit</a>
+                                    <a className="dropdown-item" href="#">View</a>
                                     <a className="dropdown-item" href="#">Remove</a>
                                 </div>
                             </div>

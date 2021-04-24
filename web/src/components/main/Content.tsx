@@ -13,9 +13,9 @@ export default function Content( props: any ) {
                         <div className="col-12">
 
 
-                            {/* <Settings /> */}
+                            <Settings />
                             {/* <Applicants /> */}
-                            <Employees />
+                            {/* <Employees /> */}
 
 
                             {/* {props.children} */}

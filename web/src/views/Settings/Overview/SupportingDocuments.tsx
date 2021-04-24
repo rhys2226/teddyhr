@@ -17,7 +17,12 @@ export default function SupportingDocuments() {
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="col"><i className="fe fe-hard-drive text-success"></i></th>
+                        <th scope="col">
+                            <div className="circle circle-sm bg-light">
+                                <i className="fe fe-hard-drive text-muted"></i>
+                            </div>
+                            <span className="dot dot-md bg-warning mr-1"></span>
+                        </th>
                         <td>Curriculum Vitae.pdf</td>
                         <td>2020-12-26 01:32:21</td>
                         <td>2020-12-26 01:32:21</td>
@@ -28,14 +33,20 @@ export default function SupportingDocuments() {
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <a className="dropdown-item" href="#">Edit</a>
+                                    <a className="dropdown-item" href="#">View</a>
                                     <a className="dropdown-item" href="#">Remove</a>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col"><i className="fe fe-hard-drive  text-success"></i></th>
-                        <td>ICPR</td>
+                        <th scope="col">
+                            <div className="circle circle-sm bg-light">
+                                <i className="fe fe-hard-drive text-muted"></i>
+                            </div>
+                            <span className="dot dot-md bg-warning mr-1"></span>
+                        </th>
+                        <td>Application Letter.docx</td>
                         <td>2020-12-26 01:32:21</td>
                         <td>2020-12-26 01:32:21</td>
                         <td>
@@ -45,6 +56,7 @@ export default function SupportingDocuments() {
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <a className="dropdown-item" href="#">Edit</a>
+                                    <a className="dropdown-item" href="#">View</a>
                                     <a className="dropdown-item" href="#">Remove</a>
                                 </div>
                             </div>
