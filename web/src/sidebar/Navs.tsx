@@ -2,17 +2,17 @@
 export const usersNav = [
     {
         title: 'Applicants',
-        route: '',
+        route: '/home/',
         icon: 'fe-mail'
     },
     {
         title: 'Employees',
-        route: '',
+        route: 'employees',
         icon: 'fe-user-check'
     },
     {
         title: 'Add Employee',
-        route: '',
+        route: 'employees-add',
         icon: 'fe-user-plus'
     },
 ]
@@ -21,12 +21,12 @@ export const usersNav = [
 export const recruitmentProcess = [
     {
         title: 'Add Vacancy',
-        route: '',
+        route: 'vancancy-add',
         icon: 'fe-key'
     },
     {
         title: 'View Vacancies',
-        route: '',
+        route: 'vacancies',
         icon: 'fe-layers'
     },
 ]
@@ -35,7 +35,7 @@ export const recruitmentProcess = [
 export const performanceManagement = [
     {
         title: 'Performance Management ',
-        route: '',
+        route: 'performance-mgt',
         icon: 'fe-bar-chart-2'
     },
 ]
@@ -44,7 +44,7 @@ export const performanceManagement = [
 export const HRDLearningAndDevelopment = [
     {
         title: 'Upcomming Seminars',
-        route: '',
+        route: 'seminars',
         icon: 'fe-mic'
     },
 ]
@@ -52,7 +52,7 @@ export const HRDLearningAndDevelopment = [
 export const awardsAndRecognition = [
     {
         title: 'Awards & Recognition',
-        route: '',
+        route: 'awards',
         icon: 'fe-award'
     },
 ]

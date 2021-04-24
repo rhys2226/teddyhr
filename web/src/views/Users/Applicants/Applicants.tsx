@@ -50,7 +50,7 @@ export default function Applicants() {
                                         <tr>
                                             <td>
                                                 <div className="avatar avatar-sm">
-                                                    <img src="./assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                    <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
 

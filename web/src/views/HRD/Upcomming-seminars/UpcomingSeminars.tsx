@@ -64,7 +64,7 @@ export default function UpcomingSeminars() {
                     <div className="row align-items-center mb-4">
                         <div className="col-auto">
                             <div className="avatar avatar-sm mb-3 mx-4">
-                                <img src="./assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                <img src="http://localhost:3000//assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
                             </div>
                         </div>
                         <div className="col">
@@ -73,7 +73,7 @@ export default function UpcomingSeminars() {
                             <div className="card mb-3 bg-light w-50">
                                 <div className="row no-gutters align-items-center">
                                     <div className="col-md-2 text-center">
-                                        <img src="./assets/products/p1.jpg" alt="..." className="img-fluid rounded m-1" />
+                                        <img src="http://localhost:3000//assets/products/p1.jpg" alt="..." className="img-fluid rounded m-1" />
                                     </div>
                                     <div className="col-md-10">
                                         <div className="card-body py-0">
@@ -92,7 +92,7 @@ export default function UpcomingSeminars() {
                     <div className="row align-items-center mb-4">
                         <div className="col-auto">
                             <div className="avatar avatar-sm mb-3 mx-4">
-                                <img src="./assets/avatars/face-4.jpg" alt="..." className="avatar-img rounded-circle" />
+                                <img src="http://localhost:3000//assets/avatars/face-4.jpg" alt="..." className="avatar-img rounded-circle" />
                             </div>
                         </div>
                         <div className="col">

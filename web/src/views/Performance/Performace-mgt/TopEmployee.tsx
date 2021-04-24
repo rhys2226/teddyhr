@@ -4,13 +4,14 @@ export default function TopEmployee() {
     const [ employees, setApplicants ] = useState( [ 1, 2, 3, 2, 3, ] )
     return (
         <div className="col-md-4 my-4">
-            <h2 className="h4 mb-1">Top Employee</h2>
+            <h2 className="h4 mb-1">Employees of the month</h2>
             <p className="mb-3 text-muted">Displaying List of Top Employees this Month</p>
             <div className="card shadow">
                 <div className="card-body">
                     <table className="table table-borderless table-hover mt-5">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th className="text-center"><i className="fe fe-user"></i></th>
                                 <th >Name</th>
                                 <th className="text-muted">Rating this Month</th>
@@ -21,9 +22,10 @@ export default function TopEmployee() {
                             {
                                 employees.map( ( applicants: any, index: any ) => (
                                     <tr>
+                                        <td>{index + 1}</td>
                                         <td className="text-center">
                                             <div className="avatar avatar-md">
-                                                <img src="./assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 

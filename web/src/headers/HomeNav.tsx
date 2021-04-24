@@ -75,7 +75,7 @@ export default function HomeNav() {
                             aria-haspopup='true'
                             aria-expanded='false'>
                             <span className='avatar avatar-sm mt-2'>
-                                <img src='./assets/avatars/face-1.jpg' alt='...' className='avatar-img rounded-circle' />
+                                <img src='http://localhost:3000/assets/avatars/face-1.jpg' alt='...' className='avatar-img rounded-circle' />
                             </span>
                         </a>
                         <div className='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>

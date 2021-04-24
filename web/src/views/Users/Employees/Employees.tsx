@@ -39,7 +39,8 @@ export default function Employees() {
                                     <th className="text-info">Alignment</th>
                                     <th className="text-info text-center">Months of Services</th>
                                     <th className="text-info text-right">Hired Last</th>
-                                    <th className="text-info text-right">Form Last Updated</th>
+                                    <th className="text-center"><i className="fe fe-user"></i></th>
+                                    <th>Immediate Supervisor</th>
                                     <th className="text-info"></th>
                                 </tr>
                             </thead>
@@ -48,8 +49,8 @@ export default function Employees() {
                                     employees.map( ( applicants: any, index: any ) => (
                                         <tr>
                                             <td>
-                                                <div className="avatar avatar-md">
-                                                    <img src="./assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <div className="avatar avatar-sm">
+                                                    <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
 
@@ -69,13 +70,26 @@ export default function Employees() {
 
                                             <td className="text-muted text-right">13/09/2020</td>
 
-                                            <td className="text-danger text-right">13/09/2020</td>
+
+                                            <td className="text-center">
+                                                <div className="avatar avatar-md">
+                                                    <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <p className="mb-0 text-muted"><strong>Agsaluna, Ryan D.</strong></p>
+                                                <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
+                                            </td>
+
+
 
                                             <td>
                                                 <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">
+                                                    <button role="butoon" className="dropdown-item" >Add/Change Supervisor</button>
                                                     <button role="butoon" className="dropdown-item" >View Profile</button>
                                                     <button role="butoon" className="dropdown-item" >Remove as Employee</button>
                                                 </div>

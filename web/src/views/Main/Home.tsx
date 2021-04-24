@@ -6,8 +6,14 @@ import Forms from '../../components/Modals/Forms';
 import HomeNav from '../../headers/HomeNav';
 import { useURL } from '../../hooks';
 import Sidebar from '../../sidebar/Sidebar';
+import AwardsAndRecognition from '../Awards&Recognition/AwardsAndRecognition';
+import UpcomingSeminars from '../HRD/Upcomming-seminars/UpcomingSeminars';
+import PerformanceMgt from '../Performance/Performace-mgt/PerformanceMgt';
+import AddVancancy from '../Recruitement/Add-vacancy/AddVancancy';
 import Settings from '../Settings/Settings';
+import AddEmployee from '../Users/Add-Employee/AddEmployee';
 import Applicants from '../Users/Applicants/Applicants';
+import Employees from '../Users/Employees/Employees';
 
 export default function Home() {
     const url = useURL();
@@ -19,24 +25,50 @@ export default function Home() {
             exact: true,
         },
         {
-            path: url( '/recruitement' ),
+            path: url( '/home/' ),
             component: Applicants,
+            exact: true,
         },
         {
-            path: url( '/performance' ),
+            path: url( '/employees' ),
+            component: Employees,
+            exact: true,
+        },
+        {
+            path: url( '/employees-add' ),
+            component: AddEmployee,
+            exact: true,
+        },
+
+
+        {
+            path: url( '/vancancy-add' ),
+            component: AddVancancy,
+        }, {
+            path: url( '/vacancies' ),
             component: Applicants,
         },
+
+
+        {
+            path: url( '/performance-mgt' ),
+            component: PerformanceMgt,
+        },
+
+
         {
             path: url( '/seminars' ),
-            component: Applicants,
+            component: UpcomingSeminars,
         },
+
+
         {
             path: url( '/leave' ),
             component: Applicants,
         },
         {
             path: url( '/awards' ),
-            component: Applicants,
+            component: AwardsAndRecognition,
         },
         {
             path: url( '/settings' ),

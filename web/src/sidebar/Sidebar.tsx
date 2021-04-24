@@ -7,11 +7,13 @@ import {
     awardsAndRecognition,
     managenentOfLeaveCard,
     Forms,
-    employemtStatus
-
+    employemtStatus,
 } from './Navs'
+import { useHistory } from "react-router-dom";
+
 
 export default function Sidebar() {
+    const history = useHistory()
 
     return (
         <aside className="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
@@ -22,10 +24,9 @@ export default function Sidebar() {
 
                 <div className="w-100 mb-4 d-flex">
                     <a className="navbar-brand mx-auto mt-2 flex-fill text-center" >
-                        <img src="./assets/logos/iscof.png" height="30px" alt="..." />
+                        <img src=" http://localhost:3000/assets/logos/iscof.png" height="30px" alt="..." />
                     </a>
                 </div>
-
 
                 <ul className="navbar-nav flex-fill w-100 mb-2">
                     <li className="nav-item dropdown">
@@ -60,10 +61,9 @@ export default function Sidebar() {
                     {
                         usersNav.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a role="button" className="nav-link" >
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )
@@ -74,10 +74,9 @@ export default function Sidebar() {
                     {
                         recruitmentProcess.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a role="button" className="nav-link" >
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )
@@ -88,10 +87,9 @@ export default function Sidebar() {
                     {
                         performanceManagement.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a role="button" className="nav-link">
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )
@@ -102,10 +100,9 @@ export default function Sidebar() {
                     {
                         HRDLearningAndDevelopment.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a role="button" className="nav-link">
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )
@@ -116,10 +113,9 @@ export default function Sidebar() {
                     {
                         managenentOfLeaveCard.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a role="button" className="nav-link" >
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )
@@ -129,10 +125,9 @@ export default function Sidebar() {
                     {
                         awardsAndRecognition.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a className="nav-link">
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )
@@ -142,10 +137,9 @@ export default function Sidebar() {
                     {
                         employemtStatus.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a className="nav-link">
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )
@@ -154,10 +148,9 @@ export default function Sidebar() {
                     {
                         Forms.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
-                                <a className="nav-link">
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
-                                    {/* <span className="badge badge-pill badge-primary">New</span> */}
                                 </a>
                             </li>
                         ) )

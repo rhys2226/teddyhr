@@ -18,6 +18,7 @@ export default function EmployeesAndPerformance() {
                                         <option >All</option>
                                         <option>Subordiante</option>
                                         <option>Colleagues</option>
+                                        <option>Lowest Rating</option>
                                     </select>
                                 </div>
                                 <div className="form-group col-auto">
@@ -48,7 +49,7 @@ export default function EmployeesAndPerformance() {
                                     <tr>
                                         <td className="text-center">
                                             <div className="avatar avatar-sm">
-                                                <img src="./assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 
@@ -87,7 +88,7 @@ export default function EmployeesAndPerformance() {
 
                                         <td className="text-center">
                                             <div className="avatar avatar-md">
-                                                <img src="./assets/avatars/face-8.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src="http://localhost:3000/assets/avatars/face-8.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 

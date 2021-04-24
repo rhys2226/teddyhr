@@ -1,14 +1,10 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { useHistory } from "react-router-dom";
-
 
 type Props = {};
 
 const Login: FC<Props> = ( props ) => {
     const history = useHistory()
-
 
     return (
         <div className='row align-items-center h-100'>
@@ -35,7 +31,7 @@ const Login: FC<Props> = ( props ) => {
                 </div>
                 <button onClick={() => {
                     $( '.modal-backdrop' ).toggle();
-                    history.push( 'home' )
+                    history.replace( 'home' )
                 }} className='btn btn-lg btn-danger btn-block' type='submit'>
                     Login
                 </button>
