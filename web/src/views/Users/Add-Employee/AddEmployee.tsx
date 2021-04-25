@@ -22,6 +22,7 @@ export default function AddEmployee() {
     const [ previous_employer, setprevious_employer ] = useState( '' )
     const [ previous_employer_contact, setprevious_employer_contact ] = useState( '' )
     const [ email, setemail ] = useState( '' )
+    const [ position, setposition ] = useState( '' )
 
 
     async function submitEmployee() {
@@ -45,6 +46,8 @@ export default function AddEmployee() {
             previous_employer: previous_employer,
             previous_employer_contact: previous_employer_contact,
             email: email,
+            position: position,
+            isEmployee: true,
         }
         const url = `${ base.api }auth/register`
         await axios.post( url, data )
@@ -97,13 +100,18 @@ export default function AddEmployee() {
                             <input onChange={( e ) => setemail( e.target.value )} type='text' className='form-control' />
                         </div>
                         <div className='form-group mb-3 col-12 col-md-2'>
+                            <label>Position</label>
+                            <input onChange={( e ) => setposition( e.target.value )} type='text' className='form-control' />
+                        </div>
+                        <div className='form-group mb-3 col-12 col-md-4'>
                             <label>Alignment </label>
                             <select onChange={( e ) => setalignment( e.target.value )} className='form-control'>
+                                <option selected disabled>Choose..</option>
                                 <option>Vertical</option>
                                 <option>Non-Vertical</option>
                             </select>
                         </div>
-                        <div className='form-group mb-3 col-12 col-md-6 mt-2'>
+                        <div className='form-group mb-3 col-12 col-md-4 mt-2'>
                             <label>Educational Attainments</label>
                             <select onChange={( e ) => { seteducational_attainments( getSelectMultipleValues( e ) ) }} multiple className='form-control'>
                                 <option>Phd</option>
@@ -114,7 +122,7 @@ export default function AddEmployee() {
                                 <option>Primary</option>
                             </select>
                         </div>
-                        <div className='form-group mb-3 col-12 col-md-6 mt-2'>
+                        <div className='form-group mb-3 col-12 col-md-4 mt-2'>
                             <label>Eligibilities</label>
                             <select onChange={( e ) => { seteligibilities( getSelectMultipleValues( e ) ) }} multiple className='form-control'>
                                 <option>Civil Service</option>

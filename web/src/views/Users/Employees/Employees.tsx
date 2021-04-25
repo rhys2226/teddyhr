@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Pagination from '../../../components/Table/Pagination'
+import axios from 'axios';
+import * as base from '.././../../constants/base'
+import { Alert, Fire } from '../../../components/Alerts/Alert';
 
 export default function Employees() {
-    const [ employees, setApplicants ] = useState( [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ] )
+    const [ employees, setEmployees ] = useState( [] )
+
+    useEffect( () => {
+        getEmployees()
+    }, [] )
+
+    async function getEmployees() {
+        const url = `${ base.api }HMRO`
+        await axios.get( url )
+            .then( ( response ) => {
+                setEmployees( response.data )
+            } )
+    }
+
     return (
         <div>
             <div className="col-md-12 my-4">
@@ -46,7 +62,7 @@ export default function Employees() {
                             </thead>
                             <tbody>
                                 {
-                                    employees.map( ( applicants: any, index: any ) => (
+                                    employees.map( ( employee: any, index: any ) => (
                                         <tr>
                                             <td>
                                                 <div className="avatar avatar-sm">
@@ -55,16 +71,16 @@ export default function Employees() {
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-muted"><strong>Fuentevilla, Teddy D.</strong></p>
-                                                <p className="small mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}>as Developer</span></p>
+                                                <p className="mb-0 text-muted"><strong>{employee.last_name}, {employee.first_name}   {employee.middle_name}</strong></p>
+                                                <p className="small mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}>{employee.position}</span></p>
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-primary ">@johnDoe@gmail.com</p>
-                                                <small className="mb-0 text-muted">0928-624-1875</small>
+                                                <p className="mb-0 text-primary ">@{employee.email}</p>
+                                                <small className="mb-0 text-muted">{employee.phone}</small>
                                             </td>
 
-                                            <td>Vertical</td>
+                                            <td>{employee.alignment}</td>
 
                                             <td className=" text-center"> 15</td>
 
