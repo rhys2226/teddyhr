@@ -28,6 +28,15 @@ export const usersNav = [
 ]
 
 
+export const supervisions = [
+    {
+        title: 'Add Supervisor',
+        route: '/home/supervisors',
+        icon: 'fe-hexagon'
+    },
+]
+
+
 export const recruitmentProcess = [
     {
         title: 'Add Vacancy',
