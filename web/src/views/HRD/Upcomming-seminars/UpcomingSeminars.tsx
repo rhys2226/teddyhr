@@ -53,6 +53,10 @@ export default function UpcomingSeminars() {
                                 <input className="form-control bg-light" type="text" />
                             </div>
                             <div className="form-group col-md-6">
+                                <label >Seminar Date</label>
+                                <input className="form-control bg-light" type="date" />
+                            </div>
+                            <div className="form-group col-md-12">
                                 <label >Description</label>
                                 <textarea className="form-control bg-light"  ></textarea>
                             </div>

@@ -7,6 +7,7 @@ import HomeNav from '../../headers/HomeNav';
 import { useURL } from '../../hooks';
 import Sidebar from '../../sidebar/Sidebar';
 import AwardsAndRecognition from '../Awards&Recognition/AwardsAndRecognition';
+import SeminarsAttended from '../HRD/Upcomming-seminars/SeminarsAttended';
 import UpcomingSeminars from '../HRD/Upcomming-seminars/UpcomingSeminars';
 import PerformanceMgt from '../Performance/Performace-mgt/PerformanceMgt';
 import AddVancancy from '../Recruitement/Add-vacancy/AddVancancy';
@@ -59,7 +60,10 @@ export default function Home() {
             path: url( '/seminars' ),
             component: UpcomingSeminars,
         },
-
+        {
+            path: url( '/seminars-attended' ),
+            component: SeminarsAttended,
+        },
 
         {
             path: url( '/leave' ),
@@ -74,8 +78,6 @@ export default function Home() {
             component: Settings,
         },
     ];
-
-
 
     return (
         <>

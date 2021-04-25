@@ -48,11 +48,11 @@ export const HRDLearningAndDevelopment = [
     {
         title: 'Upcomming Seminars',
         route: '/home/seminars',
-        icon: 'fe-mic'
+        icon: 'fe-calendar'
     },
     {
         title: 'Seminars Attended',
-        route: '/home/seminars',
+        route: '/home/seminars-attended',
         icon: 'fe-mic'
     },
 ]
