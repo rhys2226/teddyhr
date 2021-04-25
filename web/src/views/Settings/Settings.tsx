@@ -10,7 +10,7 @@ import PDSSettings from './PDS/PDSSettings';
 import ICPRSettings from './ICPR/ICPRSettings';
 import ServiceRecordSettings from './Service-record/ServiceRecordSettings';
 import LeaveCardSettings from './Leave-card/LeaveCardSettings';
-
+import * as base from '../../constants/base'
 
 export default function Settings() {
     const url = useURL();
@@ -62,7 +62,7 @@ export default function Settings() {
                                         onClick={() => {
                                             history.push( nav.route )
                                         }}
-                                        className="nav-link">{nav.title}
+                                        className={`nav-link ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>{nav.title}
                                     </a>
                                 </li>
                             ) )

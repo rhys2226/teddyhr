@@ -55,7 +55,6 @@ export default function SupportingDocuments() {
                                     <span className="text-muted sr-only">Action</span>
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
-                                    <a className="dropdown-item" href="#">Edit</a>
                                     <a className="dropdown-item" href="#">View</a>
                                     <a className="dropdown-item" href="#">Remove</a>
                                 </div>

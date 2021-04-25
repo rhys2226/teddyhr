@@ -10578,11 +10578,11 @@ button:focus {
 .narrow.open .sidebar-left .navbar-nav>.nav-item.active:after {
     content: "";
     position: absolute;
-    left: -1rem;
+    right: -1rem;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background-color: #1b68ff;
+    width: 4px;
+    background-color: #C00002;
 }
 
 .vertical .topnav,

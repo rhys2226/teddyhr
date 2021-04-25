@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     usersNav,
     recruitmentProcess,
@@ -10,9 +10,11 @@ import {
     employemtStatus,
 } from './Navs'
 import { useHistory } from "react-router-dom";
-
+import * as base from './../constants/base'
 
 export default function Sidebar() {
+
+
     const history = useHistory()
 
     return (
@@ -31,8 +33,12 @@ export default function Sidebar() {
                 <ul className="navbar-nav flex-fill w-100 mb-2">
                     {
                         performanceManagement.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
-                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
+                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                                <a
+                                    onClick={() => {
+                                        history.push( nav.route )
+                                    }}
+                                    role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
                                 </a>
@@ -47,7 +53,7 @@ export default function Sidebar() {
                     </p>
                     {
                         usersNav.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
+                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -60,7 +66,7 @@ export default function Sidebar() {
                     </p>
                     {
                         recruitmentProcess.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
+                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -74,7 +80,7 @@ export default function Sidebar() {
                     </p>
                     {
                         HRDLearningAndDevelopment.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
+                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -87,7 +93,7 @@ export default function Sidebar() {
                     </p>
                     {
                         managenentOfLeaveCard.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
+                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -100,7 +106,7 @@ export default function Sidebar() {
                     </p>
                     {
                         awardsAndRecognition.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
+                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -125,6 +131,6 @@ export default function Sidebar() {
 
                 </ul>
             </nav>
-        </aside>
+        </aside >
     )
 }

@@ -74,12 +74,12 @@ export const awardsAndRecognition = [
 export const managenentOfLeaveCard = [
     {
         title: 'Application for Leave',
-        route: '/home/',
+        route: '/home/1',
         icon: 'fe-edit-3'
     },
     {
         title: 'Leave Balances',
-        route: '/home/',
+        route: '/home/1',
         icon: 'fe-credit-card'
     },
 ]
