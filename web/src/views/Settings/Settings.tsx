@@ -1,37 +1,76 @@
 import React from 'react'
 import Overview from './Overview/Overview'
 import Profile from './Profile/Profile'
+import { RouteProps } from 'react-router-dom';
+import { Route } from 'react-router';
+import { useURL } from '../../hooks';
+import { settingsNav } from './SettingsNav'
+import { useHistory } from "react-router-dom";
+import PDSSettings from './PDS/PDSSettings';
+import ICPRSettings from './ICPR/ICPRSettings';
+import ServiceRecordSettings from './Service-record/ServiceRecordSettings';
+import LeaveCardSettings from './Leave-card/LeaveCardSettings';
+
 
 export default function Settings() {
+    const url = useURL();
+    const history = useHistory()
+
+
+    const SettingRoutes: RouteProps[] = [
+        {
+            path: url( '/' ),
+            component: Overview,
+            exact: true,
+        },
+        {
+            path: url( 'settings/' ),
+            component: Overview,
+        },
+        {
+            path: url( '/profile' ),
+            component: Profile,
+        },
+        {
+            path: url( '/personal-data-sheet' ),
+            component: PDSSettings,
+        },
+        {
+            path: url( '/ipcr' ),
+            component: ICPRSettings,
+        },
+        {
+            path: url( '/service-record' ),
+            component: ServiceRecordSettings,
+        },
+        {
+            path: url( '/leave-card' ),
+            component: LeaveCardSettings,
+        },
+    ]
+
     return (
         <div className="row justify-content-center">
             <div className="col-12 col-lg-10 col-xl-8">
                 <h2 className="h3 mb-4 page-title">Settings</h2>
                 <div className="my-4">
                     <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
-                        <li className="nav-item">
-                            <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Overview</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Personal Data Sheet</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Leave Card</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">ICPR</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Service Record</a>
-                        </li>
+                        {
+                            settingsNav.map( ( nav, index ) => (
+                                <li className="nav-item">
+                                    <a role="button"
+                                        onClick={() => {
+                                            history.push( nav.route )
+                                        }}
+                                        className="nav-link">{nav.title}
+                                    </a>
+                                </li>
+                            ) )
+                        }
                     </ul>
-
-                    {/* <Profile /> */}
-                    <Overview />
-
+                    {SettingRoutes.map( ( route, index ) => (
+                        <Route {...route} key={index} />
+                    ) )}
                 </div>
             </div>
         </div>

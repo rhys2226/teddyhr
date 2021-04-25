@@ -21,11 +21,17 @@ export default function Home() {
     const HomeRoutes: RouteProps[] = [
         {
             path: url( '/' ),
-            component: Applicants,
+            component: PerformanceMgt,
             exact: true,
         },
         {
-            path: url( '/home/' ),
+            path: url( '/home' ),
+            component: PerformanceMgt,
+            exact: true,
+        },
+
+        {
+            path: url( '/applicants' ),
             component: Applicants,
             exact: true,
         },
@@ -37,7 +43,6 @@ export default function Home() {
         {
             path: url( '/employees-add' ),
             component: AddEmployee,
-            exact: true,
         },
 
 
@@ -48,13 +53,6 @@ export default function Home() {
             path: url( '/vacancies' ),
             component: Applicants,
         },
-
-
-        {
-            path: url( '/performance-mgt' ),
-            component: PerformanceMgt,
-        },
-
 
         {
             path: url( '/seminars' ),
@@ -75,6 +73,8 @@ export default function Home() {
             component: Settings,
         },
     ];
+
+
 
     return (
         <>

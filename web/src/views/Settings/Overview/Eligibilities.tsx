@@ -1,6 +1,9 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
 
 export default function Eligibilities() {
+    const history = useHistory()
+
     return (
         <div className="col-md-6">
             <div className="card mb-4 shadow">
@@ -26,7 +29,10 @@ export default function Eligibilities() {
                     </div>
                 </div>
                 <div className="card-footer">
-                    <a href="" className="d-flex justify-content-between text-muted"><span>Account Settings</span><i className="fe fe-chevron-right"></i></a>
+                    <a role="button" onClick={() => {
+                        history.push( '/home/settings/profile' )
+
+                    }} className="d-flex justify-content-between text-muted"><span>Account Settings</span><i className="fe fe-chevron-right"></i></a>
                 </div>
             </div>
         </div>

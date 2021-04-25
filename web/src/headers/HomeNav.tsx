@@ -1,6 +1,11 @@
 import React from 'react';
+import { Fire } from '../components/Alerts/Alert';
+import { useHistory } from "react-router-dom";
+
 
 export default function HomeNav() {
+    const history = useHistory()
+
     return (
         <div>
             <nav className='topnav navbar navbar-light  bg-dark '>
@@ -79,15 +84,27 @@ export default function HomeNav() {
                             </span>
                         </a>
                         <div className='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>
-                            <a className='dropdown-item' href='#'>
+                            <button onClick={() => {
+                                history.push( '/home/settings' )
+                            }} className='dropdown-item'>
                                 Profile
-							</a>
-                            <a className='dropdown-item' href='#'>
+							</button>
+                            <button onClick={() => {
+                                history.push( '/home/settings/profile' )
+                            }} className='dropdown-item'>
                                 Settings
-							</a>
-                            <a className='dropdown-item' href='#'>
+							</button>
+                            <button onClick={() => {
+                                Fire(
+                                    'Log-Out',
+                                    'Are you sure you want to logout?',
+                                    'warning',
+                                    () => {
+                                        history.push( '/' )
+                                    } )
+                            }} className='dropdown-item'>
                                 Log-Out
-							</a>
+							</button>
                         </div>
                     </li>
                 </ul>
@@ -95,3 +112,4 @@ export default function HomeNav() {
         </div>
     );
 }
+

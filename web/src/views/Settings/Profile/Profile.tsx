@@ -6,7 +6,7 @@ export default function Profile() {
             <div className="row mt-5 align-items-center">
                 <div className="col-md-3 text-center mb-5">
                     <div className="avatar avatar-xl">
-                        <img style={{ cursor: 'pointer' }} src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img   rounded-circle " />
+                        <img style={{ cursor: 'pointer' }} src="http://localhost:3000/assets/avatars/face-1.jpg" alt="..." className="avatar-img   rounded-circle " />
                     </div>
                 </div>
                 <div className="col">

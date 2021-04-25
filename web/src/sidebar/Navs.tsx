@@ -1,18 +1,28 @@
 
+export const performanceManagement = [
+    {
+        title: 'Performance Management ',
+        route: '/home/',
+        icon: 'fe-bar-chart-2'
+    },
+]
+
+
+
 export const usersNav = [
     {
         title: 'Applicants',
-        route: '/home/',
+        route: '/home/applicants',
         icon: 'fe-mail'
     },
     {
         title: 'Employees',
-        route: 'employees',
+        route: '/home/employees',
         icon: 'fe-user-check'
     },
     {
         title: 'Add Employee',
-        route: 'employees-add',
+        route: '/home/employees-add',
         icon: 'fe-user-plus'
     },
 ]
@@ -21,39 +31,42 @@ export const usersNav = [
 export const recruitmentProcess = [
     {
         title: 'Add Vacancy',
-        route: 'vancancy-add',
+        route: '/home/vancancy-add',
         icon: 'fe-key'
     },
     {
         title: 'View Vacancies',
-        route: 'vacancies',
+        route: '/home/vacancies',
         icon: 'fe-layers'
     },
 ]
 
 
-export const performanceManagement = [
-    {
-        title: 'Performance Management ',
-        route: 'performance-mgt',
-        icon: 'fe-bar-chart-2'
-    },
-]
 
 
 export const HRDLearningAndDevelopment = [
     {
         title: 'Upcomming Seminars',
-        route: 'seminars',
+        route: '/home/seminars',
+        icon: 'fe-mic'
+    },
+    {
+        title: 'Seminars Attended',
+        route: '/home/seminars',
         icon: 'fe-mic'
     },
 ]
 
 export const awardsAndRecognition = [
     {
-        title: 'Awards & Recognition',
-        route: 'awards',
+        title: 'Add Award',
+        route: '/home/awards',
         icon: 'fe-award'
+    },
+    {
+        title: 'List of Awards',
+        route: '/home/awards',
+        icon: 'fe-list'
     },
 ]
 
@@ -61,12 +74,12 @@ export const awardsAndRecognition = [
 export const managenentOfLeaveCard = [
     {
         title: 'Application for Leave',
-        route: '',
+        route: '/home/',
         icon: 'fe-edit-3'
     },
     {
         title: 'Leave Balances',
-        route: '',
+        route: '/home/',
         icon: 'fe-credit-card'
     },
 ]
@@ -76,7 +89,7 @@ export const managenentOfLeaveCard = [
 export const employemtStatus = [
     {
         title: 'Employment Status',
-        route: '',
+        route: '/home/',
         icon: 'fe-battery'
     },
 
@@ -85,7 +98,7 @@ export const employemtStatus = [
 export const Forms = [
     {
         title: 'Forms',
-        route: '',
+        route: '/home/',
         icon: 'fe-folder'
     },
 

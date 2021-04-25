@@ -29,29 +29,16 @@ export default function Sidebar() {
                 </div>
 
                 <ul className="navbar-nav flex-fill w-100 mb-2">
-                    <li className="nav-item dropdown">
-                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle nav-link">
-                            <i className="fe fe-home fe-16"></i>
-                            <span className="ml-3 item-text">Dashboard</span><span className="sr-only">(current)</span>
-                        </a>
-                        <ul className="collapse list-unstyled pl-4 w-100" id="dashboard">
-                            <li className="nav-item active">
-                                <a className="nav-link pl-3" ><span className="ml-1 item-text">Default</span></a>
+                    {
+                        performanceManagement.map( ( nav: any, index: any ) => (
+                            <li className="nav-item w-100">
+                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
+                                    <i className={`fe ${ nav.icon }  fe-16`}></i>
+                                    <span className="ml-3 item-text">{nav.title}</span>
+                                </a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link pl-3"><span className="ml-1 item-text">Analytics</span></a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link pl-3"><span className="ml-1 item-text">E-commerce</span></a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link pl-3"><span className="ml-1 item-text">Saas Dashboard</span></a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link pl-3" ><span className="ml-1 item-text">Systems</span></a>
-                            </li>
-                        </ul>
-                    </li>
+                        ) )
+                    }
                 </ul>
 
                 <ul style={{ marginTop: '-1rem' }} className="navbar-nav flex-fill w-100 mb-0">
@@ -81,19 +68,7 @@ export default function Sidebar() {
                             </li>
                         ) )
                     }
-                    <p className="text-muted nav-heading mt-4 mb-1">
-                        <span>Perfromace</span>
-                    </p>
-                    {
-                        performanceManagement.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
-                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
-                                    <i className={`fe ${ nav.icon }  fe-16`}></i>
-                                    <span className="ml-3 item-text">{nav.title}</span>
-                                </a>
-                            </li>
-                        ) )
-                    }
+
                     <p className="text-muted nav-heading mt-4 mb-1">
                         <span>HRD</span>
                     </p>
@@ -120,8 +95,9 @@ export default function Sidebar() {
                             </li>
                         ) )
                     }
-                    <br />
-                    <br />
+                    <p className="text-muted nav-heading mt-4 mb-1">
+                        <span>Awards & Recognition</span>
+                    </p>
                     {
                         awardsAndRecognition.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
@@ -136,17 +112,6 @@ export default function Sidebar() {
                     <br />
                     {
                         employemtStatus.map( ( nav: any, index: any ) => (
-                            <li className="nav-item w-100">
-                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
-                                    <i className={`fe ${ nav.icon }  fe-16`}></i>
-                                    <span className="ml-3 item-text">{nav.title}</span>
-                                </a>
-                            </li>
-                        ) )
-                    }
-
-                    {
-                        Forms.map( ( nav: any, index: any ) => (
                             <li className="nav-item w-100">
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>

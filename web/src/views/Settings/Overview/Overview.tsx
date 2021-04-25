@@ -4,14 +4,17 @@ import Eligibilities from './Eligibilities'
 import PersonalForms from './PersonalForms'
 import SupportingDocuments from './SupportingDocuments'
 import WorkExperience from './WorkExperience'
+import { useHistory } from "react-router-dom";
+
 
 export default function Overview() {
+    const history = useHistory()
     return (
         <div>
             <div className=" mt-5 align-items-center card">
                 <div className="col-md-3 text-center mt-5">
                     <div className="avatar avatar-xl">
-                        <img style={{ cursor: 'pointer' }} src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img   rounded-circle " />
+                        <img style={{ cursor: 'pointer' }} src="http://localhost:3000/assets/avatars/face-1.jpg" alt="..." className="avatar-img   rounded-circle " />
                     </div>
                 </div>
                 <div className="col  p-5 w-100">
@@ -34,6 +37,11 @@ export default function Overview() {
                         </div>
                     </div>
                 </div>
+                <div className="card-footer">
+                    <a role="button" onClick={() => {
+                        history.push( '/home/settings/profile' )
+                    }} className="d-flex justify-content-between text-muted"><span>Account Settings</span><i className="fe fe-chevron-right"></i></a>
+                </div>
             </div>
             <div className="row my-4">
 
@@ -41,7 +49,6 @@ export default function Overview() {
                 <EducationalAttainments />
                 <Eligibilities />
                 <PersonalForms />
-
                 <SupportingDocuments />
             </div>
         </div>
