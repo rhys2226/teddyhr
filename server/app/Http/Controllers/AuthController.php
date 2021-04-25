@@ -11,18 +11,14 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $data = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required', 'string', 'max:255'],
-        ]);
-
-        $user = User::whereEmail($data['email'])->first();
+      
+        $user = User::where('username',$request->input('email'))->first();
 
         if (!$user) {
             return response(['message' => 'Email does not exist.'], 404);
         }
 
-        if (!Hash::check($data['password'], $user->password)) {
+        if (!Hash::check($request->input('password'), $user->password)) {
             return response(['message' => 'Password is incorrect.'], 403);
         }
 
