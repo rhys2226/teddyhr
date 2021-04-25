@@ -7,18 +7,10 @@ use App\Models\Seminars;
 
 class SeminarsFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
+   
     protected $model = Seminars::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+ 
     public function definition()
     {
         return [

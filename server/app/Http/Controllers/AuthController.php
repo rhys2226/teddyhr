@@ -12,10 +12,10 @@ class AuthController extends Controller
     public function login(Request $request)
     {
       
-        $user = User::where('username',$request->input('email'))->first();
+        $user = User::where('username',$request->input('username'))->first();
 
         if (!$user) {
-            return response(['message' => 'Email does not exist.'], 404);
+            return response(['message' => 'Username does not exist.'], 404);
         }
 
         if (!Hash::check($request->input('password'), $user->password)) {
@@ -28,5 +28,21 @@ class AuthController extends Controller
             'user' => $user,
             'token' => $token->plainTextToken,
         ];
+    }
+
+    public function register(Request $request){
+
+        $user = User::create($request->all());
+
+        $token = $user->createToken(Str::random());
+        return [
+            'user' => $user,
+            'token' => $token->plainTextToken,
+        ];
+    }
+
+    public function createHRMOUser(User $user)
+    {
+        
     }
 }

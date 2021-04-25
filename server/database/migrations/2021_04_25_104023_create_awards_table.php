@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAwardsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('awards', function (Blueprint $table) {
@@ -18,12 +13,7 @@ class CreateAwardsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('awards');
