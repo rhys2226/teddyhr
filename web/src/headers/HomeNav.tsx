@@ -46,14 +46,16 @@ export default function HomeNav() {
 
                                 const light = $( '#lightTheme' );
                                 const dark = $( '#darkTheme' );
-                                if ( mode === 'light' ) {
+                                if ( localStorage.getItem( 'data-mode' ) == 'light' || localStorage.getItem( 'data-mode' ) == undefined ) {
                                     light.attr( 'disabled', 'true' );
                                     dark.removeAttr( 'disabled' );
                                     switcher.attr( 'data-mode', 'dark' );
+                                    localStorage.setItem( 'data-mode', 'dark' );
                                 } else {
                                     dark.attr( 'disabled', 'true' );
                                     light.removeAttr( 'disabled' );
                                     switcher.attr( 'data-mode', 'light' );
+                                    localStorage.setItem( 'data-mode', 'light' );
                                 }
                             }}>
                             <i className='fe fe-sun fe-16'></i>
@@ -65,9 +67,9 @@ export default function HomeNav() {
                         </a>
                     </li>
                     <li className='nav-item nav-notif'>
-                        <a className='nav-link text-muted my-2' href='./#' data-toggle='modal' data-target='.modal-notif'>
+                        <a role="button" className='nav-link text-muted my-2' data-toggle='modal' data-target='.modal-notif'>
                             <span className='fe fe-bell fe-16'></span>
-                            <span className='dot dot-md bg-success'></span>
+                            <span className='dot dot-md bg-danger'></span>
                         </a>
                     </li>
                     <li className='nav-item dropdown'>

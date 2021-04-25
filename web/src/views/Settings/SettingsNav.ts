@@ -1,10 +1,10 @@
 export const settingsNav = [
     {
-        title:  'Overview',
+        title:  'Profile',
         route:'/home/settings/'
     },
     {
-        title:  'Profile',
+        title:  'Settings',
         route:'/home/settings/profile'
     },
     {

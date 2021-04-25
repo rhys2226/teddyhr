@@ -3,6 +3,7 @@ import { Route } from 'react-router';
 import { RouteProps } from 'react-router-dom';
 import Content from '../../components/Main/Content';
 import Forms from '../../components/Modals/Forms';
+import Notifications from '../../components/Notifications/Notifications';
 import HomeNav from '../../headers/HomeNav';
 import { useURL } from '../../hooks';
 import Sidebar from '../../sidebar/Sidebar';
@@ -95,6 +96,7 @@ export default function Home() {
                 ) )}
             </Content>
             <Forms />
+            <Notifications />
         </>
     );
 }

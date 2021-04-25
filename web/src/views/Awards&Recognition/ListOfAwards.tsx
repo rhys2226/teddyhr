@@ -13,13 +13,13 @@ export default function ListOfAwards() {
                             <div className="pb-3 timeline-item item-success">
                                 <div className="pl-5">
                                     <div className="mb-3 row">
-                                        <div className="col-2">
-                                            <div className="avatar avatar-xl mb-3 mx-4">
+                                        <div className="col-auto">
+                                            <div className="avatar avatar-sm mb-3 mx-4">
                                                 <img src="http://localhost:3000//assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </div>
-                                        <div className="col md-12">
-                                            <strong className="fe-32 text-success">
+                                        <div className="col-auto md-12">
+                                            <strong className=" text-success">
                                                 Teddy Fuentivilla
                                             </strong>
                                             <br />
