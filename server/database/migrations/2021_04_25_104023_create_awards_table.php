@@ -11,8 +11,12 @@ class CreateAwardsTable extends Migration
         Schema::create('awards', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('employee_id');
+            $table->string('title');
+            $table->string('description');
+            
         });
-    }
+    } 
     
     public function down()
     {

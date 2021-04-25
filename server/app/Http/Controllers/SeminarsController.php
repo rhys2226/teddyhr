@@ -8,32 +8,23 @@ use Illuminate\Http\Request;
 
 class SeminarsController extends Controller
 {
-    
     public function index()
     {
-        //
+        return Seminars::all();
     }
 
-    public function store(Request $request)
+    public function show(Seminars $Seminars)
     {
-        //
+        return Seminars::find($Seminars->id);
     }
 
-   
-    public function show(Seminars $seminars)
+    public function update(Request $request, Seminars $Seminars)
     {
-        //
+        return Seminars::find($Seminars->id)->update($request->all());
     }
 
-   
-    public function update(Request $request, Seminars $seminars)
+    public function destroy(Seminars $Seminars)
     {
-        //
-    }
-
-  
-    public function destroy(Seminars $seminars)
-    {
-        //
+        return Seminars::find($Seminars->id)->delete();
     }
 }

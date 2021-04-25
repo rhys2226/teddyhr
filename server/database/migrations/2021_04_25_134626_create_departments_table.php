@@ -4,21 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSeminarsTable extends Migration
+class CreateDepartmentsTable extends Migration
 {
     public function up()
     {
-        Schema::create('seminars', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->string('seminar_date');
-            $table->string('description');
+            $table->string('department');
+            $table->string('supervisor_id');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('seminars');
+        Schema::dropIfExists('departments');
     }
 }
