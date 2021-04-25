@@ -10,6 +10,7 @@ import AwardsAndRecognition from '../Awards&Recognition/AwardsAndRecognition';
 import UpcomingSeminars from '../HRD/Upcomming-seminars/UpcomingSeminars';
 import PerformanceMgt from '../Performance/Performace-mgt/PerformanceMgt';
 import AddVancancy from '../Recruitement/Add-vacancy/AddVancancy';
+import Vacancies from '../Recruitement/Vacancies/Vacancies';
 import Settings from '../Settings/Settings';
 import AddEmployee from '../Users/Add-Employee/AddEmployee';
 import Applicants from '../Users/Applicants/Applicants';
@@ -51,7 +52,7 @@ export default function Home() {
             component: AddVancancy,
         }, {
             path: url( '/vacancies' ),
-            component: Applicants,
+            component: Vacancies,
         },
 
         {
