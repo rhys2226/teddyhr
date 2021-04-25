@@ -29,6 +29,8 @@ class CreateHRMOUsersTable extends Migration
             $table->string('previous_employer_contact');
             $table->string('email');
             $table->string('user_id');
+            $table->string('position');
+            $table->string('isEmployee');
         });
     }
 

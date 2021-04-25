@@ -22,6 +22,8 @@ class HRMOUser extends Model
         'work_experience',
         'previous_employer',
         'previous_employer_contact',
+        'position',
+        'isEmployee',
     ];
          
 }

@@ -8,79 +8,24 @@ use Illuminate\Http\Request;
 
 class HRMOUserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
+       return HRMOUser::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\HRMOUser  $hRMOUser
-     * @return \Illuminate\Http\Response
-     */
     public function show(HRMOUser $hRMOUser)
     {
-        //
+        return HRMOUser::find($hRMOUser->id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\HRMOUser  $hRMOUser
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(HRMOUser $hRMOUser)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\HRMOUser  $hRMOUser
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, HRMOUser $hRMOUser)
     {
-        //
+        return HRMOUser::find($hRMOUser->id)->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\HRMOUser  $hRMOUser
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(HRMOUser $hRMOUser)
     {
-        //
+        return HRMOUser::find($hRMOUser->id)->delete();
     }
 }
