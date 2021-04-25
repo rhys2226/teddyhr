@@ -65,7 +65,7 @@ export const awardsAndRecognition = [
     },
     {
         title: 'List of Awards',
-        route: '/home/awards',
+        route: '/home/awards-lists',
         icon: 'fe-list'
     },
 ]

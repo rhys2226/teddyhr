@@ -8,7 +8,6 @@ export default function SeminarsAttended() {
                     <div className="card timeline">
                         <div className="card-header">
                             <strong className="card-title">Seminars Attended</strong>
-                            <a className="float-right small text-muted" href="#!">View all</a>
                         </div>
                         <div className="card-body">
                             <div className="pb-3 timeline-item item-danger">

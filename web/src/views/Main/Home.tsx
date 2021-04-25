@@ -7,6 +7,7 @@ import HomeNav from '../../headers/HomeNav';
 import { useURL } from '../../hooks';
 import Sidebar from '../../sidebar/Sidebar';
 import AwardsAndRecognition from '../Awards&Recognition/AwardsAndRecognition';
+import ListOfAwards from '../Awards&Recognition/ListOfAwards';
 import SeminarsAttended from '../HRD/Upcomming-seminars/SeminarsAttended';
 import UpcomingSeminars from '../HRD/Upcomming-seminars/UpcomingSeminars';
 import PerformanceMgt from '../Performance/Performace-mgt/PerformanceMgt';
@@ -73,6 +74,11 @@ export default function Home() {
             path: url( '/awards' ),
             component: AwardsAndRecognition,
         },
+        {
+            path: url( '/awards-lists' ),
+            component: ListOfAwards,
+        },
+
         {
             path: url( '/settings' ),
             component: Settings,
