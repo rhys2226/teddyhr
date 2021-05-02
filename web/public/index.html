@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/css/daterangepicker.css" />
     <link rel="stylesheet" href="%PUBLIC_URL%/css/app-light.css" id="lightTheme" />
     <link rel="stylesheet" href="%PUBLIC_URL%/css/app-dark.css" id="darkTheme" disabled />
+    <!-- Leave  -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/Forms/Leave/css/base.min.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/Forms/Leave/css/fancy.min.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/Forms/Leave/css/fancy.min.css" />
+
 
 </head>
 
@@ -77,6 +82,15 @@
 
             }
         }, 200)
+    </script>
+
+    <!-- Leave  -->
+    <script src="%PUBLIC_URL%/Forms/Leave/js/compatibility.min.js"></script>
+    <script src="%PUBLIC_URL%/Forms/Leave/js/theViewer.min.js"></script>
+    <script>
+        try {
+            theViewer.defaultViewer = new theViewer.Viewer({});
+        } catch (e) {}
     </script>
 </body>
 
