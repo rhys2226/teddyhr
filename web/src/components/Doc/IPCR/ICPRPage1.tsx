@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react'
 
 export default function ICPRPage1() {
     
-      interface StylesDictionary{
+    interface StylesDictionary{
         [Key: string]: CSSProperties;
     }
     const styles:StylesDictionary = {
