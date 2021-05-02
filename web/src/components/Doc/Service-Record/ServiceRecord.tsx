@@ -100,7 +100,7 @@ export default function ServiceRecord() {
                         <th style={styles.td} className="text-center text-secondary">w/out <br/> pay</th>
                         <th style={styles.td} className="text-center text-secondary">Division </th>
                         <th style={styles.td} className="text-center text-secondary">(4) <br/> Date</th>
-                        <th style={styles.td} colSpan={2} className="text-center">Cause</th>
+                        <th style={styles.td} colSpan={2} className="text-center  text-secondary">Cause</th>
                     </tr>
                 </thead>
                 <tbody>

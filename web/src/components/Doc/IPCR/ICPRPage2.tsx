@@ -19,19 +19,12 @@ export default function ICPRPage2() {
             margin:'.1rem',
             border:'none'
         },
-        
-        table:{
-        },
-        th:{
-            maxHeight:'1rem'
-        },
         textArea:{
-            border:'none',
-            maxHeight:'40px'
+            border:'none'
         },
         td:{
-             border:'1px solid rgba(150,150,150,.5)',
-            
+            border:'1px solid rgba(150,150,150,.5)',
+            padding:'3px'
         },
         asignatory:{
             float:'right'
@@ -47,19 +40,23 @@ export default function ICPRPage2() {
     return (
         <div style={styles.page}  className="bg-white">
             <table className="table">
-                <thead className="thead-dark">
+                <thead>
                     <tr>
-                        <th style={{width:'18%'}} className="text-center ">OUTPUT</th>
-                        <th style={{width:'18%'}} className="text-center">Success Indicators(Targets + Measures)</th>
-                        <th style={{width:'18%'}} className="text-center">Actual accomplishments</th>
-                        <th style={styles.td} className="text-center"> Q  </th>
-                        <th style={styles.td} className="text-center"> E  </th>
-                        <th style={styles.td} className="text-center"> T  </th>
-                        <th style={styles.td} className="text-center"> A  </th>
-                        <th style={{width:'18%'}} className="text-center">Remarks</th>
+                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary ">OUTPUT</th>
+                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary">Success Indicators(Targets + Measures)</th>
+                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary">Actual accomplishments</th>
+                        <th  style={styles.td} colSpan={4} className="text-center text-secondary">Rating
+                        <br />
+                        <br />
+                        <span className="m-4"> Q </span>
+                        <span className="m-4"> E </span>
+                        <span className="m-4"> T </span>
+                        <span className="m-4"> A</span>
+                         </th>
+                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary">Remarks</th>
                     </tr>
                 </thead>
-                <p className="mt-3">STRATEGIC PRIORITY</p>
+                <p className="mt-3 text-primary w-100">STRATEGIC PRIORITY</p>
                 <tbody>
                     <tr>
                         <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
@@ -82,7 +79,7 @@ export default function ICPRPage2() {
                         <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
                     </tr>
                 </tbody>
-                <p className="mt-3"> CORE FUNCTIONS</p>
+                <p className="mt-3 text-primary"> CORE FUNCTIONS</p>
                  <tbody>
                     <tr>
                         <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
@@ -106,16 +103,16 @@ export default function ICPRPage2() {
                     </tr>
                 </tbody>
             </table>
-             <p className="mt-3"> Comments and Recommendations for Development Purposes</p>
+             <p className="mt-3 text-primary"> Comments and Recommendations for Development Purposes</p>
                  <table className="table">
-                    <thead className="thead-dark">
+                    <thead >
                         <tr>
-                            <th>Discussed with:</th>
-                            <th>Date</th>
-                            <th>Assessed by:</th>
-                            <th>Date</th>
-                            <th>Final Rating by: </th>
-                            <th>Date</th>
+                            <th  style={styles.td} className="text-secondary ">Discussed with:</th>
+                            <th  style={styles.td} className="text-secondary ">Date</th>
+                            <th  style={styles.td} className="text-secondary ">Assessed by:</th>
+                            <th  style={styles.td} className="text-secondary ">Date</th>
+                            <th  style={styles.td} className="text-secondary ">Final Rating by: </th>
+                            <th  style={styles.td} className="text-secondary ">Date</th>
                         </tr>
                     </thead>
                      <tbody>

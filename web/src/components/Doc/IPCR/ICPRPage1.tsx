@@ -19,18 +19,12 @@ export default function ICPRPage1() {
             margin:'.1rem',
             border:'none'
         },
-        
-        table:{
-        },
-        tr:{
-            
-        },
         textArea:{
             border:'none'
         },
         td:{
-             border:'1px solid rgba(150,150,150,.5)',
-            
+            border:'1px solid rgba(150,150,150,.5)',
+            padding:'3px'
         },
         asignatory:{
             float:'right'
@@ -59,12 +53,12 @@ export default function ICPRPage1() {
             </div>
             
             <table className="w-100 table" style={styles.table}>
-                <thead className="thead-dark">
+                <thead >
                     <tr>
-                        <th style={styles.td} >Reviewed by:</th>
-                        <th style={styles.td} >Date</th>
-                        <th style={styles.td} >Approved by:</th>
-                        <th style={styles.td} >Date</th>
+                        <th style={styles.td} className="text-secondary" > Reviewed by:</th>
+                        <th style={styles.td} className="text-secondary" > Date</th>
+                        <th style={styles.td} className="text-secondary" > Approved by:</th>
+                        <th style={styles.td} className="text-secondary" > Date</th>
                     </tr>
                 </thead>
                 <tbody>
