@@ -1,9 +1,10 @@
 import React from 'react'
+import PDS from '../../../components/Doc/PDS/PDS'
 
 export default function PDSSettings() {
     return (
         <div>
-            PDSSettings works
+            <PDS />
         </div>
     )
 }

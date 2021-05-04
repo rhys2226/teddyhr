@@ -1,9 +1,10 @@
 import React from 'react'
+import LeaveCard from '../../../components/Doc/Leave-Card/LeaveCard'
 
 export default function LeaveCardSettings() {
     return (
         <div>
-            LeaveCardSettings works
+            <LeaveCard />
         </div>
     )
 }

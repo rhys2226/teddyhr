@@ -1,80 +1,46 @@
 import React, { CSSProperties } from 'react'
+import './ICPR.css'
+import '../Doc.css'
 
 export default function ICPRPage1() {
     
-    interface StylesDictionary{
-        [Key: string]: CSSProperties;
-    }
-    const styles:StylesDictionary = {
-        page:{
-            // width: '21cm',  height: '29.7cm', 
-            width: '29.7cm',
-            height:'21cm',
-            display: 'block',
-            boxShadow: '0 0 0.1cm rgba(0,0,0,0.1)',
-            padding:'3rem',
-        },
-        input:{
-            display:'inline-block',
-            margin:'.1rem',
-            border:'none'
-        },
-        textArea:{
-            border:'none'
-        },
-        td:{
-            border:'1px solid rgba(150,150,150,.5)',
-            padding:'3px'
-        },
-        asignatory:{
-            float:'right'
-        } ,
-        ratee:{
-        float:'right',
-           transform: `translate(${-80}px, ${-10}px)`,
-           fontWeight:'bold'
-        }  
-    }
     
     return (
-        <div style={styles.page} className="bg-white">
-            <h6 style={{fontWeight:'bold'}} className="text-center">OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)</h6>
+        <div className="bg-white landscape">
+            <h6 className="text-center bold">OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)</h6>
             <br/>
-            <p>I, 
-                <input type="text" style={styles.input} className=" form-control w-auto" placeholder="_______________________________"/>
-                of the 
-               <input type="text" style={styles.input} className="form-control w-auto" placeholder="_______________________________"/>
-                , of ISCOF BAROTAC NUEVO CAMPUS commit to deliver and agree to be rated on the attainment of the following targets in accordance with the indicated measures for the period January to June 2020.
+            <p>I, <span className="bold underlined" >Jamel Eid Yassin</span> of the <span className="bold underlined">College of Information Technology</span>
+                , of ISCOF BAROTAC NUEVO CAMPUS commit to deliver and agree to be rated on the attainment of the following targets in accordance with the indicated measures for the period  <span className="bold underlined">January to June</span> <span className="bold underlined">2020.</span>
             </p>
             
-            <div style={styles.asignatory}>  
-                <input type="text" style={styles.input} className="text-center form-control w-100   " placeholder="_______________________________"/>
-                <h6 style={styles.ratee}  >Ratee</h6>
+            <div className="float-right">  
+                <p className="underlined text-center">Ryan Agsaluna</p>
+                <h6 className=" text-center ratee">Ratee</h6>
             </div>
             
-            <table className="w-100 table" style={styles.table}>
-                <thead >
+            <table className="w-100 table" >
+                <thead className="thead-dark">
                     <tr>
-                        <th style={styles.td} className="text-secondary" > Reviewed by:</th>
-                        <th style={styles.td} className="text-secondary" > Date</th>
-                        <th style={styles.td} className="text-secondary" > Approved by:</th>
-                        <th style={styles.td} className="text-secondary" > Date</th>
+                        <th> Reviewed by:</th>
+                        <th rowSpan={3}> Date</th>
+                        <th> Approved by:</th>
+                        <th rowSpan={3}> Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea}  className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea}  className="form-control"/></td>
+                        <td ><p className="underlined text-center">Ryan Agsaluna</p></td>
+                        <td>11/14/2021</td>
+                        <td><p className="underlined text-center">Ryan Agsaluna</p></td>
+                        <td>11/14/2021</td>
                     </tr>
                 </tbody>
                 <tfoot>
-                      <tr>
-                        <td  className="text-secodary" style={styles.td}>Immediate Supervisor</td>
-                        <td  className="text-secodary" style={styles.td}></td>
-                        <td  className="text-secodary" style={styles.td}>Head of Office</td>
-                        <td  className="text-secodary" style={styles.td}></td>
+                      <tr className="no-top-border">
+                        <td className="text-secodary" >Immediate Supervisor</td>
+                        <td className="text-secodary" ></td>
+                        <td className="text-secodary" >Head of Office</td>
+                        <td className="text-secodary" ></td>
                     </tr>
                 </tfoot>
             </table>

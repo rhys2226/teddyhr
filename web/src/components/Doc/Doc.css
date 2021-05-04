@@ -1,0 +1,37 @@
+.landscape {
+    width: 29.7cm;
+    height: 21cm;
+    display: block;
+    box-shadow: 0 0 0.4cm rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+}
+
+.portrait {
+    width: 21cm;
+    height: 29.7cm;
+    display: block;
+    box-shadow: 0 0 0.1cm rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.borderd {
+    border: 1px solid gray !important;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+tr,
+td,
+th {
+    border: 1px solid gray !important;
+}

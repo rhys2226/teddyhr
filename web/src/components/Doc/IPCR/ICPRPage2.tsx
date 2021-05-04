@@ -1,142 +1,126 @@
 import React from 'react'
+import './ICPR.css'
+import '../Doc.css'
+
 
 export default function ICPRPage2() {
-   
-      interface StylesDictionary{
-        [Key: string]: React.CSSProperties;
-    }
-    const styles:StylesDictionary = {
-        page:{
-            // width: '21cm',  height: '29.7cm', 
-            width: '29.7cm',
-            height:'21cm',
-            display: 'block',
-            boxShadow: '0 0 0.1cm rgba(0,0,0,0.1)',
-            padding:'3rem',
-        },
-        input:{
-            display:'inline-block',
-            margin:'.1rem',
-            border:'none'
-        },
-        textArea:{
-            border:'none'
-        },
-        td:{
-            border:'1px solid rgba(150,150,150,.5)',
-            padding:'3px'
-        },
-        asignatory:{
-            float:'right'
-        } ,
-        ratee:{
-        float:'right',
-           transform: `translate(${-80}px, ${-10}px)`,
-           fontWeight:'bold'
-        }  
-    }
-    
-    
     return (
-        <div style={styles.page}  className="bg-white">
+        <div className="bg-white landscape">
             <table className="table">
-                <thead>
+                <thead className="thead-dark">
                     <tr>
-                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary ">OUTPUT</th>
-                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary">Success Indicators(Targets + Measures)</th>
-                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary">Actual accomplishments</th>
-                        <th  style={styles.td} colSpan={4} className="text-center text-secondary">Rating
-                        <br />
-                        <br />
-                        <span className="m-4"> Q </span>
-                        <span className="m-4"> E </span>
-                        <span className="m-4"> T </span>
-                        <span className="m-4"> A</span>
+                        <th >OUTPUT</th>
+                        <th >Success Indicators(Targets + Measures)</th>
+                        <th >Actual accomplishments</th>
+                        <th colSpan={4}  style={{border:0}}>
+                            <p className="text-center">Rating</p>
+                            <div className="row" style={{flex:1,transform:'translateY(13px)'}}>
+                                <span className="col-md-3 qeta" style={{borderLeft:0}}> Q </span>
+                                <span className="col-md-3 qeta"> E </span>
+                                <span className="col-md-3 qeta"> T </span>
+                                <span className="col-md-3 qeta" style={{borderRight:0}}> A</span>
+                            </div>
                          </th>
-                        <th style={{width:'18%',  border:'1px solid rgba(150,150,150,.5)',}} className="text-center text-secondary">Remarks</th>
+                        <th  className="text-center">Remarks</th>
                     </tr>
                 </thead>
-                <p className="mt-3 text-primary w-100">STRATEGIC PRIORITY</p>
+                <thead>
+                    <tr>
+                        <td colSpan={8}> <p className="mt-3 w-100">STRATEGIC PRIORITY</p></td>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
-                <p className="mt-3 text-primary"> CORE FUNCTIONS</p>
+                <thead>
+                    <tr>
+                        <td colSpan={8}> <p className="mt-3 w-100">CORE FUNCTIONS</p></td>
+                    </tr>
+                </thead>
                  <tbody>
                     <tr>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><input type="text" style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
+                <br/>
             </table>
-             <p className="mt-3 text-primary"> Comments and Recommendations for Development Purposes</p>
-                 <table className="table">
-                    <thead >
+                <table className="table">
+                <thead>
+                    <tr>
+                        <td colSpan={8}> <p className="mt-3 w-100">Comments and Recommendations for Development Purposes</p></td>
+                    </tr>
+                </thead>
+                    <thead className="thead-dark">
                         <tr>
-                            <th  style={styles.td} className="text-secondary ">Discussed with:</th>
-                            <th  style={styles.td} className="text-secondary ">Date</th>
-                            <th  style={styles.td} className="text-secondary ">Assessed by:</th>
-                            <th  style={styles.td} className="text-secondary ">Date</th>
-                            <th  style={styles.td} className="text-secondary ">Final Rating by: </th>
-                            <th  style={styles.td} className="text-secondary ">Date</th>
+                            <th>Discussed with:</th>
+                            <th>Date</th>
+                            <th>Assessed by:</th>
+                            <th>Date</th>
+                            <th>Final Rating by: </th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                      <tbody>
                     <tr>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea} className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea}  className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea}  className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea}  className="form-control"/></td>
-                        <td style={styles.td}><textarea style={styles.textArea}  className="form-control"/></td>
+                        <td className="text-center bold underlined">Jamel Eid Yassin</td>
+                        <td className="text-center bold underlined" rowSpan={2}>11/14/2021</td>
+                        <td className="text-center bold underlined">Jamel Eid Yassin</td>
+                        <td className="text-center bold underlined" rowSpan={2}>11/14/2021</td>
+                        <td className="text-center bold underlined">Jamel Eid Yassin</td>
+                        <td className="text-center bold underlined" rowSpan={2}>11/14/2021</td>
+                    </tr>
+                    <tr>
+                        <td className="text-secodary">Employee</td>
+                        <td className="text-secodary">Supervisor</td>
+                        <td className="text-secodary">Head of Agency</td>
                     </tr>
                 </tbody>
-                 <tfoot>
-                      <tr>
-                        <td  className="text-secodary" style={styles.td}>Employee</td>
-                        <td  className="text-secodary" style={styles.td}></td>
-                        <td  className="text-secodary" style={styles.td}>Supervisor</td>
-                        <td  className="text-secodary" style={styles.td}></td>
-                        <td  className="text-secodary" style={styles.td}>Head of Agency</td>
-                        <td  className="text-secodary" style={styles.td}></td>
+                <thead>
+                    <tr>
+                        <td colSpan={2}>Legend :</td>
+                        <td>Q-Quality</td>
+                        <td>E-Efficiency</td>
+                        <td>T-Timeless</td>
+                        <td>A-Average</td>
                     </tr>
-                </tfoot>
+                </thead>
                 </table>
-                <p>Legend : &nbsp; &nbsp;     Q-Quality &nbsp; &nbsp;      E-Efficiency &nbsp; &nbsp;    T-Timeless &nbsp; &nbsp;    A-Average</p>
         </div>
     )
 }
