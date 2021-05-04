@@ -1,5 +1,7 @@
 import React from 'react'
 import LeaveCardTable from './LeaveCardTable'
+import '../Doc.css'
+
 
 export default function LeaveCard() {
     

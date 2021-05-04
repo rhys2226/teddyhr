@@ -5,7 +5,7 @@ export default function ICPRPage1() {
     
     
     return (
-        <div className="bg-white landscape .docs">
+        <div className="bg-white landscape docs">
             <h6 className="text-center bold">OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)</h6>
             <p>I, <span className="bold underlined" >Jamel Eid Yassin</span> of the <span className="bold underlined">College of Information Technology</span>
                 , of ISCOF BAROTAC NUEVO CAMPUS commit to deliver and agree to be rated on the attainment of the following targets in accordance with the indicated measures for the period  <span className="bold underlined">January to June</span> <span className="bold underlined">2020.</span>
@@ -27,10 +27,10 @@ export default function ICPRPage1() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className="bordered"><p className="underlined text-center ">Ryan Agsaluna</p></td>
-                        <td className="bordered">11/14/2021</td>
-                        <td className="bordered"><p className="underlined text-center ">Ryan Agsaluna</p></td>
-                        <td className="bordered">11/14/2021</td>
+                        <td className="bordered"><p className="underlined text-center mt-3">Ryan Agsaluna</p></td>
+                        <td className="bordered"><p className="underlined text-center mt-3">11/14/2021</p>  </td>
+                        <td className="bordered"><p className="underlined text-center mt-3">Ryan Agsaluna</p></td>
+                        <td className="bordered"><p className="underlined text-center mt-3">11/14/2021</p>  </td>
                     </tr>
                 </tbody>
                 <tfoot>
