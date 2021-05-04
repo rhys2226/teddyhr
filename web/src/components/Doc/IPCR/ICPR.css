@@ -9,3 +9,11 @@
     border: 1px solid rgba(150, 150, 150, .8);
     border-bottom: none;
 }
+
+.assignatory {
+    margin-right: 15rem;
+}
+
+* {
+    font-size: 1rem;
+}
