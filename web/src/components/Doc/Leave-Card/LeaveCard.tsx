@@ -2,70 +2,31 @@ import React from 'react'
 import LeaveCardTable from './LeaveCardTable'
 import '../Doc.css'
 
-
 export default function LeaveCard() {
     
-    interface StylesDictionary{
-        [Key: string]: React.CSSProperties;
-    }
-    const styles:StylesDictionary = {
-        page:{
-            // width: '21cm',  height: '29.7cm', 
-            width: '33.02cm',
-            height:'21cm',
-            display: 'block',
-            boxShadow: '0 0 0.1cm rgba(0,0,0,0.1)',
-            padding:'3rem 1rem',
-        },
-        input:{
-            display:'inline-block',
-            margin:'.1rem',
-            border:'none'
-        },
-        textArea:{
-            border:'none'
-        },
-        td:{
-            border:'1px solid rgba(150,150,150,.5)',
-            padding:'3px'
-        },
-        asignatory:{
-            float:'right'
-        } ,
-        ratee:{
-        float:'right',
-           transform: `translate(${-80}px, ${-10}px)`,
-           fontWeight:'bold'
-        }  
-    }
-    
     return (
-        <div style={styles.page} className="bg-white" >
-            <p className="text-center">Republic of the Philippines</p>
-            <p className="text-center">ILOILO STATE COLLEGE OF FISHERIES - MAIN POBLACION CAMPUS</p>
-            <p className="text-center">Poblacion, Barotac Nuevo, Iloilo</p>
+        <div className="bg-white landscape docs service-record">
+            <p className="text-center m-0">Republic of the Philippines</p>
+            <p className="text-center m-0 bold text-primary">ILOILO STATE COLLEGE OF FISHERIES    </p>
+            <p className="text-center m-0"> MAIN POBLACION CAMPUS</p>
+            <p className="text-center m-0">Poblacion, Barotac Nuevo, Iloilo</p>
             <br/>
-            <p className="text-center">EMPLOYEE LEAVE CARD</p>
+            <p className="text-center m-0">EMPLOYEE LEAVE CARD</p>
             <br/>
-            <br/>
-            <br/>
-            
             <div className="row">
                 <div className="col-md-5 row">
-                    <div className="col-md-2">
-                        Name:
-                    </div>
-                    <div className="col-md-9">
-                        <input className="form-control" style={styles.input} type="text" placeholder="______________________________"/>
+                    <div className="col-md-2">  Name: </div>
+                    <div className="col-md-10">
+                        <p className="underlined text-left">Ryan Agsaluna</p>
                     </div>
                 </div>
                 <div className="col-md-2"></div>
                 <div className="col-md-5 row">
-                   <div className="col-md-5">
+                   <div className="col-md-4">
                         Date of Birth:
                     </div>
-                    <div className="col-md-7">
-                        <input className="form-control" style={styles.input} type="text" placeholder="______________________________"/>
+                    <div className="col-md-8">
+                        <p className="underlined text-left">11/14/2021</p>
                     </div>
                 </div>
             </div>
@@ -74,17 +35,17 @@ export default function LeaveCard() {
                     <div className="col-md-2">
                       Position:
                     </div>
-                    <div className="col-md-9">
-                        <input className="form-control" style={styles.input} type="text" placeholder="______________________________"/>
+                    <div className="col-md-10">
+                        <p className="underlined text-left">MIS Director</p>
                     </div>
                 </div>
                 <div className="col-md-2"></div>
                 <div className="col-md-5 row">
-                   <div className="col-md-5">
+                   <div className="col-md-4">
                       First day of Service:
                     </div>
-                    <div className="col-md-7">
-                        <input className="form-control" style={styles.input} type="text" placeholder="______________________________"/>
+                    <div className="col-md-8">
+                        <p className="underlined text-left">11/14/2021</p>
                     </div>
                 </div>
             </div>

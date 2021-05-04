@@ -1,3 +1,10 @@
 .service-record * {
     font-size: .6rem !important;
 }
+
+.service-record-table th,
+.service-record-table td *,
+.service-record-table table *,
+.service-record-table tr * {
+    border: none !important;
+}
