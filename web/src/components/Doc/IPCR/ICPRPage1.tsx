@@ -1,12 +1,11 @@
-import React, { CSSProperties } from 'react'
-import './ICPR.css'
 import '../Doc.css'
+import './ICPR.css'
 
 export default function ICPRPage1() {
     
     
     return (
-        <div className="bg-white landscape">
+        <div className="bg-white landscape .docs">
             <h6 className="text-center bold">OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)</h6>
             <p>I, <span className="bold underlined" >Jamel Eid Yassin</span> of the <span className="bold underlined">College of Information Technology</span>
                 , of ISCOF BAROTAC NUEVO CAMPUS commit to deliver and agree to be rated on the attainment of the following targets in accordance with the indicated measures for the period  <span className="bold underlined">January to June</span> <span className="bold underlined">2020.</span>
@@ -20,26 +19,26 @@ export default function ICPRPage1() {
             <table className="w-100 table" >
                 <thead className="thead-dark">
                     <tr>
-                        <th> Reviewed by:</th>
-                        <th rowSpan={3}> Date</th>
-                        <th> Approved by:</th>
-                        <th rowSpan={3}> Date</th>
+                        <th className="bordered"> Reviewed by:</th>
+                        <th className="bordered" rowSpan={3}> Date</th>
+                        <th className="bordered"> Approved by:</th>
+                        <th className="bordered" rowSpan={3}> Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td ><p className="underlined text-center">Ryan Agsaluna</p></td>
-                        <td>11/14/2021</td>
-                        <td><p className="underlined text-center">Ryan Agsaluna</p></td>
-                        <td>11/14/2021</td>
+                        <td className="bordered"><p className="underlined text-center ">Ryan Agsaluna</p></td>
+                        <td className="bordered">11/14/2021</td>
+                        <td className="bordered"><p className="underlined text-center ">Ryan Agsaluna</p></td>
+                        <td className="bordered">11/14/2021</td>
                     </tr>
                 </tbody>
                 <tfoot>
-                      <tr className="no-top-border">
-                        <td className="text-secodary" >Immediate Supervisor</td>
-                        <td className="text-secodary" ></td>
-                        <td className="text-secodary" >Head of Office</td>
-                        <td className="text-secodary" ></td>
+                      <tr>
+                        <td className="text-secodary bordered" >Immediate Supervisor</td>
+                        <td className="text-secodary bordered" ></td>
+                        <td className="text-secodary bordered" >Head of Office</td>
+                        <td className="text-secodary bordered" ></td>
                     </tr>
                 </tfoot>
             </table>

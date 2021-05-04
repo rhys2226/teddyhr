@@ -1,18 +1,11 @@
 import React from 'react'
+import '../Doc.css'
 
 export default function ServiceRecord() {
     interface StylesDictionary{
         [Key: string]: React.CSSProperties;
     }
     const styles:StylesDictionary = {
-        page:{
-            // width: '21cm',  height: '29.7cm', 
-            width: '29.7cm',
-            height:'21cm',
-            display: 'block',
-            boxShadow: '0 0 0.1cm rgba(0,0,0,0.1)',
-            padding:'3rem',
-        },
         td:{
              border:'1px solid rgba(150,150,150,.5)',
             
@@ -32,7 +25,7 @@ export default function ServiceRecord() {
     
     
     return (
-        <div style={styles.page} className="bg-white">
+        <div className="bg-white landscape .docs">
             <h6 className="text-center">SERVICE RECORD</h6>
             <h6 className="text-center">(To be accomplished by Employer)</h6>
             <p>Form No. CR-2</p>

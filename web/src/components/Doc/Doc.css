@@ -22,16 +22,10 @@
     text-decoration: underline;
 }
 
-.borderd {
+.bordered {
     border: 1px solid gray !important;
 }
 
 .flex-col {
     flex-direction: column;
-}
-
-tr,
-td,
-th {
-    border: 1px solid gray !important;
 }
