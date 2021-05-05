@@ -31,3 +31,8 @@
 .box {
     border: 1px solid rgba(0, 0, 0, 0.8);
 }
+
+.pds .checkbox {
+    width: 10px;
+    height: 10px;
+}

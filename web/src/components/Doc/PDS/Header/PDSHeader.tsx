@@ -7,8 +7,7 @@ export default function PDSHeader() {
             <i><p className="m-0 bold">CS Form No. 212</p></i>
             <i><p className="m-0 bold">Revised 2017</p></i>
             <h2 className="text-center" style={{fontWeight:900,fontSize:'1.5rem',marginTop:'-6px',marginBottom:0}}>PERSONAL DATA SHEET</h2>
-            <br/>
-            <p className="m-0 bold">
+            <p className="m-0 bold mt-1">
                 <i>
                     WARNING: Any misrepresentation made in the Personal Data Sheet and the Work Experience Sheet shall cause the filing of administrative/criminal case/s against the person concerned.
                 </i>
