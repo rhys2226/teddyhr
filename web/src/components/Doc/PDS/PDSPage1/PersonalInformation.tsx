@@ -11,7 +11,7 @@ export default function PersonalInformation() {
                 <p  className="pt-0 pb-0 mb-3">&nbsp; &nbsp; FIRST NAME</p>
                 <p  className="pt-0 pb-0 mb-0">&nbsp; &nbsp; MIDDLE NAME</p>
             </div>
-            <div className="col-md-9  m-0 p-0 " style={{flex:'0 0 79.1%',maxWidth:'100%'}}>
+            <div className="col-md-9  m-0 p-0 bt " style={{flex:'0 0 79.1%',maxWidth:'100%'}}>
                 <p className="w-100 border-bottom p-1 m-0 pl-2  bold underlined">Yassin</p>
                 <p className="w-100 border-bottom m-0 p-0 row">
                    <div className="col-md-8  p-1 m-0 pl-2 bold underlined">Jamel Eid </div>
@@ -132,13 +132,13 @@ export default function PersonalInformation() {
                     <p className="pt-1 m-0 p-1"> 14. TIN NO </p>
                 </div>
                 <div className="col-md-6 m-0 p-0 pl-2 border-bottom">
-                    <p  className="m-0 p-0 bold underlined" >ID902321</p>
+                    <p  className="m-0 p-0 pt-1 bold underlined" >ID902321</p>
                 </div>
                  <div className="col-md-6 sub-title m-0 p-0 nbl nbb">
                     <p className="pt-1 m-0 p-0 pl-1"> 15. AGENCY EMPLOYEE NO  </p>
                 </div>
-                <div className="col-md-6 m-0 p-0 pl-2 border-bottom">
-                    <p  className="m-0 p-0 bold underlined" >ID902321</p>
+                <div className="col-md-6 m-0 p-0 pl-2 nbb">
+                    <p  className="m-0 p-0 pt-1 bold underlined" >ID902321</p>
                 </div>
             </div>
             {/* {right} */}
@@ -171,7 +171,7 @@ export default function PersonalInformation() {
                             </div>
                        </div>
                    </div>
-                   <select className="form-control m-0 mt-2" style={{transform:'translateY(12px)scaleX(1.05)'}} >
+                   <select className="form-control m-0 mt-4" style={{transform:'translateY(6px)scaleX(1.05)'}} >
                         <option selected>Philippines</option>
                     </select>
                 </div>  
@@ -180,7 +180,7 @@ export default function PersonalInformation() {
                      <p  className="m-0 mb-3" style={{transform:'translate(3rem,3.5rem)'}}>&nbsp; ZIP CODE</p>
                  </div>
                   <div className="col-md-8 border-bottom m-0 p-0 row">
-                        <div className="col-md-12 border-bottom m-0 p-0">
+                        <div className="col-md-12 border-bottom m-0 p-0 mt-2">
                             <div className="d-flex m-0 p-1">
                                 <div className="text-center  bold underlined" style={{flex:1}}>N/A</div>
                                 <div className="text-center  bold underlined" style={{flex:1}}>N/A</div>
@@ -211,7 +211,7 @@ export default function PersonalInformation() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 sub-title m-0 p-0 nbt">
+                    <div className="col-md-4 sub-title m-0  p-0 nbt">
                         <p  className="m-0 mb-3">&nbsp; 18.  PERMANENET ADDRESS</p>
                         <p  className="m-0 mb-3" style={{transform:'translate(3rem,4rem)'}}>&nbsp; ZIP CODE</p>
                     </div>
@@ -259,10 +259,10 @@ export default function PersonalInformation() {
                     <div className="col-md-8 border-bottom m-0 p-0 row">
                         <span className="p-1 pl-2 bold underlined">N/A</span>
                     </div>
-                     <div className="col-md-4 sub-title m-0 p-0 pt-1 nbt">
+                     <div className="col-md-4 sub-title m-0 p-0 pt-1 nbt nbb">
                         <p  className="m-0 mb-1">&nbsp; 21. EMAIL ADDRESS (if any)</p>
                     </div>
-                    <div className="col-md-8 border-bottom m-0 p-0 row">
+                    <div className="col-md-8 border-bottom m-0 p-0 row nbb">
                         <span className="p-1 pl-2 bold underlined">N/A</span>
                     </div>
             </div>
