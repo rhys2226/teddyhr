@@ -8,9 +8,8 @@ export default function IpCR() {
     
     return (
         <div>
-            <h5 className="m-3 text-center heading mt-5">Page 1</h5>
             <ICPRPage1 />
-            <h5 className="m-3 text-center heading mt-5">Page 2</h5>
+            <br/>
             <ICPRPage2 />
         </div>
     )

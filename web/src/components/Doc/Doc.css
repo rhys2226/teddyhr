@@ -44,3 +44,7 @@
 .docs th {
     border: 1px solid gray !important;
 }
+
+.docs * {
+    font-family: Arial, Helvetica, sans-serif;
+}

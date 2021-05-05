@@ -1,13 +1,11 @@
 
 export const performanceManagement = [
     {
-        title: 'Performance Management ',
+        title: 'Performance Mgt ',
         route: '/home/',
         icon: 'fe-bar-chart-2'
     },
 ]
-
-
 
 export const usersNav = [
     {

@@ -11,7 +11,6 @@ export default function TopEmployee() {
                     <table className="table table-borderless table-hover mt-5">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th className="text-center"><i className="fe fe-user"></i></th>
                                 <th >Name</th>
                                 <th className="text-muted">Rating this Month</th>
@@ -22,7 +21,6 @@ export default function TopEmployee() {
                             {
                                 employees.map( ( applicants: any, index: any ) => (
                                     <tr>
-                                        <td>{index + 1}</td>
                                         <td className="text-center">
                                             <div className="avatar avatar-md">
                                                 <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
