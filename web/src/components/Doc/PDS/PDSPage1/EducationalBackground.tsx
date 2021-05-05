@@ -154,7 +154,7 @@ export default function EducationalBackground() {
                     </p>
                 </div>
                 
-                <div className="row col-md-12">
+                {/* <div className="row col-md-12">
                     <div className="col-md-2 m-0 p-0 row m-0 p-0 box  d-flex aic jcc">
                         <p className="m-0 mb-0 p-1 text-center bold"><i>SIGNATURE</i></p>
                     </div>
@@ -167,7 +167,7 @@ export default function EducationalBackground() {
                     <div className="col-md-4 m-0 p-0 row m-0 p-0 box  d-flex aic jcc">
                         <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )
