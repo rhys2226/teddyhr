@@ -20,10 +20,10 @@ export default function PDSHeader() {
                 <div className="col-md-8"  style={{fontSize:'.5rem'}}>
                     Print legibly. Tick appropriate boxes (     ) and use separate sheet if necessary. Indicate N/A if not applicable.  DO NOT ABBREVIATE.
                 </div>
-                <div className="col-md-4 row p-0"  >
-                    <div className="col-md-3 title p-t" style={{width:'100px'}}>1. CS ID No.
+                <div className="col-md-4 row p-0 ml-2"  >
+                    <div className="col-md-3 title p-t m-0 nbb" style={{width:'100px'}}>1. CS ID No.
                     </div>
-                    <div className="col-md-9 bordered text-right p-t" >(Do not fill up. For CSC use only)</div>
+                    <div className="col-md-8 box nbr text-right p-t m-0" >(Do not fill up. For CSC use only)</div>
                 </div>
             </div>
         </div>
