@@ -61,6 +61,10 @@
     border-left: 0px !important;
 }
 
+.bl {
+    border-left: 1px solid rgba(0, 0, 0, 0.8) !important;
+}
+
 .nbb {
     border-bottom: 0px !important;
 }
@@ -101,4 +105,36 @@
 
 .jcc {
     justify-content: center;
+}
+
+.educ-level {
+    flex: 0 0 20.8%;
+    max-width: 100%
+}
+
+.from-to {
+    flex: 0 0 12.6%;
+    max-width: 100%
+}
+
+.sig {
+    flex: 0 0 21.7%;
+    max-width: 100%
+}
+
+.sig1 {
+    flex: 0 0 43.3%;
+    max-width: 100%
+}
+
+.sig2 {
+    flex: 0 0 13.3%;
+    max-width: 100%
+}
+
+.sig3 {
+    flex: 0 0 21%;
+    max-width: 100%;
+    transform: scaleX(1.24);
+    transform-origin: left;
 }
