@@ -165,7 +165,7 @@ export default function EducationalBackground() {
                     <div className="col-md-2 m-0 p-0 row m-0 p-0 box  d-flex aic jcc sig2  nbb bl">
                         <p className="m-0 mb-0 p-1 text-center bold"><i>DATE</i></p>
                     </div>
-                    <div className="col-md-4 m-0 p-0 row m-0 p-0 box  d-flex aic jcc  bg-white sig3 nbr nbb">
+                    <div className="col-md-4 m-0 p-0 row m-0 p-0 box  d-flex aic jcc  bg-white sig3  nbb">
                         <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
                     </div>
                 </div>
