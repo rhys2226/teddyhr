@@ -138,3 +138,7 @@
     transform: scaleX(1.24);
     transform-origin: left;
 }
+
+.p-1i {
+    padding: .45rem !important;
+}
