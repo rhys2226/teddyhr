@@ -5,6 +5,7 @@ import '../Doc.css'
 import PersonalInformation from './PDSPage1/PersonalInformation'
 import PDSPage2 from './PDSPage2/PDSPage2'
 import PDSPage3 from './PDSPage3/PDSPage3'
+import PDSPage4 from './PDSPage4/PDSPage4'
 
 export default function PDS() {
     
@@ -20,6 +21,8 @@ export default function PDS() {
             <PDSPage2 />
             <br />
             <PDSPage3 />
+            <br />
+            <PDSPage4 />
             
        </div>
     )
