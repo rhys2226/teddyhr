@@ -17,11 +17,11 @@ export default function OtherInformation() {
                     </div>
                     
                     <div className="col-md-5 row sub-title m-0 p-0 d-flex aic jcc nbb nbt nbr">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm">31. &nbsp;NON-ACADEMIC DISTINCTIONS / RECOGNITION <br />(Write in full)</p>
+                        <p className="m-0 mb-0 pb-0 text-center fs-sm">32. &nbsp;NON-ACADEMIC DISTINCTIONS / RECOGNITION <br />(Write in full)</p>
                     </div>
                     
                     <div className="col-md-3 row sub-title m-0 p-0 d-flex aic jcc nbb nbt nbr">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm">32. &nbsp;MEMBERSHIP IN ASSOCIATION/ORGANIZATION <br />(Write in full)</p>
+                        <p className="m-0 mb-0 pb-0 text-center fs-sm">33. &nbsp;MEMBERSHIP IN ASSOCIATION/ORGANIZATION <br />(Write in full)</p>
                     </div>
                     
                     {
