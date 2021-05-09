@@ -1,4 +1,7 @@
 import React from 'react'
+import LeftGrid from './LeftGrid'
+import RightGrid from './RightGrid'
+import BottomGrid from './BottomGrid'
 
 export default function PDSPage4() {
     return (
@@ -271,6 +274,18 @@ export default function PDSPage4() {
                         
                     </div>
                 </div>
+                
+                <div className="col-md-12 row m-0 p-0">
+                    <div className="col-md-9 row m-0 p-0">
+                        <LeftGrid />
+                    </div>
+                    <div className="col-md-3 row m-0 p-0">
+                            <RightGrid />
+                        </div>
+                    </div>
+                   <div className="col-md-12 row m-0 p-0">
+                        <BottomGrid />
+                    </div>
             </div>
         </div>
     )
