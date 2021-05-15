@@ -8,9 +8,13 @@ import PDSPage3 from './PDSPage3/PDSPage3'
 import PDSPage4 from './PDSPage4/PDSPage4'
 
 export default function PDS() {
-    
+
     return (
-       <div>
+        <div>
+            <button className="btn btn-primary mb-3">
+                <i className=" fe fe-download"></i>
+                <span>&nbsp;Download Sheet</span>
+            </button>
             <div className="bg-white portrait-pds pds">
                 <div className="PDSBorder">
                     <PDSHeader />
@@ -23,7 +27,7 @@ export default function PDS() {
             <PDSPage3 />
             <br />
             <PDSPage4 />
-            
-       </div>
+
+        </div>
     )
 }

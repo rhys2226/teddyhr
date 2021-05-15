@@ -9,11 +9,9 @@ export default function IpCR() {
 
     return (
         <div>
-            <PDS />
-
-            {/* <ICPRPage1 />
-            <br/>
-            <ICPRPage2 /> */}
+            <ICPRPage1 />
+            <br />
+            <ICPRPage2 />
         </div>
     )
 
