@@ -1,30 +1,24 @@
 import React from 'react'
 import { Fire } from '../../../../../components/Alerts/Alert'
 
-export default function PDSOtherInformation() {
+export default function PDSID( props: any ) {
     return (
         <div className="card-body card">
-            <h5 className="bold mt-4 mb-4">OTHER INFORMATION</h5>
+            <h5 className="bold mt-4 mb-4">IDENTIFICATION</h5>
 
-            <div className="col-md-6 mb-4 p-0 m-0">
-                <button className="btn btn-outline-dark d-flex aic jcc">
-                    <i className="fe fe-plus"></i>
-                    <span> Add Other Info</span>
-                </button>
-            </div>
+            <h6 className="bold mt-4 mb-4 text-info">Government Issued ID (i.e.Passport, GSIS, SSS, PRC, Driver's License, etc)PLEASE INDICATE ID Number and Date of Issuance</h6>
 
-            <h6 className="bold mt-4 mb-4 text-info">OTHER INFO 1</h6>
             <div className="row mb-4">
-                <div className="col-md-12 mb-4">
-                    <label htmlFor="">SPECIAL SKILLS and HOBBIES</label>
+                <div className="col-md-4 mb-4">
+                    <label htmlFor="">Government Issued ID</label>
                     <input type="text" className="form-control" />
                 </div>
-                <div className="col-md-12 mb-4">
-                    <label htmlFor="">NON-ACADEMIC DISTINCTIONS / RECOGNITION (Write in full)</label>
+                <div className="col-md-4 mb-4">
+                    <label htmlFor="">ID/License/Passport No</label>
                     <input type="text" className="form-control" />
                 </div>
-                <div className="col-md-12 mb-4">
-                    <label htmlFor=""> MEMBERSHIP IN ASSOCIATION/ORGANIZATION(Write in full)</label>
+                <div className="col-md-4 mb-4">
+                    <label htmlFor="">Date/Place of IssuancE</label>
                     <input type="text" className="form-control" />
                 </div>
             </div>
@@ -37,7 +31,7 @@ export default function PDSOtherInformation() {
                         'info',
                         () => { }
                     )
-                }} className="btn btn-outline-primary">Update Other Information</button>
+                }} className="btn btn-outline-primary">Update Identification</button>
             </div>
         </div>
     )

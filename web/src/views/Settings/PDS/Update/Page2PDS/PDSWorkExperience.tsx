@@ -1,4 +1,5 @@
 import React from 'react'
+import { Fire } from '../../../../../components/Alerts/Alert'
 
 export default function PDSWorkExperience() {
     return (
@@ -45,7 +46,14 @@ export default function PDSWorkExperience() {
                 </div>
             </div>
             <div className="mt-2 mb-4 d-flex aij jcc">
-                <button className="btn btn-outline-primary">Update Work Experience</button>
+                <button onClick={() => {
+                    Fire(
+                        'Update Identification?',
+                        ' I declare under oath that I have personally accomplished this Personal Data Sheet which is a true, correct and complete statement pursuant to the provisions of pertinent laws, rules and regulations of the Republic of the Philippines. I authorize the agency head/authorized representative to verify/validate the contents stated herein.I agree that any misrepresentation made in this document and its attachments shall cause the filing of administrative/criminal case/s against me.',
+                        'info',
+                        () => { }
+                    )
+                }} className="btn btn-outline-primary">Update Work Experience</button>
             </div>
         </div>
     )
