@@ -145,11 +145,11 @@ export default function PDSEducBG( props: any ) {
                 </div>
                 <div className="col-md-3 mb-4">
                     <label htmlFor="">From</label>
-                    <input type="text" className="form-control" />
+                    <input type="date" className="form-control" />
                 </div>
                 <div className="col-md-3">
                     <label htmlFor="">To</label>
-                    <input type="text" className="form-control" />
+                    <input type="date" className="form-control" />
                 </div>
                 <div className="col-md-12  mb-4">
                     <label htmlFor="">HIGHEST LEVEL/ UNITS EARNED (if not graduated)</label>

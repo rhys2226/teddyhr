@@ -18,11 +18,11 @@ export default function PDSWorkExperience() {
             <div className="row mb-4">
                 <div className="col-md-2 mb-4">
                     <label htmlFor="">FROM</label>
-                    <input type="text" className="form-control" />
+                    <input type="date" className="form-control" />
                 </div>
                 <div className="col-md-2 mb-4">
                     <label htmlFor="">TO</label>
-                    <input type="text" className="form-control" />
+                    <input type="date" className="form-control" />
                 </div>
                 <div className="col-md-8 mb-4">
                     <label htmlFor="">POSITION TITLE (Write in full / Do not abbreviate)</label>
