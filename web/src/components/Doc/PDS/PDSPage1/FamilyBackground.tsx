@@ -8,7 +8,7 @@ export default function FamilyBackground() {
             <div className="border-bottom br row m-0 p-0 nbl">
                 {/* left  */}
                 <div className="col-md-7 m-0 p-0 row " style={{flex:'0 0 61.2%',maxWidth:'100%'}}>
-                    <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl">
+                    <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl nbb">
                         <p  className="m-0 mb-2 mt-1">&nbsp; 22.  SPOUSE'S SURNAME</p>
                         <p  className="m-0 mb-2 ml-3">&nbsp;   FIRST NAME</p>
                         <p  className="m-0 mb-2 ml-3">&nbsp;   MIDDLE NAME</p>
@@ -24,7 +24,7 @@ export default function FamilyBackground() {
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">N/A</p>
                         </div>
                     </div>
-                    <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl">
+                    <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl nbb  ">
                         <p  className="m-0 mb-0 p-1 pl-3">&nbsp;OCCUPATION</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row  lr">
@@ -32,7 +32,7 @@ export default function FamilyBackground() {
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">N/A</p>
                         </div>
                     </div>
-                    <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl">
+                    <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl nbb">
                         <p  className="m-0 mb-0 p-1  pl-3">&nbsp;EMPLOYER/BUSINESS NAME</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row lr">
@@ -40,7 +40,7 @@ export default function FamilyBackground() {
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">N/A</p>
                         </div>
                     </div>
-                    <div className="col-md-6 sub-title m-0 p-0 ll nbl">
+                    <div className="col-md-6 sub-title m-0 p-0 ll nbl nbb nbb">
                         <p  className="m-0 mb-0 p-1  pl-3">&nbsp;BUSINESS ADDRESS</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row  lr">
@@ -48,7 +48,7 @@ export default function FamilyBackground() {
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">N/A</p>
                         </div>
                     </div>
-                    <div className="col-md-6 sub-title m-0 p-0 ll nbl">
+                    <div className="col-md-6 sub-title m-0 p-0 ll nb nbb nbl">
                         <p  className="m-0 mb-0 p-1  pl-3">&nbsp;TELEPHONE NO.</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row  lr">
@@ -56,7 +56,7 @@ export default function FamilyBackground() {
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">N/A</p>
                         </div>
                     </div>
-                    <div className="col-md-6 sub-title m-0 p-0 ll nbl">
+                    <div className="col-md-6 sub-title m-0 p-0 ll nbl ">
                      <p  className="m-0 mb-2 mt-1">&nbsp; 24.  FATHERS'S SURNAME</p>
                         <p  className="m-0 mb-2 ml-3">&nbsp;   FIRST NAME</p>
                         <p  className="m-0 mb-2 ml-3">&nbsp;   MIDDLE NAME</p>

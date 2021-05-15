@@ -15,12 +15,14 @@ export default function EducationalBackground() {
                 <div className="col-md-2 row sub-title m-0 p-0 d-flex aic jcc educ-level  nbb">
                     <p className="m-0 mb-0 pb-0 text-center fs-sm">&nbsp;BASIC EDUCATION/DEGREE/COURSE</p>
                 </div>
-                <div className="col-md-1  row sub-title m-0 p-0 d-flex aic jcc from-to  nbb">
+                 <div className="col-md-1  row sub-title m-0 p-0 d-flex aic jcc from-to  nbb">
                     <div className="row p-0 m-0">
-                        <p className="m-0 mb-0 text-center fs-sm col-md-12 border-bottom mt-3 nbt nbb" >&nbsp;PERIOD OF ATTENDANCE</p>
-                        <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt">&nbsp;From</p>
-                        <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt">&nbsp;To</p>
+                        <p className="m-0 mb-0 text-center fs-sm col-md-12 border-bottom p-1 pt-2 nbt " >&nbsp;PERIOD OF ATTENDANCE</p>
+                        <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt pt-1">&nbsp;From</p>
+                        <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt pt-1">&nbsp;To</p>
                     </div>
+                    
+                    
                 </div>
                 <div className="col-md-1 row sub-title m-0 p-0 d-flex aic jcc nbr nbb">
                     <p className="m-0 mb-0 text-center fs-sm">&nbsp;HIGHEST LEVEL/ UNITS EARNED (if not graduated)</p>
@@ -44,7 +46,7 @@ export default function EducationalBackground() {
                 </div>
                 <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to   nbb">
                     <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;N/A</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt bold underlined">&nbsp;N/A</p>
+                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;N/A</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc  nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
@@ -68,7 +70,7 @@ export default function EducationalBackground() {
                 </div>
               <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to  nbb">
                     <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;N/A</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt bold underlined">&nbsp;N/A</p>
+                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;N/A</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
@@ -91,7 +93,7 @@ export default function EducationalBackground() {
                 </div>
                  <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to  nbb">
                     <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;N/A</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt bold underlined">&nbsp;N/A</p>
+                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;N/A</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
@@ -114,7 +116,7 @@ export default function EducationalBackground() {
                 </div>
                   <div className="col-md-2  row m-0 p-0 d-flex aic jcc bg-white box from-to  nbb">
                     <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;N/A</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt bold underlined">&nbsp;N/A</p>
+                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;N/A</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
@@ -126,18 +128,18 @@ export default function EducationalBackground() {
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
                 </div>
                 
-                <div className="col-md-2 m-0 p-0 row sub-title m-0 p-0 educ-level nbr nbb nbl">
+                <div className="col-md-2 m-0 p-0 row sub-title m-0 p-0 educ-level nbr  nbl">
                     <p className="m-0 mb-0 p-1 text-center">&nbsp; GRADUATE STUDIES </p>
                 </div>
                 <div className="col-md-2 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc educ-level nbr     ">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
                 </div>
-                <div className="col-md-2 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc educ-level      ">
+              <div className="col-md-2 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc educ-level  ">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>
                 </div>
-                <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to    ">
+                <div className="col-md-2  row m-0 p-0 d-flex aic jcc bg-white box from-to  ">
                     <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;N/A</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt bold underlined">&nbsp;N/A</p>
+                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;N/A</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc nbr    ">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">N/A</p>

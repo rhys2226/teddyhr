@@ -12,13 +12,13 @@ export default function BottomGrid() {
                 </p>
             </div>
             <br />
-            <div className="box col-md-5 p-0">
+            <div className="db col-md-5 p-0">
                 <br />
                 <br />
                 <br />
                 <br />
                 <br />
-                <div className="col-md-12 sub-title p-0 m-0  box text-center">
+                <div className="col-md-12 sub-title p-0 m-0 nbl nbr  text-center">
                     Person Administering Oath
                 </div>
             </div>

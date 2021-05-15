@@ -43,31 +43,31 @@ export default function LeftGrid() {
                 42. I declare under oath that I have personally accomplished this Personal Data Sheet which is a true, correct and complete statement pursuant to the provisions of pertinent laws, rules and regulations of the Republic of the Philippines. I authorize the agency head/authorized representative to verify/validate the contents stated herein.I  agree that any misrepresentation made in this document and its attachments shall cause the filing of administrative/criminal case/s against me.
            </div>
             <div className="col-md-12 m-0 p-0 pb-1 pt-2 pl-2 row pb-2">
-                <div className="col-md-6 box  p-0 m-0">
+                <div className="col-md-6 db  p-0 m-0">
                         <div className="col-md-12 sub-title p-0 m-0 nbr nbt nbl">
                             Government Issued ID (i.e.Passport, GSIS, SSS, PRC, Driver's License, etc)PLEASE INDICATE ID Number and Date of Issuance
                         </div>
                         <div className="col-md-12  p-1 m-0">
-                            Government Issued ID: 
+                            Government Issued ID:  <span className="bold underlined">N/A</span>
                         </div>
                         <div className="col-md-12 p-1 m-0 bt">
-                           ID/License/Passport No.: 
+                           ID/License/Passport No.:  <span className="bold underlined">N/A</span>
                         </div>
                         <div className="col-md-12 p-1 m-0 bt">
-                           Date/Place of Issuance:
+                           Date/Place of Issuance: <span className="bold underlined">N/A</span>
                         </div>
                 </div>
-                <div className="col-md-6 box m-0 p-0">
+                <div className="col-md-5 ml-4 db m-0 p-0  text-center" style={{transform:'translate(21px)'}}>
                     <br />
                     <br />
                     <br />
                     <br />
                     <br />
-                    <div className="col-md-12 sub-title p-0 m-0  box text-center">
+                    <div className="col-md-12 sub-title p-0 m-0  box text-center nbl nbr ">
                         Signature (Sign inside the box)
                     </div>
-                    <br />
-                    <div className="col-md-12 sub-title p-0 m-0  box text-center">
+                    <span className="bold underlined text-center">N/A</span>
+                    <div className="col-md-12 sub-title p-0 m-0  box text-center nbl nbr nbb">
                         Date Accomplished
                     </div>
                 </div>

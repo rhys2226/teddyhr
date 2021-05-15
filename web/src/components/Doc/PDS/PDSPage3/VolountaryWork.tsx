@@ -40,24 +40,24 @@ export default function VolountaryWork() {
                     workExperience.map(()=>(
                             <div className="col-md-12 row p-0 m-0">
                                 <div className="col-md-5 row  m-0 p-0 d-flex aic nbr jcc bt bl br  p-1i bg-white">
-                                    <p className="m-0 mb-0 pb-0 text-center fs-sm">
+                                    <p className="m-0 mb-0 pb-0 text-center fs-sm bold underlined">
                                         N/A
                                     </p>
                                 </div>
                                 
                                 <div className="col-md-2 m-0 p-0 row m-0 p-0 d-flex aic nbr jcc bt blp-1i bg-white">
                                     <div className="row p-0 m-0">
-                                        <p className="m-0 mb-0 text-center fs-sm col-md-6  nbl nbr nbb nbt">N/A</p>
-                                        <p className="m-0 mb-0 text-center fs-sm col-md-6  nbr nbb nbt">N/A</p>
+                                        <p className="m-0 mb-0 text-center fs-sm col-md-6  nbl nbr nbb nbt bold underlined">N/A</p>
+                                        <p className="m-0 mb-0 text-center fs-sm col-md-6  nbr nbb nbt bold underlined">N/A</p>
                                     </div>
                                 </div>  
                                 
                                 <div className="col-md-1 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                    <p className="m-0 mb-0 pb-0 text-center fs-sm">N/A</p>
+                                    <p className="m-0 mb-0 pb-0 text-center fs-sm bold underlined">N/A</p>
                                 </div>
                                 
                                 <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                    <p className="m-0 mb-0 pb-0 text-center fs-sm">N/A</p>
+                                    <p className="m-0 mb-0 pb-0 text-center fs-sm bold underlined">N/A</p>
                                 </div>
                             </div>
                    ))

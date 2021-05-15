@@ -28,15 +28,15 @@ export default function OtherInformation() {
                         OtherInformation.map(()=>(
                              <div className="col-md-12 row p-0 m-0">
                                 <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                    <p className="m-0 mb-0 pb-0 text-center fs-sm">N/A</p>
+                                    <p className="m-0 mb-0 pb-0 text-center fs-sm text-center">N/A</p>
                                 </div>
                                 
                                 <div className="col-md-5 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                    <p className="m-0 mb-0 pb-0 text-center fs-sm">N/A</p>
+                                    <p className="m-0 mb-0 pb-0 text-center fs-sm text-center">N/A</p>
                                 </div>
                                 
                                 <div className="col-md-3 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                    <p className="m-0 mb-0 pb-0 text-center fs-sm">N/A</p>
+                                    <p className="m-0 mb-0 pb-0 text-center fs-sm text-center">N/A</p>
                                 </div>
                             </div>
                         ))
