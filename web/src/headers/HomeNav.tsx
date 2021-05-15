@@ -8,7 +8,7 @@ export default function HomeNav() {
 
     return (
         <div>
-            <nav className='topnav navbar navbar-light  bg-dark '>
+            <nav className='topnav navbar navbar-light'>
                 <button
                     type='button'
                     className='navbar-toggler text-muted mt-2 p-0 mr-3'
