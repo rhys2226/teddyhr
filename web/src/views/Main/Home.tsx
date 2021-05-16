@@ -14,7 +14,12 @@ import UpcomingSeminars from '../HRD/Upcomming-seminars/UpcomingSeminars';
 import PerformanceMgt from '../Performance/Performace-mgt/PerformanceMgt';
 import AddVancancy from '../Recruitement/Add-vacancy/AddVancancy';
 import Vacancies from '../Recruitement/Vacancies/Vacancies';
+import ApplicationForLeave from '../Settings/Leave-card/Leave/ApplicationForLeave';
+import LeaveBalances from '../Settings/Leave-card/Leave/LeaveBalances';
+import Leaves from '../Settings/Leave-card/Leave/Leaves';
+import LeaveSettings from '../Settings/Leave-card/Leave/LeaveSettings';
 import Settings from '../Settings/Settings';
+import EmploymentStatus from '../Settings/Status/EmploymentStatus';
 import Supervisor from '../Supervisor/Supervisor';
 import AddEmployee from '../Users/Add-Employee/AddEmployee';
 import Applicants from '../Users/Applicants/Applicants';
@@ -89,7 +94,30 @@ export default function Home() {
             path: url( '/supervisors' ),
             component: Supervisor,
         },
+        {
+            path: url( '/leave-application' ),
+            component: ApplicationForLeave,
+        },
+        {
+            path: url( '/leave-balances' ),
+            component: LeaveBalances,
+        },
+        {
+            path: url( '/leaves' ),
+            component: Leaves,
+        },
+        {
+            path: url( '/leave-settings' ),
+            component: LeaveSettings,
+        },
+        {
+            path: url( '/employment-Status' ),
+            component: EmploymentStatus,
+        },
+
     ];
+
+
 
     return (
         <>

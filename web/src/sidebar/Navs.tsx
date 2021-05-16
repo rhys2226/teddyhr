@@ -89,10 +89,15 @@ export const managenentOfLeaveCard = [
         route: '/home/leave-balances',
         icon: 'fe-credit-card'
     },
-     {
+    {
         title: 'Leaves',
         route: '/home/leaves',
         icon: 'fe-truck'
+    },
+    {
+        title: 'Leave Settings',
+        route: '/home/leave-settings',
+        icon: 'fe-tool'
     },
 ]
 
@@ -100,7 +105,7 @@ export const managenentOfLeaveCard = [
 export const employemtStatus = [
     {
         title: 'Employment Status',
-        route: '/home/',
+        route: '/home/employment-Status',
         icon: 'fe-battery'
     },
 

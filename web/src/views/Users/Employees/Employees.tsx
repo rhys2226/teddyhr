@@ -108,6 +108,7 @@ export default function Employees() {
                                                     <button role="butoon" className="dropdown-item" >Add/Change Supervisor</button>
                                                     <button role="butoon" className="dropdown-item" >View Profile</button>
                                                     <button role="butoon" className="dropdown-item" >Remove as Employee</button>
+                                                    <button role="butoon" className="dropdown-item" >Leave History</button>
                                                 </div>
                                             </td>
                                         </tr>
