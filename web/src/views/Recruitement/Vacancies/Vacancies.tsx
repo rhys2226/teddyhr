@@ -18,16 +18,16 @@ export default function Vacancies() {
                         </div>
                     </div>
                     <table className="table table-borderless table-hover">
-                        <thead>
+                        <thead className="table-info">
                             <tr>
-                                <th className="text-center">#</th>
-                                <th >Vacancy Name</th>
-                                <th className="text-muted">Office</th>
-                                <th className="text-muted text-center">Seniority Level</th>
-                                <th className="text-muted text-center">Minimum Experience <br />(months)</th>
-                                <th className="text-muted text-center">Employment Type</th>
-                                <th className="text-muted text-center">Industry</th>
-                                <th className="text-muted text-center"></th>
+                                <th className="text-info text-center">#</th>
+                                <th className="text-info">Bureau OR Office</th>
+                                <th className="text-info">Position/Title</th>
+                                <th className="text-info text-center">Department / Branch / Dviision</th>
+                                <th className="text-info text-center">Salary Grade</th>
+                                <th className="text-info text-center">Salary Authorized</th>
+                                <th className="text-info text-center">Other Compensation</th>
+                                <th className="text-info text-center"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,16 +35,15 @@ export default function Vacancies() {
                                 employees.map( ( applicants: any, index: any ) => (
                                     <tr>
                                         <td className="text-center"> {index + 1} </td>
+                                        <td>Office of Management Information System </td>
 
                                         <td>
-                                            <p className="small mb-3"><span className="badge bg-danger-lighter  text-danger p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
+                                            <p className=" mb-3"><span className="text-danger bold p-1 br-2" > Developer</span></p>
                                         </td>
-
-                                        <td>Office of Management Information System </td>
-                                        <td className="text-center"> Junior </td>
-                                        <td className="text-center"> 5 </td>
-                                        <td className="text-center"> Regular </td>
-                                        <td className="text-center"> Information Technology </td>
+                                        <td className="text-center"> N/A </td>
+                                        <td className="text-center"> N/A </td>
+                                        <td className="text-center"> N/A </td>
+                                        <td className="text-center"> N/A </td>
                                         <td>
                                             <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span className="text-muted sr-only">Action</span>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Pagination from '../../../components/Table/Pagination'
 
 export default function Applicants() {
     const [ applicants, setApplicants ] = useState( [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ] )
@@ -13,16 +14,6 @@ export default function Applicants() {
                         <div className="toolbar">
                             <form className="form">
                                 <div className="form-row">
-                                    <div className="form-group col-auto mr-auto">
-                                        <label className="my-1 mr-2 sr-only" >Show</label>
-                                        <select className="custom-select mr-sm-2" id="inlineFormCustomSelectPref1">
-                                            <option value="">...</option>
-                                            <option value="1">12</option>
-                                            <option value="2" selected>32</option>
-                                            <option value="3">64</option>
-                                            <option value="3">128</option>
-                                        </select>
-                                    </div>
                                     <div className="form-group col-auto">
                                         <label className="sr-only">Search</label>
                                         <input type="text" className="form-control" id="search1" value="" placeholder="Search" />
@@ -31,7 +22,7 @@ export default function Applicants() {
                             </form>
                         </div>
                         <table className="table table-borderless table-hover">
-                            <thead>
+                            <thead className="table-dark">
                                 <tr>
                                     <th className="text-danger">ID</th>
                                     <th className="text-danger">Applicant</th>
@@ -103,15 +94,18 @@ export default function Applicants() {
 
                             </tbody>
                         </table>
-                        <nav aria-label="Table Paging" className="mb-0 text-muted">
-                            <ul className="pagination justify-content-center mb-0">
-                                <li className="page-item"><a className="page-link">Previous</a></li>
-                                <li className="page-item"><a className="page-link" >1</a></li>
-                                <li className="page-item active"><a className="page-link" >2</a></li>
-                                <li className="page-item"><a className="page-link" >3</a></li>
-                                <li className="page-item"><a className="page-link" >Next</a></li>
-                            </ul>
-                        </nav>
+                        <Pagination
+                            Pages={() => {
+                                let pages = []
+                                for ( let index in applicants ) {
+                                    pages.push( parseInt( index ) + 1 )
+                                }
+                                return pages
+                            }}
+                            callback={( callback: Function ) => {
+                                callback()
+                            }}
+                        />
                     </div>
                 </div>
             </div>

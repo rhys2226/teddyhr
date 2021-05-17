@@ -20,7 +20,7 @@ export default function PDSUpdatePage4() {
 
     return (
         <div>
-            <ul className="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+            <ul className="nav nav-pills  mb-3" id="pills-tab" role="tablist">
                 <li className="nav-item">
                     <p onClick={() => changeTab( 1 )} className="nav-link active" id="pills-home-tab" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">
                         <i className="fe fe-code"></i>

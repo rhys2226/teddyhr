@@ -50,7 +50,18 @@ export default function TopEmployee() {
                             }
                         </tbody>
                     </table>
-                    <Pagination />
+                    <Pagination
+                        Pages={() => {
+                            let pages = []
+                            for ( let index in employees ) {
+                                pages.push( parseInt( index ) + 1 )
+                            }
+                            return pages
+                        }}
+                        callback={( callback: Function ) => {
+                            callback()
+                        }}
+                    />
                 </div>
             </div>
         </div>

@@ -4289,7 +4289,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #ffffff;
-    background-color: #34312F;
+    background-color: #969696;
 }
 
 .nav-fill .nav-item {
@@ -16461,4 +16461,8 @@ a.uppy-Dashboard-poweredBy {
         top: -10px;
         right: -35px;
     }
+}
+
+.nav-pills li {
+    cursor: pointer;
 }

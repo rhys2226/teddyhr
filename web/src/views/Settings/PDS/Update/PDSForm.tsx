@@ -27,32 +27,34 @@ export default function PDSForm() {
 
     return (
         <div>
-            <ul className="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+            <ul className="nav nav-pills" id="pills-tab2" role="tablist">
                 <li className="nav-item">
                     <p onClick={() => changeTab( 1 )} className="nav-link active" id="pills-home-tab" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">
                         <i className="fe fe-folder"></i>
-                        <span>&nbsp;Page 1</span>
+                        <span>&nbsp;C1</span>
                     </p>
                 </li>
                 <li className="nav-item">
                     <p onClick={() => changeTab( 2 )} className="nav-link" id="pills-profile-tab" data-toggle="pill" role="tab" aria-controls="pills-profile" aria-selected="false">
                         <i className="fe fe-folder"></i>
-                        <span>&nbsp;Page 2</span>
+                        <span>&nbsp;C2</span>
                     </p>
                 </li>
                 <li className="nav-item">
                     <p onClick={() => changeTab( 3 )} className="nav-link" id="pills-profile-tab" data-toggle="pill" role="tab" aria-controls="pills-profile" aria-selected="false">
                         <i className="fe fe-folder"></i>
-                        <span>&nbsp;Page 3</span>
+                        <span>&nbsp;C3</span>
                     </p>
                 </li>
                 <li className="nav-item">
                     <p onClick={() => changeTab( 4 )} className="nav-link" id="pills-profile-tab" data-toggle="pill" role="tab" aria-controls="pills-profile" aria-selected="false">
                         <i className="fe fe-folder"></i>
-                        <span>&nbsp;Page 4</span>
+                        <span>&nbsp;C4</span>
                     </p>
                 </li>
             </ul>
+            <br />
+            <br />
             {component}
         </div>
     )

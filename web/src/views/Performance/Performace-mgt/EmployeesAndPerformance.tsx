@@ -3,6 +3,11 @@ import Pagination from '../../../components/Table/Pagination'
 
 export default function EmployeesAndPerformance() {
     const [ employees, setApplicants ] = useState( [ 1, 2, 3, 2, 3, ] )
+
+    async function filter( keyword: string ) {
+        alert( keyword )
+    }
+
     return (
         <div className="col-md-8 my-4">
             <h2 className="h4 mb-1">Employee Performance</h2>
@@ -14,7 +19,9 @@ export default function EmployeesAndPerformance() {
                             <div className="form-row">
                                 <div className="form-group col-auto mr-auto">
                                     <label className="my-1 mr-2 sr-only" >Show</label>
-                                    <select className="custom-select mr-sm-2" id="inlineFormCustomSelectPref1">
+                                    <select onChange={( e ) => {
+                                        filter( e.target.value )
+                                    }} className="custom-select mr-sm-2" id="inlineFormCustomSelectPref1">
                                         <option >All</option>
                                         <option>Subordiante</option>
                                         <option>Colleagues</option>
@@ -111,7 +118,18 @@ export default function EmployeesAndPerformance() {
                             }
                         </tbody>
                     </table>
-                    <Pagination />
+                    <Pagination
+                        Pages={() => {
+                            let pages = []
+                            for ( let index in employees ) {
+                                pages.push( parseInt( index ) + 1 )
+                            }
+                            return pages
+                        }}
+                        callback={( callback: Function ) => {
+                            callback()
+                        }}
+                    />
                 </div>
             </div>
         </div>
