@@ -1,8 +1,26 @@
 import React, { useState } from 'react'
+import { Fire } from '../../../components/Alerts/Alert'
+import LargeModal from '../../../components/Modals/LargeModal'
 import Pagination from '../../../components/Table/Pagination'
+import ApplicantINformation from './ApplicantINformation'
+import ApplicantSupportingDocument from './ApplicantSupportingDocument'
 
 export default function Applicants() {
     const [ applicants, setApplicants ] = useState( [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ] )
+
+    const [ modal, setModal ] = useState( ApplicantINformation )
+
+    function changeModal( type: number ) {
+        if ( type === 1 ) {
+            setModal(
+                <ApplicantINformation />
+            )
+            return
+        }
+        setModal(
+            <ApplicantSupportingDocument />
+        )
+    }
 
     return (
         <div>
@@ -24,24 +42,24 @@ export default function Applicants() {
                         <table className="table table-borderless table-hover">
                             <thead className="table-dark">
                                 <tr>
-                                    <th className="text-danger">ID</th>
-                                    <th className="text-danger">Applicant</th>
-                                    <th className="text-danger">Prev Employer</th>
-                                    <th className="text-danger">Contact</th>
-                                    <th className="w-25 text-danger">Degrees </th>
-                                    <th className="text-danger">Alignment</th>
-                                    <th className="text-danger">DSS Status</th>
-                                    <th className="text-danger">Application Date</th>
-                                    <th className="text-danger"></th>
+                                    <th className="text-info text-center"><i className="fe fe-user"></i></th>
+                                    <th className="text-info">Applicant</th>
+                                    <th className="text-info">Prev Employer</th>
+                                    <th className="text-info">Contact</th>
+                                    <th className="w-25 text-info">Degrees </th>
+                                    <th className="text-info">Alignment</th>
+                                    <th className="text-info">DSS Status</th>
+                                    <th className="text-info">Application Date</th>
+                                    <th className="text-info"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     applicants.map( ( applicants: any, index: any ) => (
                                         <tr>
-                                            <td>
-                                                <div className="avatar avatar-sm">
-                                                    <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                            <td className="text-center">
+                                                <div className="avatar avatar-xl">
+                                                    <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
 
@@ -76,22 +94,42 @@ export default function Applicants() {
                                             <td className="text-muted">13/09/2020</td>
 
                                             <td>
-                                                <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button className="btn btn-dark btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">
-                                                    <a className="dropdown-item" >View Information</a>
-                                                    <a className="dropdown-item" >Check Supporting Documents</a>
-                                                    <a className="dropdown-item" >Reject</a>
-                                                    <a className="dropdown-item">Schedule an Interview</a>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            changeModal( 1 )
+                                                        }}
+                                                        data-target="#large-modal"
+                                                        className="dropdown-item" >  View Information </button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            changeModal( 2 )
+                                                        }}
+                                                        data-target="#large-modal"
+                                                        className="dropdown-item" > Check Supporting Documents </button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            Fire( 'Reject', 'Are you sure you want to Reject this applicant?', 'warning', () => { } )
+                                                        }}
+                                                        className="dropdown-item" >Reject</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            Fire( 'Schedule an Interview', 'Are you sure you want to Schedule an Interview?', 'info', () => { } )
+                                                        }}
+                                                        className="dropdown-item">Schedule an Interview</button>
                                                 </div>
                                             </td>
                                         </tr>
 
                                     ) )
                                 }
-
-
                             </tbody>
                         </table>
                         <Pagination
@@ -109,6 +147,12 @@ export default function Applicants() {
                     </div>
                 </div>
             </div>
+
+            <LargeModal>
+                {modal}
+            </LargeModal>
         </div >
     )
 }
+
+
