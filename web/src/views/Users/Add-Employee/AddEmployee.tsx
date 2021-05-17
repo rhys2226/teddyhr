@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import * as base from '.././../../constants/base'
-import { Alert, Fire } from '../../../components/Alerts/Alert';
+import { Alert } from '../../../components/Alerts/Alert';
 
 export default function AddEmployee() {
 
@@ -26,7 +26,7 @@ export default function AddEmployee() {
 
 
     async function submitEmployee() {
-        if ( pasword != confirmpassword ) {
+        if ( pasword !== confirmpassword ) {
             Alert( 'Error', `Passwords doesn't match`, 'error' )
             return
         }

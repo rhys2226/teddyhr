@@ -46,7 +46,7 @@ export default function HomeNav() {
 
                                 const light = $( '#lightTheme' );
                                 const dark = $( '#darkTheme' );
-                                if ( localStorage.getItem( 'data-mode' ) == 'light' || localStorage.getItem( 'data-mode' ) == undefined ) {
+                                if ( localStorage.getItem( 'data-mode' ) === 'light' || localStorage.getItem( 'data-mode' ) === undefined ) {
                                     light.attr( 'disabled', 'true' );
                                     dark.removeAttr( 'disabled' );
                                     switcher.attr( 'data-mode', 'dark' );

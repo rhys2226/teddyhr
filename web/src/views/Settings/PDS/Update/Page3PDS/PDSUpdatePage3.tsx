@@ -7,11 +7,11 @@ export default function PDSUpdatePage3() {
     const [ component, setComponent ] = React.useState( <PDSVolountaryWork /> )
 
     function changeTab( tab: number ) {
-        if ( tab == 1 ) {
+        if ( tab === 1 ) {
             setComponent( <PDSVolountaryWork /> )
             return
         }
-        if ( tab == 2 ) {
+        if ( tab === 2 ) {
             setComponent( <PDSLearningAndDevelopment /> )
             return
         }

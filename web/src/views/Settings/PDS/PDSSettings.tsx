@@ -8,7 +8,7 @@ export default function PDSSettings() {
     const [ component, setComponent ] = React.useState( <PDS /> )
 
     function changeTab( tab: number ) {
-        if ( tab == 1 ) {
+        if ( tab === 1 ) {
             setComponent( <PDS /> )
             return
         }

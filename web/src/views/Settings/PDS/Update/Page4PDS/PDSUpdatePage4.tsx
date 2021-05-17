@@ -7,11 +7,11 @@ export default function PDSUpdatePage4() {
     const [ component, setComponent ] = React.useState( <PDSQuestions /> )
 
     function changeTab( tab: number ) {
-        if ( tab == 1 ) {
+        if ( tab === 1 ) {
             setComponent( <PDSQuestions /> )
             return
         }
-        if ( tab == 2 ) {
+        if ( tab === 2 ) {
             setComponent( <PDSReferences /> )
             return
         }

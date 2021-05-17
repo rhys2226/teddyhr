@@ -9,15 +9,15 @@ export default function PDSForm() {
     const [ component, setComponent ] = React.useState( <PDSUpdatePage1 /> )
 
     function changeTab( tab: number ) {
-        if ( tab == 1 ) {
+        if ( tab === 1 ) {
             setComponent( <PDSUpdatePage1 /> )
             return
         }
-        if ( tab == 2 ) {
+        if ( tab === 2 ) {
             setComponent( <PDSPage2Update /> )
             return
         }
-        if ( tab == 3 ) {
+        if ( tab === 3 ) {
             setComponent( <PDSUpdatePage3 /> )
             return
         }

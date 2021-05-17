@@ -34,7 +34,7 @@ export default function Sidebar() {
                 <ul className="navbar-nav flex-fill w-100 mb-2">
                     {
                         performanceManagement.map( ( nav: any, index: any ) => (
-                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                            <li className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
                                 <a
                                     onClick={() => {
                                         history.push( nav.route )
@@ -54,7 +54,7 @@ export default function Sidebar() {
                     </p>
                     {
                         usersNav.map( ( nav: any, index: any ) => (
-                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                            <li className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -67,7 +67,7 @@ export default function Sidebar() {
                     </p>
                     {
                         supervisions.map( ( nav: any, index: any ) => (
-                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                            <li className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -80,7 +80,7 @@ export default function Sidebar() {
                     </p>
                     {
                         recruitmentProcess.map( ( nav: any, index: any ) => (
-                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                            <li className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -94,7 +94,7 @@ export default function Sidebar() {
                     </p>
                     {
                         HRDLearningAndDevelopment.map( ( nav: any, index: any ) => (
-                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                            <li className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -107,7 +107,7 @@ export default function Sidebar() {
                     </p>
                     {
                         managenentOfLeaveCard.map( ( nav: any, index: any ) => (
-                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                            <li className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>
@@ -120,7 +120,7 @@ export default function Sidebar() {
                     </p>
                     {
                         awardsAndRecognition.map( ( nav: any, index: any ) => (
-                            <li className={`nav-item w-100 ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>
+                            <li className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
                                 <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
                                     <i className={`fe ${ nav.icon }  fe-16`}></i>
                                     <span className="ml-3 item-text">{nav.title}</span>

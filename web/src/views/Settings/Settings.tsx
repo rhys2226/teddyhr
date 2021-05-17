@@ -62,7 +62,7 @@ export default function Settings() {
                                         onClick={() => {
                                             history.push( nav.route )
                                         }}
-                                        className={`nav-link ${ base.route + nav.route == window.location.href ? 'active' : '' }`}>{nav.title}
+                                        className={`nav-link ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>{nav.title}
                                     </a>
                                 </li>
                             ) )

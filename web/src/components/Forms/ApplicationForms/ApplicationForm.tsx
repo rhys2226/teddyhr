@@ -18,35 +18,35 @@ export default function ApplicationForm() {
 
     async function changeStep( step: number ) {
         setStep( step )
-        if ( step == 1 ) {
+        if ( step === 1 ) {
             setForm(
                 <ApplicationStep1 makeStep={( step: any ) => {
                     changeStep( step )
                 }} />
             )
         }
-        if ( step == 2 ) {
+        if ( step === 2 ) {
             setForm(
                 <ApplicationStep2 makeStep={( step: any ) => {
                     changeStep( step )
                 }} />
             )
         }
-        if ( step == 3 ) {
+        if ( step === 3 ) {
             setForm(
                 <ApplicationStep3 makeStep={( step: any ) => {
                     changeStep( step )
                 }} />
             )
         }
-        if ( step == 4 ) {
+        if ( step === 4 ) {
             setForm(
                 <ApplicationStep4 makeStep={( step: any ) => {
                     changeStep( step )
                 }} />
             )
         }
-        if ( step == 5 ) {
+        if ( step === 5 ) {
             setForm(
                 <ApplicationStep5 makeStep={( step: any ) => {
                     changeStep( step )
@@ -68,19 +68,19 @@ export default function ApplicationForm() {
                         <br />
                         <div className="row  text-center ml-5">
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper == 1 ? ' fe-edit-3 text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `} ></i>
+                                <i className={`${ stepper === 1 ? ' fe-edit-3 text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `} ></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper == 2 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 2 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper == 3 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 3 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper == 4 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 4 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper == 5 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 5 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
                             </div>
                         </div>
                         <hr style={{ marginTop: '-20px' }} />

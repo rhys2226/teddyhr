@@ -6,7 +6,7 @@ export default function PDSPage2Update() {
     const [ component, setComponent ] = React.useState( <PDSEligibility /> )
 
     function changeTab( tab: number ) {
-        if ( tab == 1 ) {
+        if ( tab === 1 ) {
             setComponent( <PDSEligibility /> )
             return
         }

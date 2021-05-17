@@ -8,11 +8,11 @@ export default function PDSUpdatePage1( props: any ) {
     const [ component, setComponent ] = React.useState( <PDSPersonalBg /> )
 
     function changeTab( tab: number ) {
-        if ( tab == 1 ) {
+        if ( tab === 1 ) {
             setComponent( <PDSPersonalBg /> )
             return
         }
-        if ( tab == 2 ) {
+        if ( tab === 2 ) {
             setComponent( <PDSFamilyBG /> )
             return
         }
