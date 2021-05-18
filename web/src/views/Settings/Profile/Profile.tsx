@@ -1,4 +1,5 @@
 import React from 'react'
+import { Fire } from '../../../components/Alerts/Alert'
 
 export default function Profile() {
     return (
@@ -6,7 +7,7 @@ export default function Profile() {
             <div className="row mt-5 align-items-center">
                 <div className="col-md-3 text-center mb-5">
                     <div className="avatar avatar-xl">
-                        <img style={{ cursor: 'pointer' }} src="http://localhost:3000/assets/avatars/face-1.jpg" alt="..." className="avatar-img   rounded-circle " />
+                        <img style={{ cursor: 'pointer' }} src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img   rounded-circle " />
                     </div>
                 </div>
                 <div className="col">
@@ -31,10 +32,6 @@ export default function Profile() {
             <hr />
             <div className="my-4">
                 <div className="form-row">
-                    <div className="form-group col-md-4">
-                        <label>Firstname</label>
-                        <input type="text" id="firstname" className="form-control" />
-                    </div>
                     <div className="form-group col-md-3">
                         <label>Lastname</label>
                         <input type="text" id="lastname" className="form-control" />
@@ -44,62 +41,13 @@ export default function Profile() {
                             Middle Name</label>
                         <input type="text" id="lastname" className="form-control" />
                     </div>
-                    <div className="form-group col-md-2">
-                        <label> Ext.</label>
-                        <input type="text" id="lastname" className="form-control" />
-                    </div>
-                </div>
-                <div className="form-row">
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-3">
                         <label >Phone</label>
                         <input type="email" className="form-control" />
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-3">
                         <label >Email</label>
                         <input type="email" className="form-control" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label>Degrees (Separated with comma (,))</label>
-                    <textarea className='form-control' placeholder="Bachelor or Science in Information Technology, Masters in Information Technology, Phd in Information Technology "></textarea>
-                </div>
-                <div className="form-row">
-                    <div className="form-group col-md-12">
-                        <label>Alignment from Bachelors to  Post-graduate </label>
-                        <select className='form-control'>
-                            <option>Vertical</option>
-                            <option>Non-Vertical</option>
-                        </select>
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label>Educational Attainments</label>
-                        <select multiple className='form-control'>
-                            <option>Phd</option>
-                            <option>Masters</option>
-                            <option>Bachelor</option>
-                            <option>Vocational</option>
-                            <option>Secondary</option>
-                            <option>Primary</option>
-                        </select>
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label>Eligibilities</label>
-                        <select multiple className='form-control'>
-                            <option>Civil Service</option>
-                            <option>PRC</option>
-                        </select>
-                    </div>
-                    <div className='form-group mb-3 col-12 mt-2'>
-                        <label>Work Experiences</label>
-                        <textarea className='form-control'></textarea>
-                    </div>
-                    <div className='form-group mb-3 col-12 col-md-6'>
-                        <label>Previous Employer</label>
-                        <input type='text' className='form-control' />
-                    </div>
-                    <div className='form-group mb-3 col-12 col-md-6'>
-                        <label>Employer's Contact Information</label>
-                        <input type='text' className='form-control' />
                     </div>
                 </div>
             </div>
@@ -168,7 +116,13 @@ export default function Profile() {
                     </ul>
                 </div>
             </div>
-            <button type="submit" className="btn btn-danger">Save Changes</button>
+            <div className="d-flex aic jcc">
+                <button
+                    onClick={() => {
+                        Fire( 'Update Account', 'Are you sure you want to Update your Account?', 'info', () => { } )
+                    }}
+                    type="submit" className="btn btn-danger">Save Changes</button>
+            </div>
         </div>
     )
 }

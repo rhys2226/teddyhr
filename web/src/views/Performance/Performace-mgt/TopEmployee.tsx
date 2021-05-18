@@ -34,7 +34,7 @@ export default function TopEmployee() {
                                     <tr>
                                         <td className="text-center">
                                             <div className="avatar avatar-md">
-                                                <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src="http://localhost:3000/assets/avatars/face-6.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 

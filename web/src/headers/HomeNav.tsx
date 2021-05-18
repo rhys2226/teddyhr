@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fire } from '../components/Alerts/Alert';
+import { Alert, Fire } from '../components/Alerts/Alert';
 import { useHistory } from "react-router-dom";
 
 
@@ -82,7 +82,7 @@ export default function HomeNav() {
                             aria-haspopup='true'
                             aria-expanded='false'>
                             <span className='avatar avatar-sm mt-2'>
-                                <img src='http://localhost:3000/assets/avatars/face-1.jpg' alt='...' className='avatar-img rounded-circle' />
+                                <img src='http://localhost:3000/assets/avatars/face-7.jpg' alt='...' className='avatar-img rounded-circle' />
                             </span>
                         </a>
                         <div className='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>
@@ -103,6 +103,7 @@ export default function HomeNav() {
                                     'warning',
                                     () => {
                                         history.push( '/' )
+                                        Alert( 'Thank you for using ISCOF HRMO Application', '', 'success' )
                                     } )
                             }} className='dropdown-item'>
                                 Log-Out

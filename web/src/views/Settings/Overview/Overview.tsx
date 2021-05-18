@@ -14,7 +14,7 @@ export default function Overview() {
             <div className=" mt-5 align-items-center card">
                 <div className="col-md-3 text-center mt-5">
                     <div className="avatar avatar-xl">
-                        <img style={{ cursor: 'pointer' }} src="http://localhost:3000/assets/avatars/face-1.jpg" alt="..." className="avatar-img   rounded-circle " />
+                        <img style={{ cursor: 'pointer' }} src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img   rounded-circle " />
                     </div>
                 </div>
                 <div className="col  p-5 w-100">

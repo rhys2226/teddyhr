@@ -61,6 +61,7 @@ export default function Applicants() {
                                     <th className="text-info">Alignment</th>
                                     <th className="text-info">DSS Status</th>
                                     <th className="text-info">Application Date</th>
+                                    <th className="text-info">Application Status</th>
                                     <th className="text-info"></th>
                                 </tr>
                             </thead>
@@ -105,6 +106,8 @@ export default function Applicants() {
 
                                             <td className="text-muted">13/09/2020</td>
 
+                                            <td className="text-danger">Pending</td>
+
                                             <td>
                                                 <button className="btn btn-dark btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
@@ -137,6 +140,14 @@ export default function Applicants() {
                                                         data-toggle='modal'
                                                         data-target=".slide-modal"
                                                         className="dropdown-item">Schedule an Interview</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            Fire( 'Approve Applicant', 'Are you sure you want to Approve this Applicant? This applicant will be deleted and will be transfer to Employee Lists', 'info', () => {
+                                                                Alert( 'Applicant Successfully  Approved', 'This Applicant has beeen moved to Employees', 'success' )
+                                                            } )
+                                                        }}
+                                                        className="dropdown-item">Approve and Move to Employees</button>
                                                 </div>
                                             </td>
                                         </tr>

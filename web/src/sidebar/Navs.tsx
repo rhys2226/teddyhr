@@ -28,7 +28,7 @@ export const usersNav = [
 
 export const supervisions = [
     {
-        title: 'Add Supervisor',
+        title: 'Supervisors',
         route: '/home/supervisors',
         icon: 'fe-hexagon'
     },

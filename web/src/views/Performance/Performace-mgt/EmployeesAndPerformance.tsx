@@ -54,8 +54,6 @@ export default function EmployeesAndPerformance() {
                                 <th className="text-warning text-center">Highest Rating</th>
                                 <th className="text-center text-dark"><i className="fe fe-user"></i></th>
                                 <th className="text-dark">Immediate Supervisor</th>
-                                <th className="text-danger"></th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -65,7 +63,7 @@ export default function EmployeesAndPerformance() {
                                     <tr>
                                         <td className="text-center">
                                             <div className="avatar avatar-sm">
-                                                <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src="http://localhost:3000/assets/avatars/face-6.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 
@@ -104,7 +102,7 @@ export default function EmployeesAndPerformance() {
 
                                         <td className="text-center">
                                             <div className="avatar avatar-md">
-                                                <img src="http://localhost:3000/assets/avatars/face-8.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 
@@ -112,16 +110,6 @@ export default function EmployeesAndPerformance() {
                                             <p className="mb-0 text-muted"><strong>Agsaluna, Ryan D.</strong></p>
                                             <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
                                         </td>
-
-                                        <td>
-                                            <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span className="text-muted sr-only">Action</span>
-                                            </button>
-                                            <div className="dropdown-menu dropdown-menu-right">
-                                                <button className="dropdown-item" >Rate Employee</button>
-                                            </div>
-                                        </td>
-
                                     </tr>
                                 ) )
                             }
