@@ -20,7 +20,7 @@ export default function EmployeesAndPerformance() {
         <div className="col-md-8 my-4">
             <h2 className="h4 mb-1">Employee Performance</h2>
             <p className="mb-3 text-muted">Displaying List of Employee's Performance in descending order</p>
-            <div className="card shadow">
+            <div className="card ">
                 <div className="card-body">
                     <div className="toolbar">
                         <form className="form">
@@ -44,16 +44,16 @@ export default function EmployeesAndPerformance() {
                         </form>
                     </div>
                     <table className="table table-borderless table-hover">
-                        <thead>
+                        <thead className="table-warning">
                             <tr>
-                                <th className="text-center"><i className="fe fe-user"></i></th>
-                                <th >Name</th>
-                                <th className="text-muted">Average Performance</th>
-                                <th className="text-muted">Rating this Month</th>
-                                <th className="text-muted text-center">Lowest Rating</th>
-                                <th className="text-muted text-center">Highest Rating</th>
-                                <th className="text-center"><i className="fe fe-user"></i></th>
-                                <th>Immediate Supervisor</th>
+                                <th className="text-center text-warning"><i className="fe fe-user"></i></th>
+                                <th className="text-warning">Name</th>
+                                <th className="text-warning">Average Performance</th>
+                                <th className="text-warning">Rating this Month</th>
+                                <th className="text-warning text-center">Lowest Rating</th>
+                                <th className="text-warning text-center">Highest Rating</th>
+                                <th className="text-center text-dark"><i className="fe fe-user"></i></th>
+                                <th className="text-dark">Immediate Supervisor</th>
                                 <th className="text-danger"></th>
 
                             </tr>

@@ -16,7 +16,7 @@ export default function TopEmployee() {
         <div className="col-md-4 my-4">
             <h2 className="h4 mb-1">Employees of the month</h2>
             <p className="mb-3 text-muted">Displaying List of Top Employees this Month</p>
-            <div className="card shadow">
+            <div className="card ">
                 <div className="card-body">
                     <table className="table table-borderless table-hover mt-5">
                         <thead>

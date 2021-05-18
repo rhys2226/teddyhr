@@ -96,7 +96,7 @@ export default function Employees() {
 
 
                                             <td>
-                                                <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button className="btn btn-sm btn-info dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">
