@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Fire } from '../../../components/Alerts/Alert'
+import { Alert, Fire } from '../../../components/Alerts/Alert'
+import FullScreenModal from '../../../components/Modals/FullScreenModal'
 import LargeModal from '../../../components/Modals/LargeModal'
 import Pagination from '../../../components/Table/Pagination'
 import ApplicantINformation from './ApplicantINformation'
@@ -100,17 +101,19 @@ export default function Applicants() {
                                                 <div className="dropdown-menu dropdown-menu-right">
 
                                                     <button
+                                                        data-toggle='modal'
+                                                        data-target=".large-modal"
                                                         onClick={() => {
                                                             changeModal( 1 )
                                                         }}
-                                                        data-target="#large-modal"
                                                         className="dropdown-item" >  View Information </button>
 
                                                     <button
+                                                        data-toggle='modal'
+                                                        data-target=".large-modal"
                                                         onClick={() => {
                                                             changeModal( 2 )
                                                         }}
-                                                        data-target="#large-modal"
                                                         className="dropdown-item" > Check Supporting Documents </button>
 
                                                     <button
@@ -121,7 +124,9 @@ export default function Applicants() {
 
                                                     <button
                                                         onClick={() => {
-                                                            Fire( 'Schedule an Interview', 'Are you sure you want to Schedule an Interview?', 'info', () => { } )
+                                                            Fire( 'Schedule an Interview', 'Are you sure you want to Schedule an Interview?', 'info', () => {
+                                                                Alert( 'SUCCESS', '', 'success' )
+                                                            } )
                                                         }}
                                                         className="dropdown-item">Schedule an Interview</button>
                                                 </div>

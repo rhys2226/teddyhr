@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 import { RouteProps } from 'react-router-dom';
-import Content from '../../components/main/Content';
+import Content from '../../components/Main/Content';
 import Forms from '../../components/Modals/Forms';
 import Notifications from '../../components/Notifications/Notifications';
 import HomeNav from '../../headers/HomeNav';
@@ -26,107 +26,107 @@ import Applicants from '../Users/Applicants/Applicants';
 import Employees from '../Users/Employees/Employees';
 
 export default function Home() {
-	const url = useURL();
+    const url = useURL();
 
-	const HomeRoutes: RouteProps[] = [
-		{
-			path: url('/'),
-			component: PerformanceMgt,
-			exact: true,
-		},
-		{
-			path: url('/home'),
-			component: PerformanceMgt,
-			exact: true,
-		},
+    const HomeRoutes: RouteProps[] = [
+        {
+            path: url( '/' ),
+            component: PerformanceMgt,
+            exact: true,
+        },
+        {
+            path: url( '/home' ),
+            component: PerformanceMgt,
+            exact: true,
+        },
 
-		{
-			path: url('/applicants'),
-			component: Applicants,
-			exact: true,
-		},
-		{
-			path: url('/employees'),
-			component: Employees,
-			exact: true,
-		},
-		{
-			path: url('/employees-add'),
-			component: AddEmployee,
-		},
+        {
+            path: url( '/applicants' ),
+            component: Applicants,
+            exact: true,
+        },
+        {
+            path: url( '/employees' ),
+            component: Employees,
+            exact: true,
+        },
+        {
+            path: url( '/employees-add' ),
+            component: AddEmployee,
+        },
 
-		{
-			path: url('/vancancy-add'),
-			component: AddVancancy,
-		},
-		{
-			path: url('/vacancies'),
-			component: Vacancies,
-		},
+        {
+            path: url( '/vancancy-add' ),
+            component: AddVancancy,
+        },
+        {
+            path: url( '/vacancies' ),
+            component: Vacancies,
+        },
 
-		{
-			path: url('/seminars'),
-			component: UpcomingSeminars,
-		},
-		{
-			path: url('/seminars-attended'),
-			component: SeminarsAttended,
-		},
+        {
+            path: url( '/seminars' ),
+            component: UpcomingSeminars,
+        },
+        {
+            path: url( '/seminars-attended' ),
+            component: SeminarsAttended,
+        },
 
-		{
-			path: url('/leave'),
-			component: Applicants,
-		},
-		{
-			path: url('/awards'),
-			component: AwardsAndRecognition,
-		},
-		{
-			path: url('/awards-lists'),
-			component: ListOfAwards,
-		},
+        {
+            path: url( '/leave' ),
+            component: Applicants,
+        },
+        {
+            path: url( '/awards' ),
+            component: AwardsAndRecognition,
+        },
+        {
+            path: url( '/awards-lists' ),
+            component: ListOfAwards,
+        },
 
-		{
-			path: url('/settings'),
-			component: Settings,
-		},
-		{
-			path: url('/supervisors'),
-			component: Supervisor,
-		},
-		{
-			path: url('/leave-application'),
-			component: ApplicationForLeave,
-		},
-		{
-			path: url('/leave-balances'),
-			component: LeaveBalances,
-		},
-		{
-			path: url('/leaves'),
-			component: Leaves,
-		},
-		{
-			path: url('/leave-settings'),
-			component: LeaveSettings,
-		},
-		{
-			path: url('/employment-Status'),
-			component: EmploymentStatus,
-		},
-	];
+        {
+            path: url( '/settings' ),
+            component: Settings,
+        },
+        {
+            path: url( '/supervisors' ),
+            component: Supervisor,
+        },
+        {
+            path: url( '/leave-application' ),
+            component: ApplicationForLeave,
+        },
+        {
+            path: url( '/leave-balances' ),
+            component: LeaveBalances,
+        },
+        {
+            path: url( '/leaves' ),
+            component: Leaves,
+        },
+        {
+            path: url( '/leave-settings' ),
+            component: LeaveSettings,
+        },
+        {
+            path: url( '/employment-Status' ),
+            component: EmploymentStatus,
+        },
+    ];
 
-	return (
-		<>
-			<HomeNav />
-			<Sidebar />
-			<Content>
-				{HomeRoutes.map((route, index) => (
-					<Route {...route} key={index} />
-				))}
-			</Content>
-			<Forms />
-			<Notifications />
-		</>
-	);
+    return (
+        <>
+            <HomeNav />
+            <Sidebar />
+            <Content>
+                {HomeRoutes.map( ( route, index ) => (
+                    <Route {...route} key={index} />
+                ) )}
+            </Content>
+            <Forms />
+            <Notifications />
+        </>
+    );
 }

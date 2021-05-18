@@ -9,5 +9,6 @@ export default function Content( props: any ) {
                 </div>
             </div>
         </main>
+
     )
 }
