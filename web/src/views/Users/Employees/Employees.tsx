@@ -3,10 +3,15 @@ import Pagination from '../../../components/Table/Pagination'
 import axios from 'axios';
 import * as base from '.././../../constants/base'
 import { Alert, Fire } from '../../../components/Alerts/Alert';
-import ShimmerEffect from '../../../components/Shimmer/ShimmerEffect';
 import EmployeesPlaceholder from './EmployeesPlaceholder';
+import SlideModal from '../../../components/Modals/SlideModal';
+import ChangeSupervisor from './ChangeSupervisor';
+import { useHistory } from "react-router-dom";
+
 
 export default function Employees() {
+    const history = useHistory()
+
     const [ employees, setEmployees ] = useState( [] )
 
     useEffect( () => {
@@ -93,17 +98,35 @@ export default function Employees() {
                                                 <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
                                             </td>
 
-
-
                                             <td>
                                                 <button className="btn btn-sm btn-info dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">
-                                                    <button role="butoon" className="dropdown-item" >Add/Change Supervisor</button>
-                                                    <button role="butoon" className="dropdown-item" >View Profile</button>
-                                                    <button role="butoon" className="dropdown-item" >Remove as Employee</button>
-                                                    <button role="butoon" className="dropdown-item" >Leave History</button>
+                                                    <button
+                                                        data-toggle='modal'
+                                                        data-target=".slide-modal"
+                                                        role="butoon" className="dropdown-item" >Add/Change Supervisor</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/settings' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item"  >View Profile</button>
+                                                    <button
+                                                        onClick={() => {
+                                                            Fire( 'Remove Employee?', 'Are you sure you want to remove this employee?', 'warning', () => {
+                                                                Alert( 'SUCCESS', '', 'info' )
+                                                            } )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >Remove as Employee</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/leaves' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >Leave History</button>
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -127,6 +150,16 @@ export default function Employees() {
                     </div>
                 </div>
             </div>
-        </div >
+            <SlideModal
+                title="Change Supervisor"
+                buttonName="Change"
+                callback={() => {
+                    Fire( 'Change Supervisor?', 'Are you sure you want to change the supervisor?', 'info', () => {
+                        Alert( 'SUCCESS', '', 'success' )
+                    } )
+                }}>
+                <ChangeSupervisor />
+            </SlideModal>
+        </div>
     )
 }
