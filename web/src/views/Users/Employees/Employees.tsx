@@ -3,12 +3,16 @@ import Pagination from '../../../components/Table/Pagination'
 import axios from 'axios';
 import * as base from '.././../../constants/base'
 import { Alert, Fire } from '../../../components/Alerts/Alert';
+import ShimmerEffect from '../../../components/Shimmer/ShimmerEffect';
+import EmployeesPlaceholder from './EmployeesPlaceholder';
 
 export default function Employees() {
     const [ employees, setEmployees ] = useState( [] )
 
     useEffect( () => {
-        getEmployees()
+        setTimeout( () => {
+            getEmployees()
+        }, 1000 );
     }, [] )
 
     async function getEmployees() {
@@ -61,6 +65,7 @@ export default function Employees() {
                                 </tr>
                             </thead>
                             <tbody>
+                                <EmployeesPlaceholder show={employees.length !== 0 ? false : true} />
                                 {
                                     employees.map( ( employee: any, index: any ) => (
                                         <tr>
