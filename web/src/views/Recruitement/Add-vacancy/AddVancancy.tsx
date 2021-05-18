@@ -4,6 +4,11 @@ import Competencies from './Competencies'
 import ContactClinets from './ContactClinets'
 
 export default function AddVancancy() {
+
+    const [ addForm, setaddForm ] = React.useState( [ 1 ] )
+    const [ addDuties, setaddDuties ] = React.useState( [ 1 ] )
+
+
     return (
         <div className="row justify-content-center">
             <div className="col-12 col-lg-10 col-xl-8">
@@ -146,17 +151,31 @@ export default function AddVancancy() {
                             <div className="form-group row">
                                 <label className="col-sm-3 col-form-label">Position Title, and Item of Those Directly Supervised</label>
                                 <div className="col-sm-9">
-                                    <button type="button" className="btn btn-outline-primary mb-5">Add</button>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <label >POSITION TITLE</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                        <div className="col-md-6">
-                                            <label >ITEM NUMBER</label>
-                                            <input type="text" className="form-control" />
-                                        </div>
-                                    </div>
+                                    <button
+                                        onClick={() => {
+                                            setaddForm( [ ...addForm, 1 ] )
+                                        }}
+                                        type="button" className="btn btn-outline-primary mb-5">Add</button>
+
+                                    <button
+                                        onClick={() => {
+                                            setaddForm( [] )
+                                        }}
+                                        type="button" className="btn btn-outline-danger ml-2 mb-5">Clear All</button>
+                                    {
+                                        addForm.map( ( value, index ) => (
+                                            <div key={index} className="row mb-4">
+                                                <div className="col-md-6">
+                                                    <label >POSITION TITLE</label>
+                                                    <input type="text" className="form-control" />
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <label >ITEM NUMBER</label>
+                                                    <input type="text" className="form-control" />
+                                                </div>
+                                            </div>
+                                        ) )
+                                    }
                                 </div>
                             </div>
 
@@ -270,13 +289,25 @@ export default function AddVancancy() {
                                             <th className="text-success">(State the duties and responsibilities here:)</th>
                                             <th className="text-success">Competency Level</th>
                                             <th className="text-success">
-                                                <button type="button" className="btn btn-success d-flex">
-                                                    <i className="fe fe-plus"></i> Add
-                                                </button>
+                                                <button
+                                                    onClick={() => {
+                                                        setaddDuties( [ ...addDuties, 1 ] )
+                                                    }}
+                                                    type="button" className="btn btn-success ">Add </button>
+
+                                                <button
+                                                    onClick={() => {
+                                                        setaddDuties( [] )
+                                                    }}
+                                                    type="button" className="btn btn-light ml-2">Clear All</button>
                                             </th>
                                         </tr>
                                     </thead>
-                                    <Competencies />
+                                    {
+                                        addDuties.map( ( value, index ) => (
+                                            <Competencies />
+                                        ) )
+                                    }
                                 </table>
                             </div>
 

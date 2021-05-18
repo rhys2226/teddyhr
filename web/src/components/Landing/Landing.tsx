@@ -46,12 +46,12 @@ export default function LandingUI() {
                                 setModal( <Login /> )
                             }}
                             data-toggle="modal" data-target=".modal-full"
-                            className="btn btn-outline-light ml-4" >
-                            <h1 className="pt-2 pl-5 pr-5 h3">Login</h1>
+                            className="btn btn-light ml-4" >
+                            <h1 className="pt-2 pl-5 pr-5 h3">Login as Applicant</h1>
                         </button>
                     </div>
                 </div>
-                <img style={{ height: '100vh', width: '99vw', background: 'rgba(0,0,0,0.5)', }} src="http://localhost:3000/bg/bg1.jpg" />
+                <img style={{ height: '100vh', width: '99vw' }} src="http://localhost:3000/bg/1.jpg" />
                 <h2 className='text-center bg-info p-5 text-white mt-0' style={styles.headline}>
                     Available Vacancies
                 </h2>

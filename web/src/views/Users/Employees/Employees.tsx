@@ -94,8 +94,8 @@ export default function Employees() {
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-muted"><strong>Agsaluna, Ryan D.</strong></p>
-                                                <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
+                                                <p className="mb-0 text-muted"><strong>You</strong></p>
+                                                {/* <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p> */}
                                             </td>
 
                                             <td>
@@ -128,6 +128,7 @@ export default function Employees() {
                                                         role="butoon" className="dropdown-item" >Leave History</button>
 
                                                 </div>
+                                                <button className="btn btn-sm btn-outline-info ml-2">Rate</button>
                                             </td>
                                         </tr>
 

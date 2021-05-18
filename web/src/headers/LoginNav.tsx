@@ -15,11 +15,6 @@ export default function LoginNav( props: any ) {
                         Login as HR / Employee
                     </a>
                 </li>
-                <li className="nav-item">
-                    <a style={{ cursor: 'pointer' }} className="nav-link my-2  mr-2 text-info" id="modeSwitcher" data-mode="light">
-                        <p className="m-0">  Already Applied? <span className="text-white"> Guest Log-in</span></p>
-                    </a>
-                </li>
             </ul>
         </nav>
     )

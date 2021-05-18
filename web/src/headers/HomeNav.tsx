@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fire } from '../components/Alerts/Alert';
+import { Alert, Fire } from '../components/Alerts/Alert';
 import { useHistory } from "react-router-dom";
 
 
@@ -103,6 +103,7 @@ export default function HomeNav() {
                                     'warning',
                                     () => {
                                         history.push( '/' )
+                                        Alert( 'Thank you for using ISCOF HRMO Application', '', 'success' )
                                     } )
                             }} className='dropdown-item'>
                                 Log-Out

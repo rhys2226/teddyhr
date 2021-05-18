@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Alert, Fire } from '../../../components/Alerts/Alert'
 import Pagination from '../../../components/Table/Pagination'
+import VacanciesPlaceholders from './VacanciesPlaceholders'
 
 export default function Vacancies() {
-    const [ employees, setApplicants ] = useState( [ 1, 2, 3, 2, 3, ] )
+
+    const [ employees, setApplicants ]: any = useState( [] )
+
+    useEffect( () => {
+        setTimeout( () => {
+            setApplicants( [ 1, 2, 3, 2, 3, 1, 2, 3, 2, 3, ] )
+        }, 1000 );
+    }, [] )
+
     return (
         <div className="col-md-12 my-4">
             <h2 className="h4 mb-1">Available Vacancies</h2>
@@ -31,27 +41,68 @@ export default function Vacancies() {
                             </tr>
                         </thead>
                         <tbody>
+                            <VacanciesPlaceholders show={employees.length !== 0 ? false : true} />
                             {
                                 employees.map( ( applicants: any, index: any ) => (
-                                    <tr>
+                                    <tr >
                                         <td className="text-center"> {index + 1} </td>
-                                        <td>Office of Management Information System </td>
 
-                                        <td>
-                                            <p className=" mb-3"><span className="text-danger bold p-1 br-2" > Developer</span></p>
+                                        <td className={`vacancy${ index }`}>Office of Management Information System </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+
+                                        <td className={`vacancy${ index } text-info`}>
+                                            <i className="fe fe-code"></i> Developer
                                         </td>
-                                        <td className="text-center"> N/A </td>
-                                        <td className="text-center"> N/A </td>
-                                        <td className="text-center"> N/A </td>
-                                        <td className="text-center"> N/A </td>
-                                        <td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+
+
+                                        <td className={`vacancy${ index } text-center`}> N/A </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+
+
+                                        <td className={`vacancy${ index } text-center`}> N/A </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+
+
+                                        <td className={`vacancy${ index } text-center`}> N/A </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+
+
+                                        <td className={`vacancy${ index } text-center`}> N/A </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+
+
+                                        <td className={`vacancy${ index }`}>
                                             <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span className="text-muted sr-only">Action</span>
                                             </button>
                                             <div className="dropdown-menu dropdown-menu-right">
-                                                <a className="dropdown-item" >Edit</a>
-                                                <a className="dropdown-item" >Remove</a>
+                                                <button onClick={() => {
+                                                    $( `.vacancy${ index }` ).toggle()
+                                                    $( `.vacancy1${ index }` ).toggle()
+                                                }} className="dropdown-item" >Edit</button>
+
+                                                <button
+                                                    onClick={() => {
+                                                        Fire( 'Delete Vacancy', 'Are you sure you want to Delete this Vacancy?', 'warning', () => {
+                                                            Alert( 'Vacancy Deleted', '', 'info' )
+                                                        } )
+                                                    }}
+                                                    className="dropdown-item" >Remove</button>
+                                                <button className="dropdown-item">View and Edit all</button>
                                             </div>
+                                        </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}>
+                                            <button
+                                                onClick={() => {
+                                                    Fire( 'Update Vacancy', 'Are you sure you want to Update this Vacancy?', 'info', () => {
+                                                        Alert( 'Vacancy Updated', '', 'success' )
+                                                        $( `.vacancy${ index }` ).toggle()
+                                                        $( `.vacancy1${ index }` ).toggle()
+                                                    } )
+                                                }} className="btn btn-sm btn-outline-primary" type="button"  >
+                                                Update
+                                            </button>
                                         </td>
                                     </tr>
                                 ) )
@@ -59,6 +110,20 @@ export default function Vacancies() {
                         </tbody>
                     </table>
                 </div>
+                <Pagination
+                    Pages={() => {
+                        let pages = []
+                        for ( let index in employees ) {
+                            pages.push( parseInt( index ) + 1 )
+                        }
+                        return pages
+                    }}
+                    callback={( callback: Function ) => {
+                        callback()
+                    }}
+                />
+                <br />
+                <br />
             </div>
         </div>
     )
