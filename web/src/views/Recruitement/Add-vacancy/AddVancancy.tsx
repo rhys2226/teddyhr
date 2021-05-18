@@ -1,4 +1,5 @@
 import React from 'react'
+import { Alert, Fire } from '../../../components/Alerts/Alert'
 import Competencies from './Competencies'
 import ContactClinets from './ContactClinets'
 
@@ -279,11 +280,14 @@ export default function AddVancancy() {
                                 </table>
                             </div>
 
-
-
-
-                            <div className="form-group mb-2 float-right mt-5">
-                                <button type="submit" className="btn btn-primary">Post Vacancy</button>
+                            <div className="form-group mb-5 d-flex aic jcc">
+                                <button
+                                    onClick={() => {
+                                        Fire( 'Post Vacancy', 'Are you sure you want to Post Vacancy?', 'info', () => {
+                                            Alert( 'Vacncy Succesfully Posted', '', 'success' )
+                                        } )
+                                    }}
+                                    type="button" className="btn btn-outline-primary">Post Vacancy</button>
                             </div>
                         </form>
                     </div>

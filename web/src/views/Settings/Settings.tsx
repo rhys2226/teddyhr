@@ -51,7 +51,7 @@ export default function Settings() {
 
     return (
         <div className="row justify-content-center">
-            <div className="col-12 col-lg-10 col-xl-8">
+            <div className="col-12 col-lg-10 col-xl-8 card p-5">
                 <h2 className="h3 mb-4 page-title">Account</h2>
                 <div className="my-4">
                     <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">

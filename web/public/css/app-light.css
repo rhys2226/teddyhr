@@ -5033,8 +5033,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
     z-index: 3;
     color: #f8f9fa;
-    background-color: #0D0D0D;
-    border-color: #0D0D0D;
+    background-color: #17A2B8;
+    border-color: #17A2B8;
     border-radius: 4px;
 }
 
@@ -5497,7 +5497,7 @@ a.badge-dark.focus {
 
 .list-group-item-action:active {
     color: #6c757d;
-    background-color: #C00002;
+    background-color: #17A2B8;
 }
 
 .list-group-item {
@@ -5528,7 +5528,7 @@ a.badge-dark.focus {
 .list-group-item.active {
     z-index: 2;
     color: #ffffff;
-    background-color: #C00002;
+    background-color: #17A2B8;
     border-color: #1b68ff;
 }
 
@@ -10583,7 +10583,7 @@ button:focus {
     top: 0;
     bottom: 0;
     width: 4px;
-    background-color: #C00002;
+    background-color: #17A2B8;
 }
 
 .vertical .topnav,
@@ -11304,7 +11304,7 @@ svg.navbar-brand-img {
 
 .navbar-light .navbar-nav .nav-link:hover {
     background: #f8f9fa;
-    color: #C00002;
+    color: #17A2B8;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -11332,8 +11332,8 @@ svg.navbar-brand-img {
 }
 
 .nav-tabs .nav-link.active {
-    color: #C00002;
-    border-color: #C00002;
+    color: #17A2B8;
+    border-color: #17A2B8;
 }
 
 
@@ -16466,6 +16466,14 @@ a.uppy-Dashboard-poweredBy {
 
 .nav-pills li {
     cursor: pointer;
+}
+
+.aic {
+    align-items: center;
+}
+
+.jcc {
+    justify-content: center;
 }
 
 
