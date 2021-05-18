@@ -1,7 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Pagination from '../../../components/Table/Pagination'
+import TopEmployeePlaceholders from '../Placeholders/TopEmployeePlaceholders';
 export default function TopEmployee() {
-    const [ employees, setApplicants ] = useState( [ 1, 2, 3, 2, 3, ] )
+    const [ employees, setApplicants ]: any = useState( [] )
+
+
+    useEffect( () => {
+        setTimeout( () => {
+            setApplicants( [ 1, 2, 3, 2, 3, ] )
+        }, 1000 );
+    }, [] )
+
+
     return (
         <div className="col-md-4 my-4">
             <h2 className="h4 mb-1">Employees of the month</h2>
@@ -18,6 +28,7 @@ export default function TopEmployee() {
                             </tr>
                         </thead>
                         <tbody>
+                            <TopEmployeePlaceholders show={employees.length !== 0 ? false : true} />
                             {
                                 employees.map( ( applicants: any, index: any ) => (
                                     <tr>

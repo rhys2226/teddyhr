@@ -1,8 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Pagination from '../../../components/Table/Pagination'
+import EmployeeAndPerformancePlaceholders from '../Placeholders/EmployeeAndPerformancePlaceholders';
 
 export default function EmployeesAndPerformance() {
-    const [ employees, setApplicants ] = useState( [ 1, 2, 3, 2, 3, ] )
+    const [ employees, setApplicants ]: any = useState( [] )
+
+
+    useEffect( () => {
+        setTimeout( () => {
+            setApplicants( [ 1, 2, 3, 2, 3, ] )
+        }, 1000 );
+    }, [] )
 
     async function filter( keyword: string ) {
         alert( keyword )
@@ -51,6 +59,7 @@ export default function EmployeesAndPerformance() {
                             </tr>
                         </thead>
                         <tbody>
+                            <EmployeeAndPerformancePlaceholders show={employees.length !== 0 ? false : true} />
                             {
                                 employees.map( ( applicants: any, index: any ) => (
                                     <tr>

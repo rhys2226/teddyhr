@@ -49,7 +49,7 @@ export default function Supervisor() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td> <i className="fe fe-cpu"></i> MIS</td>
+                                    <td> <i className="fe fe-rss"></i> &nbsp; Management Information System</td>
                                     <td>
                                         <div className="avatar avatar-sm">
                                             <img src="http://localhost:3000/assets/avatars/face-3.jpg" alt="..." className="avatar-img rounded-circle" />
@@ -68,7 +68,18 @@ export default function Supervisor() {
                             </tbody>
                         </table>
                         <br />
-                        <Pagination />
+                        <Pagination
+                            Pages={() => {
+                                let pages = []
+                                for ( let index in [ 1, 2, 3, 4, 5, 6 ] ) {
+                                    pages.push( parseInt( index ) + 1 )
+                                }
+                                return pages
+                            }}
+                            callback={( callback: Function ) => {
+                                callback()
+                            }}
+                        />
                     </div>
                 </div>
             </div>

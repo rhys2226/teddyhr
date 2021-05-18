@@ -1,17 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Alert, Fire } from '../../../components/Alerts/Alert'
 import FullScreenModal from '../../../components/Modals/FullScreenModal'
 import LargeModal from '../../../components/Modals/LargeModal'
 import SlideModal from '../../../components/Modals/SlideModal'
 import Pagination from '../../../components/Table/Pagination'
+import ApplicantPlaceholders from './ApplicantPlaceholders'
 import ApplicantINformation from './ApplicantINformation'
 import ApplicantSupportingDocument from './ApplicantSupportingDocument'
 import ScheduleAnInterview from './ScheduleAnInterview'
 
 export default function Applicants() {
-    const [ applicants, setApplicants ] = useState( [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ] )
+    const [ applicants, setApplicants ]: any = useState( [] )
 
     const [ modal, setModal ] = useState( ApplicantINformation )
+
+
+    useEffect( () => {
+        setTimeout( () => {
+            setApplicants( [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ] )
+        }, 1000 );
+    }, [] )
 
     function changeModal( type: number ) {
         if ( type === 1 ) {
@@ -57,6 +65,7 @@ export default function Applicants() {
                                 </tr>
                             </thead>
                             <tbody>
+                                <ApplicantPlaceholders show={applicants.length !== 0 ? false : true} />
                                 {
                                     applicants.map( ( applicants: any, index: any ) => (
                                         <tr>

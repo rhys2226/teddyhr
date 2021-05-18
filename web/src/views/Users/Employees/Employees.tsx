@@ -33,16 +33,6 @@ export default function Employees() {
                         <div className="toolbar">
                             <form className="form">
                                 <div className="form-row">
-                                    <div className="form-group col-auto mr-auto">
-                                        <label className="my-1 mr-2 sr-only" >Show</label>
-                                        <select className="custom-select mr-sm-2" id="inlineFormCustomSelectPref1">
-                                            <option value="">...</option>
-                                            <option value="1">12</option>
-                                            <option value="2" selected>32</option>
-                                            <option value="3">64</option>
-                                            <option value="3">128</option>
-                                        </select>
-                                    </div>
                                     <div className="form-group col-auto">
                                         <label className="sr-only">Search</label>
                                         <input type="text" className="form-control" id="search1" value="" placeholder="Search" />
@@ -51,7 +41,7 @@ export default function Employees() {
                             </form>
                         </div>
                         <table className="table table-borderless table-hover">
-                            <thead>
+                            <thead className="table-info">
                                 <tr>
                                     <th className="text-info"><i className="fe fe-user"></i></th>
                                     <th className="text-info">Name</th>
@@ -59,8 +49,8 @@ export default function Employees() {
                                     <th className="text-info">Alignment</th>
                                     <th className="text-info text-center">Months of Services</th>
                                     <th className="text-info text-right">Hired Last</th>
-                                    <th className="text-center"><i className="fe fe-user"></i></th>
-                                    <th>Immediate Supervisor</th>
+                                    <th className="text-center text-dark"><i className="fe fe-user"></i></th>
+                                    <th className="text-dark">Immediate Supervisor</th>
                                     <th className="text-info"></th>
                                 </tr>
                             </thead>
