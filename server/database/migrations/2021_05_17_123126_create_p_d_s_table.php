@@ -49,6 +49,27 @@ class CreatePDSTable extends Migration
             $table->string('spouse_business_address')->nullable();
             $table->string('spouse_telephone_number')->nullable();
             $table->string('father_surname')->nullable();
+            $table->string('father_first_name')->nullable();
+            $table->string('father_middle_name')->nullable();
+            $table->string('mother_surname')->nullable();
+            $table->string('mother_first_name')->nullable();
+            $table->string('mother_middle_name')->nullable();
+            $table->string('government_issued_id')->nullable();
+            $table->string('id_license_passport_no')->nullable();
+            $table->string('date_place_of_issuance')->nullable();
+            $table->string('date_accomplished')->nullable();
+            $table->json('children');
+            $table->json('educational_background');
+            $table->json('civil_service_eligibility');
+            $table->json('work_experience');
+            $table->json('voluntary_work');
+            $table->json('learning_and_development');
+            $table->json('other_information');
+            $table->json('questions');
+            $table->json('references');
+            $table->text('signature');
+            $table->text('right_thumbmark');
+            $table->text('person_administering_oath');
             $table->timestamps();
         });
     }

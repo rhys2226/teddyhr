@@ -7,6 +7,7 @@ use App\Http\Controllers\HRMOUserController;
 use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\SupervisorsController;
 use App\Http\Controllers\AwardsController;
+use App\Http\Controllers\PDSController;
 use App\Http\Controllers\SeminarsController;
 
 Route::prefix('/auth')->group(function () {
@@ -18,3 +19,5 @@ Route::resource('/Departments', DepartmentsController::class);
 Route::resource('/Supervisors', SupervisorsController::class);
 Route::resource('/Awards', AwardsController::class);
 Route::resource('/Seminars', SeminarsController::class);
+
+Route::apiResource('/pds', PDSController::class);

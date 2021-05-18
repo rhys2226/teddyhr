@@ -12,9 +12,9 @@ class PDSController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return $request->user()->pds;
     }
 
     /**
@@ -25,7 +25,18 @@ class PDSController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /**
+         * @var \App\Models\User
+         */
+        $user = $request->user();
+
+        if ($user->pds) {
+            $user->pds->update($request->all());
+        } else {
+            $user->pds()->create($request->all());
+        }
+
+        return $user->pds;
     }
 
     /**
@@ -34,9 +45,9 @@ class PDSController extends Controller
      * @param  \App\Models\PDS  $pDS
      * @return \Illuminate\Http\Response
      */
-    public function show(PDS $pDS)
+    public function show(Request $request, PDS $pDS)
     {
-        //
+        return $request->user()->pds;
     }
 
     /**
@@ -48,7 +59,18 @@ class PDSController extends Controller
      */
     public function update(Request $request, PDS $pDS)
     {
-        //
+        /**
+         * @var \App\Models\User
+         */
+        $user = $request->user();
+
+        if ($user->pds) {
+            $user->pds->update($request->all());
+        } else {
+            $user->pds()->create($request->all());
+        }
+
+        return $user->pds;
     }
 
     /**
@@ -57,8 +79,8 @@ class PDSController extends Controller
      * @param  \App\Models\PDS  $pDS
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PDS $pDS)
+    public function destroy(Request $request, PDS $pDS)
     {
-        //
+        return $request->user()->pds;
     }
 }

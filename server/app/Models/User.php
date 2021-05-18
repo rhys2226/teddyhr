@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
-  
+
     protected $fillable = [
         'username',
         'password',
@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $casts = [
         'username_at' => 'datetime',
     ];
+
+    public function pds()
+    {
+        return $this->hasOne(PDS::class);
+    }
 }
