@@ -9,12 +9,13 @@ import Vacancies from './Vacancies';
 export default function LandingUI() {
     const styles = {
         headline: {
-            fontSize: '2rem',
-            fontWeight: 400,
+            fontWeight: 900,
+            fontSize: '4rem'
         },
+
     };
 
-    let array = [ 1, 2, 2, 3, 3, 4, 5, 56, 6, 7, 123, 12, 321 ];
+    let array = [ 1, 2, 2, 3, 3, 4, 1, 2, 2, 3, 3, 4, ];
 
     const [ modal, setModal ] = React.useState( <div></div> )
 
@@ -23,25 +24,36 @@ export default function LandingUI() {
             <LoginNav modal={() => {
                 setModal( <Login /> )
             }} />
-            <div className='wrapper '>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <h1 className='text-center p-3' style={styles.headline}>
-                    Welcome to ISCOF professional community!
-					<br />
-					Get hired and work for
+            <div className='wrapper bg-light'>
+                <div style={{ height: '100vh', width: '99vw', background: 'rgba(0,0,0,0.5)', position: 'absolute', zIndex: 0 }}></div>
+                <div style={{ position: 'absolute', zIndex: 2, top: '20vh', width: '100%' }}>
+                    <h1 className='text-center p-5 text-white h1' style={styles.headline}>
+                        Get hired and work for
 					<br />
 					IloIlo State College of Fisheries
-				</h1>
-                <hr />
-                <br />
-                <h2 className='text-center'>
-                    <strong>Available Vacancies </strong>
+				    </h1>
+                    <div className="w-100 text-center">
+                        <button
+                            onClick={() => {
+                                setModal( <ApplicationForm /> )
+                            }}
+                            data-toggle="modal" data-target=".modal-full"
+                            className="btn btn-danger ml-4" >
+                            <h1 className="text-white pt-2 pl-5 pr-5 h3">Apply Now</h1>
+                        </button>
+                        <button
+                            onClick={() => {
+                                setModal( <Login /> )
+                            }}
+                            data-toggle="modal" data-target=".modal-full"
+                            className="btn btn-outline-light ml-4" >
+                            <h1 className="pt-2 pl-5 pr-5 h3">Login</h1>
+                        </button>
+                    </div>
+                </div>
+                <img style={{ height: '100vh', width: '99vw', background: 'rgba(0,0,0,0.5)', }} src="http://localhost:3000/bg/bg1.jpg" />
+                <h2 className='text-center bg-info p-5 text-white mt-0' style={styles.headline}>
+                    Available Vacancies
                 </h2>
                 <br />
                 <br />
@@ -54,7 +66,11 @@ export default function LandingUI() {
                         ) )}
                     </div>
                 </div>
+                <br />
+                <br />
+                <br />
             </div>
+
             <FullScreenModal>
                 {modal}
             </FullScreenModal>

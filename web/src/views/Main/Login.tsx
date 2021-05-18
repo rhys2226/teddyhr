@@ -35,7 +35,7 @@ const Login: FC<Props> = ( props ) => {
         <div className='row align-items-center h-100'>
             <form className='col-lg-5'>
                 <div className="mt-2 p-0 mr-3">
-                    <h1 className=" m-0">HRMO</h1>
+                    <h1 className="text-info m-0">HRMO</h1>
                 </div>
                 <br />
                 <div className="input-group mb-3">
@@ -54,7 +54,7 @@ const Login: FC<Props> = ( props ) => {
                     </div>
                     <input onChange={( e ) => { setpassword( e.target.value ) }} type="password" className="form-control" placeholder="Password" />
                 </div>
-                <button disabled={disabled} onClick={( e ) => { e.preventDefault(); login() }} className='btn btn-lg btn-danger btn-block' type='submit'>
+                <button disabled={disabled} onClick={( e ) => { e.preventDefault(); login() }} className='btn btn-lg btn-info btn-block' type='submit'>
                     Login
                 </button>
                 <p className='mt-5 mb-3 text-muted'>© Developed By | Teddy Fuentivilla </p>
