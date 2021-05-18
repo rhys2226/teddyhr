@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Alert, Fire } from '../../../components/Alerts/Alert'
 import FullScreenModal from '../../../components/Modals/FullScreenModal'
 import LargeModal from '../../../components/Modals/LargeModal'
+import SlideModal from '../../../components/Modals/SlideModal'
 import Pagination from '../../../components/Table/Pagination'
 import ApplicantINformation from './ApplicantINformation'
 import ApplicantSupportingDocument from './ApplicantSupportingDocument'
+import ScheduleAnInterview from './ScheduleAnInterview'
 
 export default function Applicants() {
     const [ applicants, setApplicants ] = useState( [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ] )
@@ -123,11 +125,8 @@ export default function Applicants() {
                                                         className="dropdown-item" >Reject</button>
 
                                                     <button
-                                                        onClick={() => {
-                                                            Fire( 'Schedule an Interview', 'Are you sure you want to Schedule an Interview?', 'info', () => {
-                                                                Alert( 'SUCCESS', '', 'success' )
-                                                            } )
-                                                        }}
+                                                        data-toggle='modal'
+                                                        data-target=".slide-modal"
                                                         className="dropdown-item">Schedule an Interview</button>
                                                 </div>
                                             </td>
@@ -156,6 +155,16 @@ export default function Applicants() {
             <LargeModal>
                 {modal}
             </LargeModal>
+            <SlideModal
+                title="Schedule an Interview"
+                buttonName="Schedule Interview"
+                callback={() => {
+                    Fire( 'Schedule an Interview', 'Are you sure you want to Schedule an Interview?', 'info', () => {
+                        Alert( 'SUCCESS', '', 'success' )
+                    } )
+                }}>
+                <ScheduleAnInterview />
+            </SlideModal>
         </div >
     )
 }

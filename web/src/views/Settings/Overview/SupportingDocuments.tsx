@@ -56,7 +56,6 @@ export default function SupportingDocuments() {
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <a className="dropdown-item" href="#">Download</a>
-                                    <a className="dropdown-item" href="#">View</a>
                                     <a className="dropdown-item" href="#">Remove</a>
                                 </div>
                             </div>
