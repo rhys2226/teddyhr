@@ -34,6 +34,14 @@ export const supervisions = [
     },
 ]
 
+export const asignatories = [
+    {
+        title: 'Assignatory Settings',
+        route: '/home/assignatories',
+        icon: 'fe-settings'
+    },
+]
+
 
 export const recruitmentProcess = [
     {

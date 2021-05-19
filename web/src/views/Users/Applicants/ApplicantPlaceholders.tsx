@@ -31,6 +31,7 @@ const ApplicantPlaceholders: FC<Props> = ( props ) => {
                             <ShimmerEffect type='line' />
                         </td>
                         <td>
+                            <ShimmerEffect type='title' />
                             <ShimmerEffect type='line' />
                         </td>
                         <td className=" text-center">
@@ -42,7 +43,9 @@ const ApplicantPlaceholders: FC<Props> = ( props ) => {
                         <td className="text-right">
                             <ShimmerEffect type='line' />
                         </td>
-
+                        <td className="text-right">
+                            <ShimmerEffect type='line' />
+                        </td>
                     </tr>
                 ) )
             }

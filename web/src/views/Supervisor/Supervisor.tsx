@@ -39,7 +39,7 @@ export default function Supervisor() {
                                     <th className="text-secondary"><i className="fe fe-pause"></i> &nbsp; Department</th>
                                     <th className="text-primary text-center"><i className="fe fe-user"></i></th>
                                     <th className="text-primary">Supervisor</th>
-                                    <th className="text-info">Subordiante</th>
+                                    <th className="text-info"></th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -85,7 +85,7 @@ export default function Supervisor() {
                                             data-target=".large-modal"
                                             className="btn btn-outline-info "
                                             type="button">
-                                            Subordinates
+                                            View Subordinates
                                         </button>
 
                                     </td>

@@ -25,7 +25,7 @@ export default function LandingUI() {
                 setModal( <Login /> )
             }} />
             <div className='wrapper bg-light'>
-                <div style={{ height: '100vh', width: '99vw', background: 'rgba(0,0,0,0.5)', position: 'absolute', zIndex: 0 }}></div>
+                <div style={{ height: '100vh', width: '99vw', background: 'rgba(0,0,0,0.76)', position: 'absolute', zIndex: 0 }}></div>
                 <div style={{ position: 'absolute', zIndex: 2, top: '20vh', width: '100%' }}>
                     <h1 className='text-center p-5 text-white h1' style={styles.headline}>
                         Get hired and work for

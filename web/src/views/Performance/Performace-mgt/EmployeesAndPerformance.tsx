@@ -43,7 +43,7 @@ export default function EmployeesAndPerformance() {
                             </div>
                         </form>
                     </div>
-                    <table className="table table-borderless table-hover">
+                    <table className="table ">
                         <thead className="table-warning">
                             <tr>
                                 <th className="text-center text-warning"><i className="fe fe-user"></i></th>
