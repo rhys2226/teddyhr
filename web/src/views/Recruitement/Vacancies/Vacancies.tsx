@@ -92,17 +92,26 @@ export default function Vacancies() {
                                                 <button className="dropdown-item">View and Edit all</button>
                                             </div>
                                         </td>
-                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}>
-                                            <button
-                                                onClick={() => {
-                                                    Fire( 'Update Vacancy', 'Are you sure you want to Update this Vacancy?', 'info', () => {
-                                                        Alert( 'Vacancy Updated', '', 'success' )
+                                        <td className={`vacancy1${ index } `} style={{ display: 'none' }}>
+                                            <div className="d-flex">
+                                                <button
+                                                    onClick={() => {
+                                                        Fire( 'Update Vacancy', 'Are you sure you want to Update this Vacancy?', 'info', () => {
+                                                            Alert( 'Vacancy Updated', '', 'success' )
+                                                            $( `.vacancy${ index }` ).toggle()
+                                                            $( `.vacancy1${ index }` ).toggle()
+                                                        } )
+                                                    }} className="btn btn-sm btn-outline-primary" type="button"  >
+                                                    Update
+                                                </button>
+                                                <button
+                                                    onClick={() => {
                                                         $( `.vacancy${ index }` ).toggle()
                                                         $( `.vacancy1${ index }` ).toggle()
-                                                    } )
-                                                }} className="btn btn-sm btn-outline-primary" type="button"  >
-                                                Update
-                                            </button>
+                                                    }} className="btn btn-sm btn-outline-dark ml-2" type="button"  >
+                                                    Cancel
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ) )
