@@ -1,12 +1,22 @@
 import React from 'react'
+import { Alert, Fire } from '../../components/Alerts/Alert'
 import LargeModal from '../../components/Modals/LargeModal'
 import Pagination from '../../components/Table/Pagination'
 import Subordinates from './Subordinates'
+import SupervisorPlaceholder from './SupervisorPlaceholder'
 
 
 export default function Supervisor() {
 
     const [ add, setAdd ] = React.useState( false )
+
+    const [ supervisors, setsupervisors ]: any = React.useState( [] )
+
+    React.useEffect( () => {
+        setTimeout( () => {
+            setsupervisors( [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] )
+        }, 1000 );
+    }, [] )
 
     return (
         <div>
@@ -44,10 +54,10 @@ export default function Supervisor() {
                                 </tr>
                             </thead>
                             <tbody>
+                                <SupervisorPlaceholder show={supervisors.length !== 0 ? false : true} />
                                 <tr style={{ display: add === true ? 'table-row' : 'none' }}>
                                     <td> <input className="form-control" /></td>
                                     <td></td>
-
                                     <td>
                                         <select className="form-control">
                                             <option selected disabled>Choose..</option>
@@ -58,39 +68,44 @@ export default function Supervisor() {
                                             <option selected disabled>Choose..</option>
                                         </select>
                                     </td>
-
                                     <td>
                                         <button
                                             onClick={() => {
-                                                setAdd(
-                                                    add === false ? true : false
-                                                )
+                                                Fire( 'Add Subordinate', 'Are you sure you want to add Employee on MIS?', 'warning', () => {
+                                                    Alert( 'Employee Added to MIS', '', 'info' )
+                                                    setAdd(
+                                                        add === false ? true : false
+                                                    )
+                                                } )
                                             }}
-                                            className="btn btn-primary">Submit</button>
+                                            className="btn btn-primary">Submit
+                                                    </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td> <i className="fe fe-pause"></i> &nbsp; Management Information System</td>
-                                    <td className="text-center">
-                                        <div className="avatar avatar-md">
-                                            <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Ryan Agsaluna
-                                    </td>
-                                    <td>
-                                        <button
-                                            data-toggle='modal'
-                                            data-target=".large-modal"
-                                            className="btn btn-outline-info "
-                                            type="button">
-                                            View Subordinates
-                                        </button>
+                                {
+                                    supervisors.map( ( supervisor: any, index: number ) => (
+                                        <tr>
+                                            <td> <i className="fe fe-pause"></i> &nbsp; Management Information System</td>
+                                            <td className="text-center">
+                                                <div className="avatar avatar-md">
+                                                    <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                </div>
+                                            </td>
+                                            <td> Ryan Agsaluna </td>
+                                            <td>
+                                                <button
+                                                    data-toggle='modal'
+                                                    data-target=".large-modal"
+                                                    className="btn btn-outline-info "
+                                                    type="button">
+                                                    View Subordinates
+                                                </button>
 
-                                    </td>
-                                    <td></td>
-                                </tr>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    ) )
+                                }
                             </tbody>
                         </table>
                         <br />
