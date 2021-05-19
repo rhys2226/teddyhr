@@ -2,8 +2,11 @@ import React from 'react'
 import './ICPR.css'
 import '../Doc.css'
 
+type Props = {
+    data: Function
+}
 
-export default function ICPRPage2() {
+export default function ICPRPage2( props: Props ) {
     return (
         <div className="bg-white landscape .docs">
             <table className="table">

@@ -55,8 +55,6 @@ export default function ApplicationForm() {
         }
     }
 
-
-
     return (
         <div className='container-fluid application-form'>
             <div className='row align-items-center h-100'>

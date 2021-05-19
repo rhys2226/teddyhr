@@ -1,8 +1,11 @@
 import '../Doc.css'
 import './ICPR.css'
 
-export default function ICPRPage1() {
+type Props = {
+    data: Function
+}
 
+export default function ICPRPage1( props: Props ) {
 
     return (
         <div className="bg-white landscape docs">
