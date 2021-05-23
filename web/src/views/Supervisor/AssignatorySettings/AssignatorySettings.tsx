@@ -59,29 +59,29 @@ export default function AssignatorySettings() {
                                             <td>
                                                 <ul className="avatars-list">
                                                     <li>
-                                                        <a href="#!" className="avatar avatar-sm">
+                                                        <a href="#!" className="avatar avatar-md">
                                                             <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-1.jpg" />
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#!" className="avatar avatar-sm">
+                                                        <a href="#!" className="avatar avatar-md">
                                                             <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-4.jpg" />
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#!" className="avatar avatar-sm">
+                                                        <a href="#!" className="avatar avatar-md">
                                                             <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-3.jpg" />
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#!" className="avatar avatar-sm">
+                                                        <a href="#!" className="avatar avatar-md">
                                                             <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-7.jpg" />
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </td>
                                             <td>
-                                                <button className="btn btn-sm btn-dark dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button className="btn btn-md btn-dark dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">
