@@ -129,7 +129,7 @@ export default function Employees() {
                                                         }}
                                                         role="butoon" className="dropdown-item" >Leave History</button>
                                                     <button
-                                                        role="butoon" className="dropdown-item" >Priveleges</button>
+                                                        role="butoon" className="dropdown-item" >Privileges</button>
 
                                                 </div>
                                                 <button

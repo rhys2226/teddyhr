@@ -37,6 +37,11 @@ export default function Approvals() {
                                         <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-3.jpg" />
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#!" className="avatar avatar-sm">
+                                        <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-7.jpg" />
+                                    </a>
+                                </li>
                             </ul>
                         </td>
                         <td>
@@ -54,11 +59,6 @@ export default function Approvals() {
                                 <li>
                                     <a href="#!" className="avatar avatar-sm">
                                         <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-3.jpg" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#!" className="avatar avatar-sm">
-                                        <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-7.jpg" />
                                     </a>
                                 </li>
                             </ul>
