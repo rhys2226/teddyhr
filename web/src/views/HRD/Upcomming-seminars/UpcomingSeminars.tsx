@@ -82,6 +82,13 @@ export default function UpcomingSeminars() {
                                                     Alert( 'Seminar Joined', '', 'success' )
                                                 } )
                                             }} className="btn bg-primary-lighter text-primary">Join</button>
+
+                                        <button
+                                            onClick={() => {
+                                                Fire( 'Remove Seminar?', 'Are you sure you want to Remove Seminar?', 'info', () => {
+                                                    Alert( 'Seminar Removed', '', 'success' )
+                                                } )
+                                            }} className="btn bg-primary-danger text-danger">Remove</button>
                                     </div>
                                 </div>
                             ) )

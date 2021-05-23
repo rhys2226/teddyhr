@@ -40,6 +40,11 @@ export const asignatories = [
         route: '/home/assignatories',
         icon: 'fe-settings'
     },
+    {
+        title: 'Approvals',
+        route: '/home/approvals',
+        icon: 'fe-pen-tool'
+    },
 ]
 
 
