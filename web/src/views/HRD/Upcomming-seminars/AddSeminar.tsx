@@ -7,7 +7,7 @@ type Props = {
 }
 export default function AddSeminar( props: Props ) {
     return (
-        <div style={{ display: props.show == false ? 'none' : 'block' }} className="my-4">
+        <div style={{ display: props.show == false ? 'none' : 'block' }} className="my-4 p-5 m-0 col-md-12 row">
             <h3 className="mb-0">Seminar Photos</h3>
             <p className="text-muted mt-0">Upload your images files</p>
             <div className='card shadow mb-4 mt-1'>

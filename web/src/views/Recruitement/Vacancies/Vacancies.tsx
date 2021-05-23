@@ -89,7 +89,6 @@ export default function Vacancies() {
                                                         } )
                                                     }}
                                                     className="dropdown-item" >Remove</button>
-                                                <button className="dropdown-item">View and Edit all</button>
                                             </div>
                                         </td>
                                         <td className={`vacancy1${ index } `} style={{ display: 'none' }}>
