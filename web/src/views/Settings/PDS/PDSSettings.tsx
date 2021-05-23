@@ -17,7 +17,7 @@ export default function PDSSettings() {
 
     return (
         <div>
-            <div className="row">
+            <div className="row d-flex aic jcc">
                 <div className="col-md-5">
                     <ul className="nav nav-pills" id="pills-tab2" role="tablist">
                         <li className="nav-item">

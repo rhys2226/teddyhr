@@ -2,7 +2,7 @@
     width: 29.7cm;
     height: 21cm;
     display: block;
-    box-shadow: 0 0 0.4cm rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0.4cm rgba(0, 0, 50, 0.2);
     padding: 3rem;
 }
 
@@ -10,7 +10,7 @@
     width: 21cm;
     height: 29.7cm;
     display: block;
-    box-shadow: 0 0 0.4cm rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0.4cm rgba(0, 0, 50, 0.2);
     padding: 2.5rem 1rem;
 }
 
@@ -18,7 +18,7 @@
     width: 21cm;
     height: 29.7cm;
     display: block;
-    box-shadow: 0 0 0.1cm rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.4cm rgba(0, 0, 50, 0.2);
     padding: 3rem;
 }
 

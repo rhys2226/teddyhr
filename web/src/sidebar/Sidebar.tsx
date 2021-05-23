@@ -76,7 +76,7 @@ export default function Sidebar() {
                             </li>
                         ) )
                     }
-                    
+
                     <p className="text-muted   nav-heading mt-4 mb-1">
                         <span>Assignatories</span>
                     </p>
@@ -90,8 +90,8 @@ export default function Sidebar() {
                             </li>
                         ) )
                     }
-                    
-                    
+
+
                     <p className="text-muted nav-heading mt-4 mb-1">
                         <span>Recruitement</span>
                     </p>
@@ -157,9 +157,6 @@ export default function Sidebar() {
                             </li>
                         ) )
                     }
-
-
-
                 </ul>
             </nav>
         </aside >

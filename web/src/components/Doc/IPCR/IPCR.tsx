@@ -8,7 +8,12 @@ export default function IpCR() {
 
     return (
 
-        <div>
+        <div className="d-flex aic jcc" style={{ flexDirection: 'column' }}>
+            <button className="btn btn-primary mb-3">
+                <i className=" fe fe-download"></i>
+                <span>&nbsp;Download IPCR</span>
+            </button>
+
             <ICPRPage1
                 data={( data: JSON ) => {
                     console.log( data )

@@ -1,12 +1,16 @@
 import React from 'react'
 
-export default function Pagination( props: any ) {
+type Props = {
+    Pages: Function;
+    callback: Function;
+}
+
+export default function Pagination( props: Props ) {
 
     const [ currentPage, setCurrentPage ] = React.useState( 1 )
 
     async function changePage( page: number ) {
         setCurrentPage( page )
-
     }
 
     return (
@@ -16,8 +20,7 @@ export default function Pagination( props: any ) {
                     className="page-item"
                     onClick={() => {
                         changePage( currentPage - 1 )
-                    }}
-                >
+                    }}>
                     <button disabled={currentPage == 1 ? true : false} className="page-link">Previous</button>
                 </li>
                 {
@@ -31,10 +34,10 @@ export default function Pagination( props: any ) {
                         </li>
                     ) )
                 }
-                <li onClick={() => {
-                    changePage( currentPage + 1 )
-                }}
-                    className="page-item">
+                <li className="page-item"
+                    onClick={() => {
+                        changePage( currentPage + 1 )
+                    }}>
                     <button disabled={currentPage == props.Pages().length ? true : false} className="page-link" >Next</button>
                 </li>
             </ul>

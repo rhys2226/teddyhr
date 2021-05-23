@@ -46,7 +46,7 @@ export default function PDS() {
 
     return (
         <div>
-            <ul className="nav nav-pills" id="pills-tab2" role="tablist">
+            <ul className="nav nav-pills d-flex aic jcc" id="pills-tab2" role="tablist">
                 <li className="nav-item">
                     <p onClick={() => changeTab( 1 )} className="nav-link active" id="pills-home-tab" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">
                         <i className="fe fe-folder"></i>
@@ -72,7 +72,10 @@ export default function PDS() {
                     </p>
                 </li>
             </ul>
-            {component}
+            <div className="d-flex aic jcc" style={{ flexDirection: 'column' }}>
+                {component}
+
+            </div>
         </div>
     )
 }

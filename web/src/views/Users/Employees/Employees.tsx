@@ -9,6 +9,8 @@ import ChangeSupervisor from './ChangeSupervisor';
 import { useHistory } from "react-router-dom";
 import LargeModal from '../../../components/Modals/LargeModal';
 import EmployeeICPR from './EmployeeICPR';
+import FullScreenModal from '../../../components/Modals/FullScreenModal';
+import Privileges from './Privileges';
 
 
 export default function Employees() {
@@ -129,7 +131,9 @@ export default function Employees() {
                                                         }}
                                                         role="butoon" className="dropdown-item" >Leave History</button>
                                                     <button
-                                                        role="butoon" className="dropdown-item" >Privileges</button>
+                                                        data-toggle='modal'
+                                                        data-target=".modal-full"
+                                                        role="butoon" className="dropdown-item" >Permissions</button>
 
                                                 </div>
                                                 <button
@@ -173,6 +177,9 @@ export default function Employees() {
             <LargeModal>
                 <EmployeeICPR />
             </LargeModal>
+            <FullScreenModal>
+                <Privileges />
+            </FullScreenModal>
         </div>
     )
 }
