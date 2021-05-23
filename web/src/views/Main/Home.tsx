@@ -20,6 +20,8 @@ import Leaves from '../Settings/Leave-card/Leave/Leaves';
 import LeaveSettings from '../Settings/Leave-card/Leave/LeaveSettings';
 import Settings from '../Settings/Settings';
 import EmploymentStatus from '../Settings/Status/EmploymentStatus';
+import Approvals from '../Supervisor/Approvals/Approvals';
+import AssignatorySettings from '../Supervisor/AssignatorySettings/AssignatorySettings';
 import Supervisor from '../Supervisor/Supervisor';
 import AddEmployee from '../Users/Add-Employee/AddEmployee';
 import Applicants from '../Users/Applicants/Applicants';
@@ -114,7 +116,20 @@ export default function Home() {
             path: url( '/employment-Status' ),
             component: EmploymentStatus,
         },
+
+        {
+            path: url( '/approvals' ),
+            component: Approvals,
+        },
+
+        {
+            path: url( '/assignatories' ),
+            component: AssignatorySettings,
+        },
+
+
     ];
+
 
     return (
         <>

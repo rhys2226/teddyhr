@@ -52,8 +52,8 @@ export default function TopEmployee() {
 
 
                                         <td>
-                                            <p className="mb-0 text-muted"><strong>Agsaluna, Ryan D.</strong></p>
-                                            <p className="small mb-3"><span className="badge badge-dark text-white p-1 br-2" style={{ fontWeight: 900, }}>Director</span></p>
+                                            <p className="mb-0 text-muted"><strong>Agsaluna, Ryan </strong></p>
+                                            <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> MIS Director</span></p>
                                         </td>
 
                                     </tr>

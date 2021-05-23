@@ -90,7 +90,7 @@ export default function Employees() {
 
 
                                             <td className="text-center">
-                                                <div className="avatar avatar-lg">
+                                                <div className="avatar avatar-xl">
                                                     <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>

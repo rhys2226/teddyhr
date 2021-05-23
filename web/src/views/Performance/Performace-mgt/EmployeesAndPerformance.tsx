@@ -68,7 +68,7 @@ export default function EmployeesAndPerformance() {
                                         </td>
 
                                         <td>
-                                            <p className="mb-0 text-muted"><strong>Fuentevilla, Teddy D.</strong></p>
+                                            <p className="mb-0 text-muted"><strong>Fuentevilla, Teddy.</strong></p>
                                             <p className="small mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
                                         </td>
 
@@ -101,14 +101,14 @@ export default function EmployeesAndPerformance() {
                                         </td>
 
                                         <td className="text-center">
-                                            <div className="avatar avatar-md">
+                                            <div className="avatar avatar-lg">
                                                 <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 
                                         <td>
                                             <p className="mb-0 text-muted"><strong>Agsaluna, Ryan D.</strong></p>
-                                            <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
+                                            <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> MIS Director</span></p>
                                         </td>
                                     </tr>
                                 ) )
