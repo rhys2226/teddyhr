@@ -76,8 +76,8 @@ export default function AddEmployee() {
             <div className="col-12 col-lg-10 col-xl-8">
                 <div className="card-deck">
                     <div className="card shadow mb-4">
-                        <div className="card-header">
-                            <strong className="card-title">Employee form</strong>
+                        <div className="card-header p-3">
+                            <h2 className="card-title mt-2">Employee Form</h2>
                         </div>
                         <div className="card-body">
                             <form className="row">

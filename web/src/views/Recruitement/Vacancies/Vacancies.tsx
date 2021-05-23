@@ -15,7 +15,7 @@ export default function Vacancies() {
 
     return (
         <div className="col-md-12 my-4">
-            <h2 className="h4 mb-1">Available Vacancies</h2>
+            <h2 className=" mb-1">Available Vacancies</h2>
             <p className="mb-3 text-muted">Displaying List of Vacancies in descending order</p>
             <div className="card shadow">
                 <div className="card-body">

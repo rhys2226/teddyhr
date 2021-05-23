@@ -18,8 +18,11 @@ export default function EmployeesAndPerformance() {
 
     return (
         <div className="col-md-8 my-4">
-            <h2 className="h4 mb-1">Employee Performance</h2>
-            <p className="mb-3 text-muted">Displaying List of Employee's Performance in descending order</p>
+            <h2 className=" mb-1">
+                <i className="fe fe-32 fe-bar-chart-2"></i>
+                Employee Performance</h2>
+            <p className="mb-3 text-muted">
+                Displaying List of Employee's Performance in descending order</p>
             <div className="card ">
                 <div className="card-body">
                     <div className="toolbar">

@@ -36,8 +36,7 @@ export default function Applicants() {
     return (
         <div>
             <div className="col-md-12 my-4">
-                <h2 className="h4 mb-1">Applicants</h2>
-                <p className="mb-3 text-muted">Displaying applicants in descending order</p>
+                <h2 className=" mb-1"> Applicants</h2><p className="mb-3 text-muted">Displaying applicants in descending order</p>
                 <div className="card shadow">
                     <div className="card-body">
                         <div className="toolbar">
