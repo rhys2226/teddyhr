@@ -9,7 +9,6 @@ import {
     Forms,
     employemtStatus,
     supervisions,
-    asignatories
 } from './Navs'
 import { useHistory } from "react-router-dom";
 import * as base from './../constants/base'
@@ -76,21 +75,6 @@ export default function Sidebar() {
                             </li>
                         ) )
                     }
-
-                    <p className="text-muted   nav-heading mt-4 mb-1">
-                        <span>Assignatories</span>
-                    </p>
-                    {
-                        asignatories.map( ( nav: any, index: any ) => (
-                            <li key={index} className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>
-                                <a onClick={() => history.push( nav.route )} role="button" className="nav-link" >
-                                    <i className={`fe ${ nav.icon }  fe-16`}></i>
-                                    <span className="ml-3 item-text">{nav.title}</span>
-                                </a>
-                            </li>
-                        ) )
-                    }
-
 
                     <p className="text-muted nav-heading mt-4 mb-1">
                         <span>Recruitement</span>

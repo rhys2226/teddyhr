@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
+import { Alert } from '../../Alerts/Alert'
 
-export default function ApplicationStep3( props: any ) {
-    return (
-        <div>
-            <h3 className="mb-0">Attachments</h3>
-            <p className="text-muted mt-0">Upload your CV or Resume, Application letter and other Supporting Documents</p>
-            <div className='card shadow mb-4 mt-5'>
+type Props = {
+    data: Function
+    makeStep: Function
+}
+
+export default function ApplicationStep3( props: Props ) {
+
+    const [ files, setfiles ] = React.useState( [] )
+
+    function DropZone() {
+        const onDrop = useCallback( acceptedFiles => {
+            setfiles( acceptedFiles )
+        }, [] )
+        const { getRootProps, getInputProps, isDragActive } = useDropzone( { onDrop } )
+
+        return (
+            <div className='card shadow mb-4 mt-5' {...getRootProps()}>
+                <input {...getInputProps()} />
                 <div className='card-body'>
                     <form action='/file-upload' className='dropzone bg-light rounded-lg' id='tinydash-dropzone'>
                         <div className='dz-message needsclick'>
                             <div className='circle circle-lg bg-primary'>
                                 <i className='fe fe-upload fe-24 text-white'></i>
                             </div>
-                            <h5 className='text-muted mt-4'>Drop files here or click to upload</h5>
+                            <h5 className="text-muted m-5">Drag & Drop your Resume, CV, Application Letter and other Supporting Documents Here</h5>
                         </div>
                     </form>
                     <div className='dropzone-previews mt-3' id='file-previews'></div>
@@ -39,9 +53,52 @@ export default function ApplicationStep3( props: any ) {
                     </div>
                 </div>
             </div>
+        )
+    }
+
+    return (
+        <div>
+
+            <h3 className="mb-0">Attachments</h3>
+            <p className="text-muted mt-0">Upload your CV or Resume, Application letter and other Supporting Documents</p>
+
+            <DropZone />
+
+            <table className="table" style={{ display: files.length == 0 ? 'none' : 'table' }}>
+                <thead className="table-info">
+                    <tr>
+                        <th className="text-info"></th>
+                        <th className="text-info">Name</th>
+                        <th className="text-info">Type</th>
+                        <th className="text-info">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        files.map( ( file: any, index ) => (
+                            <tr key={index}>
+                                <td><i className="fe fe-file text-primary"></i></td>
+                                <td>{file.name}</td>
+                                <td>{file.type}</td>
+                                <td>{file.size} kb</td>
+                            </tr>
+                        ) )
+                    }
+                </tbody>
+            </table>
+
+
             <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
+                <button style={{ display: files.length == 0 ? 'none' : 'block' }} onClick={() => setfiles( [] )} className='btn btn-outline-danger mx-2 px-md-5'>Clear Files</button>
+
                 <button onClick={() => props.makeStep( 2 )} className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>
-                <button onClick={() => props.makeStep( 4 )} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
+                <button onClick={() => {
+                    if ( files.length == 0 ) {
+                        return Alert( 'No Supporting Documents Found', 'Please make sure to upload Supporting Documents for better hiring chances', 'error' )
+                    }
+                    props.makeStep( 4 )
+                    props.data( files )
+                }} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
             </div>
         </div>
     )

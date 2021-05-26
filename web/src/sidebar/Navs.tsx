@@ -34,20 +34,6 @@ export const supervisions = [
     },
 ]
 
-export const asignatories = [
-    {
-        title: 'Assignatory Settings',
-        route: '/home/assignatories',
-        icon: 'fe-settings'
-    },
-    {
-        title: 'Approvals',
-        route: '/home/approvals',
-        icon: 'fe-pen-tool'
-    },
-]
-
-
 export const recruitmentProcess = [
     {
         title: 'Add Vacancy',

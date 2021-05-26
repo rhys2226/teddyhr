@@ -8,8 +8,17 @@ import ApplicationStep5 from './ApplicationStep5';
 export default function ApplicationForm() {
 
     const [ stepper, setStep ] = React.useState( 1 )
+    const [ applicationData, setapplicationData ] = React.useState( {} )
+
+
+
+
+
     const [ form, setForm ] = React.useState(
         <ApplicationStep1
+            data={( data: JSON ) => {
+                setapplicationData( { ...applicationData, ...data } )
+            }}
             makeStep={( step: any ) => {
                 changeStep( step )
             }}
@@ -20,37 +29,62 @@ export default function ApplicationForm() {
         setStep( step )
         if ( step === 1 ) {
             setForm(
-                <ApplicationStep1 makeStep={( step: any ) => {
-                    changeStep( step )
-                }} />
+                <ApplicationStep1
+                    data={( data: JSON ) => {
+                        setapplicationData( { ...applicationData, ...data } )
+                    }}
+                    makeStep={( step: any ) => {
+                        changeStep( step )
+                    }}
+                />
             )
         }
         if ( step === 2 ) {
             setForm(
-                <ApplicationStep2 makeStep={( step: any ) => {
-                    changeStep( step )
-                }} />
+                <ApplicationStep2
+                    data={( data: JSON ) => {
+                        setapplicationData( { ...applicationData, ...data } )
+                    }}
+                    makeStep={( step: any ) => {
+                        changeStep( step )
+                    }}
+                />
             )
         }
         if ( step === 3 ) {
             setForm(
-                <ApplicationStep3 makeStep={( step: any ) => {
-                    changeStep( step )
-                }} />
+                <ApplicationStep3
+                    data={( data: JSON ) => {
+                        setapplicationData( { ...applicationData, ...data } )
+                    }}
+                    makeStep={( step: any ) => {
+                        changeStep( step )
+                    }}
+                />
             )
         }
         if ( step === 4 ) {
             setForm(
-                <ApplicationStep4 makeStep={( step: any ) => {
-                    changeStep( step )
-                }} />
+                <ApplicationStep4
+                    data={( data: JSON ) => {
+                        setapplicationData( { ...applicationData, ...data } )
+                    }}
+                    makeStep={( step: any ) => {
+                        changeStep( step )
+                    }}
+                />
             )
         }
         if ( step === 5 ) {
             setForm(
-                <ApplicationStep5 makeStep={( step: any ) => {
-                    changeStep( step )
-                }} />
+                <ApplicationStep5
+                    data={( data: JSON ) => {
+                        setapplicationData( { ...applicationData, ...data } )
+                    }}
+                    makeStep={( step: any ) => {
+                        changeStep( step )
+                    }}
+                />
             )
         }
     }

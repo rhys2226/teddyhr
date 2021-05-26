@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react';
 import { useHistory } from "react-router-dom";
-import axios from 'axios';
-import * as base from './../../constants/base'
 import { Alert, Fire } from '../../components/Alerts/Alert';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { auth } from '../../Firebase/firebase';
 
 type Props = {};
 
@@ -15,20 +16,21 @@ const Login: FC<Props> = ( props ) => {
 
     async function login() {
         setdisabled( true )
-        const data = {
-            username: username,
-            password: password,
-        }
-        const url = `${ base.api }auth/login`
-        await axios.post( url, data )
-            .then( function ( response ) {
-                $( '.modal-backdrop' ).toggle();
+        auth().signInWithEmailAndPassword( username, password )
+            .then( ( Credentials ) => {
+                const user = JSON.stringify( Credentials.user )
+                localStorage.setItem( 'user', user )
                 history.replace( 'home' )
-            } ).catch( () => [
-                Alert( 'Error', 'Invalid Username or Password', 'error' )
-            ] )
+                $( '.large-modal' ).hide()
+                $( '.modal-backdrop' ).hide();
+            } )
+            .catch( ( error ) => {
+                for ( let key in error ) {
+                    if ( key == 'code' || key == 'message' )
+                        Alert( 'Authentication Failed', error[ key ], 'error' )
+                }
+            } )
         setdisabled( false )
-
     }
 
     return (
@@ -44,7 +46,7 @@ const Login: FC<Props> = ( props ) => {
                             <i className=" fe fe-user"></i>
                         </span>
                     </div>
-                    <input onChange={( e ) => { setusername( e.target.value ) }} type="text" className="form-control" placeholder="Username" />
+                    <input onChange={( e ) => { setusername( e.target.value ) }} type="email" required className="form-control" placeholder="Email" />
                 </div>
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
@@ -52,10 +54,19 @@ const Login: FC<Props> = ( props ) => {
                             <i className=" fe fe-lock"></i>
                         </span>
                     </div>
-                    <input onChange={( e ) => { setpassword( e.target.value ) }} type="password" className="form-control" placeholder="Password" />
+                    <input onChange={( e ) => { setpassword( e.target.value ) }} type="password" required className="form-control" placeholder="Password" />
                 </div>
                 <button disabled={disabled} onClick={( e ) => { e.preventDefault(); login() }} className='btn btn-lg btn-info btn-block' type='submit'>
-                    Login
+                    {
+                        disabled == true ?
+
+                            <div className="d-flex aic jcc">
+                                <div className="spinner-border spinner-border-sm mr-3 text-white" role="status" />
+                                <span className="mt-1">Loading ... </span>
+                            </div>
+                            :
+                            'Login'
+                    }
                 </button>
                 <p className='mt-5 mb-3 text-muted'>© Developed By | Teddy Fuentivilla </p>
             </form>
