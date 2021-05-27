@@ -60,9 +60,9 @@ export default function ApplicationStep5( props: Props ) {
                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
                     <button onClick={() => props.makeStep( 4 )} className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>
                     <button onClick={() => {
-                        if ( !$( '#file-input' ).val() ) {
-                            return Alert( 'Please Upload Your Professional Photo', 'Human Resources Management Office requires you to upload your distinguisable professional photo', 'error' )
-                        }
+                        // if ( !$( '#file-input' ).val() ) {
+                        //     return Alert( 'Please Upload Your Professional Photo', 'Human Resources Management Office requires you to upload your distinguisable professional photo', 'error' )
+                        // }
                         props.data( avatar )
                         props.SubmitForm()
                     }} className='btn btn-outline-success mx-2 px-md-5'>Apply</button>

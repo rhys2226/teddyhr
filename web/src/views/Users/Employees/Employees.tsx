@@ -11,6 +11,7 @@ import LargeModal from '../../../components/Modals/LargeModal';
 import EmployeeICPR from './EmployeeICPR';
 import FullScreenModal from '../../../components/Modals/FullScreenModal';
 import Privileges from './Privileges';
+import { collection } from '../../../Firebase/firebase';
 
 
 export default function Employees() {
@@ -25,11 +26,12 @@ export default function Employees() {
     }, [] )
 
     async function getEmployees() {
-        const url = `${ base.api }HMRO`
-        await axios.get( url )
-            .then( ( response ) => {
-                setEmployees( response.data )
-            } )
+        let employeesArray: any = []
+        const employees = await collection( 'employees' ).get()
+        employees.forEach( employee => {
+            employeesArray.push( employee.data() )
+        } )
+        setEmployees( employeesArray )
     }
 
     return (
