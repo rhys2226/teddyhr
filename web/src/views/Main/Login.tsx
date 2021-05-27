@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Alert, Fire } from '../../components/Alerts/Alert';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { auth } from '../../Firebase/firebase';
+import { auth, collection } from '../../Firebase/firebase';
 
 type Props = {};
 

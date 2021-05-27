@@ -4,20 +4,24 @@ import ApplicationStep2 from './ApplicationStep2';
 import ApplicationStep3 from './ApplicationStep3';
 import ApplicationStep4 from './ApplicationStep4';
 import ApplicationStep5 from './ApplicationStep5';
+import { useHistory } from "react-router-dom";
 
 export default function ApplicationForm() {
 
+    const history = useHistory()
+
     const [ stepper, setStep ] = React.useState( 1 )
-    const [ applicationData, setapplicationData ] = React.useState( {} )
 
-
-
-
+    const [ form1, setform1 ]: any = React.useState( {} )
+    const [ form2, setform2 ]: any = React.useState( {} )
+    const [ form3, setform3 ]: any = React.useState( {} )
+    const [ form4, setform4 ]: any = React.useState( {} )
+    const [ form5, setform5 ]: any = React.useState( {} )
 
     const [ form, setForm ] = React.useState(
         <ApplicationStep1
             data={( data: JSON ) => {
-                setapplicationData( { ...applicationData, ...data } )
+                setform1( data )
             }}
             makeStep={( step: any ) => {
                 changeStep( step )
@@ -31,7 +35,7 @@ export default function ApplicationForm() {
             setForm(
                 <ApplicationStep1
                     data={( data: JSON ) => {
-                        setapplicationData( { ...applicationData, ...data } )
+                        setform1( data )
                     }}
                     makeStep={( step: any ) => {
                         changeStep( step )
@@ -43,7 +47,7 @@ export default function ApplicationForm() {
             setForm(
                 <ApplicationStep2
                     data={( data: JSON ) => {
-                        setapplicationData( { ...applicationData, ...data } )
+                        setform2( data )
                     }}
                     makeStep={( step: any ) => {
                         changeStep( step )
@@ -55,7 +59,7 @@ export default function ApplicationForm() {
             setForm(
                 <ApplicationStep3
                     data={( data: JSON ) => {
-                        setapplicationData( { ...applicationData, ...data } )
+                        setform3( data )
                     }}
                     makeStep={( step: any ) => {
                         changeStep( step )
@@ -67,7 +71,7 @@ export default function ApplicationForm() {
             setForm(
                 <ApplicationStep4
                     data={( data: JSON ) => {
-                        setapplicationData( { ...applicationData, ...data } )
+                        setform4( data )
                     }}
                     makeStep={( step: any ) => {
                         changeStep( step )
@@ -79,10 +83,23 @@ export default function ApplicationForm() {
             setForm(
                 <ApplicationStep5
                     data={( data: JSON ) => {
-                        setapplicationData( { ...applicationData, ...data } )
+                        setform5( data )
                     }}
                     makeStep={( step: any ) => {
                         changeStep( step )
+                    }}
+                    SubmitForm={() => {
+                        alert(
+                            JSON.stringify( [
+                                form1,
+                                form2,
+                                form3,
+                                form4,
+                                form5,
+                            ] )
+                        )
+                        // history.push( 'home' )
+                        // $( '.modal-backdrop' ).hide();
                     }}
                 />
             )
