@@ -2,7 +2,7 @@ import React from 'react'
 import { Alert } from '../../Alerts/Alert'
 
 type Props = {
-    data: Function
+    step4: Function
     makeStep: Function
 }
 
@@ -58,7 +58,7 @@ export default function ApplicationStep4( props: Props ) {
                                 }
                             }
                         }
-                        props.data( data )
+                        props.step4( data )
                         props.makeStep( 5 )
                     }} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
                 </div>

@@ -28,7 +28,6 @@ export default function AwardsAndRecognition() {
                                                 </div>
                                                 <div className='col pl-0'>
                                                     <a
-                                                        href='javascript:void(0);'
                                                         className='text-muted font-weight-bold'
                                                         data-dz-name></a>
                                                     <p className='mb-0' data-dz-size></p>

@@ -12,18 +12,19 @@ export default function ApplicationForm() {
 
     const [ stepper, setStep ] = React.useState( 1 )
 
-    const [ form1, setform1 ]: any = React.useState( {} )
-    const [ form2, setform2 ]: any = React.useState( {} )
-    const [ form3, setform3 ]: any = React.useState( {} )
-    const [ form4, setform4 ]: any = React.useState( {} )
-    const [ form5, setform5 ]: any = React.useState( {} )
+    let personalDataForm = {}
+    let professionalDataForm = {}
+    let attachmentForm = {}
+    let credentialsForm = {}
+    let avatarForm = {}
+
 
     const [ form, setForm ] = React.useState(
         <ApplicationStep1
-            data={( data: JSON ) => {
-                setform1( data )
+            step1={( personalData: JSON ) => {
+                personalDataForm = personalData
             }}
-            makeStep={( step: any ) => {
+            makeStep={( step: number ) => {
                 changeStep( step )
             }}
         />
@@ -34,10 +35,10 @@ export default function ApplicationForm() {
         if ( step === 1 ) {
             setForm(
                 <ApplicationStep1
-                    data={( data: JSON ) => {
-                        setform1( data )
+                    step1={( personalData: JSON ) => {
+                        personalDataForm = personalData
                     }}
-                    makeStep={( step: any ) => {
+                    makeStep={( step: number ) => {
                         changeStep( step )
                     }}
                 />
@@ -46,10 +47,10 @@ export default function ApplicationForm() {
         if ( step === 2 ) {
             setForm(
                 <ApplicationStep2
-                    data={( data: JSON ) => {
-                        setform2( data )
+                    step2={( professionalData: JSON ) => {
+                        professionalDataForm = professionalData
                     }}
-                    makeStep={( step: any ) => {
+                    makeStep={( step: number ) => {
                         changeStep( step )
                     }}
                 />
@@ -58,10 +59,10 @@ export default function ApplicationForm() {
         if ( step === 3 ) {
             setForm(
                 <ApplicationStep3
-                    data={( data: JSON ) => {
-                        setform3( data )
+                    step3={( attachments: JSON ) => {
+                        attachmentForm = { attachments: attachments }
                     }}
-                    makeStep={( step: any ) => {
+                    makeStep={( step: number ) => {
                         changeStep( step )
                     }}
                 />
@@ -70,10 +71,10 @@ export default function ApplicationForm() {
         if ( step === 4 ) {
             setForm(
                 <ApplicationStep4
-                    data={( data: JSON ) => {
-                        setform4( data )
+                    step4={( credentials: JSON ) => {
+                        credentialsForm = credentials
                     }}
-                    makeStep={( step: any ) => {
+                    makeStep={( step: number ) => {
                         changeStep( step )
                     }}
                 />
@@ -82,24 +83,21 @@ export default function ApplicationForm() {
         if ( step === 5 ) {
             setForm(
                 <ApplicationStep5
-                    data={( data: JSON ) => {
-                        setform5( data )
+                    step5={( avatar: JSON ) => {
+                        avatarForm = avatar
                     }}
-                    makeStep={( step: any ) => {
+                    makeStep={( step: number ) => {
                         changeStep( step )
                     }}
                     SubmitForm={() => {
-                        alert(
-                            JSON.stringify( [
-                                form1,
-                                form2,
-                                form3,
-                                form4,
-                                form5,
-                            ] )
+                        const data = Object.assign(
+                            personalDataForm,
+                            professionalDataForm,
+                            attachmentForm,
+                            credentialsForm,
+                            avatarForm
                         )
-                        // history.push( 'home' )
-                        // $( '.modal-backdrop' ).hide();
+                        console.log( data )
                     }}
                 />
             )

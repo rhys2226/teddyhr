@@ -51,11 +51,11 @@ export const recruitmentProcess = [
 
 
 export const HRDLearningAndDevelopment = [
-    {
-        title: 'Upcomming Seminars',
-        route: '/home/seminars',
-        icon: 'fe-calendar'
-    },
+    // {
+    //     title: 'Upcomming Seminars',
+    //     route: '/home/seminars',
+    //     icon: 'fe-calendar'
+    // },
     {
         title: 'Seminars Attended',
         route: '/home/seminars-attended',

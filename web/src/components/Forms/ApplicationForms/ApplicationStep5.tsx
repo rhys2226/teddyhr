@@ -2,14 +2,14 @@ import React from 'react'
 import { Alert } from '../../Alerts/Alert';
 
 type Props = {
-    data: Function
+    step5: Function
     makeStep: Function
     SubmitForm: Function
 }
 
 export default function ApplicationStep5( props: Props ) {
 
-    const [ avatar, setavatar ]: any = React.useState( {} )
+    const [ avatar, setavatar ]: any = React.useState( "" )
 
     function Avatar() {
         return (
@@ -26,7 +26,7 @@ export default function ApplicationStep5( props: Props ) {
                 <div onClick={() => {
                     $( '#file-input' ).click()
                 }} className="avatar avatar-xl">
-                    <img id="avatar12" style={{ cursor: 'pointer' }} src="./assets/avatars/face-1.jpg" alt="..." className="avatar-img rounded-circle" />
+                    <img id="avatar12" style={{ cursor: 'pointer' }} src="./assets/placeholders/applicant.jpg" alt="..." className="avatar-img rounded-circle" />
                 </div>
             </div>
         )
@@ -60,10 +60,11 @@ export default function ApplicationStep5( props: Props ) {
                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
                     <button onClick={() => props.makeStep( 4 )} className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>
                     <button onClick={() => {
-                        // if ( !$( '#file-input' ).val() ) {
-                        //     return Alert( 'Please Upload Your Professional Photo', 'Human Resources Management Office requires you to upload your distinguisable professional photo', 'error' )
-                        // }
-                        props.data( avatar )
+
+                        if ( avatar == "" ) {
+                            return Alert( 'Please Upload Your Professional Photo', 'Human Resources Management Office requires you to upload your distinguisable professional photo', 'error' )
+                        }
+                        props.step5( { avatar: avatar } )
                         props.SubmitForm()
                     }} className='btn btn-outline-success mx-2 px-md-5'>Apply</button>
                 </div>

@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone'
 import { Alert } from '../../Alerts/Alert'
 
 type Props = {
-    data: Function
+    step3: Function
     makeStep: Function
 }
 
@@ -38,7 +38,6 @@ export default function ApplicationStep3( props: Props ) {
                                 </div>
                                 <div className='col pl-0'>
                                     <a
-                                        href='javascript:void(0);'
                                         className='text-muted font-weight-bold'
                                         data-dz-name></a>
                                     <p className='mb-0' data-dz-size></p>
@@ -97,7 +96,7 @@ export default function ApplicationStep3( props: Props ) {
                         return Alert( 'No Supporting Documents Found', 'Please make sure to upload Supporting Documents for better hiring chances', 'error' )
                     }
                     props.makeStep( 4 )
-                    props.data( files )
+                    props.step3( files )
                 }} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
             </div>
         </div>
