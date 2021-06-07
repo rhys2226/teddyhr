@@ -1,7 +1,7 @@
 
 export const performanceManagement = [
     {
-        title: 'Performance Mgt ',
+        title: 'Top Employees',
         route: '/home/',
         icon: 'fe-bar-chart-2'
     },

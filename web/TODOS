@@ -1,0 +1,61 @@
+Clear Backend
+Create all DB
+Seed SuperAdmin
+
+Create Dynamic Route
+
+Login
+
+
+Insert Applicant
+Retrieve Applicant
+View Applicant Info
+Check Supporting Document
+Reject
+ScheduleAnInterview
+
+
+Add Employee
+Retrieve Add Employee
+Add Change Supervisor
+View Profile
+Delete Employee
+Leave History
+
+
+Add Supervisor
+View Supervisors
+View Subordinates
+Remove Subordiantes
+Remove Supervisors
+
+
+Add Vacancy
+View Vacancies
+View Vacancy
+Remove Vacancy
+Update Vacancy
+
+
+Add Leave
+Get Leave Credits
+Get Leave
+Crud Leave Settings
+
+
+Crud Awards
+
+
+Rate Employee
+Tabular ICPRs
+Retrieve ICPR
+
+
+Service Record UI
+Add Service Record
+Tabular Records
+View Service Record
+
+
+LeaveCard Ui for initial Record
+Compute Leave
