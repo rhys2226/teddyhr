@@ -1,23 +1,20 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HRMOUserController;
-use App\Http\Controllers\DepartmentsController;
-use App\Http\Controllers\SupervisorsController;
-use App\Http\Controllers\AwardsController;
-use App\Http\Controllers\PDSController;
-use App\Http\Controllers\SeminarsController;
+use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AttachmentsController;
+
 
 Route::prefix('/auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
 });
-Route::resource('/HMRO', HRMOUserController::class);
-Route::resource('/Departments', DepartmentsController::class);
-Route::resource('/Supervisors', SupervisorsController::class);
-Route::resource('/Awards', AwardsController::class);
-Route::resource('/Seminars', SeminarsController::class);
 
-Route::apiResource('/pds', PDSController::class);
+Route::resource('/applicants', ApplicantController::class);
+Route::resource('/employees', EmployeeController::class);
+Route::resource('/attachments', AttachmentsController::class);
+
+
+
