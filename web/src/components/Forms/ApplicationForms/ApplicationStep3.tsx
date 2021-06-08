@@ -97,6 +97,7 @@ export default function ApplicationStep3( props: Props ) {
                     }
                     props.makeStep( 4 )
                     props.step3( files )
+                    console.log( files )
                 }} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
             </div>
         </div>

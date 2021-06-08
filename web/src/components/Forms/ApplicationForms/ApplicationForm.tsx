@@ -62,7 +62,7 @@ export default function ApplicationForm() {
             setForm(
                 <ApplicationStep3
                     step3={( attachments: JSON ) => {
-                        attachmentForm = { attachments: attachments }
+                        attachmentForm = { 'attachments': attachments }
                     }}
                     makeStep={( step: number ) => {
                         changeStep( step )
@@ -86,7 +86,7 @@ export default function ApplicationForm() {
             setForm(
                 <ApplicationStep5
                     step5={( avatar: JSON ) => {
-                        avatarForm = avatar
+                        avatarForm = { 'avatar': avatar }
                     }}
                     makeStep={( step: number ) => {
                         changeStep( step )
@@ -100,6 +100,10 @@ export default function ApplicationForm() {
                             avatarForm,
                             { Type: 'Applicant', Position: 'Developer' }
                         )
+                        const bodyFormData = new FormData();
+                        for ( let key in data ) {
+                            bodyFormData.append( key, data[ key ] );
+                        }
                         const auth = new Auth( 'auth/register' )
                         await auth.create( '', data )
                             .then( auth => {

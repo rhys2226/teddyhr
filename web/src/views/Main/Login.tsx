@@ -19,7 +19,7 @@ const Login: FC<Props> = ( props ) => {
         await auth.create( '', { Email: username, Password: password } ).then( ( auth ) => {
             Alert( 'Logged In', auth.message, 'success' )
             localStorage.setItem( 'user', JSON.stringify( auth.user ) )
-            localStorage.setItem( 'user', auth.token )
+            localStorage.setItem( 'token', auth.token )
             history.replace( 'home' )
             $( '.large-modal' ).hide()
             $( '.modal-backdrop' ).hide();

@@ -3,8 +3,15 @@ import { Alert, Fire } from '../components/Alerts/Alert';
 import { useHistory } from "react-router-dom";
 
 
+
 export default function HomeNav() {
+
+    const userData: any = localStorage.getItem( 'user' )
+    const [ user, setUser ]: any = React.useState( JSON.parse( userData )[ 'First' ] )
+
     const history = useHistory()
+
+
 
     return (
         <div>
@@ -86,6 +93,8 @@ export default function HomeNav() {
                             </span>
                         </a>
                         <div className='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>
+                            <p style={{ pointerEvents: 'none' }} className='dropdown-item text-info'> {user}</p>
+                            <hr />
                             <button onClick={() => {
                                 history.push( '/home/settings' )
                             }} className='dropdown-item'>
