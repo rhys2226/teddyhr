@@ -2,35 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
+use App\Models\LeaveCard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class LeaveCardController extends Controller
 {
-  
     public function index()
     {
         //
     }
-    
+
     public function store(Request $request)
     {
         //
     }
 
-   
-    public function show(Employee $employee)
+    public function show(LeaveCard $leaveCard)
     {
         //
     }
 
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, LeaveCard $leaveCard)
     {
         //
     }
 
-    public function destroy(Employee $employee)
+    public function destroy(LeaveCard $leaveCard)
     {
         //
     }

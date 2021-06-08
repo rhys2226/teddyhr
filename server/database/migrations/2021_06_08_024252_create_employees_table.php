@@ -17,6 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->string('Position');
             $table->string('PreviousEmployer');
             $table->string('EmployersContactInformation');
+            $table->date('FirstDay');
         });
     }
 

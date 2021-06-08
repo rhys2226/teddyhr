@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employee extends Model
+class LeaveSettings extends Model
 {
     use HasFactory;
     
     protected $fillable = [
-        'user_id',
-        'Alignment',
-        'Position',
-        'PreviousEmployer',
-        'EmployersContactInformation',
-        'FirstDay'
+        'Type',
+        'NextCreditdays',
+        'WithPay',
     ];
 }

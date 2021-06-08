@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employee extends Model
+class DirectlySupervised extends Model
 {
     use HasFactory;
     
     protected $fillable = [
-        'user_id',
-        'Alignment',
+        'vacancy_id',
         'Position',
-        'PreviousEmployer',
-        'EmployersContactInformation',
-        'FirstDay'
+        'ItemNumber',
     ];
 }
+ 
