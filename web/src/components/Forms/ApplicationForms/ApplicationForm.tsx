@@ -5,6 +5,8 @@ import ApplicationStep3 from './ApplicationStep3';
 import ApplicationStep4 from './ApplicationStep4';
 import ApplicationStep5 from './ApplicationStep5';
 import { useHistory } from "react-router-dom";
+import { Auth } from '../../../services/auth.service';
+import { Alert } from '../../Alerts/Alert';
 
 export default function ApplicationForm() {
 
@@ -89,15 +91,24 @@ export default function ApplicationForm() {
                     makeStep={( step: number ) => {
                         changeStep( step )
                     }}
-                    SubmitForm={() => {
+                    SubmitForm={async () => {
                         const data = Object.assign(
                             personalDataForm,
                             professionalDataForm,
                             attachmentForm,
                             credentialsForm,
-                            avatarForm
+                            avatarForm,
+                            { Type: 'Applicant', Position: 'Developer' }
                         )
-                        console.log( data )
+                        const auth = new Auth( 'auth/register' )
+                        await auth.create( '', data )
+                            .then( auth => {
+                                Alert( 'Applied Successfully', auth.message, 'success' )
+                            } )
+                            .catch( () => {
+                                Alert( 'Error!', 'Something went wrong', 'error' )
+
+                            } )
                     }}
                 />
             )

@@ -64,7 +64,7 @@ export default function ApplicationStep5( props: Props ) {
                         if ( avatar == "" ) {
                             return Alert( 'Please Upload Your Professional Photo', 'Human Resources Management Office requires you to upload your distinguisable professional photo', 'error' )
                         }
-                        props.step5( { avatar: avatar } )
+                        props.step5( { Avatar: avatar } )
                         props.SubmitForm()
                     }} className='btn btn-outline-success mx-2 px-md-5'>Apply</button>
                 </div>

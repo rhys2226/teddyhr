@@ -38,7 +38,7 @@ export default function LandingUI() {
                                 setModal( <ApplicationForm /> )
                             }}
                             data-toggle="modal" data-target=".modal-full"
-                            className="btn btn-danger ml-4" >
+                            className="btn btn-dark ml-4" >
                             <h1 className="text-white pt-2 pl-5 pr-5 h3">Apply Now</h1>
                         </button>
                         <button

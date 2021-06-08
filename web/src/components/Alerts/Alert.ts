@@ -34,6 +34,9 @@ export function Alert(
         type : any,
 ) {
     Swal.fire( title, text, type )
+    if ( type == 'error' ) {
+        type = 'warning'
+    }
     const audio = new Audio(`http://localhost:3000/audio/${type}.mp3`)
     audio.volume = 0.4;
     audio.play()
