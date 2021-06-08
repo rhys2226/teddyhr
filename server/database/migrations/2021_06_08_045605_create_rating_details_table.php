@@ -11,7 +11,7 @@ class CreateRatingDetailsTable extends Migration
         Schema::create('rating_details', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('rating_id')->references('id')->on('rating');
+            $table->foreignId('rating_id');
             $table->string('Output');
             $table->string('SuccessIndicatiors');
             $table->integer('Q');

@@ -16,7 +16,7 @@ class CreateFamilyBackgroundsTable extends Migration
         Schema::create('family_backgrounds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('pds_id')->references('id')->on('pds');
+            $table->foreignId('pds_id');
             $table->string('SpouseFirst');
             $table->string('SpouseLast');
             $table->string('SpouseMiddle');

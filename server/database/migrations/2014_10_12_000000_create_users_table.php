@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('Type');
-            $table->string('token');
+            $table->string('Token');
             $table->string('Avatar')->nullable();
             $table->string('First');
             $table->string('Last');

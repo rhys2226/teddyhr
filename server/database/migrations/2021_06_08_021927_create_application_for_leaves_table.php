@@ -11,7 +11,7 @@ class CreateApplicationForLeavesTable extends Migration
         Schema::create('application_for_leaves', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('employee_id')->references('id')->on('users');
+            $table->foreignId('employee_id');
             $table->string('Office');
             $table->string('Spent');
             $table->string('SpecialPrivilege');

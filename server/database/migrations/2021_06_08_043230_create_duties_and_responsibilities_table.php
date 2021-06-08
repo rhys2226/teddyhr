@@ -12,7 +12,7 @@ class CreateDutiesAndResponsibilitiesTable extends Migration
         Schema::create('duties_and_responsibilities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('vacancy_id')->references('id')->on('vacancy');
+            $table->foreignId('vacancy_id');
             $table->string('PercentageofWorkingTime1');
             $table->string('DutiesAndResponsibilities1');
             $table->string('Competency Level');

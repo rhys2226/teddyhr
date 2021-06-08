@@ -11,7 +11,7 @@ class CreateReferencesTable extends Migration
         Schema::create('references', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('pds_id')->references('id')->on('pds');
+            $table->foreignId('pds_id');  
             $table->string('Name');
             $table->string('Address');
             $table->string('TelNumber');

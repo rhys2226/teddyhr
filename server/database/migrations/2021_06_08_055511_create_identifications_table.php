@@ -11,7 +11,7 @@ class CreateIdentificationsTable extends Migration
         Schema::create('identifications', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('pds_id')->references('id')->on('pds');
+            $table->foreignId('pds_id');
             $table->string('GovtID');
             $table->string('Passport');
             $table->date('Date');

@@ -12,7 +12,7 @@ class CreatePersonalInformationTable extends Migration
         Schema::create('personal_information', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('pds_id')->references('id')->on('pds');
+            $table->foreignId('pds_id');
             $table->string('Sex');
             $table->string('CivilStatus');
             $table->date('DOB');

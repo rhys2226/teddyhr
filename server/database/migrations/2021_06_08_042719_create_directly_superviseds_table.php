@@ -11,7 +11,7 @@ class CreateDirectlySupervisedsTable extends Migration
         Schema::create('directly_superviseds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('vacancy_id')->references('id')->on('vacancy');
+            $table->foreignId('vacancy_id');
             $table->string('Position');
             $table->string('ItemNumber');
         });

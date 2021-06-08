@@ -11,7 +11,7 @@ class CreateVolunteersTable extends Migration
         Schema::create('volunteers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('pds_id')->references('id')->on('pds');
+            $table->foreignId('pds_id');
             $table->string('Name');
             $table->string('From');
             $table->string('To');

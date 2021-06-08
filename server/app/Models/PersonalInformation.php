@@ -11,7 +11,6 @@ class PersonalInformation extends Model
     
      protected $fillable = [
         'pds_id',
-        'pds_id',
         'Sex',
         'CivilStatus',
         'DOB',

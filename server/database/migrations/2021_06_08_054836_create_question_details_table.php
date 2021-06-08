@@ -12,8 +12,8 @@ class CreateQuestionDetailsTable extends Migration
         Schema::create('question_details', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('pds_id')->references('id')->on('pds');
-            $table->string('question_id')->references('id')->on('question');
+            $table->foreignId('pds_id');  
+            $table->foreignId('question_id');
             $table->string('Question');
             $table->boolean('Answer');
             $table->string('Details');

@@ -12,7 +12,7 @@ class CreateCompentenciesTable extends Migration
         Schema::create('compentencies', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('vacancy_id')->references('id')->on('vacancy');
+            $table->foreignId('vacancy_id');
             $table->string('Name');
             $table->string('CompetencyLevel');
         });
