@@ -31,9 +31,7 @@ class AuthController extends Controller
     }
 
     public function register(Request $request){
-        $user = User::create(array_merge($request->all(), ['token'=> Str::random()]));
-        $HRMOUser = HRMOUser::create(array_merge($request->all(), ['user_id' => $user->id]));
-        return   $HRMOUser;
+      
     }
 
 }
