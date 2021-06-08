@@ -10,17 +10,16 @@ class Applicant extends Model
     use HasFactory;
     
     protected $fillable = [
-        'Type',
-        'token',
-        'Avatar',
-        'First',
-        'Last',
-        'Middle',
-        'Phone',
-        'Email',
-        'NameExtension',
+        'user_id',
+        'Alignment',
+        'EducationalAttainments',
+        'Eligibilities',
+        'Degrees',
+        'WorkExperience',
+        'PreviousEmployer',
+        'EmployersContactInformation',
+        'Approved',
+        'Schedule',
     ];
-
-
 
 }

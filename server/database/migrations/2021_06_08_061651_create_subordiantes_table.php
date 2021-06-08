@@ -11,7 +11,7 @@ class CreateSubordiantesTable extends Migration
         Schema::create('subordiantes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->timestamps('SupervisorID');
+            $table->string('SupervisorID');
             $table->string('SubordinateID');
             $table->string('Department');
         });

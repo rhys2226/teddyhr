@@ -12,15 +12,16 @@ class CreateApplicantsTable extends Migration
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('Type');
-            $table->string('Token')->nullable();
-            $table->string('Avatar')->nullable();
-            $table->string('First');
-            $table->string('Last');
-            $table->string('Middle');
-            $table->integer('Phone');
-            $table->string('Email');
-            $table->string('NameExtension');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('Alignment');
+            $table->string('EducationalAttainments');
+            $table->string('Eligibilities');
+            $table->string('Degrees');
+            $table->string('WorkExperience');
+            $table->string('PreviousEmployer');
+            $table->string('EmployersContactInformation');
+            $table->string('Approved')->nullable();
+            $table->string('Schedule')->nullable();
         });
     }
 
