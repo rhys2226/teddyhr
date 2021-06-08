@@ -36,13 +36,16 @@ class AuthController extends Controller
     }
 
     public function register(Request $request){
-        // employees
-        return $request->input('attachments');
-        $type =   $request->input('Type') == 'Employees' ? 'employees/' : 'applicants/'.
+        $type =   $request->input('Type') == 'Employees' ? 'employees/' : 'applicants/';
+        
+        $image=  $request->file('avatar');
+        
+        $fileName = time() . '.' .'jpg';
+        Storage::put('app/'.$type.'avatars/'.$fileName, $image, );
+        
         $user = new User();
         $user->Password = Hash::make($request->input('Password'));
-        Storage::put('app/'.$type.'avatars/', $request->input('Avatar'));
-        $user->Avatar = storage_path('app/'.$type.'avatars/'.Hash::make($request->input('First').$request->input('Last')));
+        $user->Avatar = storage_path('app/'.$type.'avatars/'.$fileName);
         $user->Type = $request->input('Type');
         $user->Token = $request->input('Token');
         $user->First = $request->input('First');
@@ -53,13 +56,16 @@ class AuthController extends Controller
         $user->NameExtension = $request->input('NameExtension');
         $user->save();
         $attachments = new Attachments();
-        foreach($request->input('attachments') as $attachment){
-            Storage::put('app/'.$type.'supporting-documents/'.Hash::make($request->input('First').$request->input('Last')), $attachment);
+        if($request->hasFile('attachments'))
+        {
+            foreach ($request->input('attachments') as $file) {
+               Storage::put('app/'.$type.'supporting-documents/'.$file->getClientOriginalExtension(), $file->encode());
+            }
         }
         $attachments->user_id =  $user->id;
         $attachments->Type =  'Supporting Documents';
         $attachments->URL =  storage_path('app/'.$type.'supporting-documents/'.Hash::make($request->input('First').$request->input('Last')));
-        
+        $attachments->save();
         if($request->input('Type') === 'Applicant'){
             Applicant::create( $request->all() + ['user_id' => $user->id] );
             return [
