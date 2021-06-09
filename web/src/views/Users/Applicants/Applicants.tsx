@@ -8,6 +8,8 @@ import ApplicantPlaceholders from './ApplicantPlaceholders'
 import ApplicantINformation from './ApplicantINformation'
 import ApplicantSupportingDocument from './ApplicantSupportingDocument'
 import ScheduleAnInterview from './ScheduleAnInterview'
+import axios from 'axios'
+import { Auth } from '../../../services/auth.service'
 
 export default function Applicants() {
     const [ applicants, setApplicants ]: any = useState( [] )
@@ -16,10 +18,16 @@ export default function Applicants() {
 
 
     useEffect( () => {
-        setTimeout( () => {
-            setApplicants( [ 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ] )
-        }, 1000 );
+        getApplicants()
     }, [] )
+
+    function getApplicants() {
+        const auth = new Auth( 'applicants' );
+        auth.fetch( {} ).then( ( data: any ) => {
+            setApplicants( data.data )
+        } )
+
+    }
 
     function changeModal( type: number ) {
         if ( type === 1 ) {
@@ -67,7 +75,7 @@ export default function Applicants() {
                             <tbody>
                                 <ApplicantPlaceholders show={applicants.length !== 0 ? false : true} />
                                 {
-                                    applicants.map( ( applicants: any, index: any ) => (
+                                    applicants.map( ( applicant: any, index: any ) => (
                                         <tr>
                                             <td className="text-center">
                                                 <div className="avatar avatar-xl">
@@ -76,34 +84,43 @@ export default function Applicants() {
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-muted"><strong>Fuentevilla, Teddy D.</strong></p>
-                                                <p className="small mb-3"><span className="badge badge-dark p-1 br-2" style={{ fontWeight: 900, }}>as Developer</span></p>
+                                                <p className="mb-0 text-muted">
+                                                    <strong>
+                                                        {
+                                                            `${ applicant.user.Last } ${ applicant.user.First } ${ applicant.user.Middle }`
+                                                        }
+                                                    </strong>
+                                                </p>
+                                                <p className="small mb-3"><span className="badge badge-dark p-1 br-2" style={{ fontWeight: 900, }}>as {applicant.Position || "Developer"}</span></p>
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 ">John Doe</p>
-                                                <small className="mb-0 text-muted">0928-624-1875</small>
+                                                <p className="mb-0 ">{applicant.PreviousEmployer}</p>
+                                                <small className="mb-0 text-muted">{applicant.EmployersContactInformation}</small>
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 ">0928-624-1875</p>
-                                                <small className="mb-0 text-muted">teddy@gmail.com</small>
+                                                <p className="mb-0 ">{applicant.user.Phone}</p>
+                                                <small className="mb-0 text-muted">{applicant.user.Email}</small>
                                             </td>
 
 
                                             <td className="w-25">
-                                                <small > Bachelor or Science in Information Technology, Masters in Information Technology, Phd in Information Technology
-                                        </small>
+                                                <small >{applicant.Degrees}
+                                                </small>
                                             </td>
 
-                                            <td>Vertical</td>
+                                            <td>{applicant.Alignment}</td>
 
                                             <td>
-                                                <span className="badge badge-success text-white rounded p-2 br-2"
-                                                    style={{ fontWeight: 900, }}>Qualified</span>
+                                                <span className={applicant.Alignment === 'Vertical' ? 'badge  text-white rounded p-2 br-2 badge-success' : 'badge  text-white rounded p-2 br-2 badge-warning'}
+                                                    style={{ fontWeight: 900, }}>
+                                                    {applicant.Alignment === 'Vertical' ? 'Qualified' : 'Underqualified'}
+
+                                                </span>
                                             </td>
 
-                                            <td className="text-muted">13/09/2020</td>
+                                            <td className="text-muted">{applicant.user.created_at}</td>
 
                                             <td className="text-danger">Pending</td>
 
