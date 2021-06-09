@@ -8,9 +8,7 @@ use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
 
 class AuthController extends Controller
 {
@@ -36,48 +34,51 @@ class AuthController extends Controller
     }
 
     public function register(Request $request){
-        $type =   $request->input('Type') == 'Employees' ? 'employees/' : 'applicants/';
+        $data = $request->all();
+        $userType = $data['Type'] == 'Employees' ? 'employees/' : 'applicants/';
         
-        $image=  $request->file('avatar');
-        
-        $fileName = time() . '.' .'jpg';
-        Storage::put('app/'.$type.'avatars/'.$fileName, $image, );
-        
-        $user = new User();
-        $user->Password = Hash::make($request->input('Password'));
-        $user->Avatar = storage_path('app/'.$type.'avatars/'.$fileName);
-        $user->Type = $request->input('Type');
-        $user->Token = $request->input('Token');
-        $user->First = $request->input('First');
-        $user->Last = $request->input('Last');
-        $user->Middle = $request->input('Middle');
-        $user->Phone = $request->input('Phone');
-        $user->Email = $request->input('Email');
-        $user->NameExtension = $request->input('NameExtension');
-        $user->save();
-        $attachments = new Attachments();
-        if($request->hasFile('attachments'))
-        {
-            foreach ($request->input('attachments') as $file) {
-               Storage::put('app/'.$type.'supporting-documents/'.$file->getClientOriginalExtension(), $file->encode());
-            }
+        if(isset($data['Avatar'])){
+            $data['Avatar'] = AuthController::storeAvatar( $userType , $data['Avatar']) ;
         }
-        $attachments->user_id =  $user->id;
-        $attachments->Type =  'Supporting Documents';
-        $attachments->URL =  storage_path('app/'.$type.'supporting-documents/'.Hash::make($request->input('First').$request->input('Last')));
-        $attachments->save();
-        if($request->input('Type') === 'Applicant'){
-            Applicant::create( $request->all() + ['user_id' => $user->id] );
+        $user = User::create($data);
+        $data['user_id'] = $user->id;
+        
+        for($i = 0;$i < 15;$i++) {
+            if(!isset($data['Attachments'.$i])){
+                break;
+            }
+            AuthController::storeFiles( $userType ,  $data['Attachments'.$i],  $user->id );;
+        }
+        
+        if( $data['Type'] === 'Applicant' ){
+            Applicant::create($data);
             return [
                 'message' => 'Plese Log-in to see your application status',
-                'user' =>  redirect( 'your_route'),
             ];
         }
-        Employee::create( $request->all() + ['user_id' => $user->id]  );
+        Employee::create($data);
         return [
-            'message' => 'Registered Successfully',
-            'user' => redirect('your_route'),
+            'message' => 'Employee has been Registered Successfully',
         ];
     }
-
+    
+    public static function storeAvatar($userType,$file)
+    {
+        $path = $file->store(
+           $userType.'avatars/'
+        );
+        return storage_path('app/public/'. $path);
+    }
+    
+    public static function storeFiles($userType, $file, $user_id  )
+    {
+        $path = $file->store(
+            $userType.'supporting-documents/'
+        );
+        $attachments = new Attachments();
+        $attachments->user_id = $user_id;
+        $attachments->URL = storage_path('app/public/'. $path);
+        $attachments->Type = 'supporting-documents';
+        $attachments->save();
+    }
 }
