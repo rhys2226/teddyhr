@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class ApplicantController extends Controller
 {
     public function index()
-    {
-        return Applicant::paginate(20);
+    { 
+        return Applicant::with('user')->paginate(20);
     }
    
     public function store(Request $request)

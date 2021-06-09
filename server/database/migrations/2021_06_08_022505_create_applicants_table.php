@@ -22,6 +22,7 @@ class CreateApplicantsTable extends Migration
             $table->string('EmployersContactInformation');
             $table->string('Approved')->nullable();
             $table->string('Schedule')->nullable();
+            $table->string('Position')->nullable();
         });
     }
 

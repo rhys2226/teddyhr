@@ -20,6 +20,13 @@ class Applicant extends Model
         'EmployersContactInformation',
         'Approved',
         'Schedule',
+        'Position',
     ];
+    
+    
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','user_id');
+    }
 
 }
