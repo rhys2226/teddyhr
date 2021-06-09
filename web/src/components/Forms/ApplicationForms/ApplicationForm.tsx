@@ -7,6 +7,7 @@ import ApplicationStep5 from './ApplicationStep5';
 import { useHistory } from "react-router-dom";
 import { Auth } from '../../../services/auth.service';
 import { Alert } from '../../Alerts/Alert';
+import axios from 'axios';
 
 export default function ApplicationForm() {
 
@@ -14,11 +15,11 @@ export default function ApplicationForm() {
 
     const [ stepper, setStep ] = React.useState( 1 )
 
-    let personalDataForm = {}
-    let professionalDataForm = {}
-    let attachmentForm = {}
-    let credentialsForm = {}
-    let avatarForm = {}
+    let personalDataForm: any
+    let professionalDataForm: any
+    let attachmentForm: any
+    let credentialsForm: any
+    let avatarForm: any
 
 
     const [ form, setForm ] = React.useState(
@@ -61,8 +62,8 @@ export default function ApplicationForm() {
         if ( step === 3 ) {
             setForm(
                 <ApplicationStep3
-                    step3={( attachments: JSON ) => {
-                        attachmentForm = { 'attachments': attachments }
+                    step3={( attachments: any ) => {
+                        attachmentForm = attachments
                     }}
                     makeStep={( step: number ) => {
                         changeStep( step )
@@ -85,28 +86,37 @@ export default function ApplicationForm() {
         if ( step === 5 ) {
             setForm(
                 <ApplicationStep5
-                    step5={( avatar: JSON ) => {
-                        avatarForm = { 'avatar': avatar }
+                    step5={( avatar: any ) => {
+                        avatarForm = avatar
                     }}
                     makeStep={( step: number ) => {
                         changeStep( step )
                     }}
                     SubmitForm={async () => {
-                        const data = Object.assign(
+                        const data: any = Object.assign(
                             personalDataForm,
                             professionalDataForm,
-                            attachmentForm,
                             credentialsForm,
                             avatarForm,
-                            { Type: 'Applicant', Position: 'Developer' }
+                            {
+                                Type: 'Applicant',
+                                Position: 'Developer',
+                                Attachments: attachmentForm
+                            }
                         )
-                        const bodyFormData = new FormData();
+                        const formData = new FormData()
                         for ( let key in data ) {
-                            bodyFormData.append( key, data[ key ] );
+                            if ( key !== 'Attachments' ) {
+                                formData.append( key, data[ key ] )
+                            }
                         }
-                        const auth = new Auth( 'auth/register' )
-                        await auth.create( '', data )
-                            .then( auth => {
+                        let i = 0;
+                        for ( let index of data[ 'Attachments' ] ) {
+                            formData.append( `Attachments${ i }`, index )
+                            i += 1
+                        }
+                        axios.post( 'auth/register', formData, { headers: { "Content-Type": "multipart/form-data" } } )
+                            .then( ( auth: any ) => {
                                 Alert( 'Applied Successfully', auth.message, 'success' )
                             } )
                             .catch( () => {
@@ -118,6 +128,7 @@ export default function ApplicationForm() {
             )
         }
     }
+
 
     return (
         <div className='container-fluid application-form'>

@@ -17,7 +17,7 @@ const Login: FC<Props> = ( props ) => {
         setdisabled( true )
         const auth = new Auth( 'auth/login' );
         await auth.create( '', { Email: username, Password: password } ).then( ( auth ) => {
-            Alert( 'Logged In', auth.message, 'success' )
+            Alert( 'Logged In Successfully', auth.message, 'success' )
             localStorage.setItem( 'user', JSON.stringify( auth.user ) )
             localStorage.setItem( 'token', auth.token )
             history.replace( 'home' )

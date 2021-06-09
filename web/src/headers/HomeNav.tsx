@@ -8,6 +8,7 @@ export default function HomeNav() {
 
     const userData: any = localStorage.getItem( 'user' )
     const [ user, setUser ]: any = React.useState( JSON.parse( userData )[ 'First' ] )
+    const [ avatar, setavatar ]: any = React.useState( JSON.parse( userData )[ 'Avatar' ] )
 
     const history = useHistory()
 
