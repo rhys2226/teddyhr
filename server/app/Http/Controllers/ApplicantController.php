@@ -13,13 +13,7 @@ class ApplicantController extends Controller
     { 
         return Applicant::with('user')->with('attachments')->paginate(20);
     }
-   
-    public function store(Request $request)
-    {
-        $applicant = Applicant::create($request->all());
-        return $applicant;
-    }
-
+ 
     public function show(Applicant $applicant)
     {
         return Applicant::find($applicant);

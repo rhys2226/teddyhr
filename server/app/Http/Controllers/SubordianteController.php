@@ -23,9 +23,12 @@ class SubordianteController extends Controller
         //
     }
 
-    public function update(Request $request, Subordiante $subordiante)
+    public function update(Request $request, $id)
     {
-        //
+        $Subordiante  = Subordiante::where('SubordinateID',strval($id))->first();
+        $input = $request->all();
+        $Subordiante->fill($input)->save();
+        return  $Subordiante;
     }
 
     public function destroy(Subordiante $subordiante)

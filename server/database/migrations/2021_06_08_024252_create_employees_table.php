@@ -12,12 +12,12 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('Alignment');
             $table->string('Position');
             $table->string('PreviousEmployer');
             $table->string('EmployersContactInformation');
-            $table->date('FirstDay');
+            $table->integer('FirstDay');
         });
     }
 

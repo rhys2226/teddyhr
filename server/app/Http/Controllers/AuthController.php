@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Applicant;
 use App\Models\Attachments;
 use App\Models\Employee;
+use App\Models\Subordiante;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -55,8 +56,13 @@ class AuthController extends Controller
             ];
         }
         Employee::create($data);
+        $Supervisor = new Subordiante();
+        $Supervisor->SupervisorID = 1;
+        $Supervisor->SubordinateID = $data['user_id'];
+        $Supervisor->Department = 'Human Resource Management Office';
+        $Supervisor->save();
         return [
-            'message' => 'Employee has been Registered Successfully',
+            'message' => $data['First'].'has been registered as an employee of Iloilo State College of Fisheries',
         ];
     }
     
