@@ -9,9 +9,11 @@ export default function HomeNav() {
     const userData: any = localStorage.getItem( 'user' )
     const [ user, setUser ]: any = React.useState( JSON.parse( userData )[ 'First' ] )
     const [ avatar, setavatar ]: any = React.useState( JSON.parse( userData )[ 'Avatar' ] )
+    const [ user_id, setuser_id ]: any = React.useState( JSON.parse( userData )[ 'id' ] )
+    const [ type, settype ]: any = React.useState( JSON.parse( userData )[ 'Type' ] )
+
 
     const history = useHistory()
-
 
 
     return (
@@ -96,13 +98,13 @@ export default function HomeNav() {
                         <div className='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>
                             <p style={{ pointerEvents: 'none' }} className='dropdown-item text-info'> {user}</p>
                             <hr />
-                            <button onClick={() => {
-                                history.push( '/home/settings' )
+                            <button style={{ display: type === 'Employee' ? 'block' : 'none' }} onClick={() => {
+                                history.push( '/home/settings/' + user_id )
                             }} className='dropdown-item'>
                                 Profile
 							</button>
-                            <button onClick={() => {
-                                history.push( '/home/settings/profile' )
+                            <button style={{ display: type === 'Employee' ? 'block' : 'none' }} onClick={() => {
+                                history.push( '/home/settings/profile/' + user_id )
                             }} className='dropdown-item'>
                                 Settings
 							</button>
@@ -122,7 +124,7 @@ export default function HomeNav() {
                     </li>
                 </ul>
             </nav>
-        </div>
+        </div >
     );
 }
 

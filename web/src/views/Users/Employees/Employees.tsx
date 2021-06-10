@@ -78,7 +78,7 @@ export default function Employees() {
                                 <EmployeesPlaceholder show={employees.length !== 0 ? false : true} />
                                 {
                                     employees.map( ( employee: any, index: any ) => (
-                                        <tr>
+                                        <tr key={index}>
                                             <td>
                                                 <div className="avatar avatar-md">
                                                     <img src={employee.user.Avatar} alt="..." className="avatar-img rounded-circle" />
@@ -115,7 +115,7 @@ export default function Employees() {
                                             <td>
                                                 <p className="mb-0 text-muted">
                                                     <strong>
-                                                        {employee.supervisors.id === id ? 'You' : employee.supervisors.First}
+                                                        {employee.supervisors.id === id ? 'You' : employee.supervisors.First + ' ' + employee.supervisors.Middle + ' ' + employee.supervisors.Last}
                                                     </strong>
                                                 </p>
                                             </td>
@@ -136,13 +136,23 @@ export default function Employees() {
 
                                                     <button
                                                         onClick={() => {
-                                                            history.push( '/home/settings' )
+                                                            history.push( `/home/settings/${ employee.user_id }` )
                                                         }}
                                                         role="butoon" className="dropdown-item"  >View Profile</button>
                                                     <button
                                                         onClick={() => {
-                                                            Fire( 'Remove Employee?', 'Are you sure you want to remove this employee?', 'warning', () => {
-                                                                Alert( 'SUCCESS', '', 'info' )
+                                                            Fire( 'Remove Employee?', `Are you sure you want to remove ${ employee.user.First } as an employee?`, 'info', () => {
+
+                                                                const api = new Auth( 'employees' )
+
+                                                                api.delete( employee.user.id )
+                                                                    .then( () => {
+                                                                        Alert( 'Employee has been removed', `${ employee.user.First } has been removed as an employee`, 'success' )
+                                                                        getEmployees()
+                                                                    } )
+                                                                    .catch( () => {
+                                                                        Alert( 'Error', `Something went wrong. Try again`, 'error' )
+                                                                    } )
                                                             } )
                                                         }}
                                                         role="butoon" className="dropdown-item" >Remove as Employee</button>

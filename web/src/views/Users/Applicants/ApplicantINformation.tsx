@@ -30,7 +30,7 @@ export default function ApplicantINformation( props: any ) {
                     </div>
                 </div>
                 <div className="col-md-12 row">
-                    <WorkExperience data={props.data.WorkExperience} />
+                    <WorkExperience data={props.data.WorkExperience.split( ',' )} />
                 </div>
                 <div className="col-md-12 row" style={{ justifyContent: 'center' }}>
                     <div className="row align-items-center w-100 mb-4 shadow">

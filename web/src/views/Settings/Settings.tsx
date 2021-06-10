@@ -19,12 +19,12 @@ export default function Settings() {
 
     const SettingRoutes: RouteProps[] = [
         {
-            path: url( '/' ),
+            path: url( '/:id' ),
             component: Overview,
             exact: true,
         },
         {
-            path: url( 'settings/' ),
+            path: url( 'settings/:id' ),
             component: Overview,
         },
         {

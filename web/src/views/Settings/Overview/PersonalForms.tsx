@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PersonalForms() {
+export default function PersonalForms( props: any ) {
     return (
         <div className="col-md-12  mt-2">
             <br />
