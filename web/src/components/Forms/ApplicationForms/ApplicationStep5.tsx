@@ -27,7 +27,7 @@ export default function ApplicationStep5( props: Props ) {
                 <div onClick={() => {
                     $( '#file-input' ).click()
                 }} className="avatar avatar-xl">
-                    <img id="avatar12" style={{ cursor: 'pointer' }} src="./assets/placeholders/applicant.jpg" alt="..." className="avatar-img rounded-circle" />
+                    <img id="avatar12" style={{ cursor: 'pointer' }} src="./assets/placeholders/1.png" alt="..." className="avatar-img rounded-circle" />
                 </div>
             </div>
         )

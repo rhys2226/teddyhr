@@ -8,36 +8,31 @@ export default function AddEmployee() {
 
     const [ disabled, setdisabled ] = useState( false )
 
-    const [ pasword, setpasword ] = useState( '' )
-    const [ confirmpassword, setconfirmpassword ] = useState( '' )
-    const [ first_name, setfirst_name ] = useState( '' )
-    const [ last_name, setlast_name ] = useState( '' )
-    const [ middle_name, setmiddle_name ] = useState( '' )
-    const [ phone, setphone ] = useState( '' )
-    const [ email, setemail ] = useState( '' )
-    const [ position, setposition ] = useState( '' )
-    const [ alignment, setalignment ] = useState( '' )
-    const [ previous_employer, setprevious_employer ] = useState( '' )
-    const [ previous_employer_contact, setprevious_employer_contact ] = useState( '' )
-
-
     async function submitEmployee() {
-        if ( pasword !== confirmpassword ) {
+        if ( avatar == "" ) {
+            return Alert( 'Please Upload a Professional Photo', 'Human Resources Management Office System requires  to have a distinguisable professional photo', 'error' )
+        }
+        if ( $( '#Password' ).val() !== $( '#confirmpassword' ).val() ) {
             Alert( 'Error', `Passwords doesn't match`, 'error' )
             return
         }
-        setdisabled( true )
+        // setdisabled( true )
         const data: any = {
-            email: email,
-            password: pasword,
-            first_name: first_name,
-            last_name: last_name,
-            middle_name: middle_name,
-            phone: phone,
-            alignment: alignment,
-            previous_employer: previous_employer,
-            previous_employer_contact: previous_employer_contact,
-            position: position,
+            Email: $( '#Email' ).val(),
+            Password: $( '#Password' ).val(),
+            First: $( '#First' ).val(),
+            Last: $( '#Last' ).val(),
+            Middle: $( '#Middle' ).val(),
+            NameExtension: $( '#NameExtension' ).val(),
+            Phone: $( '#Phone' ).val(),
+            Alignment: $( '#Alignment' ).val(),
+            PreviousEmployer: $( '#PreviousEmployer' ).val(),
+            EmployersContactInformation: $( '#EmployersContactInformation' ).val(),
+            Position: $( '#Position' ).val(),
+            confirmpassword: $( '#confirmpassword' ).val(),
+            Type: 'Employee',
+            FirstDay: Date.now(),
+            Avatar: avatar
         }
         $( 'input' ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
 
@@ -45,32 +40,53 @@ export default function AddEmployee() {
             if ( data[ key ] === "" ) {
                 if ( key !== 'alignment' ) {
                     $( `#${ key }` ).addClass( 'is-invalid' )
-                    Alert( 'Check Again', 'One or more fields should not be empty ' + key, 'error' )
                     setdisabled( false )
-                    break;
                 }
             }
         }
-        auth().createUserWithEmailAndPassword( email, pasword ).
-            then( () => {
-                collection( 'employees' ).add( data ).then( () => {
-                    Alert( 'Registration Successfull', 'Employee has been added', 'success' )
-                    setdisabled( false )
-                    for ( let key in data ) {
-                        $( `#${ key }` ).val( '' )
-                        $( `#${ key }` ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
-
-                    }
-                } ).catch( ( error ) => { Alert( 'There was an error', 'Something went wrong. Try Again', 'error' ) } )
-            } )
-            .catch( ( error ) => {
-                for ( let key in error ) {
-                    if ( key == 'code' || key == 'message' )
-                        Alert( 'Registration Failed', error[ key ], 'error' )
+        const formData = new FormData()
+        for ( let key in data ) {
+            formData.append( key, data[ key ] )
+        }
+        axios.post( 'auth/register', formData, { headers: { "Content-Type": "multipart/form-data" } } )
+            .then( ( auth: any ) => {
+                Alert( 'Registration Successfull', auth.message, 'success' )
+                for ( let key in data ) {
+                    $( `#${ key }` ).val( '' )
+                    $( `#${ key }` ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
                 }
+                setavatar( '' )
                 setdisabled( false )
             } )
+            .catch( () => {
+                Alert( 'Error!', 'Something went wrong', 'error' )
+                setdisabled( false )
+            } )
+
     }
+
+    const [ avatar, setavatar ]: any = useState( '' )
+    function Avatar() {
+        return (
+            <div className="col-md-3 text-center d-flex" >
+                <input id="file-input" type="file" onChange={( event: any ) => {
+                    var reader = new FileReader();
+                    reader.onload = ( e: any ) => {
+                        $( '#avatar12' ).attr( 'src', e.target.result );
+                    }
+                    setavatar( event.target.files[ 0 ] )
+                    reader.readAsDataURL( event.target.files[ 0 ] );
+                }} style={{ display: 'none' }} />
+
+                <div onClick={() => {
+                    $( '#file-input' ).click()
+                }} className="avatar avatar-xl">
+                    <img id="avatar12" style={{ cursor: 'pointer' }} src="http://localhost:3000/assets/placeholders/1.png" alt="..." className="avatar-img rounded-circle" />
+                </div>
+            </div>
+        )
+    }
+
 
     return (
         <div className="row justify-content-center">
@@ -78,51 +94,62 @@ export default function AddEmployee() {
                 <div className="card-deck">
                     <div className="card shadow mb-4">
                         <div className="card-header p-3">
-                            <h2 className="card-title mt-2">Employee Form</h2>
+                            <h2 className="card-title mt-2 mb-0">Employee Form</h2>
                         </div>
                         <div className="card-body">
+                            <h5 className="text-info">Professional Photo</h5>
+                            <Avatar />
+                            <p className="text-muted  mb-5 mt-2">Professional Photo <br /> is required</p>
                             <form className="row">
+                                <div className="col-md-12 mb-2 mt-3">
+                                    <h5 className="text-info">Credentials</h5>
+                                </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Email</label>
-                                    <input id="email" onChange={( e ) => setemail( e.target.value )} type='text' className='form-control' />
+                                    <input id="Email" type='text' className='form-control' />
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Password</label>
-                                    <input id="password" onChange={( e ) => setpasword( e.target.value )} type='text' className='form-control' />
+                                    <input id="Password" type='text' className='form-control' />
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Confirm Password</label>
-                                    <input id="confirmpassword" onChange={( e ) => setconfirmpassword( e.target.value )} type='text' className='form-control' />
+                                    <input id="confirmpassword" type='text' className='form-control' />
                                 </div>
-
-
-                                <div className='form-group mb-3 col-12 col-md-4'>
+                                <div className="col-md-12 mb-2 mt-3">
+                                    <h5 className="text-info">Personal Information</h5>
+                                </div>
+                                <div className='form-group mb-3 col-12 col-md-3'>
                                     <label>First Name</label>
-                                    <input id="confirmpassword" onChange={( e ) => setfirst_name( e.target.value )} type='text' className='form-control' />
+                                    <input id="First" type='text' className='form-control' />
                                 </div>
-                                <div className='form-group mb-3 col-12 col-md-4'>
-                                    <label>Last Name</label>
-                                    <input id="last_name" onChange={( e ) => setlast_name( e.target.value )} type='text' className='form-control' />
-                                </div>
-                                <div className='form-group mb-3 col-12 col-md-4'>
+                                <div className='form-group mb-3 col-12 col-md-3'>
                                     <label>Middle Name</label>
-                                    <input id="middle_name" onChange={( e ) => setmiddle_name( e.target.value )} type='text' className='form-control' />
+                                    <input id="Middle" type='text' className='form-control' />
                                 </div>
-
-
-                                <div className='form-group mb-3 col-12 col-md-4'>
+                                <div className='form-group mb-3 col-12 col-md-3'>
+                                    <label>Last Name</label>
+                                    <input id="Last" type='text' className='form-control' />
+                                </div>
+                                <div className='form-group mb-3 col-12 col-md-3'>
+                                    <label>Name Ext.</label>
+                                    <input id="NameExtension" type='text' className='form-control' />
+                                </div>
+                                <div className='form-group mb-3 col-12 col-md-6'>
                                     <label>Phone</label>
-                                    <input id="phone" onChange={( e ) => setphone( e.target.value )} type='text' className='form-control' />
+                                    <input id="Phone" type='text' className='form-control' />
                                 </div>
-
+                                <div className="col-md-12 mb-2 mt-3">
+                                    <h5 className="text-info">Professional Information</h5>
+                                </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Position/Title</label>
-                                    <input id="position" onChange={( e ) => setposition( e.target.value )} type='text' className='form-control' />
+                                    <input id="Position" type='text' className='form-control' />
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Alignment </label>
-                                    <select onChange={( e ) => setalignment( e.target.value )} className='form-control'>
-                                        <option selected disabled >Choose...</option>
+                                    <select id="Alignment" className='form-control'>
+                                        <option></option>
                                         <option>Vertical</option>
                                         <option>Non-Vertical</option>
                                     </select>
@@ -130,11 +157,11 @@ export default function AddEmployee() {
 
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Previous Employer</label>
-                                    <input id="previous_employer" onChange={( e ) => setprevious_employer( e.target.value )} type='text' className='form-control' />
+                                    <input id="PreviousEmployer" type='text' className='form-control' />
                                 </div>
-                                <div className='form-group mb-3 col-12 col-md-8'>
+                                <div className='form-group mb-3 col-12 col-md-6'>
                                     <label>Prev Employer's Contact Information</label>
-                                    <input id="previous_employer_contact" onChange={( e ) => setprevious_employer_contact( e.target.value )} type='text' className='form-control' />
+                                    <input id="EmployersContactInformation" type='text' className='form-control' />
                                 </div>
 
                                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>

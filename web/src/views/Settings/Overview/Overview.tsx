@@ -45,11 +45,11 @@ export default function Overview() {
             </div>
             <div className="row my-4">
 
-                <WorkExperience />
+                {/* <WorkExperience /> */}
                 <EducationalAttainments />
                 <Eligibilities />
                 <PersonalForms />
-                <SupportingDocuments />
+                {/* <SupportingDocuments /> */}
             </div>
         </div>
     )
