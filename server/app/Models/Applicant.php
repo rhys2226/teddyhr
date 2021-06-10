@@ -21,12 +21,18 @@ class Applicant extends Model
         'Approved',
         'Schedule',
         'Position',
+        'Office',
     ];
     
     
     public function user()
     {
         return $this->hasOne(User::class,'id','user_id');
+    }
+    
+    public function attachments()
+    {
+        return $this->hasMany(attachments::class,'user_id','user_id');
     }
 
 }

@@ -15,6 +15,7 @@ class CreateAttachmentsTable extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('Type');
             $table->string('URL');
+            $table->string('Name');
         });
     }
 

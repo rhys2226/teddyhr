@@ -14,15 +14,16 @@ class CreateApplicantsTable extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('Alignment');
-            $table->string('EducationalAttainments');
-            $table->string('Eligibilities');
-            $table->string('Degrees');
-            $table->string('WorkExperience');
+            $table->string('EducationalAttainments',999);
+            $table->string('Eligibilities',999);
+            $table->string('Degrees',999);
+            $table->string('WorkExperience',999);
             $table->string('PreviousEmployer');
             $table->string('EmployersContactInformation');
-            $table->string('Approved')->nullable();
+            $table->boolean('Approved')->nullable();
             $table->string('Schedule')->nullable();
             $table->string('Position')->nullable();
+            $table->string('Office')->nullable();
         });
     }
 

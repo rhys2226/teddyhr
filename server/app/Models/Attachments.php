@@ -12,6 +12,7 @@ class Attachments extends Model
     protected $fillable = [
         'user_id',
         'Type',
+        'Name',
         'URL',
     ];
 }

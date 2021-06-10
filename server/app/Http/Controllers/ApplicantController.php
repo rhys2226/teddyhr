@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Applicant;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
 {
     public function index()
     { 
-        return Applicant::with('user')->paginate(20);
+        return Applicant::with('user')->with('attachments')->paginate(20);
     }
    
     public function store(Request $request)
@@ -24,15 +25,16 @@ class ApplicantController extends Controller
         return Applicant::find($applicant);
     }
     
-    public function update(Request $request, Applicant $applicant)
+    public function update(Request $request, $id)
     {
-        $input = $request->all();
-        $applicant = $applicant->fill($input)->save();
-        return $applicant;
+        $applicant = Applicant::where('user_id',$id)->first();
+        $applicant->Schedule = $request->input('Schedule');
+        $applicant->save();
+        return  $applicant;
     }
 
-    public function destroy(Applicant $applicant)
+    public function destroy($id)
     {
-        return Applicant::find($applicant)->delete();
+        return User::find($id)->delete();
     }
 }

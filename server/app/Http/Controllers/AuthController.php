@@ -16,23 +16,19 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $user = User::where('Email',$request->input('Email'))->first();
-
         if (!$user) {
             return response(['message' => 'Email does not exist.'], 404);
         }
-
         if (!Hash::check($request->input('Password'), $user->Password)) {
             return response(['message' => 'Password is incorrect.'], 403);
         }
-
         $token = $user->createToken(Str::random());
-
         return [
             'user' => $user,
             'token' => $token->plainTextToken,
             'message' => 'Welcome Back! '. $user->First
         ];
-    }
+    } 
 
     public function register(Request $request){
         $data = $request->all();
@@ -41,6 +37,7 @@ class AuthController extends Controller
         if(isset($data['Avatar'])){
             $data['Avatar'] = AuthController::storeAvatar( $userType , $data['Avatar']) ;
         }
+        $data['Password'] = Hash::make($data['Password']);
         $user = User::create($data);
         $data['user_id'] = $user->id;
         
@@ -76,6 +73,7 @@ class AuthController extends Controller
         $attachments->user_id = $user_id;
         $attachments->URL =   Storage::url( $path );
         $attachments->Type = '/supporting-documents';
+        $attachments->Name = $file->getClientOriginalName();
         $attachments->save();
     } 
 }
