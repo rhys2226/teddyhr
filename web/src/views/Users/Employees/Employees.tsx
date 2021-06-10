@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Pagination from '../../../components/Table/Pagination'
-import axios from 'axios';
-import * as base from '.././../../constants/base'
 import { Alert, Fire } from '../../../components/Alerts/Alert';
 import EmployeesPlaceholder from './EmployeesPlaceholder';
 import SlideModal from '../../../components/Modals/SlideModal';
@@ -9,30 +7,41 @@ import ChangeSupervisor from './ChangeSupervisor';
 import { useHistory } from "react-router-dom";
 import LargeModal from '../../../components/Modals/LargeModal';
 import EmployeeICPR from './EmployeeICPR';
-import FullScreenModal from '../../../components/Modals/FullScreenModal';
-import Privileges from './Privileges';
-import { collection } from '../../../Firebase/firebase';
+import { Auth } from '../../../services/auth.service';
+import { toDate } from '../../../helpers';
 
 
 export default function Employees() {
     const history = useHistory()
 
+    const [ currentSupervisor, setcurrentSupervisor ]: any = useState( {} )
+    const [ currentEmployee, setcurrentEmployee ]: any = useState( {} )
+
+
     const [ employees, setEmployees ] = useState( [] )
+    const user: any = localStorage.getItem( 'user' )
+    const id = JSON.parse( user ).id
 
     useEffect( () => {
-        setTimeout( () => {
-            getEmployees()
-        }, 1000 );
+        getEmployees()
     }, [] )
 
     async function getEmployees() {
-        let employeesArray: any = []
-        const employees = await collection( 'employees' ).get()
-        employees.forEach( employee => {
-            employeesArray.push( employee.data() )
+        const auth = new Auth( 'employees' );
+        auth.fetch( {} ).then( ( data: any ) => {
+            setEmployees( data.data )
         } )
-        setEmployees( employeesArray )
     }
+
+    const rateButton = () => (
+        <button
+            data-toggle='modal'
+            data-target=".large-modal"
+            onClick={() => {
+
+            }}
+            className="btn btn-sm btn-outline-info ml-2">Rate</button>
+    )
 
     return (
         <div>
@@ -72,36 +81,43 @@ export default function Employees() {
                                         <tr>
                                             <td>
                                                 <div className="avatar avatar-md">
-                                                    <img src="http://localhost:3000/assets/avatars/face-6.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                    <img src={employee.user.Avatar} alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-muted"><strong>{employee.last_name}, {employee.first_name}   {employee.middle_name}</strong></p>
-                                                <p className="small mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}>{employee.position}</span></p>
+                                                <p className="mb-0 text-muted">
+                                                    <strong>
+                                                        {employee.user.Last} {employee.user.First} {employee.user.Middle}
+                                                    </strong>
+                                                </p>
+                                                <p className="small mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}>{employee.Position}</span></p>
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-primary ">@{employee.email}</p>
-                                                <small className="mb-0 text-muted">{employee.phone}</small>
+                                                <p className="mb-0 text-primary ">@{employee.user.Email}</p>
+                                                <small className="mb-0 text-muted">{employee.user.Phone}</small>
                                             </td>
 
-                                            <td>{employee.alignment}</td>
+                                            <td>{employee.Alignment}</td>
 
                                             <td className=" text-center"> 15</td>
 
-                                            <td className="text-muted text-right">13/09/2020</td>
+                                            <td className="text-muted text-right">{toDate( employee.created_at )}</td>
 
 
                                             <td className="text-center">
                                                 <div className="avatar avatar-xl">
-                                                    <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                    <img src={employee.supervisors.Avatar} alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-muted"><strong>You</strong></p>
-                                                {/* <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p> */}
+                                                <p className="mb-0 text-muted">
+                                                    <strong>
+                                                        {employee.supervisors.id === id ? 'You' : employee.supervisors.First}
+                                                    </strong>
+                                                </p>
                                             </td>
 
                                             <td>
@@ -110,6 +126,10 @@ export default function Employees() {
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">
                                                     <button
+                                                        onClick={() => {
+                                                            setcurrentSupervisor( employee.supervisors )
+                                                            setcurrentEmployee( employee )
+                                                        }}
                                                         data-toggle='modal'
                                                         data-target=".slide-modal"
                                                         role="butoon" className="dropdown-item" >Add/Change Supervisor</button>
@@ -132,19 +152,8 @@ export default function Employees() {
                                                             history.push( '/home/leaves' )
                                                         }}
                                                         role="butoon" className="dropdown-item" >Leave History</button>
-                                                    <button
-                                                        data-toggle='modal'
-                                                        data-target=".modal-full"
-                                                        role="butoon" className="dropdown-item" >Permissions</button>
-
                                                 </div>
-                                                <button
-                                                    data-toggle='modal'
-                                                    data-target=".large-modal"
-                                                    onClick={() => {
-
-                                                    }}
-                                                    className="btn btn-sm btn-outline-info ml-2">Rate</button>
+                                                {employee.supervisors.id === id ? rateButton() : ''}
                                             </td>
                                         </tr>
                                     ) )
@@ -170,18 +179,25 @@ export default function Employees() {
                 title="Change Supervisor"
                 buttonName="Change"
                 callback={() => {
-                    Fire( 'Change Supervisor?', 'Are you sure you want to change the supervisor?', 'info', () => {
-                        Alert( 'SUCCESS', '', 'success' )
+                    let supervisor = $( '#supervisor' ).val()
+                    Fire( 'Change Supervisor?', `Are you sure you want to change this employee's supervisor`, 'info', () => {
+                        const api = new Auth( 'subordinates' )
+                        api.update( currentEmployee.user_id, { SupervisorID: supervisor } )
+                            .then( () => {
+                                Alert( 'Supervisor Changed', 'Supervisor has been changed successfully', 'success' )
+                                getEmployees()
+                            } )
+                            .catch( () => {
+                                Alert( 'Error', 'Something went wrong. Try Again', 'error' )
+
+                            } )
                     } )
                 }}>
-                <ChangeSupervisor />
+                <ChangeSupervisor supervisor={currentSupervisor} employees={employees} />
             </SlideModal>
             <LargeModal>
                 <EmployeeICPR />
             </LargeModal>
-            <FullScreenModal>
-                <Privileges />
-            </FullScreenModal>
         </div>
     )
 }
