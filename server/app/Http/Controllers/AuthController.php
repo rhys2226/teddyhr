@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class AuthController extends Controller
@@ -64,21 +65,17 @@ class AuthController extends Controller
     
     public static function storeAvatar($userType,$file)
     {
-        $path = $file->store(
-           $userType.'avatars/'
-        );
-        return storage_path('app/public/'. $path);
+        $path = Storage::disk('public_uploads')->put($userType.'avatars/' , $file);
+        return Storage::url( $path );
     }
     
     public static function storeFiles($userType, $file, $user_id  )
     {
-        $path = $file->store(
-            $userType.'supporting-documents/'
-        );
+        $path = Storage::disk('public_uploads')->put($userType.'supporting-documents/' , $file);
         $attachments = new Attachments();
         $attachments->user_id = $user_id;
-        $attachments->URL = storage_path('app/public/'. $path);
-        $attachments->Type = 'supporting-documents';
+        $attachments->URL =   Storage::url( $path );
+        $attachments->Type = '/supporting-documents';
         $attachments->save();
-    }
+    } 
 }

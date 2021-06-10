@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
@@ -15,14 +16,14 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'Type'  =>  'Admin',
             'Token' => Str::random(),
-            'Avatar' => storage_path('app/admin/teddy.jpg'),
+            'Avatar' =>  Storage::url('admin/teddy.jpg'),
             'First' => 'Teddy',
             'Last' => 'Fuentivilla',
             'Middle'  => 'B.',
             'Phone'  => '09286241875',
             'Email'  => 'teddy@gmail.com',
             'NameExtension'  => '',
-            'Password'  => Hash::make('admin'),
+            'Password'  => Hash::make('admin1'),
         ]);
     }
 }
