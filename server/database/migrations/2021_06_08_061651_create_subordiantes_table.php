@@ -11,8 +11,8 @@ class CreateSubordiantesTable extends Migration
         Schema::create('subordiantes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('SupervisorID')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('SubordinateID')->references('id')->on('users')->onDelete('cascade');
+            $table->string('SupervisorID');
+            $table->string('SubordinateID');
             $table->string('Department');
         }); 
     }

@@ -17,13 +17,17 @@ class EmployeeController extends Controller
         ->with('attachments')
         ->with('supervisors')
         ->with('leaves')
-        ->with('pds')
         ->paginate(20);
     }
     
-    public function show(Employee $employee)
+    public function show($id)
     {
-        return Employee::find($employee);
+        return Employee::with('user')
+            ->with('supervisors')
+            ->with('WorkExperiences')
+            ->with('EducationalAttainments')
+            ->with('Eligibilities')
+            ->where('user_id',$id)->first();
     }
 
     public function update(Request $request, Employee $employee)

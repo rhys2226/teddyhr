@@ -33,13 +33,26 @@ class Employee extends Model
         return $this->hasMany(ApplicationForLeave::class, 'employee_id','user_id');
     }
     
-    public function pds()
-    {
-        return $this->hasMany(PersonalDataSheet::class, 'employee_id','user_id');
-    }
-    
     public function attachments()
     {
         return $this->hasMany(Attachments::class, 'user_id','user_id');
+    }
+    
+    
+    // pds 
+    
+     public function WorkExperiences()
+    {
+        return $this->hasManyThrough(WorkExperience::class, PersonalDataSheet::class, 'employee_id','id', 'id','employee_id');
+    }
+    
+    public function EducationalAttainments()
+    {
+        return $this->hasManyThrough(EducationalBackground::class, PersonalDataSheet::class, 'employee_id','id', 'id','employee_id');
+    }
+    
+    public function Eligibilities()
+    {
+        return $this->hasManyThrough(Eligibilities::class, PersonalDataSheet::class, 'employee_id','id', 'id','employee_id');
     }
 }
