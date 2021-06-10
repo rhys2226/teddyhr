@@ -10,16 +10,17 @@ import ApplicantSupportingDocument from './ApplicantSupportingDocument'
 import ScheduleAnInterview from './ScheduleAnInterview'
 import axios from 'axios'
 import { Auth } from '../../../services/auth.service'
+import { toDate } from '../../../helpers'
 
 export default function Applicants() {
     const [ applicants, setApplicants ]: any = useState( [] )
-
-    const [ modal, setModal ] = useState( ApplicantINformation )
-
+    const [ modal, setModal ]: any = useState()
+    const [ modaldata, setmodaldata ]: any = useState( {} )
+    const [ user, setuser ]: any = useState( {} )
 
     useEffect( () => {
         getApplicants()
-    }, [] )
+    }, [ modaldata ] )
 
     function getApplicants() {
         const auth = new Auth( 'applicants' );
@@ -27,18 +28,6 @@ export default function Applicants() {
             setApplicants( data.data )
         } )
 
-    }
-
-    function changeModal( type: number ) {
-        if ( type === 1 ) {
-            setModal(
-                <ApplicantINformation />
-            )
-            return
-        }
-        setModal(
-            <ApplicantSupportingDocument />
-        )
     }
 
     return (
@@ -57,7 +46,7 @@ export default function Applicants() {
                                 </div>
                             </form>
                         </div>
-                        <table className="table table-borderless table-hover">
+                        <table className="table table-borderless table-hover table-responsive">
                             <thead className="table-dark">
                                 <tr>
                                     <th className="text-info text-center"><i className="fe fe-user"></i></th>
@@ -79,7 +68,7 @@ export default function Applicants() {
                                         <tr>
                                             <td className="text-center">
                                                 <div className="avatar avatar-xl">
-                                                    <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                    <img src={applicant.user.Avatar} alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
 
@@ -120,9 +109,11 @@ export default function Applicants() {
                                                 </span>
                                             </td>
 
-                                            <td className="text-muted">{applicant.user.created_at}</td>
+                                            <td className="text-muted">{toDate( applicant.user.created_at )}</td>
 
-                                            <td className="text-danger">Pending</td>
+                                            <td className={applicant.Approved !== 'true' ? 'text-danger' : 'text-success'}>
+                                                {applicant.Approved === 'true' ? 'Approved' : 'Pending'}
+                                            </td>
 
                                             <td>
                                                 <button className="btn btn-dark btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -133,37 +124,47 @@ export default function Applicants() {
                                                     <button
                                                         data-toggle='modal'
                                                         data-target=".large-modal"
-                                                        onClick={() => {
-                                                            changeModal( 1 )
+                                                        onClick={async () => {
+                                                            await setmodaldata( applicant )
+                                                            setModal(
+                                                                <ApplicantINformation data={applicant} />
+                                                            )
                                                         }}
                                                         className="dropdown-item" >  View Information </button>
 
                                                     <button
                                                         data-toggle='modal'
                                                         data-target=".large-modal"
-                                                        onClick={() => {
-                                                            changeModal( 2 )
+                                                        onClick={async () => {
+                                                            await setmodaldata( applicant )
+                                                            setModal(
+                                                                <ApplicantSupportingDocument data={applicant.attachments} />
+                                                            )
                                                         }}
                                                         className="dropdown-item" > Check Supporting Documents </button>
 
                                                     <button
-                                                        onClick={() => {
-                                                            Fire( 'Reject', 'Are you sure you want to Reject this applicant?', 'warning', () => { } )
+                                                        onClick={async () => {
+                                                            const user = applicant
+                                                            Fire( `Reject  ${ user.user.First }?`, `Are you sure you want to Reject the application of ${ user.user.First }?`, 'warning', () => {
+                                                                const api = new Auth( 'applicants' )
+                                                                api.delete( user.user_id )
+                                                                    .then( () => {
+                                                                        Alert( 'Applicant Rejected', `Rejected the application of  ${ user.user.First } successful`, 'success' )
+                                                                        getApplicants()
+                                                                    } )
+                                                                    .catch( () => (
+                                                                        Alert( 'Something Went Wrong', `Error on rejecting  ${ user.user.First }. Please try again later`, 'eror' ) )
+                                                                    )
+                                                            } )
                                                         }}
                                                         className="dropdown-item" >Reject</button>
 
                                                     <button
+                                                        onClick={() => setuser( applicant )}
                                                         data-toggle='modal'
                                                         data-target=".slide-modal"
                                                         className="dropdown-item">Schedule an Interview</button>
-
-                                                    <button
-                                                        onClick={() => {
-                                                            Fire( 'Approve Applicant', 'Are you sure you want to Approve this Applicant? This applicant will be deleted and will be transfer to Employee Lists', 'info', () => {
-                                                                Alert( 'Applicant Successfully  Approved', 'This Applicant has beeen moved to Employees', 'success' )
-                                                            } )
-                                                        }}
-                                                        className="dropdown-item">Approve and Move to Employees</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -195,8 +196,20 @@ export default function Applicants() {
                 title="Schedule an Interview"
                 buttonName="Schedule Interview"
                 callback={() => {
-                    Fire( 'Schedule an Interview', 'Are you sure you want to Schedule an Interview?', 'info', () => {
-                        Alert( 'SUCCESS', '', 'success' )
+                    const schedule = $( '#scheduled_date' ).val()
+                    if ( schedule === '' ) {
+                        Alert( 'Error!', 'Schedule Date should not be empty', 'error' )
+                        return
+                    }
+                    Fire( `Interview ${ user.user.First }`, `Are you sure you want to Schedule an Interview on ${ user.user.First } at ${ toDate( schedule ) }?`, 'info', () => {
+                        const api = new Auth( 'applicants' )
+                        api.update( user.user_id, { Schedule: schedule } ).then( () => {
+                            Alert(
+                                `Scheduled Interview: ${ toDate( schedule ) }`,
+                                `Interview Schedule on ${ toDate( schedule ) }  has been successfully sent to ${ user.user.First }'s email`,
+                                'success'
+                            )
+                        } ).catch( () => Alert( 'Something Went Wrong', 'Error Scheduling an Interview. Please try again later', 'eror' ) )
                     } )
                 }}>
                 <ScheduleAnInterview />

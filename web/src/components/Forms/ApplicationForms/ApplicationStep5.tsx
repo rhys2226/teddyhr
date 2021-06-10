@@ -5,6 +5,7 @@ type Props = {
     step5: Function
     makeStep: Function
     SubmitForm: Function
+    data: any
 }
 
 export default function ApplicationStep5( props: Props ) {
@@ -41,19 +42,19 @@ export default function ApplicationStep5( props: Props ) {
                 <div className="col">
                     <div className="row align-items-center">
                         <div className="col-md-7">
-                            <h4 className="mb-1">Fuentevilla, Teddy Doe</h4>
-                            <h3 className="text-muted  mt-0">Office of Management Information System</h3>
-                            <p className="small mb-3"><span className="badge bg-success-lighter text-success p-1 br-2" style={{ fontWeight: 900, }}>Application as Developer</span></p>
+                            <h4 className="mb-1">{props.data.Last}, {props.data.First} {props.data.Middle}</h4>
+                            <h3 className="text-muted  mt-0">{props.data.Office || ''}</h3>
+                            <p className="small mb-3"><span className="badge bg-success-lighter text-success p-1 br-2" style={{ fontWeight: 900, }}>Application as {props.data.Position || ''}</span></p>
                         </div>
                     </div>
                     <div className="row mb-4">
                         <div className="col-md-7">
-                            <p className="text-muted"> Bachelor or Science in Information Technology, Masters in Information Technology, Phd in Information Technology </p>
+                            <p className="text-muted">{props.data.Degrees}</p>
                         </div>
                         <div className="col">
-                            <p className="small mb-0 text-muted">teddy@gmail.com</p>
-                            <p className="small mb-0 text-muted">Vertically Alligned</p>
-                            <p className="small mb-0 text-muted">0928-624-1875</p>
+                            <p className="small mb-0 text-muted">{props.data.Email}</p>
+                            <p className="small mb-0 text-muted">{props.data.Alignment} Aligned</p>
+                            <p className="small mb-0 text-muted">{props.data.Phone}</p>
                         </div>
                     </div>
                 </div>

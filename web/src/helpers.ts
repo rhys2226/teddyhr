@@ -24,7 +24,7 @@ export function toBool(data: any) {
 
 export function validURL(url: string) {
 	let valid = false;
-	var pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!-/]))?/;
+	const pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!-/]))?/;
 	try {
 		new URL(url);
 		valid = true;
@@ -191,4 +191,15 @@ const formatter = new Intl.NumberFormat('en-PH', {
 
 export function formatCurrency(value: number) {
 	return formatter.format(value).replace(/\D00(?=\D*$)/, '');
+}
+
+export function toDate(date:any){
+    const newDate = date.split( "T" );
+    const splittedDate = newDate[ 0 ].split( "-" )
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return `${months[parseInt(splittedDate[1])] } ${splittedDate[2] }, ${splittedDate[0] }`
+}
+
+export function toArray(string:String) {
+    return string.split(',')
 }

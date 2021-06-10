@@ -6,7 +6,7 @@ type Props = {
 const ScheduleAnInterview: FC<Props> = ( props ) => {
     return (
         <div>
-            <input type="date" className="form-control" />
+            <input id="scheduled_date" type="date" className="form-control" />
         </div>
     )
 }

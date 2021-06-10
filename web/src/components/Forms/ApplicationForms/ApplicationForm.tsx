@@ -92,6 +92,12 @@ export default function ApplicationForm() {
                     makeStep={( step: number ) => {
                         changeStep( step )
                     }}
+                    data={
+                        Object.assign(
+                            personalDataForm,
+                            professionalDataForm,
+                        )
+                    }
                     SubmitForm={async () => {
                         const data: any = Object.assign(
                             personalDataForm,

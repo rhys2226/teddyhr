@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
 
-export default function WorkExperience() {
+export default function WorkExperience( props: any ) {
     const history = useHistory()
 
     return (
@@ -18,7 +18,7 @@ export default function WorkExperience() {
                             <a href="#">
                                 <h3 className="h5 mt-4 mb-1">Work Experiences</h3>
                             </a>
-                            <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus.</p>
+                            <p className="text-muted">{props.data}</p>
                         </div>
                     </div>
                 </div>
