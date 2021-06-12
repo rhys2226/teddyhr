@@ -54,10 +54,11 @@ class RatingController extends Controller
 
     public function show($id)
     {
-        $rating = Rating::with('user')
+        return Rating::with('user')
             ->with('RatingDetails')
+            ->with('supervisors')
             ->where('employee_id',$id)
-            ->first()
+            ->get()
         ;
     }
 
@@ -66,8 +67,8 @@ class RatingController extends Controller
         //
     }
 
-    public function destroy(Rating $rating)
+    public function destroy($id)
     {
-        //
+       return Rating::find($id)->delete();
     }
 }

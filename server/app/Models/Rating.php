@@ -21,16 +21,23 @@ class Rating extends Model
         'ReviewedByDate',
         'ApprovedBy',
         'ApprovedByDate',
+        'ActualAccomplishments',
+        'Remarks',
     ];
     
     public function user()
     {
         return $this->hasOne(User::class,'id','employee_id');
+    } 
+    
+    public function supervisors()
+    {
+        return $this->hasOneThrough(User::class, Subordiante::class, 'SubordinateID','id', 'employee_id','SupervisorID');
     }
     
     public function RatingDetails()
     {
-        return $this->hasOne(RatingDetails::class,'rating_id','id');
+        return $this->hasMany(RatingDetails::class,'rating_id','id');
     }
 } 
          

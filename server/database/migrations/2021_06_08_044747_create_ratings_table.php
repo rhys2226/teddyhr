@@ -14,17 +14,17 @@ class CreateRatingsTable extends Migration
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users');
             
-            $table->string('ReviewedBy');
-            $table->date('ReviewedByDate');
-            $table->string('ApprovedBy');
-            $table->date('ApprovedByDate');
+            $table->string('ReviewedBy')->nullable();
+            $table->date('ReviewedByDate')->nullable();
+            $table->string('ApprovedBy')->nullable();
+            $table->date('ApprovedByDate')->nullable();
             
-            $table->string('DiscussedBy');
-            $table->date('DiscussedByDate');
-            $table->string('AssessedBy');
-            $table->date('AssessedByDate');
-            $table->string('FinalRating');
-            $table->date('FinalRatingDate');
+            $table->string('DiscussedBy')->nullable();
+            $table->date('DiscussedByDate')->nullable();
+            $table->string('AssessedBy')->nullable();
+            $table->date('AssessedByDate')->nullable();
+            $table->string('FinalRating')->nullable();
+            $table->date('FinalRatingDate')->nullable();
 
         });
     }
