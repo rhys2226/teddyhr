@@ -13,6 +13,12 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users');
+            
+            $table->string('ReviewedBy');
+            $table->date('ReviewedByDate');
+            $table->string('ApprovedBy');
+            $table->date('ApprovedByDate');
+            
             $table->string('DiscussedBy');
             $table->date('DiscussedByDate');
             $table->string('AssessedBy');

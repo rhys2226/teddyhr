@@ -17,6 +17,20 @@ class Rating extends Model
         'AssessedByDate',
         'FinalRating',
         'FinalRatingDate',
+        'ReviewedBy',
+        'ReviewedByDate',
+        'ApprovedBy',
+        'ApprovedByDate',
     ];
-}
+    
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','employee_id');
+    }
+    
+    public function RatingDetails()
+    {
+        return $this->hasOne(RatingDetails::class,'rating_id','id');
+    }
+} 
          

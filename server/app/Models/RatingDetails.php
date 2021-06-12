@@ -21,3 +21,4 @@ class RatingDetails extends Model
     ];
 }
 
+ 
