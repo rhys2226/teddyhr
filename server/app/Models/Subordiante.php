@@ -14,4 +14,14 @@ class Subordiante extends Model
         'SubordinateID',
         'Department',
     ];
+    
+    public function subordinates()
+    {
+        return $this->hasMany(User::class,'id','SubordinateID');
+    }
+    
+    public function supervisors()
+    {
+        return $this->hasOne(User::class,'id','SupervisorID');
+    }
 }

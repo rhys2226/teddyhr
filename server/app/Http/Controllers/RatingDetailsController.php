@@ -14,7 +14,6 @@ class RatingDetailsController extends Controller
         //
     }
 
-
     public function store(Request $request)
     {
         //
@@ -24,7 +23,6 @@ class RatingDetailsController extends Controller
     {
 
     }
-
 
     public function update(Request $request, RatingDetails $ratingDetails)
     {

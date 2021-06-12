@@ -10,17 +10,16 @@ class SubordianteController extends Controller
 {
     public function index()
     {
-        //
+        return Subordiante::with('subordinates')
+            ->with('supervisors')
+            // ->groupBy('Department')
+            // ->groupBy('SupervisorID')
+            ->get();
     }
 
     public function store(Request $request)
     {
-        //
-    }
-
-    public function show(Subordiante $subordiante)
-    {
-        //
+        return Subordiante::create($request->all());
     }
 
     public function update(Request $request, $id)
@@ -29,8 +28,8 @@ class SubordianteController extends Controller
         return $Subordiante->fill($request->all())->save();
     }
 
-    public function destroy(Subordiante $subordiante)
+    public function destroy($id)
     {
-        //
+        return Subordiante::find($id)->delete();
     }
 }

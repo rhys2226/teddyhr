@@ -9,12 +9,6 @@ use Illuminate\Http\Request;
 
 class RatingController extends Controller
 {
- 
-    public function index()
-    {
-        //
-    }
-   
     public function store(Request $request)
     {
         $data = $request->all();
@@ -49,7 +43,6 @@ class RatingController extends Controller
             $i += 1;
             $details->save();
         }
-        
     }
 
     public function show($id)
@@ -60,11 +53,6 @@ class RatingController extends Controller
             ->where('employee_id',$id)
             ->get()
         ;
-    }
-
-    public function update(Request $request, Rating $rating)
-    {
-        //
     }
 
     public function destroy($id)
