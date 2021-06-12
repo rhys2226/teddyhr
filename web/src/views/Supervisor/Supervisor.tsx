@@ -2,6 +2,7 @@ import React from 'react'
 import { Alert, Fire } from '../../components/Alerts/Alert'
 import LargeModal from '../../components/Modals/LargeModal'
 import Pagination from '../../components/Table/Pagination'
+import { Auth } from '../../services/auth.service'
 import Subordinates from './Subordinates'
 import SupervisorPlaceholder from './SupervisorPlaceholder'
 
@@ -9,14 +10,35 @@ import SupervisorPlaceholder from './SupervisorPlaceholder'
 export default function Supervisor() {
 
     const [ add, setAdd ] = React.useState( false )
-
+    const [ disabled, setdisabled ] = React.useState( false )
     const [ supervisors, setsupervisors ]: any = React.useState( [] )
+    const [ employees, setEmployees ]: any = React.useState( [] )
+
+    const [ modal, setModal ]: any = React.useState( <div></div> )
+
+
 
     React.useEffect( () => {
         setTimeout( () => {
-            setsupervisors( [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] )
+            getSupervisors()
+            getEmplyees()
         }, 1000 );
     }, [] )
+
+    function getEmplyees() {
+        const api = new Auth( 'employees' );
+        api.fetch( {} ).then( ( data: any ) => {
+            setEmployees( data.data )
+        } )
+    }
+
+    function getSupervisors() {
+        const api = new Auth( 'subordinates' )
+        api.fetch( {} ).then( ( data: any ) => {
+            setsupervisors( data )
+        } )
+    }
+
 
     return (
         <div>
@@ -56,44 +78,97 @@ export default function Supervisor() {
                             <tbody>
                                 <SupervisorPlaceholder show={supervisors.length !== 0 ? false : true} />
                                 <tr style={{ display: add === true ? 'table-row' : 'none' }}>
-                                    <td> <input className="form-control" /></td>
+                                    <td> <input id="Department" className="form-control" /></td>
                                     <td></td>
                                     <td>
-                                        <select className="form-control">
-                                            <option selected disabled>Choose..</option>
+                                        <select id="SupervisorID" className="form-control">
+                                            <option selected disabled></option>
+                                            {
+                                                employees.map( ( employee: any, index: any ) => (
+                                                    <option key={index} value={employee.user_id}>{`${ employee.user.First } ${ employee.user.Middle } ${ employee.user.Last }`}</option>
+                                                ) )
+                                            }
                                         </select>
                                     </td>
                                     <td>
-                                        <select className="form-control">
-                                            <option selected disabled>Choose..</option>
+                                        <select id="SubordinateID" className="form-control">
+                                            <option selected disabled></option>
+                                            {
+                                                employees.map( ( employee: any, index: any ) => (
+                                                    <option key={index} value={employee.user_id}>{`${ employee.user.First } ${ employee.user.Middle } ${ employee.user.Last }`}</option>
+                                                ) )
+                                            }
                                         </select>
                                     </td>
                                     <td>
                                         <button
                                             onClick={() => {
                                                 Fire( 'Add Subordinate', 'Are you sure you want to add Employee on MIS?', 'warning', () => {
-                                                    Alert( 'Employee Added to MIS', '', 'info' )
-                                                    setAdd(
-                                                        add === false ? true : false
-                                                    )
+                                                    $( 'input' ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
+                                                    const data: any = {
+                                                        Department: $( '#Department' ).val(),
+                                                        SupervisorID: $( '#SupervisorID' ).val(),
+                                                        SubordinateID: $( '#SubordinateID' ).val(),
+                                                    }
+                                                    for ( let key in data ) {
+                                                        if ( data[ key ] === "" ) {
+                                                            $( `#${ key }` ).addClass( 'is-invalid' )
+                                                            setdisabled( false )
+                                                        }
+                                                    }
+
+                                                    const api = new Auth( 'subordinates' )
+
+                                                    api.create( data, {} )
+                                                        .then( () => {
+                                                            getSupervisors()
+                                                            for ( let key in data ) {
+                                                                $( `#${ key }` ).val( '' )
+                                                                $( `#${ key }` ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
+                                                            }
+                                                            setAdd(
+                                                                add === false ? true : false
+                                                            )
+                                                            setdisabled( false )
+                                                            Alert( 'Hooray!', `New Employee has been designated to ${ data.Department }`, 'success' )
+
+                                                        } )
+                                                        .catch( () => {
+                                                            Alert( 'Error', 'Somethin Went wrong', 'info' )
+                                                            setdisabled( false )
+                                                        } )
                                                 } )
                                             }}
-                                            className="btn btn-primary">Submit
-                                                    </button>
+                                            className="btn btn-primary">
+                                            {
+                                                disabled == true ?
+
+                                                    <div className="d-flex aic jcc">
+                                                        <div className="spinner-border spinner-border-sm mr-3 text-white" role="status" />
+                                                        <span className="mt-1">Loading ... </span>
+                                                    </div>
+                                                    :
+                                                    'Submit'
+                                            }
+                                        </button>
                                     </td>
                                 </tr>
                                 {
                                     supervisors.map( ( supervisor: any, index: number ) => (
                                         <tr>
-                                            <td> <i className="fe fe-pause"></i> &nbsp; Management Information System</td>
+                                            <td> <i className="fe fe-pause"></i> &nbsp; {supervisor.Department}</td>
                                             <td className="text-center">
                                                 <div className="avatar avatar-md">
-                                                    <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                    <img src={supervisor.supervisors.Avatar} alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
-                                            <td> Ryan Agsaluna </td>
+                                            <td> {supervisor.supervisors.First} {supervisor.supervisors.Middle} {supervisor.supervisors.Last} </td>
                                             <td>
                                                 <button
+                                                    onClick={() => {
+                                                        setModal( <Subordinates data={supervisor} /> )
+                                                        console.log( supervisor )
+                                                    }}
                                                     data-toggle='modal'
                                                     data-target=".large-modal"
                                                     className="btn btn-outline-info "
@@ -125,7 +200,7 @@ export default function Supervisor() {
                 </div>
             </div>
             <LargeModal>
-                <Subordinates />
+                {modal}
             </LargeModal>
         </div >
     )

@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import * as base from '.././../../constants/base'
 import { Alert } from '../../../components/Alerts/Alert';
-import { auth, collection } from '../../../Firebase/firebase';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 
 export default function AddEmployee() {
+
+    const [ phone, setphone ]: any = React.useState()
 
     const [ disabled, setdisabled ] = useState( false )
 
@@ -38,7 +41,7 @@ export default function AddEmployee() {
 
         for ( let key in data ) {
             if ( data[ key ] === "" ) {
-                if ( key !== 'alignment' ) {
+                if ( key !== 'NameExtension' ) {
                     $( `#${ key }` ).addClass( 'is-invalid' )
                     setdisabled( false )
                 }
@@ -110,11 +113,11 @@ export default function AddEmployee() {
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Password</label>
-                                    <input id="Password" type='text' className='form-control' />
+                                    <input id="Password" type='password' className='form-control' />
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Confirm Password</label>
-                                    <input id="confirmpassword" type='text' className='form-control' />
+                                    <input id="confirmpassword" type='password' className='form-control' />
                                 </div>
                                 <div className="col-md-12 mb-2 mt-3">
                                     <h5 className="text-info">Personal Information</h5>
@@ -137,7 +140,12 @@ export default function AddEmployee() {
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-6'>
                                     <label>Phone</label>
-                                    <input id="Phone" type='text' className='form-control' />
+                                    <input value={phone} id="Phone" type='hidden' className='form-control' />
+                                    <PhoneInput
+                                        country={'ph'}
+                                        onChange={( phone ) => setphone( phone )}
+                                        containerStyle={{ width: '100%' }}
+                                    />
                                 </div>
                                 <div className="col-md-12 mb-2 mt-3">
                                     <h5 className="text-info">Professional Information</h5>
