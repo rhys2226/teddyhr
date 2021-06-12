@@ -81,7 +81,7 @@ export default function Employees() {
                                     employees.map( ( employee: any, index: any ) => (
                                         <tr key={index}>
                                             <td>
-                                                <div className="avatar avatar-md">
+                                                <div className="avatar avatar-sm">
                                                     <img src={employee.user.Avatar} alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
@@ -108,7 +108,7 @@ export default function Employees() {
 
 
                                             <td className="text-center">
-                                                <div className="avatar avatar-xl">
+                                                <div className="avatar avatar-md">
                                                     <img src={employee.supervisors.Avatar} alt="..." className="avatar-img rounded-circle" />
                                                 </div>
                                             </td>
