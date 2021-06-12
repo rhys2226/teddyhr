@@ -19,7 +19,7 @@ export abstract class BaseService<T> {
 	}
 
 	async create(payload: T, params?: FreeObject) {
-		const { data } = await axios.post(`${this.resolveURL(params)}`, payload);
+		const { data } = await axios.post(`${this.resolveURL(params)}`, payload );
 		return data;
 	}
 

@@ -28,23 +28,23 @@ export default function Settings() {
             component: Overview,
         },
         {
-            path: url( '/profile' ),
+            path: url( '/profile/:id' ),
             component: Profile,
         },
         {
-            path: url( '/personal-data-sheet' ),
+            path: url( '/personal-data-sheet/:id' ),
             component: PDSSettings,
         },
         {
-            path: url( '/ipcr' ),
+            path: url( '/ipcr/:id' ),
             component: ICPRSettings,
         },
         {
-            path: url( '/service-record' ),
+            path: url( '/service-record/:id' ),
             component: ServiceRecordSettings,
         },
         {
-            path: url( '/leave-card' ),
+            path: url( '/leave-card/:id' ),
             component: LeaveCardSettings,
         },
     ]

@@ -33,12 +33,13 @@ export default function Employees() {
         } )
     }
 
-    const rateButton = () => (
+    const rateButton = ( employee: any ) => (
         <button
             data-toggle='modal'
             data-target=".large-modal"
             onClick={() => {
-
+                setcurrentSupervisor( employee.supervisors )
+                setcurrentEmployee( employee )
             }}
             className="btn btn-sm btn-outline-info ml-2">Rate</button>
     )
@@ -163,7 +164,7 @@ export default function Employees() {
                                                         }}
                                                         role="butoon" className="dropdown-item" >Leave History</button>
                                                 </div>
-                                                {employee.supervisors.id === id ? rateButton() : ''}
+                                                {employee.supervisors.id === id ? rateButton( employee ) : ''}
                                             </td>
                                         </tr>
                                     ) )
@@ -206,7 +207,10 @@ export default function Employees() {
                 <ChangeSupervisor supervisor={currentSupervisor} employees={employees} />
             </SlideModal>
             <LargeModal>
-                <EmployeeICPR />
+                {
+                    currentEmployee.id === undefined ? '' : <EmployeeICPR data={currentEmployee} />
+                }
+
             </LargeModal>
         </div>
     )
