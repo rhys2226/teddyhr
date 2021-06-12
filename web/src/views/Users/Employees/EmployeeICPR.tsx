@@ -83,7 +83,7 @@ export default function EmployeeICPR( props: any ) {
             <div className="row mb-4">
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Reviewed by (Immediate Supervisor)</label>
-                    <input id="ReviewedBy" value={props.data.supervisors.First + ' ' + props.data.supervisors.Middle + ' ' + props.data.supervisors.Last} type="text" className="form-control" />
+                    <input disabled id="ReviewedBy" value={props.data.supervisors.First + ' ' + props.data.supervisors.Middle + ' ' + props.data.supervisors.Last} type="text" className="form-control" />
                 </div>
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Reviewed Date</label>
@@ -93,7 +93,7 @@ export default function EmployeeICPR( props: any ) {
             <div className="row mb-4">
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Approved by (Head of Office)</label>
-                    <input id="ApprovedBy" value="Jamel Yassin" type="text" className="form-control" />
+                    <input id="ApprovedBy" type="text" className="form-control" />
                 </div>
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Approved Date</label>
@@ -176,6 +176,14 @@ export default function EmployeeICPR( props: any ) {
                                     <label htmlFor="">Average</label>
                                     <input id={`A${ index }`} type="number" className="form-control" />
                                 </div>
+                                <div className="col-md-6 mb-4">
+                                    <label htmlFor="">Actual Accomplishments</label>
+                                    <textarea id={`ActualAccomplishments${ index }`} className="form-control" ></textarea>
+                                </div>
+                                <div className="col-md-6 mb-4">
+                                    <label htmlFor="">Remarks</label>
+                                    <textarea id={`Remarks${ index }`} className="form-control" ></textarea>
+                                </div>
                                 <input type="hidden" value="StrategicPriority" id="Type" />
                             </div>
                         </>
@@ -236,6 +244,14 @@ export default function EmployeeICPR( props: any ) {
                                     <label htmlFor="">Average</label>
                                     <input id={`FA${ index }`} type="number" className="form-control" />
                                 </div>
+                                <div className="col-md-6 mb-4">
+                                    <label htmlFor="">Actual Accomplishments</label>
+                                    <textarea id={`FActualAccomplishments${ index }`} className="form-control" ></textarea>
+                                </div>
+                                <div className="col-md-6 mb-4">
+                                    <label htmlFor="">Remarks</label>
+                                    <textarea id={`FRemarks${ index }`} className="form-control" ></textarea>
+                                </div>
                                 <input type="hidden" value="CoreFunction" id="FType" />
                             </div>
                         </>
@@ -247,7 +263,7 @@ export default function EmployeeICPR( props: any ) {
                 <p className="col-md-12 text-info  mt-0 ">Comments and Recommendations for Development Purposes</p>
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Discussed  by (Employee)</label>
-                    <input id="DiscussedBy" value="Ryan Agsaluna" type="text" className="form-control" />
+                    <input id="DiscussedBy" type="text" className="form-control" />
                 </div>
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Discussed Date</label>
@@ -256,7 +272,7 @@ export default function EmployeeICPR( props: any ) {
 
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Assessed   by (Supervisor)</label>
-                    <input id="AssessedBy" value="Ryan Agsaluna" type="text" className="form-control" />
+                    <input id="AssessedBy" type="text" className="form-control" />
                 </div>
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Assessment Date</label>
@@ -265,7 +281,7 @@ export default function EmployeeICPR( props: any ) {
 
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Final Rating by (Head of Agency)</label>
-                    <input id="FinalRating" value="Ryan Agsaluna" type="text" className="form-control" />
+                    <input id="FinalRating" type="text" className="form-control" />
                 </div>
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Final Rating Date</label>

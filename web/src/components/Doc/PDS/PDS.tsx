@@ -1,4 +1,3 @@
-import React from 'react'
 import PDSHeader from './Header/PDSHeader'
 import './PDS.css'
 import '../Doc.css'
@@ -6,9 +5,13 @@ import PersonalInformation from './PDSPage1/PersonalInformation'
 import PDSPage2 from './PDSPage2/PDSPage2'
 import PDSPage3 from './PDSPage3/PDSPage3'
 import PDSPage4 from './PDSPage4/PDSPage4'
+import React, { useRef } from 'react';
+import PrintComponents from 'react-print-components'
+
 
 export default function PDS() {
     const [ component, setComponent ] = React.useState( Page1() )
+    const componentRef = useRef();
 
     function changeTab( tab: number ) {
         if ( tab === 1 ) {
@@ -28,21 +31,24 @@ export default function PDS() {
 
     function Page1() {
         return (
-            <div>
-                <button className="btn btn-primary mb-3">
-                    <i className=" fe fe-download"></i>
-                    <span>&nbsp;Download Sheet</span>
-                </button>
-                <div className="bg-white portrait-pds pds">
-                    <div className="PDSBorder">
-                        <PDSHeader />
-                        <PersonalInformation />
-                    </div>
+            <div className="bg-white portrait-pds pds">
+                <div className="PDSBorder">
+                    <PDSHeader />
+                    <PersonalInformation />
                 </div>
             </div>
         )
     }
 
+    function ToBePrinted( props: any ) {
+        return (
+            <div className="d-flex aic jcc" style={{ flexDirection: 'column' }
+            }>
+                { component}
+
+            </div >
+        )
+    }
 
     return (
         <div>
@@ -72,10 +78,17 @@ export default function PDS() {
                     </p>
                 </li>
             </ul>
-            <div className="d-flex aic jcc" style={{ flexDirection: 'column' }}>
-                {component}
-
-            </div>
+            <PrintComponents
+                trigger={
+                    <button className="btn btn-primary mb-3 mt-5">
+                        <i className=" fe fe-download"></i>
+                        <span>&nbsp;Download Sheet</span>
+                    </button>
+                }
+            >
+                <ToBePrinted />
+            </PrintComponents>
+            <ToBePrinted />
         </div>
     )
 }

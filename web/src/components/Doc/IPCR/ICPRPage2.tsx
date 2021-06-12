@@ -3,12 +3,12 @@ import './ICPR.css'
 import '../Doc.css'
 
 type Props = {
-    data: Function
+    data: any,
 }
 
 export default function ICPRPage2( props: Props ) {
     return (
-        <div className="bg-white landscape .docs">
+        <div className="bg-white landscape docs h-auto">
             <table className="table">
                 <thead className="table-info">
                     <tr>
@@ -33,26 +33,20 @@ export default function ICPRPage2( props: Props ) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="bordered">
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                    </tr>
-                    <tr className="bordered">
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                    </tr>
+                    {
+                        props.data.rating_details.map( ( data: any, index: any ) => (
+                            <tr className="bordered" style={{ display: data.Type == 'StrategicPriority' ? '' : 'none' }}>
+                                <td className="bordered">{data.Output}</td>
+                                <td className="bordered">{data.SuccessIndicatiors}</td>
+                                <td className="bordered">{data.ActualAccomplishments || ''}</td>
+                                <td className="bordered">{data.Q}</td>
+                                <td className="bordered">{data.E}</td>
+                                <td className="bordered">{data.T}</td>
+                                <td className="bordered">{data.A}</td>
+                                <td className="bordered">{data.Remarks || ''}</td>
+                            </tr>
+                        ) )
+                    }
                 </tbody>
                 <thead className="bordered">
                     <tr>
@@ -60,26 +54,20 @@ export default function ICPRPage2( props: Props ) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                    </tr>
-                    <tr>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                        <td className="bordered"></td>
-                    </tr>
+                    {
+                        props.data.rating_details.map( ( data: any, index: any ) => (
+                            <tr className="bordered" style={{ display: data.Type != 'StrategicPriority' ? '' : 'none' }}>
+                                <td className="bordered">{data.Output}</td>
+                                <td className="bordered">{data.SuccessIndicatiors}</td>
+                                <td className="bordered">{data.ActualAccomplishments || ''}</td>
+                                <td className="bordered">{data.Q}</td>
+                                <td className="bordered">{data.E}</td>
+                                <td className="bordered">{data.T}</td>
+                                <td className="bordered">{data.A}</td>
+                                <td className="bordered">{data.Remarks || ''}</td>
+                            </tr>
+                        ) )
+                    }
                 </tbody>
                 <br />
             </table>
@@ -101,12 +89,12 @@ export default function ICPRPage2( props: Props ) {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className="text-center bold underlined bordered">Jamel Eid Yassin</td>
-                        <td className="text-center bold underlined bordered" rowSpan={2}>11/14/2021</td>
-                        <td className="text-center bold underlined bordered">Jamel Eid Yassin</td>
-                        <td className="text-center bold underlined bordered" rowSpan={2}>11/14/2021</td>
-                        <td className="text-center bold underlined bordered">Jamel Eid Yassin</td>
-                        <td className="text-center bold underlined bordered" rowSpan={2}>11/14/2021</td>
+                        <td className="text-center bold underlined bordered">{props.data.DiscussedBy}</td>
+                        <td className="text-center bold underlined bordered" rowSpan={2}>{props.data.DiscussedByDate}</td>
+                        <td className="text-center bold underlined bordered">{props.data.AssessedBy}</td>
+                        <td className="text-center bold underlined bordered" rowSpan={2}>{props.data.AssessedByDate}</td>
+                        <td className="text-center bold underlined bordered">{props.data.FinalRating}</td>
+                        <td className="text-center bold underlined bordered" rowSpan={2}>{props.data.FinalRatingDate}</td>
                     </tr>
                     <tr>
                         <td className="text-secodary bordered">Employee</td>
