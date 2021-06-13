@@ -9,7 +9,7 @@ class Others extends Model
 {
     use HasFactory;
      protected $fillable = [
-        'pds_id',
+        'employee_id',
         'Skills',
         'NonAcademicDistinction',
         'Membership',

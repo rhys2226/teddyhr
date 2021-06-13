@@ -9,7 +9,7 @@ class Eligibilities extends Model
 {
     use HasFactory;
      protected $fillable = [
-        'pds_id',
+        'employee_id',
         'Title',
         'Rating',
         'Date',

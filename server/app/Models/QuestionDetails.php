@@ -10,7 +10,7 @@ class QuestionDetails extends Model
     use HasFactory;
     
     protected $fillable = [
-        'pds_id',
+        'employee_id',
         'question_id',
         'Question',
         'Answer',

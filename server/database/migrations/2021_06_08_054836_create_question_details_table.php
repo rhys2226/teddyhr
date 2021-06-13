@@ -12,7 +12,7 @@ class CreateQuestionDetailsTable extends Migration
         Schema::create('question_details', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('pds_id');  
+           $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('question_id');
             $table->string('Question');
             $table->boolean('Answer');

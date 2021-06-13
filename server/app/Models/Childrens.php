@@ -10,7 +10,7 @@ class Childrens extends Model
     use HasFactory;
     
     protected $fillable = [
-        'pds_id',
+        'employee_id',
         'Name',
         'DOB',
     ];

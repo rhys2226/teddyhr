@@ -10,7 +10,7 @@ class References extends Model
     use HasFactory;
     
     protected $fillable = [
-        'pds_id',
+        'employee_id',
         'Name',
         'Address',
         'TelNumber',

@@ -9,7 +9,7 @@ class Identification extends Model
 {
     use HasFactory;
      protected $fillable = [
-        'pds_id',
+        'employee_id',
         'GovtID',
         'Passport',
         'Date',

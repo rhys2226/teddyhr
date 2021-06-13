@@ -11,7 +11,7 @@ class CreateOthersTable extends Migration
         Schema::create('others', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('pds_id');
+            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('Skills');
             $table->string('NonAcademicDistinction');
             $table->string('Membership');
