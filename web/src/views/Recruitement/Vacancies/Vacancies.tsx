@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { Alert, Fire } from '../../../components/Alerts/Alert'
-import Pagination from '../../../components/Table/Pagination'
+import { Auth } from '../../../services/auth.service'
 import VacanciesPlaceholders from './VacanciesPlaceholders'
-
+import { useForm } from 'react-hook-form';
 export default function Vacancies() {
 
-    const [ employees, setApplicants ]: any = useState( [] )
+    const [ vacancies, setVacancies ]: any = useState( [] )
 
     useEffect( () => {
-        setTimeout( () => {
-            setApplicants( [ 1, 2, 3, 2, 3, 1, 2, 3, 2, 3, ] )
-        }, 1000 );
+        getVacancies()
     }, [] )
+
+
+    function getVacancies() {
+        const auth = new Auth( 'vacancies' );
+        auth.fetch( {} ).then( ( data: any ) => {
+            setVacancies( data )
+        } )
+    }
+
 
     return (
         <div className="col-md-12 my-4">
@@ -30,10 +37,10 @@ export default function Vacancies() {
                     <table className="table table-borderless table-hover">
                         <thead className="table-info">
                             <tr>
-                                <th className="text-info text-center">#</th>
+                                <th className="text-info text-center"></th>
                                 <th className="text-info">Bureau OR Office</th>
                                 <th className="text-info">Position/Title</th>
-                                <th className="text-info text-center">Department / Branch / Dviision</th>
+                                <th className="text-info text-center">Department / Branch / Division</th>
                                 <th className="text-info text-center">Salary Grade</th>
                                 <th className="text-info text-center">Salary Authorized</th>
                                 <th className="text-info text-center">Other Compensation</th>
@@ -41,35 +48,35 @@ export default function Vacancies() {
                             </tr>
                         </thead>
                         <tbody>
-                            <VacanciesPlaceholders show={employees.length !== 0 ? false : true} />
+                            <VacanciesPlaceholders show={vacancies.length !== 0 ? false : true} />
                             {
-                                employees.map( ( applicants: any, index: any ) => (
+                                vacancies.map( ( vacancy: any, index: any ) => (
                                     <tr >
-                                        <td className="text-center"> {index + 1} </td>
+                                        <td className="text-center"> <i className="fe fe-key"></i> </td>
 
-                                        <td className={`vacancy${ index }`}>Office of Management Information System </td>
-                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+                                        <td className={`vacancy${ index }`}>{vacancy.Bureau} </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.Bureau} id="Bureau" /></td>
 
                                         <td className={`vacancy${ index } text-info`}>
-                                            <i className="fe fe-code"></i> Developer
+                                            <i className="fe fe-code"></i> {vacancy.Position}
                                         </td>
-                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.Position} id="Position" /></td>
 
 
-                                        <td className={`vacancy${ index } text-center`}> N/A </td>
-                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+                                        <td className={`vacancy${ index } text-center`}> {vacancy.Department} </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.Department} id="Department" /></td>
 
 
-                                        <td className={`vacancy${ index } text-center`}> N/A </td>
-                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+                                        <td className={`vacancy${ index } text-center`}> {vacancy.SalaryGrade} </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.SalaryGrade} id="SalaryGrade" /></td>
 
 
-                                        <td className={`vacancy${ index } text-center`}> N/A </td>
-                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+                                        <td className={`vacancy${ index } text-center`}>{vacancy.SalaryAuthorized} </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.SalaryAuthorized} id="SalaryAuthorized" /></td>
 
 
-                                        <td className={`vacancy${ index } text-center`}> N/A </td>
-                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" /></td>
+                                        <td className={`vacancy${ index } text-center`}>{vacancy.OtherCompensation} </td>
+                                        <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.OtherCompensation} id="OtherCompensation" /></td>
 
 
                                         <td className={`vacancy${ index }`}>
@@ -77,15 +84,24 @@ export default function Vacancies() {
                                                 <span className="text-muted sr-only">Action</span>
                                             </button>
                                             <div className="dropdown-menu dropdown-menu-right">
-                                                <button onClick={() => {
+                                                {/* <button onClick={() => {
                                                     $( `.vacancy${ index }` ).toggle()
                                                     $( `.vacancy1${ index }` ).toggle()
-                                                }} className="dropdown-item" >Edit</button>
+                                                }} className="dropdown-item" >Edit</button> */}
 
                                                 <button
                                                     onClick={() => {
                                                         Fire( 'Delete Vacancy', 'Are you sure you want to Delete this Vacancy?', 'warning', () => {
-                                                            Alert( 'Vacancy Deleted', '', 'info' )
+                                                            const auth = new Auth( 'vacancies' );
+                                                            auth.delete( vacancy.id )
+                                                                .then( () => {
+                                                                    getVacancies()
+                                                                    Alert( 'Vacancy has been removed', '', 'success' )
+                                                                } )
+                                                                .catch( () => {
+                                                                    Alert( 'Error', 'Something went wrong. Try Again', 'error' )
+                                                                } )
+
                                                         } )
                                                     }}
                                                     className="dropdown-item" >Remove</button>
@@ -96,9 +112,25 @@ export default function Vacancies() {
                                                 <button
                                                     onClick={() => {
                                                         Fire( 'Update Vacancy', 'Are you sure you want to Update this Vacancy?', 'info', () => {
-                                                            Alert( 'Vacancy Updated', '', 'success' )
-                                                            $( `.vacancy${ index }` ).toggle()
-                                                            $( `.vacancy1${ index }` ).toggle()
+                                                            const data = {
+                                                                Bureau: $( '#Bureau' ).val(),
+                                                                Position: $( '#Position' ).val(),
+                                                                Department: $( '#Department' ).val(),
+                                                                SalaryGrade: $( '#SalaryGrade' ).val(),
+                                                                SalaryAuthorized: $( '#SalaryAuthorized' ).val(),
+                                                                OtherCompensation: $( '#OtherCompensation' ).val(),
+                                                            }
+                                                            const auth = new Auth( 'vacancies' );
+                                                            auth.update( vacancy.id, data )
+                                                                .then( () => {
+                                                                    getVacancies()
+                                                                    $( `.vacancy${ index }` ).toggle()
+                                                                    $( `.vacancy1${ index }` ).toggle()
+                                                                    Alert( 'Vacancy Updated', 'Vacancy has been succesfully updated', 'success' )
+                                                                } )
+                                                                .catch( () => {
+                                                                    Alert( 'Error', 'Something went wrong. Try Again', 'error' )
+                                                                } )
                                                         } )
                                                     }} className="btn btn-sm btn-outline-primary" type="button"  >
                                                     Update
@@ -118,18 +150,6 @@ export default function Vacancies() {
                         </tbody>
                     </table>
                 </div>
-                <Pagination
-                    Pages={() => {
-                        let pages = []
-                        for ( let index in employees ) {
-                            pages.push( parseInt( index ) + 1 )
-                        }
-                        return pages
-                    }}
-                    callback={( callback: Function ) => {
-                        callback()
-                    }}
-                />
                 <br />
                 <br />
             </div>

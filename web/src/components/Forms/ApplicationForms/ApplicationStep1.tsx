@@ -30,7 +30,7 @@ export default function ApplicationStep1( props: Props ) {
                 </div>
                 <div className='form-group mb-3 col-12 col-md-3'>
                     <label>Name Extension</label>
-                    <input id="Last" type='text' className='form-control' />
+                    <input id="NameExtension" type='text' className='form-control' />
                 </div>
                 <div className='form-group mb-3 col-12 col-md-6'>
                     <label>Phone</label>
@@ -49,6 +49,7 @@ export default function ApplicationStep1( props: Props ) {
                             First: $( '#First' ).val(),
                             Last: $( '#Last' ).val(),
                             Middle: $( '#Middle' ).val(),
+                            NameExtension: $( '#NameExtension' ).val(),
                             Phone: $( '#Phone' ).val(),
                         }
                         for ( let key in data ) {

@@ -9,7 +9,7 @@ import { Auth } from '../../../services/auth.service';
 import { Alert } from '../../Alerts/Alert';
 import axios from 'axios';
 
-export default function ApplicationForm() {
+export default function ApplicationForm( props: any ) {
 
     const history = useHistory()
 
@@ -96,6 +96,7 @@ export default function ApplicationForm() {
                         Object.assign(
                             personalDataForm,
                             professionalDataForm,
+                            { Position: props.data.Position }
                         )
                     }
                     SubmitForm={async () => {
@@ -106,7 +107,7 @@ export default function ApplicationForm() {
                             avatarForm,
                             {
                                 Type: 'Applicant',
-                                Position: 'Developer',
+                                Position: props.data.Position,
                                 Attachments: attachmentForm
                             }
                         )
@@ -165,6 +166,8 @@ export default function ApplicationForm() {
                         <hr style={{ marginTop: '-20px' }} />
                         <br />
                         <div className='card-body'>
+                            <p className="text-center"><span className="badge-danger badge">{props.data.Position}</span></p>
+
                             {form}
                         </div>
                     </div>

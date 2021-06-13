@@ -190,7 +190,7 @@ const formatter = new Intl.NumberFormat('en-PH', {
 });
 
 export function formatCurrency(value: number) {
-	return formatter.format(value).replace(/\D00(?=\D*$)/, '');
+	return formatter.format(value).replace(/\D00(?=\D*$)/, '') + '.00';
 }
 
 export function toDate(date:any){

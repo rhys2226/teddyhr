@@ -5,6 +5,7 @@ import ApplicationForm from '../Forms/ApplicationForms/ApplicationForm';
 import FullScreenModal from '../Modals/FullScreenModal';
 import Descriptions from '../../views/Main/Vacancies/Descriptions';
 import Vacancies from './Vacancies';
+import { Auth } from '../../services/auth.service';
 
 export default function LandingUI() {
     const styles = {
@@ -15,7 +16,19 @@ export default function LandingUI() {
 
     };
 
-    let array = [ 1, 2, 2, 3, 3, 4, 1, 2, 2, 3, 3, 4, ];
+    const [ vacancies, setVacancies ]: any = useState( [] )
+
+    React.useEffect( () => {
+        getVacancies()
+    }, [] )
+
+
+    function getVacancies() {
+        const auth = new Auth( 'vacancies' );
+        auth.fetch( {} ).then( ( data: any ) => {
+            setVacancies( data )
+        } )
+    }
 
     const [ modal, setModal ] = React.useState( <div></div> )
 
@@ -35,9 +48,10 @@ export default function LandingUI() {
                     <div className="w-100 text-center">
                         <button
                             onClick={() => {
-                                setModal( <ApplicationForm /> )
+                                $( [ document.documentElement, document.body ] ).animate( {
+                                    scrollTop: 860
+                                }, 500 );
                             }}
-                            data-toggle="modal" data-target=".modal-full"
                             className="btn btn-dark ml-4" >
                             <h1 className="text-white pt-2 pl-5 pr-5 h3">Apply Now</h1>
                         </button>
@@ -55,16 +69,19 @@ export default function LandingUI() {
                 <h2 className='text-center bg-info p-5 text-white mt-0' style={styles.headline}>
                     Available Vacancies
                 </h2>
-                <br />
-                <br />
-                <div className='container-fluid'>
-                    <div className='row justify-content-center'>
-                        {array.map( () => (
-                            <Vacancies modal={( modal: any ) => {
-                                setModal( modal == 'descriptions' ? <Descriptions /> : <ApplicationForm /> )
-                            }} />
-                        ) )}
-                    </div>
+                <div className="row">
+                    {
+                        vacancies.map( ( vacancy: any, index: any ) => (
+                            <Vacancies
+                                data={vacancy}
+                                modal={( modal: any ) => {
+                                    setModal( modal == 'descriptions' ?
+                                        <Descriptions data={vacancy} /> :
+                                        <ApplicationForm data={vacancy} />
+                                    )
+                                }} />
+                        ) )
+                    }
                 </div>
                 <br />
                 <br />
