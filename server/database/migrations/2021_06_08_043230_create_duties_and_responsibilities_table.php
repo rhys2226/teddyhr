@@ -15,7 +15,7 @@ class CreateDutiesAndResponsibilitiesTable extends Migration
             $table->foreignId('vacancy_id');
             $table->string('PercentageofWorkingTime1');
             $table->string('DutiesAndResponsibilities1');
-            $table->string('Competency Level');
+            $table->string('CompetencyLevel');
             $table->string('PercentageofWorkingTime2');
             $table->string('DutiesAndResponsibilities2');
         });

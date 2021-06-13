@@ -16,7 +16,7 @@ class Vacancy extends Model
         'GovernmentalUnit',
         'Class',
         'Department',
-        'Bureau ',
+        'Bureau',
         'Division',
         'Workstation ',
         'Present ',
@@ -37,6 +37,8 @@ class Vacancy extends Model
         'Experience',
         'Training',
         'Eligibility',
+        'Machine',
+        'Education',
     ];
     
     
