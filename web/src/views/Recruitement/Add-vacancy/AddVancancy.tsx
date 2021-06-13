@@ -43,9 +43,9 @@ export default function AddVancancy() {
     const [ addDuties, setaddDuties ] = React.useState( [ 1 ] );
     const { register, handleSubmit } = useForm<Inputs>();
 
-    const directlySupervised: any = []
-    const coreCompentency: any = []
-    const dutiesAndResponsibilities: any = []
+    let directlySupervised: any = []
+    let coreCompentency: any = []
+    let dutiesAndResponsibilities: any = []
 
     const submit = async ( data: Inputs ) => {
 
@@ -104,6 +104,9 @@ export default function AddVancancy() {
             api.create( form, {} )
                 .then( () => {
                     Alert( 'Vacncy Succesfully Posted', `New Vacancy has been created on the Human Resource Management Office's Landing Page`, 'success' );
+                    directlySupervised = []
+                    coreCompentency = []
+                    dutiesAndResponsibilities = []
                 } )
                 .catch( () => {
                     Alert( 'Error', 'Something went wrong. Try Again', 'error' );
