@@ -17,22 +17,22 @@ class CreateFamilyBackgroundsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('SpouseFirst');
-            $table->string('SpouseLast');
-            $table->string('SpouseMiddle');
-            $table->string('SpouseExt');
-            $table->string('MotherFirst');
-            $table->string('MotherLast');
-            $table->string('MotherMiddle');
-            $table->string('MotherExt');
-            $table->string('FatherFirst');
-            $table->string('FatherLast');
-            $table->string('FatherMiddle');
-            $table->string('FatherExt');
-            $table->string('Occupation');
-            $table->string('BusinessName');
-            $table->string('BusinessAddress');
-            $table->string('Telephone');
+            $table->string('SpouseFirst')->nullable();
+            $table->string('SpouseLast')->nullable();
+            $table->string('SpouseMiddle')->nullable();
+            $table->string('SpouseExt')->nullable();
+            $table->string('MotherFirst')->nullable();
+            $table->string('MotherLast')->nullable();
+            $table->string('MotherMiddle')->nullable();
+            $table->string('MotherExt')->nullable();
+            $table->string('FatherFirst')->nullable();
+            $table->string('FatherLast')->nullable();
+            $table->string('FatherMiddle')->nullable();
+            $table->string('FatherExt')->nullable();
+            $table->string('Occupation')->nullable();
+            $table->string('BusinessName')->nullable();
+            $table->string('BusinessAddress')->nullable();
+            $table->string('Telephone')->nullable();
         });
     }
 

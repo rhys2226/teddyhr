@@ -12,12 +12,12 @@ class CreateWorkExperiencesTable extends Migration
             $table->id();
             $table->timestamps();
            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('From');
-            $table->string('To');
-            $table->string('Department');
-            $table->string('Salary');
-            $table->string('Appointment');
-            $table->string('Government');
+            $table->string('From')->nullable();
+            $table->string('To')->nullable();
+            $table->string('Department')->nullable();
+            $table->string('Salary')->nullable();
+            $table->string('Appointment')->nullable();
+            $table->string('Government')->nullable();
         });
     }
 

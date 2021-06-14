@@ -12,9 +12,9 @@ class CreateReferencesTable extends Migration
             $table->id();
             $table->timestamps();
            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Name');
-            $table->string('Address');
-            $table->string('TelNumber');
+            $table->string('Name')->nullable();
+            $table->string('Address')->nullable();
+            $table->string('TelNumber')->nullable();
         });
     }
 

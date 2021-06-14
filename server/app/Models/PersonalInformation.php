@@ -32,7 +32,6 @@ class PersonalInformation extends Model
     public function permanentAdress()
     {
         return $this->hasOne(Address::class, 'employee_id','employee_id')->where('Type','PermanentAddress');
-        
     }
     
     public function ResidentialAdress()

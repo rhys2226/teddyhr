@@ -12,9 +12,9 @@ class CreateOthersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Skills');
-            $table->string('NonAcademicDistinction');
-            $table->string('Membership');
+            $table->string('Skills')->nullable();
+            $table->string('NonAcademicDistinction')->nullable();
+            $table->string('Membership')->nullable();
         });
     }
 

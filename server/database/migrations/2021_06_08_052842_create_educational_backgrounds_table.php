@@ -12,14 +12,14 @@ class CreateEducationalBackgroundsTable extends Migration
             $table->id();
             $table->timestamps();
          $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('NameOfSchool');
-            $table->string('Degree');
-            $table->string('From');
-            $table->string('To');
-            $table->string('Units');
-            $table->string('YearGraduated');
-            $table->string('Scholarship');
-            $table->string('Type');
+            $table->string('NameOfSchool')->nullable();
+            $table->string('Degree')->nullable();
+            $table->string('From')->nullable();
+            $table->string('To')->nullable();
+            $table->string('Units')->nullable();
+            $table->string('YearGraduated')->nullable();
+            $table->string('Scholarship')->nullable();
+            $table->string('Type')->nullable();
         });
     }
 

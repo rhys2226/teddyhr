@@ -12,11 +12,11 @@ class CreateVolunteersTable extends Migration
             $table->id();
             $table->timestamps();
            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Name');
-            $table->string('From');
-            $table->string('To');
-            $table->string('Hours');
-            $table->string('Department');
+            $table->string('Name')->nullable();
+            $table->string('From')->nullable();
+            $table->string('To')->nullable();
+            $table->string('Hours')->nullable();
+            $table->string('Department')->nullable();
         });
     }
 

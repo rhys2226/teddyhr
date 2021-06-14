@@ -12,14 +12,14 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->timestamps();
            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('HouseNumber');
-            $table->string('Street');
-            $table->string('Village');
-            $table->string('Barangay');
-            $table->string('Municipality');
-            $table->string('Province');
-            $table->string('ZipCode');
-            $table->string('Type');
+            $table->string('HouseNumber')->nullable();
+            $table->string('Street')->nullable();
+            $table->string('Village')->nullable();
+            $table->string('Barangay')->nullable();
+            $table->string('Municipality')->nullable();
+            $table->string('Province')->nullable();
+            $table->string('ZipCode')->nullable();
+            $table->string('Type')->nullable();
         });
     }
 

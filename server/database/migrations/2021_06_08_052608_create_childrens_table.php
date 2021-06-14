@@ -13,8 +13,8 @@ class CreateChildrensTable extends Migration
             $table->id();
             $table->timestamps();
          $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Name');
-            $table->date('DOB');
+            $table->string('Name')->nullable();
+            $table->date('DOB')->nullable();
         });
     }
 

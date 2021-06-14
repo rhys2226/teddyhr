@@ -13,22 +13,22 @@ class CreatePersonalInformationTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Sex');
-            $table->string('CivilStatus');
-            $table->date('DOB');
-            $table->string('Height');
-            $table->string('Weight');
-            $table->string('BLOODTYPE');
-            $table->string('GSIS');
-            $table->string('PAGIBIG');
-            $table->string('PHILHEALTH');
-            $table->string('SSS');
-            $table->string('TIN');
-            $table->string('EmployeeNumber');
-            $table->string('Citizenship');
-            $table->string('DualCititizenship');
-            $table->string('Details');
-            $table->string('Telephone');
+            $table->string('Sex')->nullable();
+            $table->string('CivilStatus')->nullable();
+            $table->date('DOB')->nullable();
+            $table->string('Height')->nullable();
+            $table->string('Weight')->nullable();
+            $table->string('BLOODTYPE')->nullable();
+            $table->string('GSIS')->nullable();
+            $table->string('PAGIBIG')->nullable();
+            $table->string('PHILHEALTH')->nullable();
+            $table->string('SSS')->nullable();
+            $table->string('TIN')->nullable();
+            $table->string('EmployeeNumber')->nullable();
+            $table->string('Citizenship')->nullable();
+            $table->string('DualCititizenship')->nullable();
+            $table->string('Details')->nullable();
+            $table->string('Telephone')->nullable();
 
         });
     }

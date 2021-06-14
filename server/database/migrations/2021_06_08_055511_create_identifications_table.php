@@ -12,9 +12,9 @@ class CreateIdentificationsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('GovtID');
-            $table->string('Passport');
-            $table->date('Date');
+            $table->string('GovtID')->nullable();
+            $table->string('Passport')->nullable();
+            $table->date('Date')->nullable();
         });
     }
 

@@ -12,12 +12,12 @@ class CreateEligibilitiesTable extends Migration
             $table->id();
             $table->timestamps();
         $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Title');
-            $table->string('Rating');
-            $table->string('Date');
-            $table->string('Place');
-            $table->string('License');
-            $table->string('Validity');
+            $table->string('Title')->nullable();
+            $table->string('Rating')->nullable();
+            $table->string('Date')->nullable();
+            $table->string('Place')->nullable();
+            $table->string('License')->nullable();
+            $table->string('Validity')->nullable();
 
         });
     }

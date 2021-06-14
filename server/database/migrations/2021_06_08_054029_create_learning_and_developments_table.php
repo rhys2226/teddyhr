@@ -12,12 +12,12 @@ class CreateLearningAndDevelopmentsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('Title');
-            $table->string('From');
-            $table->string('To');
-            $table->string('Hours');
-            $table->string('Type');
-            $table->string('SponsoredBy');
+            $table->string('Title')->nullable();
+            $table->string('From')->nullable();
+            $table->string('To')->nullable();
+            $table->string('Hours')->nullable();
+            $table->string('Type')->nullable();
+            $table->string('SponsoredBy')->nullable();
         });
     }
 
