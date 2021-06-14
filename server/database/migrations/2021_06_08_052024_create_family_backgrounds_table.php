@@ -29,6 +29,10 @@ class CreateFamilyBackgroundsTable extends Migration
             $table->string('FatherLast');
             $table->string('FatherMiddle');
             $table->string('FatherExt');
+            $table->string('Occupation');
+            $table->string('BusinessName');
+            $table->string('BusinessAddress');
+            $table->string('Telephone');
         });
     }
 

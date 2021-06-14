@@ -23,5 +23,13 @@ class FamilyBackground extends Model
         'FatherLast',
         'FatherMiddle',
         'FatherExt',
+        'Occupation',
+        'BusinessName',
+        'BusinessAddress',
+        'Telephone',
     ];
+    
+    public function childrens(){
+        return $this->hasMany(Childrens::class,'employee_id','employee_id');
+    }
 }

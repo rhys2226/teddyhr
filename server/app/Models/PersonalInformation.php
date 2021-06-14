@@ -28,6 +28,18 @@ class PersonalInformation extends Model
         'Details',
         'Telephone',
     ];
+    
+    public function permanentAdress()
+    {
+        return $this->hasOne(Address::class, 'employee_id','employee_id')->where('Type','PermanentAddress');
+        
+    }
+    
+    public function ResidentialAdress()
+    {
+        return $this->hasOne(Address::class, 'employee_id','employee_id')->where('Type','ResidentialAddress');
+        
+    }
 }
 
 
