@@ -44,7 +44,7 @@ export default function PDS() {
         return (
             <div className="d-flex aic jcc" style={{ flexDirection: 'column' }
             }>
-                { component}
+                {component}
 
             </div >
         )

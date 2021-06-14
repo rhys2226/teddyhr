@@ -25,7 +25,7 @@ export default function Vacancies( props: any ) {
                             onClick={() => {
                                 props.modal( 'apply' )
                             }}
-                            data-toggle="modal" data-target=".modal-full" className="btn btn-danger mr-1">Apply Now</button>
+                            data-toggle="modal" data-target=".modal-full" className="btn btn-danger mr-1">Apply for {props.data.Position}</button>
                         <button
                             onClick={() => {
                                 props.modal( 'descriptions' )
