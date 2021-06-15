@@ -63,7 +63,7 @@ export default function PDSLearningAndDevelopment() {
                         setaddForm( [ ...addForm, 1 ] );
                     }} className="btn btn-outline-dark d-flex aic jcc">
                     <i className="fe fe-plus"></i>
-                    <span> Add Work Experience</span>
+                    <span>Add L&D</span>
                 </button>
                 <button
                     type="button"
@@ -71,8 +71,8 @@ export default function PDSLearningAndDevelopment() {
                         setaddForm( [ 1 ] );
                     }}
                     className="btn btn-outline-danger d-flex aic jcc ml-3">
-                    <i className="fe fe-plus"></i>
-                    <span> Add L&D</span>
+                    <i className="fe fe-refresh-ccw"></i>&nbsp;&nbsp;&nbsp;
+                    <span>Reset </span>
                 </button>
             </div>
 

@@ -68,8 +68,8 @@ export default function PDSVolountaryWork() {
                         setaddForm( [ 1 ] );
                     }}
                     className="btn btn-outline-danger d-flex aic jcc ml-3">
-                    <i className="fe fe-plus"></i>
-                    <span> Reset</span>
+                    <i className="fe fe-refresh-ccw"></i>&nbsp;&nbsp;&nbsp;
+                    <span>Reset </span>
                 </button>
             </div>
 
