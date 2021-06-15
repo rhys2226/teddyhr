@@ -8,28 +8,32 @@ use Illuminate\Http\Request;
 
 class VolunteerController extends Controller
 {
-    public function index()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $pds = Volunteer::where('employee_id',$data['employee_id'])->get();
+        if(count($pds) !== 0){
+            foreach($pds as $sheet){
+                Volunteer::find($sheet->id)->delete();
+            }
+        }
+        $index = 0;
+          foreach($data['volounteers'] as $volounteer){
+            $experience = new Volunteer(); 
+            $experience->employee_id= $data['employee_id'];
+            $experience->From= $volounteer['From'.$index];
+            $experience->To= $volounteer['To'.$index];
+            $experience->To= $volounteer['To'.$index];
+            $experience->Name= $volounteer['Name'.$index];
+            $experience->Hours= $volounteer['Hours'.$index];
+            $experience->Department= $volounteer['Department'.$index];
+            $experience->save();
+            $index+=1;
+        }
     }
 
-    public function show(Volunteer $volunteer)
+    public function show($id)
     {
-        //
-    }
-
-    public function update(Request $request, Volunteer $volunteer)
-    {
-        //
-    }
-
-    public function destroy(Volunteer $volunteer)
-    {
-        //
+        return Volunteer::where('employee_id',$id)->get();
     }
 }

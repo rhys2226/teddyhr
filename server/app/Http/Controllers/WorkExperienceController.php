@@ -18,7 +18,7 @@ class WorkExperienceController extends Controller
             }
         }
         $index = 0;
-         foreach($data['workExperiences'] as $work){
+        foreach($data['workExperiences'] as $work){
             $experience = new WorkExperience(); 
             $experience->employee_id= $data['employee_id'];
             $experience->From= $work['From'.$index];

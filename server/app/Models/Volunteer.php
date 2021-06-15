@@ -18,3 +18,4 @@ class Volunteer extends Model
         'Department',
     ];
 }
+ 
