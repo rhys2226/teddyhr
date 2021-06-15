@@ -139,7 +139,7 @@ export default function PDSPersonalBg() {
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="">HEIGHT (m)</label>
-                        <input type="text" className="form-control" />
+                        <input {...register( 'Height' )} type="text" className="form-control" />
                     </div>
                 </div>
                 <div className="row mb-4">

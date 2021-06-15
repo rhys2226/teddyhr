@@ -7,15 +7,68 @@ import PDSPage3 from './PDSPage3/PDSPage3'
 import PDSPage4 from './PDSPage4/PDSPage4'
 import React, { useRef } from 'react';
 import PrintComponents from 'react-print-components'
-
+import { Auth } from '../../../services/auth.service'
+import * as interfaces from './PDSInterface'
 
 export default function PDS() {
-    const [ component, setComponent ] = React.useState( Page1() )
-    const componentRef = useRef();
+
+    const [ data, setData ]: any = React.useState<interfaces.PDS>()
+    const userData: any = localStorage.getItem( 'user' )
+
+    React.useEffect( () => {
+        getPDS()
+    }, [] )
+
+    function getPDS() {
+        const api = new Auth( 'pds' )
+        api.fetchOne( JSON.parse( userData ).id )
+            .then( ( data ) => {
+                setData( data )
+                setComponent(
+                    <div className="bg-white portrait-pds pds">
+                        <div className="PDSBorder">
+                            <PDSHeader />
+                            <PersonalInformation
+                                User={data.user}
+                                PesonsalInformation={data.personal_information}
+                                Resedential={data.residential_address}
+                                Permanent={data.permanent_address}
+                                FamilyBackground={data.family_background}
+                                Children={data.children}
+                                Elementary={data.elementary}
+                                Secondary={data.secondary}
+                                College={data.college}
+                                Vocational={data.vocational}
+                                GraduateStudies={data.graduate_studies}
+                            />
+                        </div>
+                    </div>
+                )
+            } )
+    }
+
 
     function changeTab( tab: number ) {
         if ( tab === 1 ) {
-            setComponent( Page1() )
+            setComponent(
+                <div className="bg-white portrait-pds pds">
+                    <div className="PDSBorder">
+                        <PDSHeader />
+                        <PersonalInformation
+                            User={data.user}
+                            PesonsalInformation={data.personal_information}
+                            Resedential={data.residential_address}
+                            Permanent={data.permanent_address}
+                            FamilyBackground={data.family_background}
+                            Children={data.children}
+                            Elementary={data.elementary}
+                            Secondary={data.secondary}
+                            College={data.college}
+                            Vocational={data.vocational}
+                            GraduateStudies={data.graduate_studies}
+                        />
+                    </div>
+                </div> )
             return
         }
         if ( tab === 2 ) {
@@ -29,23 +82,14 @@ export default function PDS() {
         setComponent( <PDSPage4 /> )
     }
 
-    function Page1() {
-        return (
-            <div className="bg-white portrait-pds pds">
-                <div className="PDSBorder">
-                    <PDSHeader />
-                    <PersonalInformation />
-                </div>
-            </div>
-        )
-    }
+
+    const [ component, setComponent ]: any = React.useState( <div></div> )
+
 
     function ToBePrinted( props: any ) {
         return (
-            <div className="d-flex aic jcc" style={{ flexDirection: 'column' }
-            }>
+            <div className="d-flex aic jcc" style={{ flexDirection: 'column' }}>
                 {component}
-
             </div >
         )
     }
@@ -80,12 +124,11 @@ export default function PDS() {
             </ul>
             <PrintComponents
                 trigger={
-                    <button className="btn btn-primary mb-3 mt-5">
+                    <button className="btn btn-dark mb-3 mt-5">
                         <i className=" fe fe-download"></i>
                         <span>&nbsp;Download Sheet</span>
                     </button>
-                }
-            >
+                }>
                 <ToBePrinted />
             </PrintComponents>
             <ToBePrinted />
