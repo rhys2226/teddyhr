@@ -2,34 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PersonalDataSheet;
 use App\Http\Controllers\Controller;
+use App\Models\PersonalDataSheet;
 use Illuminate\Http\Request;
 
 class PersonalDataSheetController extends Controller
 {
-    public function index()
+    public function show($id)
     {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(PersonalDataSheet $personalDataSheet)
-    {
-        //
-    }
-
-    public function update(Request $request, PersonalDataSheet $personalDataSheet)
-    {
-        //
-    }
-
-    public function destroy(PersonalDataSheet $personalDataSheet)
-    {
-        //
+        return PersonalDataSheet::where('employee_id',$id)
+            ->with('personalInformation')
+            
+            ->with('residentialAddress')
+            ->with('permanentAddress')
+            
+            ->with('familyBackground')
+            ->with('children')
+            
+            ->with('Elementary')
+            ->with('Secondary')
+            ->with('College')
+            ->with('Vocational')
+            ->with('GraduateStudies')
+            
+            ->with('eligiblities')
+            ->with('workExperiences')
+            ->with('volountaryInvolvements')
+            ->with('LearningAndDevelopment')
+            ->with('others')
+            ->with('references')
+            ->with('identification')
+            ->with('user')
+            ->first();
     }
 }
