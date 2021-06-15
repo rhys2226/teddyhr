@@ -18,6 +18,7 @@ class CreateWorkExperiencesTable extends Migration
             $table->string('Salary')->nullable();
             $table->string('Appointment')->nullable();
             $table->string('Government')->nullable();
+            $table->string('Position')->nullable();
         });
     }
 

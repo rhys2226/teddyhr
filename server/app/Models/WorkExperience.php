@@ -17,6 +17,7 @@ class WorkExperience extends Model
         'Salary',
         'Appointment',
         'Government',
+        'Position',
     ];
 }
  
