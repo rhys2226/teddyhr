@@ -18,5 +18,5 @@ class LearningAndDevelopment extends Model
         'Type',
         'SponsoredBy',
     ];
-}
+} 
  

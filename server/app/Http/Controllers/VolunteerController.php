@@ -18,11 +18,10 @@ class VolunteerController extends Controller
             }
         }
         $index = 0;
-          foreach($data['volounteers'] as $volounteer){
+        foreach($data['volounteers'] as $volounteer){
             $experience = new Volunteer(); 
             $experience->employee_id= $data['employee_id'];
             $experience->From= $volounteer['From'.$index];
-            $experience->To= $volounteer['To'.$index];
             $experience->To= $volounteer['To'.$index];
             $experience->Name= $volounteer['Name'.$index];
             $experience->Hours= $volounteer['Hours'.$index];

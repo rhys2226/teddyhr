@@ -17,6 +17,7 @@ use App\Http\Controllers\EducationalBackgroundController;
 use App\Http\Controllers\EligibilitiesController;
 use App\Http\Controllers\FamilyBackgroundController;
 use App\Http\Controllers\IdentificationController;
+use App\Http\Controllers\LearningAndDevelopmentController;
 use App\Http\Controllers\LeaveCardController;
 use App\Http\Controllers\LeaveSettingsController;
 use App\Http\Controllers\NotificationsController;
@@ -30,7 +31,6 @@ use App\Http\Controllers\RatingDetailsController;
 use App\Http\Controllers\ReferencesController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WorkExperienceController;
-use App\Models\LearningAndDevelopment;
 
 Route::prefix('/auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
@@ -61,7 +61,7 @@ Route::resource('/educational-background', EducationalBackgroundController::clas
 Route::resource('/eligibilities', EligibilitiesController::class);
 Route::resource('/work-experience', WorkExperienceController::class);  
 Route::resource('/volounteer', VolunteerController::class);  
-Route::resource('/learning-and-development', LearningAndDevelopment::class);  
+Route::resource('/learning-and-development', LearningAndDevelopmentController::class);  
 Route::resource('/others', OthersController::class);  
 Route::resource('/questions', QuestionsController::class);  
 Route::resource('/question-details', QuestionDetailsController::class);  
