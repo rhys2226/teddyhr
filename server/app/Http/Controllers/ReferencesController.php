@@ -18,7 +18,7 @@ class ReferencesController extends Controller
             }
         }
         $index = 0;
-            foreach($data['references'] as $child){
+        foreach($data['references'] as $child){
             $experience = new References(); 
             $experience->employee_id= $data['employee_id'];
             $experience->Name= $child['Name'.$index];
@@ -31,6 +31,6 @@ class ReferencesController extends Controller
 
     public function show($id)
     {
-    return References::where('employee_id',$id)->get();
+        return References::where('employee_id',$id)->get();
     }
 }

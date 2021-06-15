@@ -9,28 +9,20 @@ use Illuminate\Http\Request;
 class IdentificationController extends Controller
 {
    
-    public function index()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $pds = Identification::where('employee_id',$data['employee_id'])->get();
+        if(count($pds) !== 0){
+            foreach($pds as $sheet){
+                Identification::find($sheet->id)->delete();
+            }
+        }
+        Identification::create($data);
     }
 
-    public function show(Identification $identification)
+    public function show($id)
     {
-        //
-    }
-
-    public function update(Request $request, Identification $identification)
-    {
-        //
-    }
-
-    public function destroy(Identification $identification)
-    {
-        //
+      return Identification::where('employee_id',$id)->get();
     }
 }

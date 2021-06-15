@@ -14,7 +14,7 @@ class CreateIdentificationsTable extends Migration
             $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('GovtID')->nullable();
             $table->string('Passport')->nullable();
-            $table->date('Date')->nullable();
+            $table->string('Date')->nullable();
         });
     }
 

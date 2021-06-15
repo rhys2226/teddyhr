@@ -11,6 +11,6 @@ class Questions extends Model
     
     protected $fillable = [
         'employee_id',
-    ];
+    ]; 
 }
  
