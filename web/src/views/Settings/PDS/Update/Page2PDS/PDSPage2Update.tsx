@@ -1,18 +1,51 @@
 import React from 'react'
 import PDSEligibility from './PDSEligibility'
 import PDSWorkExperience from './PDSWorkExperience'
+import * as interfaces from '../../../../../components/Doc/PDS/PDSInterface'
+import { Auth } from '../../../../../services/auth.service'
 
 export default function PDSPage2Update() {
-    const [ component, setComponent ] = React.useState( <PDSEligibility /> )
+
+    const [ data, setData ]: any = React.useState<interfaces.PDS>()
+    const userData: any = localStorage.getItem( 'user' )
+    React.useEffect( () => {
+        getPDS()
+    }, [] )
+
+    function getPDS() {
+        const api = new Auth( 'pds' )
+        api.fetchOne( JSON.parse( userData ).id )
+            .then( ( data: any ) => {
+                setData( data )
+                setComponent(
+                    <PDSEligibility
+                        Eligibilities={data.eligiblities}
+                    />
+                )
+            } )
+    }
+
 
     function changeTab( tab: number ) {
         if ( tab === 1 ) {
-            setComponent( <PDSEligibility /> )
+            setComponent(
+                <PDSEligibility
+                    Eligibilities={data.eligiblities}
+                />
+            )
             return
         }
-        setComponent( <PDSWorkExperience /> )
+        setComponent(
+            <PDSWorkExperience
+                WorkExperiences={data.work_experiences}
+            />
+        )
     }
 
+    const [ component, setComponent ]: any = React.useState(
+        <div className="spinner-border mr-3" role="status">
+            <span className="sr-only">Loading...</span>
+        </div> )
 
     return (
         <div>

@@ -1,12 +1,48 @@
 import React from 'react'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
+import { WorkExperiences } from '../../../../../components/Doc/PDS/PDSTypes';
 import { Auth } from '../../../../../services/auth.service'
 
 
-export default function PDSWorkExperience() {
+export default function PDSWorkExperience( props: {
+    WorkExperiences: WorkExperiences[]
+} ) {
 
     const userData: any = localStorage.getItem( 'user' )
     const [ addForm, setaddForm ] = React.useState( [ 1 ] );
+
+    React.useEffect( () => {
+        setaddForm( [] )
+        props.WorkExperiences.forEach( ( child: any ) => {
+            setaddForm( [ ...addForm, 1 ] )
+        } )
+        setTimeout( () => {
+            distribute()
+        }, 3000 );
+    }, [] )
+
+
+    function distribute() {
+        let index = 0
+        props.WorkExperiences.forEach( ( child: any ) => {
+            for ( let key in child ) {
+                if (
+                    key === 'From' ||
+                    key === 'To' ||
+                    key === 'Department' ||
+                    key === 'Salary' ||
+                    key === 'Appointment' ||
+                    key === 'Government' ||
+                    key === 'Position'
+                ) {
+                    console.log( '#' + key + index, child[ key ] )
+                    $( '#' + key + index ).val( child[ key ] )
+                }
+            }
+            index += 1
+        } )
+    }
+
 
     const submit = async () => {
         let data: any = {
@@ -21,6 +57,7 @@ export default function PDSWorkExperience() {
                 }
                 object[ input[ index ].id ] = $( '#' + input[ index ][ 'id' ] ).val()
             }
+
             data[ 'workExperiences' ].push( object )
         }
         data[ 'employee_id' ] = JSON.parse( userData ).id

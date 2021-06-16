@@ -1,12 +1,45 @@
 import React from 'react'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
+import { Eligibilities } from '../../../../../components/Doc/PDS/PDSInterface';
 import { Auth } from '../../../../../services/auth.service'
 
 
-export default function PDSEligibility( props: any ) {
+export default function PDSEligibility( props: {
+    Eligibilities: Eligibilities[]
+} ) {
 
     const userData: any = localStorage.getItem( 'user' )
     const [ addForm, setaddForm ] = React.useState( [ 1 ] );
+
+    React.useEffect( () => {
+        setaddForm( [] )
+        props.Eligibilities.forEach( ( child: any ) => {
+            setaddForm( [ ...addForm, 1 ] )
+        } )
+        setTimeout( () => {
+            distribute()
+        }, 3000 );
+    }, [] )
+
+    function distribute() {
+        let index = 0
+        props.Eligibilities.forEach( ( child: any ) => {
+            for ( let key in child ) {
+                if (
+                    key === 'Title' ||
+                    key === 'Rating' ||
+                    key === 'Date' ||
+                    key === 'Place' ||
+                    key === 'License' ||
+                    key === 'Validity'
+                ) {
+                    $( '#' + key + index ).val( child[ key ] )
+                }
+            }
+            index += 1
+        } )
+    }
+
 
     const submit = async () => {
         let data: any = {
@@ -19,7 +52,9 @@ export default function PDSEligibility( props: any ) {
                 if ( input[ index ].id == undefined ) {
                     break
                 }
-                object[ input[ index ].id ] = $( '#' + input[ index ][ 'id' ] ).val()
+                if ( $( '#' + input[ index ][ 'id' ] ).val() !== "" ) {
+                    object[ input[ index ].id ] = $( '#' + input[ index ][ 'id' ] ).val()
+                }
             }
             data[ 'eligibilities' ].push( object )
         }

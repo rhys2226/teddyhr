@@ -68,6 +68,7 @@ export default function PDSFamilyBG( props: {
         Children.forEach( ( child: any ) => {
             for ( let key in child ) {
                 if ( key === 'Name' || key === 'DOB' ) {
+                    $( '#' + key + index ).val( child[ key ] )
                     console.log( '#' + key + index, child[ key ] )
                 }
             }
