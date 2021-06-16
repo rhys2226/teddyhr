@@ -81,7 +81,13 @@ export default function PDS() {
             return
         }
         if ( tab === 3 ) {
-            setComponent( <PDSPage3 /> )
+            setComponent(
+                <PDSPage3
+                    VolunteerInvolvements={data.volountary_involvements}
+                    LearningAndDevelopments={data.learning_and_development}
+                    Others={data.others}
+                />
+            )
             return
         }
         setComponent( <PDSPage4 /> )

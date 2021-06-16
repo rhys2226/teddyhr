@@ -1,4 +1,5 @@
 import React from 'react'
+import { toDate } from '../../../../helpers'
 import * as interfaces from '../PDSInterface'
 
 export default function WorkExperience(
@@ -88,8 +89,8 @@ export default function WorkExperience(
                         <>
                             <div className="col-md-2 m-0 p-0 row m-0 p-0 d-flex nbr aic jcc bt nbl   bg-white">
                                 <div className="row p-0 m-0 w-100">
-                                    <p className="m-0 mb-0 text-center fs-sm col-md-6 bold underlined">{workExperience.From}</p>
-                                    <p className="m-0 mb-0 text-center fs-sm col-md-6 bold underlined">{workExperience.To}</p>
+                                    <p className="m-0 mb-0 text-center fs-sm col-md-6 bold underlined">{toDate( workExperience.From )}</p>
+                                    <p className="m-0 mb-0 text-center fs-sm col-md-6 bold underlined">{toDate( workExperience.To )}</p>
                                 </div>
                             </div>
                             <div className="col-md-2 m-0 p-0 rowm-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
