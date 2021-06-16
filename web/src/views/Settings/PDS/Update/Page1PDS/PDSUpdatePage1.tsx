@@ -1,15 +1,44 @@
 import React from 'react'
+import { Auth } from '../../../../../services/auth.service'
 import PDSEducBG from './PDSEducBG'
 import PDSFamilyBG from './PDSFamilyBG'
 import PDSPersonalBg from './PDSPersonalBg'
+import * as interfaces from '../../../../../components/Doc/PDS/PDSInterface'
 
 export default function PDSUpdatePage1( props: any ) {
 
-    const [ component, setComponent ] = React.useState( <PDSPersonalBg /> )
+    const [ data, setData ]: any = React.useState<interfaces.PDS>()
+    const userData: any = localStorage.getItem( 'user' )
+
+    React.useEffect( () => {
+        getPDS()
+    }, [] )
+
+    function getPDS() {
+        const api = new Auth( 'pds' )
+        api.fetchOne( JSON.parse( userData ).id )
+            .then( ( data ) => {
+                setData( data )
+                setComponent(
+                    <PDSPersonalBg
+                        PesonsalInformation={data.personal_information}
+                        Resedential={data.residential_address}
+                        Permanent={data.permanent_address}
+                    />
+                )
+            } )
+    }
+
 
     function changeTab( tab: number ) {
         if ( tab === 1 ) {
-            setComponent( <PDSPersonalBg /> )
+            setComponent(
+                <PDSPersonalBg
+                    PesonsalInformation={data.personal_information}
+                    Resedential={data.residential_address}
+                    Permanent={data.permanent_address}
+                />
+            )
             return
         }
         if ( tab === 2 ) {
@@ -18,6 +47,12 @@ export default function PDSUpdatePage1( props: any ) {
         }
         setComponent( <PDSEducBG /> )
     }
+
+    const [ component, setComponent ]: any = React.useState(
+        <div className="spinner-border mr-3" role="status">
+            <span className="sr-only">Loading...</span>
+        </div> )
+
 
     return (
         <div>

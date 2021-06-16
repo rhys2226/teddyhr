@@ -1,54 +1,99 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
+import { Addresses, PesonsalInformation } from '../../../../../components/Doc/PDS/PDSInterface';
 import { countryList } from '../../../../../components/Doc/PDS/PDSPage1/countryList'
 import { Auth } from '../../../../../services/auth.service';
 
 type Inputs = {
-    employee_id: undefined
-    Sex: undefined
-    CivilStatus: undefined
-    DOB: undefined
-    Height: undefined
-    Weight: undefined
-    BLOODTYPE: undefined
-    GSIS: undefined
-    PAGIBIG: undefined
-    PHILHEALTH: undefined
-    SSS: undefined
-    TIN: undefined
-    EmployeeNumber: undefined
-    Citizenship: undefined
-    DualCititizenship: undefined
-    Details: undefined
-    Telephone: undefined
+    employee_id: ''
+    Sex: ''
+    CivilStatus: ''
+    DOB: ''
+    Height: ''
+    Weight: ''
+    BLOODTYPE: ''
+    GSIS: ''
+    PAGIBIG: ''
+    PHILHEALTH: ''
+    SSS: ''
+    TIN: ''
+    EmployeeNumber: ''
+    Citizenship: ''
+    DualCititizenship: ''
+    Details: ''
+    Telephone: ''
     residential: {
-        HouseNumber: undefined
-        Street: undefined
-        Village: undefined
-        Barangay: undefined
-        Municipality: undefined
-        Province: undefined
-        ZipCode: undefined
-        Type: undefined
-        employee_id: undefined
+        HouseNumber: ''
+        Street: ''
+        Village: ''
+        Barangay: ''
+        Municipality: ''
+        Province: ''
+        ZipCode: ''
+        Type: ''
+        employee_id: ''
     }
     permanent: {
-        HouseNumber: undefined
-        Street: undefined
-        Village: undefined
-        Barangay: undefined
-        Municipality: undefined
-        Province: undefined
-        ZipCode: undefined
-        Type: undefined
-        employee_id: undefined
+        HouseNumber: ''
+        Street: ''
+        Village: ''
+        Barangay: ''
+        Municipality: ''
+        Province: ''
+        ZipCode: ''
+        Type: ''
+        employee_id: ''
     }
 }
 
-export default function PDSPersonalBg() {
+export default function PDSPersonalBg( props: {
+    PesonsalInformation: PesonsalInformation
+    Permanent: Addresses
+    Resedential: Addresses
+} ) {
     const userData: any = localStorage.getItem( 'user' )
-    const { register, handleSubmit } = useForm<Inputs>();
+    const { register, handleSubmit, setValue } = useForm<Inputs>();
+
+    const { PesonsalInformation, Resedential, Permanent } = props
+
+    React.useEffect( () => {
+        setValue( 'Sex', PesonsalInformation.Sex )
+        setValue( 'CivilStatus', PesonsalInformation.CivilStatus )
+        setValue( 'DOB', PesonsalInformation.DOB )
+        setValue( 'Height', PesonsalInformation.Height )
+        setValue( 'Weight', PesonsalInformation.Weight )
+        setValue( 'BLOODTYPE', PesonsalInformation.BLOODTYPE )
+        setValue( 'GSIS', PesonsalInformation.GSIS )
+        setValue( 'PAGIBIG', PesonsalInformation.PAGIBIG )
+        setValue( 'PHILHEALTH', PesonsalInformation.PHILHEALTH )
+        setValue( 'SSS', PesonsalInformation.SSS )
+        setValue( 'TIN', PesonsalInformation.TIN )
+        setValue( 'EmployeeNumber', PesonsalInformation.EmployeeNumber )
+        setValue( 'Citizenship', PesonsalInformation.Citizenship )
+        setValue( 'DualCititizenship', PesonsalInformation.DualCititizenship )
+        setValue( 'Details', PesonsalInformation.Details )
+        setValue( 'Telephone', PesonsalInformation.Telephone )
+
+        setValue( 'permanent.HouseNumber', Permanent.HouseNumber )
+        setValue( 'permanent.Street', Permanent.Street )
+        setValue( 'permanent.Village', Permanent.Village )
+        setValue( 'permanent.Barangay', Permanent.Barangay )
+        setValue( 'permanent.Municipality', Permanent.Municipality )
+        setValue( 'permanent.Province', Permanent.Province )
+        setValue( 'permanent.ZipCode', Permanent.ZipCode )
+        setValue( 'permanent.Type', Permanent.Type )
+
+        setValue( 'residential.HouseNumber', Resedential.HouseNumber )
+        setValue( 'residential.Street', Resedential.Street )
+        setValue( 'residential.Village', Resedential.Village )
+        setValue( 'residential.Barangay', Resedential.Barangay )
+        setValue( 'residential.Municipality', Resedential.Municipality )
+        setValue( 'residential.Province', Resedential.Province )
+        setValue( 'residential.ZipCode', Resedential.ZipCode )
+        setValue( 'residential.Type', Resedential.Type )
+
+    }, [] )
 
     const submit = async ( data: Inputs ) => {
         Fire(
