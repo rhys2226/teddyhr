@@ -91,16 +91,104 @@ class PersonalDataSheet extends Model
         return $this->hasMany(Others::class,'employee_id','employee_id');
     }
     
-    public function questionDetails()
+    
+    
+    public function thirdDegree()
     {
-        return $this->hasManyThrough(
+        return $this->hasOne(
             QuestionDetails::class,
-            Question::class,
-            'question_id',
-            'id',
             'employee_id',
             'employee_id',
-        );
+        )->where('Question','Within the third degree?');
+    }
+    
+    public function ForuthDegree()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Within the fourth degree (for Local Government Unit - Career Employees)?');
+    }
+    
+    public function FoundGuility()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Have you ever been found guilty of any administrative offense?');
+    }
+    
+    public function CriminallyCharged()
+    {   return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Have you been criminally charged before any court?');
+    }
+    
+    public function beenConvicted()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Have you ever been convicted of any crime or violation of any law, decree, ordinance or regulation by any court or tribunal?');
+    }
+    
+    public function seperated()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Have you ever been separated from the service in any of the following modes: resignation, retirement, dropped from the rolls, dismissal, termination, end of term, finished contract or phased out (abolition) in the public or private sector?');
+    }
+    
+    public function candidate()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Have you ever been a candidate in a national or local election held within the last year (except Barangay election)?');
+    }
+    
+    public function resigned()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Have you resigned from the government service during the three (3)-month period before the last election to promote/actively campaign for a national or local candidate?');
+    }
+    
+    public function immigrant()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Have you acquired the status of an immigrant or permanent resident of another country?');
+    }
+    
+    public function indigenous()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Are you a member of any indigenous group?');
+    }
+    
+    public function disability()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Are you a person with disability?');
     }
     
     public function references()
