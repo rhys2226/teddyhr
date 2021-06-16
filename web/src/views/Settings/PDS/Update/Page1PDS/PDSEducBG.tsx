@@ -24,11 +24,68 @@ type Education = {
     Type: undefined
 }
 
-export default function PDSEducBG( props: any ) {
+export default function PDSEducBG( props: {
+    Elementary: Education
+    Secondary: Education
+    College: Education
+    Vocational: Education
+    GraduateStudies: Education
+} ) {
 
     const userData: any = localStorage.getItem( 'user' )
-    const { register, handleSubmit } = useForm<Inputs>();
+    const { register, handleSubmit, setValue } = useForm<Inputs>();
 
+    const {
+        Elementary,
+        Secondary,
+        College,
+        Vocational,
+        GraduateStudies,
+    } = props
+
+    React.useEffect( () => {
+
+        setValue( 'Elementary.NameOfSchool', Elementary.NameOfSchool )
+        setValue( 'Elementary.Degree', Elementary.Degree )
+        setValue( 'Elementary.From', Elementary.From )
+        setValue( 'Elementary.To', Elementary.To )
+        setValue( 'Elementary.Units', Elementary.Units )
+        setValue( 'Elementary.YearGraduated', Elementary.YearGraduated )
+        setValue( 'Elementary.Scholarship', Elementary.Scholarship )
+
+        setValue( 'Secondary.NameOfSchool', Secondary.NameOfSchool )
+        setValue( 'Secondary.Degree', Secondary.Degree )
+        setValue( 'Secondary.From', Secondary.From )
+        setValue( 'Secondary.To', Secondary.To )
+        setValue( 'Secondary.Units', Secondary.Units )
+        setValue( 'Secondary.YearGraduated', Secondary.YearGraduated )
+        setValue( 'Secondary.Scholarship', Secondary.Scholarship )
+
+        setValue( 'College.NameOfSchool', College.NameOfSchool )
+        setValue( 'College.Degree', College.Degree )
+        setValue( 'College.From', College.From )
+        setValue( 'College.To', College.To )
+        setValue( 'College.Units', College.Units )
+        setValue( 'College.YearGraduated', College.YearGraduated )
+        setValue( 'College.Scholarship', College.Scholarship )
+
+        setValue( 'Vocational.NameOfSchool', Vocational.NameOfSchool )
+        setValue( 'Vocational.Degree', Vocational.Degree )
+        setValue( 'Vocational.From', Vocational.From )
+        setValue( 'Vocational.To', Vocational.To )
+        setValue( 'Vocational.Units', Vocational.Units )
+        setValue( 'Vocational.YearGraduated', Vocational.YearGraduated )
+        setValue( 'Vocational.Scholarship', Vocational.Scholarship )
+
+        setValue( 'GraduateStudies.NameOfSchool', GraduateStudies.NameOfSchool )
+        setValue( 'GraduateStudies.Degree', GraduateStudies.Degree )
+        setValue( 'GraduateStudies.From', GraduateStudies.From )
+        setValue( 'GraduateStudies.To', GraduateStudies.To )
+        setValue( 'GraduateStudies.Units', GraduateStudies.Units )
+        setValue( 'GraduateStudies.YearGraduated', GraduateStudies.YearGraduated )
+        setValue( 'GraduateStudies.Scholarship', GraduateStudies.Scholarship )
+
+    }, [] )
 
     const submit = async ( data: any ) => {
         Fire(

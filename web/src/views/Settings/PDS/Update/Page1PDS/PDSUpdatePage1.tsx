@@ -52,6 +52,11 @@ export default function PDSUpdatePage1( props: any ) {
         }
         setComponent(
             <PDSEducBG
+                Elementary={data.elementary}
+                Secondary={data.secondary}
+                College={data.college}
+                Vocational={data.vocational}
+                GraduateStudies={data.graduate_studies}
             />
         )
     }
