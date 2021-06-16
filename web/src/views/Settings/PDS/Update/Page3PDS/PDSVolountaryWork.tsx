@@ -1,11 +1,43 @@
 import React from 'react'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
 import { Auth } from '../../../../../services/auth.service'
+import * as interfaces from '../../../../../components/Doc/PDS/PDSInterface'
 
-export default function PDSVolountaryWork() {
+export default function PDSVolountaryWork( props: {
+    VolunteerInvolvements: interfaces.VolunteerInvolvements[]
+} ) {
 
     const userData: any = localStorage.getItem( 'user' )
     const [ addForm, setaddForm ] = React.useState( [ 1 ] );
+
+    React.useEffect( () => {
+        setaddForm( [] )
+        props.VolunteerInvolvements.forEach( ( child: any ) => {
+            setaddForm( [ ...addForm, 1 ] )
+        } )
+        setTimeout( () => {
+            distribute()
+        }, 3000 );
+    }, [] )
+
+    function distribute() {
+        let index = 0
+        props.VolunteerInvolvements.forEach( ( child: any ) => {
+            for ( let key in child ) {
+                if (
+                    key === 'Name' ||
+                    key === 'From' ||
+                    key === 'To' ||
+                    key === 'Hours' ||
+                    key === 'Department'
+                ) {
+                    $( '#' + key + index ).val( child[ key ] )
+                }
+            }
+            index += 1
+        } )
+    }
+
 
     const submit = async () => {
         let data: any = {

@@ -1,10 +1,40 @@
 import React from 'react'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
+import { Others } from '../../../../../components/Doc/PDS/PDSInterface';
 import { Auth } from '../../../../../services/auth.service'
 
-export default function PDSOtherInformation() {
+export default function PDSOtherInformation( props: {
+    Others: Others[]
+} ) {
 
     const userData: any = localStorage.getItem( 'user' )
+
+
+    React.useEffect( () => {
+        setaddForm( [] )
+        props.Others.forEach( ( child: any ) => {
+            setaddForm( [ ...addForm, 1 ] )
+        } )
+        setTimeout( () => {
+            distribute()
+        }, 3000 );
+    }, [] )
+
+    function distribute() {
+        let index = 0
+        props.Others.forEach( ( child: any ) => {
+            for ( let key in child ) {
+                if (
+                    key === 'Skills' ||
+                    key === 'NonAcademicDistinction' ||
+                    key === 'Membership'
+                ) {
+                    $( '#' + key + index ).val( child[ key ] )
+                }
+            }
+            index += 1
+        } )
+    }
     const [ addForm, setaddForm ] = React.useState( [ 1 ] );
 
     const submit = async () => {

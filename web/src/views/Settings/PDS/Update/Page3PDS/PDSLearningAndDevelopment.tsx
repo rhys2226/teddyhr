@@ -1,11 +1,46 @@
 import React from 'react'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
+import { LearningAndDevelopments } from '../../../../../components/Doc/PDS/PDSInterface';
 import { Auth } from '../../../../../services/auth.service'
 
-export default function PDSLearningAndDevelopment() {
+export default function PDSLearningAndDevelopment( props: {
+    LearningAndDevelopments: LearningAndDevelopments[]
+} ) {
 
     const userData: any = localStorage.getItem( 'user' )
     const [ addForm, setaddForm ] = React.useState( [ 1 ] );
+
+
+    React.useEffect( () => {
+        setaddForm( [] )
+        props.LearningAndDevelopments.forEach( ( child: any ) => {
+            setaddForm( [ ...addForm, 1 ] )
+        } )
+        setTimeout( () => {
+            distribute()
+        }, 3000 );
+    }, [] )
+
+
+    function distribute() {
+        let index = 0
+        props.LearningAndDevelopments.forEach( ( child: any ) => {
+            for ( let key in child ) {
+                if (
+                    key === 'Title' ||
+                    key === 'From' ||
+                    key === 'To' ||
+                    key === 'Hours' ||
+                    key === 'SponsoredBy' ||
+                    key === 'Type'
+                ) {
+                    $( '#' + key + index ).val( child[ key ] )
+                }
+            }
+            index += 1
+        } )
+    }
+
 
     const submit = async () => {
         let data: any = {
