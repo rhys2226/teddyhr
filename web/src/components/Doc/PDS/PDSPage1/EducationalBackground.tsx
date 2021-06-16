@@ -165,7 +165,7 @@ export default function EducationalBackground( props: {
                     <p className="m-0 mb-0 p-1 b text-center bold underlined">{graduateStudies.Scholarship}</p>
                 </div>
 
-                <div className="col-md-12 m-0 p-0 row border-bottom  cl sub-title nbl nbt nbr nbb aic jcc d-flex" style={{ flex: 1, maxWidth: '100%' }}>
+                <div className="col-md-12 m-0 p-2 row border-bottom  cl sub-title nbl nbt nbr nbb aic jcc d-flex" style={{ flex: 1, maxWidth: '100%' }}>
                     <p className="m-0 p-0 text-center d-flex aic jcc">
                         <i className="text-center text-danger bold">(Continue on separate sheet if necessary)</i>
                     </p>

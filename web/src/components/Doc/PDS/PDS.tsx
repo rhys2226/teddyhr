@@ -90,11 +90,31 @@ export default function PDS() {
             )
             return
         }
-        setComponent( <PDSPage4 /> )
+        setComponent(
+            <PDSPage4
+                References={data.references}
+                Idenification={data.identification}
+
+                ThirdDegree={data.third_degree}
+                ForuthDegree={data.foruth_degree}
+                FoundGuility={data.found_guility}
+                CriminallyCharged={data.criminally_charged}
+                BeenConvicted={data.been_convicted}
+                Seperated={data.seperated}
+                Candidate={data.candidate}
+                Resigned={data.resigned}
+                Immigrant={data.immigrant}
+                Indigenous={data.indigenous}
+                Disability={data.disability}
+            />
+        )
     }
 
 
-    const [ component, setComponent ]: any = React.useState( <div></div> )
+    const [ component, setComponent ]: any = React.useState(
+        <div className="spinner-border mr-3" role="status">
+            <span className="sr-only">Loading...</span>
+        </div> )
 
 
     function ToBePrinted( props: any ) {
@@ -136,8 +156,8 @@ export default function PDS() {
             <PrintComponents
                 trigger={
                     <button className="btn btn-dark mb-3 mt-5">
-                        <i className=" fe fe-download"></i>
-                        <span>&nbsp;Download Sheet</span>
+                        <i className=" fe fe-printer"></i>
+                        <span>&nbsp;Print Personal Data Sheet</span>
                     </button>
                 }>
                 <ToBePrinted />

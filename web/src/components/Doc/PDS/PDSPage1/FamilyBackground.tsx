@@ -42,14 +42,14 @@ export default function FamilyBackground( props: {
 
     return (
         <div>
-            <div className="title "><i className="text-white main">II. FAMILY BACKGROUND</i></div>
+            <div className="title  "><i className="text-white main">II. FAMILY BACKGROUND</i></div>
             <div className="border-bottom br row m-0 p-0 nbl">
                 {/* left  */}
                 <div className="col-md-7 m-0 p-0 row " style={{ flex: '0 0 61.2%', maxWidth: '100%' }}>
                     <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl nbb">
-                        <p className="m-0 mb-2 mt-1">&nbsp; 22.  SPOUSE'S SURNAME</p>
-                        <p className="m-0 mb-2 ml-3">&nbsp;   FIRST NAME</p>
-                        <p className="m-0 mb-2 ml-3">&nbsp;   MIDDLE NAME</p>
+                        <p className="m-0 mb-2 mt-1 p-2">&nbsp; 22.  SPOUSE'S SURNAME</p>
+                        <p className="m-0 mb-2 ml-3 p-2">&nbsp;   FIRST NAME</p>
+                        <p className="m-0 mb-2 ml-3 p-2">&nbsp;   MIDDLE NAME</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row lr">
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
@@ -63,7 +63,7 @@ export default function FamilyBackground( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl nbb  ">
-                        <p className="m-0 mb-0 p-1 pl-3">&nbsp;OCCUPATION</p>
+                        <p className="m-0 mb-0 p-1 pl-3 p-2">&nbsp;OCCUPATION</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row  lr">
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
@@ -71,7 +71,7 @@ export default function FamilyBackground( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 ll nbl nbl nbb">
-                        <p className="m-0 mb-0 p-1  pl-3">&nbsp;EMPLOYER/BUSINESS NAME</p>
+                        <p className="m-0 mb-0 p-1  pl-3 p-2">&nbsp;EMPLOYER/BUSINESS NAME</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row lr">
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
@@ -79,7 +79,7 @@ export default function FamilyBackground( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 ll nbl nbb nbb">
-                        <p className="m-0 mb-0 p-1  pl-3">&nbsp;BUSINESS ADDRESS</p>
+                        <p className="m-0 mb-0 p-1  pl-3 p-2">&nbsp;BUSINESS ADDRESS</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row  lr">
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
@@ -87,7 +87,7 @@ export default function FamilyBackground( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 ll nb nbb nbl">
-                        <p className="m-0 mb-0 p-1  pl-3">&nbsp;TELEPHONE NO.</p>
+                        <p className="m-0 mb-0 p-1  pl-3 p-2">&nbsp;TELEPHONE NO.</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row  lr">
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
@@ -95,9 +95,9 @@ export default function FamilyBackground( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 ll nbl ">
-                        <p className="m-0 mb-2 mt-1">&nbsp; 24.  FATHERS'S SURNAME</p>
-                        <p className="m-0 mb-2 ml-3">&nbsp;   FIRST NAME</p>
-                        <p className="m-0 mb-2 ml-3">&nbsp;   MIDDLE NAME</p>
+                        <p className="m-0 mb-2 mt-1 p-2">&nbsp; 24.  FATHERS'S SURNAME</p>
+                        <p className="m-0 mb-2 ml-3 p-2">&nbsp;   FIRST NAME</p>
+                        <p className="m-0 mb-2 ml-3 p-2">&nbsp;   MIDDLE NAME</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row  lr">
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
@@ -111,9 +111,9 @@ export default function FamilyBackground( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 ll nbl nbr nbt">
-                        <p className="m-0 mb-2 mt-1">&nbsp; 25.  MOTHERS'S SURNAME</p>
-                        <p className="m-0 mb-2 ml-3">&nbsp;   FIRST NAME</p>
-                        <p className="m-0 mb-2 ml-3">&nbsp;   MIDDLE NAME</p>
+                        <p className="m-0 mb-2 mt-1 p-2">&nbsp; 25.  MOTHERS'S SURNAME</p>
+                        <p className="m-0 mb-2 ml-3 p-2">&nbsp;   FIRST NAME</p>
+                        <p className="m-0 mb-2 ml-3 p-2">&nbsp;   MIDDLE NAME</p>
                     </div>
                     <div className="col-md-6 m-0 p-0 row lr nbt">
                         <div className="col-md-12 m-0 p-2 row border-bottom br nbl sub-title nbt">

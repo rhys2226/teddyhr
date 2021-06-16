@@ -34,30 +34,30 @@ export default function PersonalInformation( props: {
 
     return (
         <div style={{ borderTop: '2px solid black' }}>
-            <div className="title nbr nbl"><i className="text-white main">I. Personal Information</i></div>
+            <div className="title nbr nbl "><i className="text-white main">I. Personal Information</i></div>
             <div className=" row m-0 p-0">
-                <div className="col-md-3 sub-title m-0 p-0 nbl nbb" style={{ flex: '0 0 20.9%' }}>
+                <div className="col-md-3 sub-title m-0 p-2 nbl nbb" style={{ flex: '0 0 20.9%' }}>
                     <p className="pt-1 mb-3">&nbsp; 2. SURNAME</p>
                     <p className="pt-0 pb-0 mb-3">&nbsp; &nbsp; FIRST NAME</p>
                     <p style={{ marginTop: '-.5rem' }} className="pt-0 pb-0 mb-0 mb-1">&nbsp; &nbsp; MIDDLE NAME</p>
                 </div>
                 <div className="col-md-9  m-0 p-0 bt " style={{ flex: '0 0 79.1%', maxWidth: '100%' }}>
-                    <p className="w-100 border-bottom p-1 m-0 pl-2  bold underlined">{user.Last}</p>
-                    <p className="w-100 border-bottom m-0 p-0 row">
-                        <div className="col-md-8  p-1 m-0 pl-2 bold underlined">{user.First} </div>
+                    <p className="w-100 border-bottom p-2 m-0 pl-2  bold underlined">{user.Last}</p>
+                    <p className="w-100 border-bottom m-0 row">
+                        <div className="col-md-8  p-1 m-0 p-2 bold underlined">{user.First} </div>
                         <div className="col-md-4 m-0  sub-title nbr nbt nbb">
                             <p className="m-0">NAME EXTENSION (JR., SR)</p>
                             <div className="m-0 bold underlined text-center">{user.NameExtension}</div>
                         </div>
                     </p>
-                    <p className="w-100  p-1 pl-2  pb-2 m-0 bold underlined">{user.Middle}</p>
+                    <p className="w-100  p-2 m-0 bold underlined">{user.Middle}</p>
                 </div>
             </div>
             <div className="border-bottom row m-0 p-0">
                 {/* left  */}
                 <div className="col-md-5 m-0 p-0 row">
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb pt-1 ">
-                        <p className="m-0 mb-3">&nbsp; 3.   DATE OF BIRTH <br />
+                        <p className="m-0 mb-3 p-2">&nbsp; 3.   DATE OF BIRTH <br />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(mm/dd/yyyy)
                         </p>
                     </div>
@@ -65,13 +65,13 @@ export default function PersonalInformation( props: {
                         <p className="m-0 p-0 bold underlined">{toDate( personal_information.DOB )}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="mt-0 p-0  m-0">&nbsp; 4. PLACE OF BIRTH </p>
+                        <p className="mt-0 p-0  m-0 p-2">&nbsp; 4. PLACE OF BIRTH </p>
                     </div>
                     <div className="col-md-6 m-0 p-2 border-bottom d-flex aic bt nbb">
                         <p className="m-0 p-0 bold underlined">Pototan</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="pt-1 m-0">&nbsp; 5. SEX </p>
+                        <p className="pt-1 m-0 p-2">&nbsp; 5. SEX </p>
                     </div>
                     <div className="col-md-6  m-0 p-2 border-bottom d-flex aic bt  nbb">
                         <div className="d-flex w-100 m-0">
@@ -87,9 +87,9 @@ export default function PersonalInformation( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb">
-                        <p className="pt-1">&nbsp; 6. CIVIL STATUS </p>
+                        <p className="p-2">&nbsp; 6. CIVIL STATUS </p>
                     </div>
-                    <div className="col-md-6  m-0 p-2 border-bottom aic bt  nbb">
+                    <div className="col-md-6  m-0 p-2 pt-3 pb-3 border-bottom aic bt  nbb">
                         <div className="d-flex w-100" style={{ transform: 'translate(0,-3px)' }}>
                             <div className="d-flex ml-1" style={{ flex: 1 }}>
                                 <input disabled defaultChecked={personal_information.CivilStatus === 'Single'} className="m-0 checkbox" checked type="checkbox" />
@@ -118,58 +118,58 @@ export default function PersonalInformation( props: {
                         </div>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="m-0 p-0 pt-0">&nbsp; 7. HEIGHT (m) </p>
+                        <p className="m-0 p-2">&nbsp; 7. HEIGHT (m) </p>
                     </div>
                     <div className="col-md-6  m-0 p-2 border-bottom d-flex aic bt  nbb">
-                        <p className="m-0 p-0 bold underlined">{personal_information.Height}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.Height}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="m-0 p-0 pt-0">&nbsp; 8. WEIGHT (kg) </p>
+                        <p className="m-0 p-0 pt-0 p-2">&nbsp; 8. WEIGHT (kg) </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="m-0 p-0 bold underlined">{personal_information.Weight}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.Weight}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="m-0 p-0 pt-1 pb-1">&nbsp; 9. BLOOD TYPE </p>
+                        <p className="m-0 p-0 pt-1 pb-1 p-2">&nbsp; 9. BLOOD TYPE </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="m-0 p-0 bold underlined">Type {personal_information.BLOODTYPE}</p>
+                        <p className="m-0 p-2 bold underlined">Type {personal_information.BLOODTYPE}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="m-0 p-0 pt-1 pb-0">&nbsp; 10. GSIS ID NO </p>
+                        <p className="m-0 p-0 pt-1 pb-0 p-2">&nbsp; 10. GSIS ID NO </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="m-0 p-0 pt-1 pb-0 bold underlined ">{personal_information.GSIS}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.GSIS}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="pt-1 m-0">&nbsp; 11. PAG-IBIG ID NO </p>
+                        <p className="pt-1 m-0 p-2">&nbsp; 11. PAG-IBIG ID NO </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="m-0 p-0 bold underlined">{personal_information.PAGIBIG}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.PAGIBIG}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="p-0 pt-1  m-0">&nbsp; 12. PHILHEALTH NO </p>
+                        <p className="p-0 pt-1  m-0 p-2">&nbsp; 12. PHILHEALTH NO </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="p-0   m-0  bold underlined">{personal_information.PHILHEALTH}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.PHILHEALTH}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="pt-1 m-0 p-1"> 13. SSS NO </p>
+                        <p className="pt-1 m-0 p-1 p-2"> 13. SSS NO </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="p-0 pt-1  m-0  bold underlined">{personal_information.SSS}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.SSS}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="pt-1 m-0 p-1"> 14. TIN NO </p>
+                        <p className="pt-1 m-0 p-1 p-2"> 14. TIN NO </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="m-0 p-0 pt-1 bold underlined" >{personal_information.TIN}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.TIN}</p>
                     </div>
                     <div className="col-md-6 sub-title m-0 p-0 nbl nbb d-flex aic bt">
-                        <p className="pt-1 m-0 p-0 pl-1"> 15. AGENCY EMPLOYEE NO  </p>
+                        <p className="pt-1 m-0 p-0 pl-1 p-2"> 15. AGENCY EMPLOYEE NO  </p>
                     </div>
                     <div className="col-md-6  m-0 p-1 border-bottom d-flex aic bt  nbb">
-                        <p className="m-0 p-0 pt-1 bold underlined" >{personal_information.EmployeeNumber}</p>
+                        <p className="m-0 p-2 bold underlined">{personal_information.EmployeeNumber}</p>
                     </div>
                 </div>
                 {/* {right} */}

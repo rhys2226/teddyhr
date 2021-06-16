@@ -141,8 +141,8 @@ export interface Others {
 
 export interface QuestionDetails {
     Question: ''
-    Answer: ''
-    Details: ''
+    Answer: any
+    Details: any
 }
 
 export interface References {

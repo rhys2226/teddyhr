@@ -3,7 +3,6 @@ import React from 'react'
 export default function PDSHeader() {
     return (
         <div>
-
             <i><p className="m-0 bold">CS Form No. 212</p></i>
             <i><p className="m-0 bold">Revised 2017</p></i>
             <h2 className="text-center" style={{ fontWeight: 900, fontSize: '1.5rem', marginTop: '-6px', marginBottom: 0 }}>PERSONAL DATA SHEET</h2>
