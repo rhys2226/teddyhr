@@ -72,7 +72,12 @@ export default function PDS() {
             return
         }
         if ( tab === 2 ) {
-            setComponent( <PDSPage2 /> )
+            setComponent(
+                <PDSPage2
+                    Eligibilities={data.eligiblities}
+                    WorkExperiences={data.work_experiences}
+                />
+            )
             return
         }
         if ( tab === 3 ) {
