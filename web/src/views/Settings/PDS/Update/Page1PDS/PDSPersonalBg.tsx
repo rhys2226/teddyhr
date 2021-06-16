@@ -138,42 +138,41 @@ export default function PDSPersonalBg( props: {
     return (
         <div className="card-body card">
             <form onSubmit={handleSubmit( submit )}>
-                <h5 className="bold mt-4 mb-4">PERSONAL INFORMATION</h5>
+                <h2 className="bold mt-4 mb-4 h">Personal Information</h2>
                 <div className="row mb-4">
-                    <div className="col-md-3">
-                        <label htmlFor="">SURNAME</label>
+                    <div className="col-md-4 mt-4">
+                        <label htmlFor="">Last Name</label>
                         <input disabled value={JSON.parse( userData ).Last} type="text" className="form-control" />
                     </div>
                     <input type="hidden" value={JSON.parse( userData ).id}  {...register( 'employee_id' )} />
                     <input type="hidden" value={JSON.parse( userData ).id}  {...register( 'permanent.employee_id' )} />
                     <input type="hidden" value={JSON.parse( userData ).id}  {...register( 'residential.employee_id' )} />
-                    <div className="col-md-3">
-                        <label htmlFor="">FIRST NAME</label>
+                    <div className="col-md-4 mt-4">
+                        <label htmlFor="">First Name</label>
                         <input disabled value={JSON.parse( userData ).First} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">MIDDLE  NAME</label>
+                    <div className="col-md-4 mt-4">
+                        <label htmlFor="">Middle  Name</label>
                         <input disabled value={JSON.parse( userData ).Middle} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">NAME EXTENSION</label>
+                    <div className="col-md-4 mt-4">
+                        <label htmlFor="">Name Ext.</label>
                         <input disabled value={JSON.parse( userData ).NameExtension} type="text" className="form-control" />
                     </div>
-                </div>
-                <div className="row mb-4">
-                    <div className="col-md-3">
-                        <label htmlFor="">DATE OF BIRTH</label>
+                    <div className="col-md-12"></div>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">Date of Birth</label>
                         <input {...register( 'DOB' )} type="date" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">SEX</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">Sex</label>
                         <select {...register( 'Sex' )} className="form-control" >
                             <option>Male</option>
                             <option>Female</option>
                         </select>
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor=""> CIVIL STATUS</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor=""> Civil Status</label>
                         <select {...register( 'CivilStatus' )} className="form-control" >
                             <option>Single</option>
                             <option>Widow</option>
@@ -182,64 +181,61 @@ export default function PDSPersonalBg( props: {
                             <option>Other</option>
                         </select>
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">HEIGHT (m)</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">Height (m)</label>
                         <input {...register( 'Height' )} type="text" className="form-control" />
                     </div>
-                </div>
-                <div className="row mb-4">
-                    <div className="col-md-3">
-                        <label htmlFor="">WEIGHT (kg)</label>
+
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">Weight (kg)</label>
                         <input {...register( 'Weight' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">BLOOD TYPE</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">Blood Type</label>
                         <input {...register( 'BLOODTYPE' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">GSIS ID NO</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">GSIS ID NO.</label>
                         <input {...register( 'GSIS' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">PAG-IBIG ID NO</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">PAG-IBIG ID NO.</label>
                         <input {...register( 'PAGIBIG' )} type="text" className="form-control" />
                     </div>
-                </div>
-                <div className="row mb-4">
-                    <div className="col-md-3">
-                        <label htmlFor="">PHILHEALTH NO</label>
+
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">PHILHEALTH NO.</label>
                         <input {...register( 'PHILHEALTH' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">SSS NO</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">SSS NO.</label>
                         <input {...register( 'SSS' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">TIN NO</label>
                         <input {...register( 'TIN' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-3">
-                        <label htmlFor="">AGENCY EMPLOYEE NO</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">Agency Employee NO.</label>
                         <input {...register( 'EmployeeNumber' )} type="text" className="form-control" />
                     </div>
-                </div>
-                <div className="row mb-4">
-                    <div className="col-md-4">
-                        <label htmlFor="">CITIZENSHIP</label>
+
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="">Citizenship</label>
                         <select {...register( 'Citizenship' )} className="form-control" >
                             <option>Filipino</option>
                             <option>Dual Citizenship</option>
                         </select>
                     </div>
-                    <div className="col-md-4">
-                        <label htmlFor="" style={{ textTransform: 'uppercase' }}>if holder of dual citizenship</label>
+                    <div className="col-md-6 mt-4">
+                        <label htmlFor="" >If holder of Dual citizenship</label>
                         <select {...register( 'DualCititizenship' )} className="form-control" >
                             <option>By Birth</option>
                             <option>By Naturalization</option>
                         </select>
                     </div>
-                    <div className="col-md-4">
-                        <label htmlFor="" style={{ textTransform: 'uppercase' }}>please indicate details</label>
+                    <div className="col-md-12 mt-4">
+                        <label htmlFor="" >Please Indicate Details</label>
                         <select {...register( 'Details' )} className="form-control" >
                             <option selected>Philippines</option>
                             {
@@ -249,86 +245,87 @@ export default function PDSPersonalBg( props: {
                             }
                         </select>
                     </div>
-                </div>
-                <br />
-                <h5 className="col-md-12 bold m-0 p-0 mt-4">RESIDENTIAL ADDRESS</h5>
-                <div className="row mt-3">
-                    <div className="col-md-6 mb-4">
+
+                    <h2 className="bold mt-5 col-md-12">Residential Address</h2>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">House/Block/Lot No.</label>
                         <input  {...register( 'residential.HouseNumber' )} type="text" className="form-control" />
-                    </div> <div className="col-md-6 mb-4">
+                    </div>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Street</label>
                         <input  {...register( 'residential.Street' )} type="text" className="form-control" />
-                    </div> <div className="col-md-6 mb-4">
+                    </div>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Subdivision/Village</label>
                         <input  {...register( 'residential.Village' )} type="text" className="form-control" />
-                    </div> <div className="col-md-6 mb-4">
+                    </div>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Barangay</label>
                         <input  {...register( 'residential.Barangay' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-6 mb-4">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">City/Municipality</label>
                         <input  {...register( 'residential.Municipality' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-6 mb-4">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Province</label>
                         <input  {...register( 'residential.Province' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-6 mb-3">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">ZIP CODE</label>
                         <input  {...register( 'residential.ZipCode' )} type="text" className="form-control" />
                     </div>
                     <input type="hidden"  {...register( 'residential.Type' )} value="ResidentialAddress" />
-                </div>
 
-                <h5 className="col-md-12 bold m-0 p-0  mt-5">PERMANENET  ADDRESS</h5>
-                <div className="row mt-3">
-                    <div className="col-md-6 mb-4">
+                    <h2 className="bold mt-5 col-md-12">Permanent Address</h2>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">House/Block/Lot No.</label>
                         <input  {...register( 'permanent.HouseNumber' )} type="text" className="form-control" />
-                    </div> <div className="col-md-6 mb-4">
+                    </div>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Street</label>
                         <input  {...register( 'permanent.Street' )} type="text" className="form-control" />
-                    </div> <div className="col-md-6 mb-4">
+                    </div>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Subdivision/Village</label>
                         <input  {...register( 'permanent.Village' )} type="text" className="form-control" />
-                    </div> <div className="col-md-6 mb-4">
+                    </div>
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Barangay</label>
                         <input  {...register( 'permanent.Barangay' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-6 mb-4">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">City/Municipality</label>
                         <input  {...register( 'permanent.Municipality' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-6 mb-4">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">Province</label>
                         <input  {...register( 'permanent.Province' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-6 mb-3">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">ZIP CODE</label>
                         <input  {...register( 'permanent.ZipCode' )} type="text" className="form-control" />
                     </div>
-                </div>
-                <div className="row mb-4 mt-3">
-                    <div className="col-md-4">
+
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">TELEPHONE NO</label>
                         <input   {...register( 'Telephone' )} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">MOBILE NO</label>
                         <input disabled value={JSON.parse( userData ).Phone} type="text" className="form-control" />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-6 mt-4">
                         <label htmlFor="">EMAIL ADDRESS (if any)</label>
                         <input disabled value={JSON.parse( userData ).Email} type="text" className="form-control" />
                     </div>
                     <input type="hidden"  {...register( 'permanent.Type' )} value="PermanentAddress" />
-                </div>
 
-                <div className="mt-5 mb-4 d-flex aij jcc">
-                    <button type='submit' className="btn btn-outline-primary">Update Personal Information</button>
+                    <div className="mt-5 mb-4 d-flex aij jcc col-md-12">
+                        <button type='submit' className="btn btn-outline-primary">Update Personal Information</button>
+                    </div>
                 </div>
             </form>
-        </div>
+        </div >
     )
 }

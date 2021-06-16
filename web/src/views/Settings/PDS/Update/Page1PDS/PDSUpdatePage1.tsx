@@ -42,10 +42,18 @@ export default function PDSUpdatePage1( props: any ) {
             return
         }
         if ( tab === 2 ) {
-            setComponent( <PDSFamilyBG /> )
+            setComponent(
+                <PDSFamilyBG
+                    FamilyBackground={data.family_background}
+                    Children={data.children}
+                />
+            )
             return
         }
-        setComponent( <PDSEducBG /> )
+        setComponent(
+            <PDSEducBG
+            />
+        )
     }
 
     const [ component, setComponent ]: any = React.useState(
