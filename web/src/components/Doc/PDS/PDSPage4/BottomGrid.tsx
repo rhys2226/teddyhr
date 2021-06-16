@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function BottomGrid() {
     return (
-        <div className="row col-md-12 row m-0 p-0 bt jcc aic pt-2 pb-4">
-            <div className="row  col-md-12 m-0 text-center p-3 d-flex jcc aic">
+        <div className="row col-md-12 row m-0 p-0 bt jcc aic pb-4">
+            <div className="row  col-md-12 m-0 text-center pt-1 mb-1 d-flex jcc aic">
                 <p className="m-0">
                     SUBSCRIBED AND SWORN to before me  &nbsp;
                     <span className="bold underlined ">

@@ -10,16 +10,16 @@ export default function OtherInformation( props: { Others: Others[] } ) {
         for ( let i = 0; i < 7 - props.Others.length; i++ ) {
             element.push(
                 <>
-                    <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm text-center bold underlined">N/A</p>
+                    <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
+                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">N/A</p>
                     </div>
 
-                    <div className="col-md-5 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm text-center bold underlined">N/A</p>
+                    <div className="col-md-5 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
+                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">N/A</p>
                     </div>
 
-                    <div className="col-md-3 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm text-center bold underlined">N/A</p>
+                    <div className="col-md-3 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
+                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">N/A</p>
                     </div>
                 </>
             )
@@ -37,34 +37,34 @@ export default function OtherInformation( props: { Others: Others[] } ) {
             </div>
             <div className="box row sub-title m-0 p-0 m-0 p-0">
                 <div className="col-md-4 row sub-title m-0 p-0 d-flex aic jcc nbb nbt nbr">
-                    <p className="m-0 mb-0 pb-0 text-center fs-sm">31. &nbsp;SPECIAL SKILLS and HOBBIES</p>
+                    <p className="m-0 mb-0 pb-0 text-center  ">31. &nbsp;SPECIAL SKILLS and HOBBIES</p>
                 </div>
 
                 <div className="col-md-5 row sub-title m-0 p-0 d-flex aic jcc nbb nbt nbr">
-                    <p className="m-0 mb-0 pb-0 text-center fs-sm">32. &nbsp;NON-ACADEMIC DISTINCTIONS / RECOGNITION <br />(Write in full)</p>
+                    <p className="m-0 mb-0 pb-0 text-center  ">32. &nbsp;NON-ACADEMIC DISTINCTIONS / RECOGNITION <br />(Write in full)</p>
                 </div>
 
                 <div className="col-md-3 row sub-title m-0 p-0 d-flex aic jcc nbb nbt nbr">
-                    <p className="m-0 mb-0 pb-0 text-center fs-sm">33. &nbsp;MEMBERSHIP IN ASSOCIATION/ORGANIZATION <br />(Write in full)</p>
+                    <p className="m-0 mb-0 pb-0 text-center  ">33. &nbsp;MEMBERSHIP IN ASSOCIATION/ORGANIZATION <br />(Write in full)</p>
                 </div>
 
                 {
                     props.Others.map( ( other: Others ) => (
                         <>
-                            <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                <p className="m-0 mb-0 pb-0 text-center fs-sm text-center bold underlined">
+                            <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
+                                <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">
                                     {other.Skills}
                                 </p>
                             </div>
 
-                            <div className="col-md-5 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                <p className="m-0 mb-0 pb-0 text-center fs-sm text-center bold underlined">
+                            <div className="col-md-5 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
+                                <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">
                                     {other.NonAcademicDistinction}
                                 </p>
                             </div>
 
-                            <div className="col-md-3 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                                <p className="m-0 mb-0 pb-0 text-center fs-sm text-center bold underlined">
+                            <div className="col-md-3 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
+                                <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">
                                     {other.Membership}
                                 </p>
                             </div>

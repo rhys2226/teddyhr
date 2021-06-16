@@ -3,7 +3,7 @@
 }
 
 .pds * {
-    font-size: .49rem;
+    font-size: .6rem;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -51,6 +51,14 @@
 
 .br {
     border-right: 1px solid rgba(0, 0, 0, 0.8) !important;
+}
+
+.p-c {
+    padding: .55rem !important
+}
+
+.p-c1 {
+    padding: .25rem !important
 }
 
 .bl {

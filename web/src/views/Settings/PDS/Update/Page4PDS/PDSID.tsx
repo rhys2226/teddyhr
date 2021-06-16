@@ -2,19 +2,30 @@ import React from 'react'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
 import { useForm } from 'react-hook-form'
 import { Auth } from '../../../../../services/auth.service'
+import { Identification } from '../../../../../components/Doc/PDS/PDSInterface'
 
 type Inputs = {
     employee_id: undefined,
-    GovtID: undefined,
-    Passport: undefined,
-    Date: undefined,
+    GovtID: '',
+    Passport: '',
+    Date: '',
 }
 
 
-export default function PDSID( props: any ) {
+export default function PDSID( props: {
+    Idenification: Identification
+} ) {
 
     const userData: any = localStorage.getItem( 'user' )
-    const { register, handleSubmit } = useForm<Inputs>();
+    const { register, handleSubmit, setValue } = useForm<Inputs>();
+
+    const { Idenification } = props
+
+    React.useEffect( () => {
+        setValue( 'GovtID', Idenification.GovtID )
+        setValue( 'Passport', Idenification.Passport )
+        setValue( 'Date', Idenification.Date )
+    }, [] )
 
     const submit = async ( data: any ) => {
         Fire(
@@ -61,7 +72,7 @@ export default function PDSID( props: any ) {
                         <input  {...register( 'Passport' )} type="text" className="form-control" />
                     </div>
                     <div className="col-md-4 mb-4">
-                        <label htmlFor="">Date/Place of IssuancE</label>
+                        <label htmlFor="">Date/Place of Issuance</label>
                         <input  {...register( 'Date' )} type="text" className="form-control" />
                     </div>
                 </div>

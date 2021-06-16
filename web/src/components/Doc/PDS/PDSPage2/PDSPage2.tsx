@@ -52,21 +52,21 @@ export default function PDSPage2(
                         <p className="m-0 mb-0 pb-0 text-center">&nbsp; 27.  CAREER SERVICE/ RA 1080 (BOARD/ BAR) UNDER <br /> SPECIAL LAWS/ CES/ CSEE <br /> BARANGAY ELIGIBILITY / DRIVER'S LICENSE       </p>
                     </div>
                     <div className="col-md-2 m-0 p-0 row sub-title m-0 p-0 d-flex aic jcc nbr nbb nbt">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm">&nbsp;RATING(If Applicable)</p>
+                        <p className="m-0 mb-0 pb-0 text-center ">&nbsp;RATING(If Applicable)</p>
                     </div>
 
                     <div className="col-md-1 row sub-title m-0 p-0 d-flex aic jcc  nbb nbt">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm">&nbsp;DATE OF EXAMINATION / CONFERMENT</p>
+                        <p className="m-0 mb-0 pb-0 text-center ">&nbsp;DATE OF EXAMINATION / CONFERMENT</p>
                     </div>
 
                     <div className="col-md-3 m-0 p-0 row sub-title m-0 p-0 d-flex aic jcc nbr nbb nbl nbt">
-                        <p className="m-0 mb-0 pb-0 text-center fs-sm">&nbsp;PLACE OF EXAMINATION</p>
+                        <p className="m-0 mb-0 pb-0 text-center ">&nbsp;PLACE OF EXAMINATION</p>
                     </div>
                     <div className="col-md-1  row sub-title m-0 p-0 d-flex aic jcc from-to  nbb nbr nbt" style={{ flex: '0 0 16.6%', maxWidth: '100%' }}>
                         <div className="row p-0 m-0">
-                            <p className="m-0 mb-0 text-center fs-sm col-md-12 border-bottom p-1 nbt " >&nbsp;LICENSE (if applicable)</p>
-                            <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt">&nbsp;NUMBER</p>
-                            <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt">&nbsp;Date of Validity</p>
+                            <p className="m-0 mb-0 text-center  col-md-12 border-bottom p-1 nbt " >&nbsp;LICENSE (if applicable)</p>
+                            <p className="m-0 mb-0 text-center  col-md-6 box nbl nbr nbb nbt">&nbsp;NUMBER</p>
+                            <p className="m-0 mb-0 text-center  col-md-6 box nbr nbb nbt">&nbsp;Date of Validity</p>
                         </div>
                     </div>
 

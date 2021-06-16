@@ -26,26 +26,26 @@ export default function EducationalBackground( props: {
                     <p className="m-0 mb-0 pb-0 text-center">&nbsp; <span style={{ position: 'absolute', left: '.3rem', top: '.1rem' }}>2.</span>  LEVEL</p>
                 </div>
                 <div className="col-md-2 m-0 p-0 row sub-title m-0 p-0 d-flex aic jcc educ-level nbr nbb">
-                    <p className="m-0 mb-0 pb-0 text-center fs-sm">&nbsp;NAME OF SCHOOL (Write in full)</p>
+                    <p className="m-0 mb-0 pb-0 text-center">&nbsp;NAME OF SCHOOL (Write in full)</p>
                 </div>
                 <div className="col-md-2 row sub-title m-0 p-0 d-flex aic jcc educ-level  nbb">
-                    <p className="m-0 mb-0 pb-0 text-center fs-sm">&nbsp;BASIC EDUCATION/DEGREE/COURSE</p>
+                    <p className="m-0 mb-0 pb-0 text-center">&nbsp;BASIC EDUCATION/DEGREE/COURSE</p>
                 </div>
                 <div className="col-md-1  row sub-title m-0 p-0 d-flex aic jcc from-to  nbb">
                     <div className="row p-0 m-0">
-                        <p className="m-0 mb-0 text-center fs-sm col-md-12 border-bottom p-1 pt-2 nbt " >&nbsp;PERIOD OF ATTENDANCE</p>
-                        <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt pt-1">From</p>
-                        <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt pt-1">To</p>
+                        <p className="m-0 mb-0 text-center col-md-12 border-bottom p-1 pt-2 nbt " >&nbsp;PERIOD OF ATTENDANCE</p>
+                        <p className="m-0 mb-0 text-center col-md-6 box nbl nbr nbb nbt pt-1">From</p>
+                        <p className="m-0 mb-0 text-center col-md-6 box nbr nbb nbt pt-1">To</p>
                     </div>
                 </div>
                 <div className="col-md-1 row sub-title m-0 p-0 d-flex aic jcc nbr nbb">
-                    <p className="m-0 mb-0 text-center fs-sm">&nbsp;HIGHEST LEVEL/ UNITS EARNED (if not graduated)</p>
+                    <p className="m-0 mb-0 text-center">&nbsp;HIGHEST LEVEL/ UNITS EARNED (if not graduated)</p>
                 </div>
                 <div className="col-md-1 row sub-title m-0 p-0 d-flex aic jcc nbr nbb">
-                    <p className="m-0 mb-0 text-center fs-sm">&nbsp;YEAR GRADUATED </p>
+                    <p className="m-0 mb-0 text-center">&nbsp;YEAR GRADUATED </p>
                 </div>
                 <div className="col-md-1  row sub-title m-0 p-0 d-flex aic jcc nbr nbb ">
-                    <p className="m-0 mb-0 pb-0 text-center fs-sm">&nbsp;SCHOLARSHIP/ ACADEMIC HONORS RECEIVED</p>
+                    <p className="m-0 mb-0 pb-0 text-center">&nbsp;SCHOLARSHIP/ ACADEMIC HONORS RECEIVED</p>
                 </div>
 
 
@@ -59,8 +59,8 @@ export default function EducationalBackground( props: {
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{elementary.Degree}</p>
                 </div>
                 <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to   nbb">
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( elementary.From )}</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( elementary.To )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( elementary.From )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( elementary.To )}</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc  nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{elementary.Units}</p>
@@ -83,8 +83,8 @@ export default function EducationalBackground( props: {
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{secondary.Degree}</p>
                 </div>
                 <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to   nbb">
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( secondary.From )}</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( secondary.To )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( secondary.From )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( secondary.To )}</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc  nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{secondary.Units}</p>
@@ -106,8 +106,8 @@ export default function EducationalBackground( props: {
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{vocational.Degree}</p>
                 </div>
                 <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to   nbb">
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( vocational.From )}</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( vocational.To )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( vocational.From )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( vocational.To )}</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc  nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{vocational.Units}</p>
@@ -129,8 +129,8 @@ export default function EducationalBackground( props: {
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{college.Degree}</p>
                 </div>
                 <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to   nbb">
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( college.From )}</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( college.To )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbl nbr nbb nbt bold underlined">&nbsp;{toDate( college.From )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbr nbb nbt nbl bold underlined">&nbsp;   {toDate( college.To )}</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc  nbr nbb">
                     <p className="m-0 mb-0 p-1 text-center bold underlined">{college.Units}</p>
@@ -152,8 +152,8 @@ export default function EducationalBackground( props: {
                     <p className="m-0 mb-0 p-1 b text-center bold underlined">{graduateStudies.Degree}</p>
                 </div>
                 <div className="col-md-1  row m-0 p-0 d-flex aic jcc bg-white box from-to   ">
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbl nbr nbb nbt bold b underlined">&nbsp;{toDate( graduateStudies.From )}</p>
-                    <p className="m-0 mb-0 text-center fs-sm col-md-6 box nbr nbb nbt nbl bold b underlined">&nbsp;   {toDate( graduateStudies.To )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbl nbr nbb nbt bold b underlined">&nbsp;{toDate( graduateStudies.From )}</p>
+                    <p className="m-0 mb-0 text-center col-md-6 box nbr nbb nbt nbl bold b underlined">&nbsp;   {toDate( graduateStudies.To )}</p>
                 </div>
                 <div className="col-md-1 m-0 p-0 row m-0 p-0 box bg-white d-flex aic jcc  nbr ">
                     <p className="m-0 mb-0 p-1 b text-center bold underlined">{graduateStudies.Units}</p>

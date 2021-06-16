@@ -40,7 +40,7 @@ export default function PDSPage4(
 
     return (
         <div className="bg-white portrait-pds pds" >
-            <div className="PDSBorder" >
+            <div className="PDSBorder" style={{ marginTop: '-20px' }} >
                 {/* 1 */}
                 <div className="box row sub-title m-0 p-0 m-0 p-0">
                     <div className="col-md-7 br pt-1">

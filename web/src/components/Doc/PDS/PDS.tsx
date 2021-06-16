@@ -26,7 +26,7 @@ export default function PDS() {
                 setData( data )
                 setComponent(
                     <div className="bg-white portrait-pds pds">
-                        <div className="PDSBorder">
+                        <div className="PDSBorder" style={{ marginTop: '-25px' }}>
                             <PDSHeader />
                             <PersonalInformation
                                 User={data.user}
@@ -52,7 +52,7 @@ export default function PDS() {
         if ( tab === 1 ) {
             setComponent(
                 <div className="bg-white portrait-pds pds">
-                    <div className="PDSBorder">
+                    <div className="PDSBorder" style={{ marginTop: '-25px' }}>
                         <PDSHeader />
                         <PersonalInformation
                             User={data.user}
