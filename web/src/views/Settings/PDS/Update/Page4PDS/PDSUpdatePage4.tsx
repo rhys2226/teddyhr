@@ -20,7 +20,17 @@ export default function PDSUpdatePage4() {
                 setData( data )
                 setComponent(
                     <PDSQuestions
-                        VolunteerInvolvements={data.volountary_involvements}
+                        ThirdDegree={data.third_degree}
+                        ForuthDegree={data.foruth_degree}
+                        FoundGuility={data.found_guility}
+                        CriminallyCharged={data.criminally_charged}
+                        BeenConvicted={data.been_convicted}
+                        Seperated={data.seperated}
+                        Candidate={data.candidate}
+                        Resigned={data.resigned}
+                        Immigrant={data.immigrant}
+                        Indigenous={data.indigenous}
+                        Disability={data.disability}
                     />
                 )
             } )
@@ -29,7 +39,19 @@ export default function PDSUpdatePage4() {
 
     function changeTab( tab: number ) {
         if ( tab === 1 ) {
-            setComponent( <PDSQuestions /> )
+            setComponent( <PDSQuestions
+                ThirdDegree={data.third_degree}
+                ForuthDegree={data.foruth_degree}
+                FoundGuility={data.found_guility}
+                CriminallyCharged={data.criminally_charged}
+                BeenConvicted={data.been_convicted}
+                Seperated={data.seperated}
+                Candidate={data.candidate}
+                Resigned={data.resigned}
+                Immigrant={data.immigrant}
+                Indigenous={data.indigenous}
+                Disability={data.disability}
+            /> )
             return
         }
         if ( tab === 2 ) {

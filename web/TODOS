@@ -5,7 +5,8 @@ application relative to vacancy
 strict tokens
 
 PDS
-
+PSD add record when creating employee
+profile 
 
 Leave History
 
@@ -29,7 +30,7 @@ Top Employees
 LeaveCard Ui for initial Record
 Compute Leave
 
-Media Printing
+
 
 verify phone and email
 Email Send

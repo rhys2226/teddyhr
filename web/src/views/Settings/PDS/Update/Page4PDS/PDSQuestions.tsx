@@ -1,10 +1,9 @@
 import React from 'react'
 import { Alert, Fire } from '../../../../../components/Alerts/Alert'
+import { QuestionDetails } from '../../../../../components/Doc/PDS/PDSInterface'
 import { Auth } from '../../../../../services/auth.service'
 
-
-
-export default function PDSQuestions( props: any ) {
+export default function PDSQuestions( props: any ): any {
 
     const [ q0, setq0 ] = React.useState( false )
     const [ q1, setq1 ] = React.useState( false )
@@ -20,6 +19,71 @@ export default function PDSQuestions( props: any ) {
     const [ q11, setq11 ] = React.useState( false )
 
     const userData: any = localStorage.getItem( 'user' )
+
+    React.useEffect( () => {
+        distribute()
+    }, [] )
+
+
+    function distribute() {
+        let array = [ 'ThirdDegree', 'ForuthDegree', 'FoundGuility', 'CriminallyCharged', 'BeenConvicted', 'Seperated', 'Candidate', 'Resigned', 'Immigrant', 'Indigenous', 'Disability' ]
+        let index = 0
+        for ( let i = 0; i < 11; i++ ) {
+            for ( let key in props[ array[ i ] ] ) {
+                if (
+                    key === 'Question' ||
+                    key === 'Answer' ||
+                    key === 'Details'
+                ) {
+                    if ( key === 'Answer' && props[ array[ i ] ][ key ] == 'Yes' ) {
+                        setTrue( i )
+                    }
+                    $( '#' + key + index ).val( props[ array[ i ] ][ key ] )
+                }
+            }
+            index += 1
+        }
+    }
+
+    function setTrue( index: number ) {
+        if ( index === 0 ) {
+            setq0( true )
+        }
+        if ( index === 1 ) {
+            setq1( true )
+        }
+        if ( index === 2 ) {
+            setq2( true )
+        }
+        if ( index === 3 ) {
+            setq3( true )
+        }
+        if ( index === 4 ) {
+            setq4( true )
+        }
+        if ( index === 5 ) {
+            setq5( true )
+        }
+        if ( index === 6 ) {
+            setq6( true )
+        }
+        if ( index === 7 ) {
+            setq7( true )
+        }
+        if ( index === 8 ) {
+            setq8( true )
+        }
+        if ( index === 9 ) {
+            setq9( true )
+        }
+        if ( index === 10 ) {
+            setq9( true )
+        }
+        if ( index === 10 ) {
+            setq9( true )
+        }
+    }
+
 
 
     return (
