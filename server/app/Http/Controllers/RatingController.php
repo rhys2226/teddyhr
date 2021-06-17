@@ -15,33 +15,41 @@ class RatingController extends Controller
         $rating = Rating::create($data);
         $index = 0;
         foreach($data['StrategicPriorities'] as $priority){
-            $details = new RatingDetails();
-            $details->rating_id = $rating->id;
-            $details->Output = $priority['Output'.$index];
-            $details->SuccessIndicatiors = $priority['SuccessIndicatiors'.$index];
-            $details->Type = $priority['Type'];
-            
-            $details->Q = $priority['Q'.$index];
-            $details->E = $priority['E'.$index];
-            $details->T = $priority['T'.$index];
-            $details->A = $priority['A'.$index];
-            $index += 1;
-            $details->save();
+            if(isset($priority['Output'.$index])){
+                $details = new RatingDetails();
+                $details->rating_id = $rating->id;
+                $details->Output = $priority['Output'.$index];
+                $details->SuccessIndicatiors = $priority['SuccessIndicatiors'.$index];
+                $details->ActualAccomplishments = $priority['ActualAccomplishments'.$index];
+                $details->Remarks = $priority['Remarks'.$index];
+                $details->Type = $priority['Type'];
+                
+                $details->Q = $priority['Q'.$index];
+                $details->E = $priority['E'.$index];
+                $details->T = $priority['T'.$index];
+                $details->A = $priority['A'.$index];
+                $index += 1;
+                $details->save();
+            }
         }
         $i = 0;
         foreach($data['CoreFunctions'] as $functions){
-            $details = new RatingDetails();
-            $details->rating_id = $rating->id;
-            $details->Output = $functions['Output'.$i];
-            $details->SuccessIndicatiors = $functions['SuccessIndicatiors'.$i];
-            $details->Type = $functions['Type'];
-            
-            $details->Q = $functions['Q'.$i];
-            $details->E = $functions['E'.$i];
-            $details->T = $functions['T'.$i];
-            $details->A = $functions['A'.$i];
-            $i += 1;
-            $details->save();
+           if(isset($functions['CoreFunctions'.$index])){
+                $details = new RatingDetails();
+                $details->rating_id = $rating->id;
+                $details->Output = $functions['Output'.$index];
+                $details->SuccessIndicatiors = $functions['SuccessIndicatiors'.$index];
+                $details->ActualAccomplishments = $functions['ActualAccomplishments'.$index];
+                $details->Remarks = $functions['Remarks'.$index];
+                $details->Type = $functions['Type'];
+                
+                $details->Q = $functions['Q'.$index];
+                $details->E = $functions['E'.$index];
+                $details->T = $functions['T'.$index];
+                $details->A = $functions['A'.$index];
+                $index += 1;
+                $details->save();
+            }
         }
     }
 

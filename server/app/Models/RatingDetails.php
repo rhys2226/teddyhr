@@ -18,6 +18,8 @@ class RatingDetails extends Model
         'T',
         'A',
         'Type',
+        'ActualAccomplishments',
+        'Remarks'
     ];
 }
 

@@ -31,6 +31,7 @@ use App\Http\Controllers\RatingDetailsController;
 use App\Http\Controllers\ReferencesController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WorkExperienceController;
+use App\Models\Employee;
 
 Route::prefix('/auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
@@ -70,3 +71,4 @@ Route::resource('/identification', IdentificationController::class);
 
 
 
+Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);

@@ -38,7 +38,6 @@ class Employee extends Model
         return $this->hasMany(Attachments::class, 'user_id','user_id');
     }
     
-    
     // pds 
     
      public function WorkExperiences()
@@ -55,4 +54,9 @@ class Employee extends Model
     {
         return $this->hasManyThrough(Eligibilities::class, PersonalDataSheet::class, 'employee_id','id', 'id','employee_id');
     }
+    
+    
+    
+    
+    
 }
