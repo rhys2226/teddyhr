@@ -26,25 +26,7 @@ export default function EmployeesAndPerformance() {
             <div className="card ">
                 <div className="card-body">
                     <div className="toolbar">
-                        <form className="form">
-                            <div className="form-row">
-                                <div className="form-group col-auto mr-auto">
-                                    <label className="my-1 mr-2 sr-only" >Show</label>
-                                    <select onChange={( e ) => {
-                                        filter( e.target.value )
-                                    }} className="custom-select mr-sm-2" id="inlineFormCustomSelectPref1">
-                                        <option >All</option>
-                                        <option>Subordiante</option>
-                                        <option>Colleagues</option>
-                                        <option>Lowest Rating</option>
-                                    </select>
-                                </div>
-                                <div className="form-group col-auto">
-                                    <label className="sr-only">Search</label>
-                                    <input type="text" className="form-control" id="search1" value="" placeholder="Search" />
-                                </div>
-                            </div>
-                        </form>
+
                     </div>
                     <table className="table ">
                         <thead className="table-warning">
@@ -118,18 +100,6 @@ export default function EmployeesAndPerformance() {
                             }
                         </tbody>
                     </table>
-                    <Pagination
-                        Pages={() => {
-                            let pages = []
-                            for ( let index in employees ) {
-                                pages.push( parseInt( index ) + 1 )
-                            }
-                            return pages
-                        }}
-                        callback={( callback: Function ) => {
-                            callback()
-                        }}
-                    />
                 </div>
             </div>
         </div>
