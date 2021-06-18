@@ -1,7 +1,7 @@
 import React from 'react'
 import { countryList } from './countryList'
 import { toDate } from '../../../../helpers'
-import { FamilyBackground, User, PesonsalInformation, EducationalBackground } from '../PDSInterface'
+import { FamilyBackground, User, PesonsalInformation, EducationalBackground, Addresses } from '../PDSInterface'
 import FamilyBackground1 from './FamilyBackground'
 
 
@@ -10,8 +10,8 @@ export default function PersonalInformation( props: {
     PesonsalInformation: PesonsalInformation
     User: User
     FamilyBackground: FamilyBackground
-    Permanent: any
-    Resedential: any
+    Permanent: Addresses
+    Resedential: Addresses
     Children: any
     Elementary: EducationalBackground
     Secondary: EducationalBackground

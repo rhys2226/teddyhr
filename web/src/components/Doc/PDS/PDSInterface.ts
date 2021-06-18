@@ -30,20 +30,20 @@ export interface User {
 export interface PesonsalInformation {
     Sex: any
     CivilStatus: any
-    DOB: ""
-    Height: ""
-    Weight: ""
-    BLOODTYPE: ""
-    GSIS: ""
-    PAGIBIG: ""
+    DOB: any
+    Height: any
+    Weight: any
+    BLOODTYPE: any
+    GSIS: any
+    PAGIBIG: any
     PHILHEALTH: ""
-    SSS: ""
-    TIN: ""
-    EmployeeNumber: ""
+    SSS: any
+    TIN: any
+    EmployeeNumber: any
     Citizenship: any
     DualCititizenship: any
-    Details: ""
-    Telephone: ""
+    Details: any
+    Telephone: any
 }
 
 export interface Address {

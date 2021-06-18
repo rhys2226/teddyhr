@@ -137,7 +137,7 @@ export default function Employees() {
 
                                                     <button
                                                         onClick={() => {
-                                                            history.push( `/home/settings/${ employee.user_id }` )
+                                                            history.push( '/home/settings/' + employee.user_id )
                                                         }}
                                                         role="butoon" className="dropdown-item"  >View Profile</button>
                                                     <button
@@ -163,6 +163,42 @@ export default function Employees() {
                                                             history.push( '/home/leaves' )
                                                         }}
                                                         role="butoon" className="dropdown-item" >Leave History</button>
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/leaves' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >Leave Balances</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/leaves' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >Seminars</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/leaves' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >PDS</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/leaves' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >ICPR</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/leaves' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >Service Record</button>
+
+                                                    <button
+                                                        onClick={() => {
+                                                            history.push( '/home/leaves' )
+                                                        }}
+                                                        role="butoon" className="dropdown-item" >Leave Card</button>
+
                                                 </div>
                                                 {employee.supervisors.id === id ? rateButton( employee ) : ''}
                                             </td>
