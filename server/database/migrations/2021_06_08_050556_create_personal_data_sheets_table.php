@@ -11,7 +11,7 @@ class CreatePersonalDataSheetsTable extends Migration
         Schema::create('personal_data_sheets', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('employee_id')->references('id')->on('users');
+            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
