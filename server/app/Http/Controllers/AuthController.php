@@ -115,6 +115,8 @@ class AuthController extends Controller
             'App\Models\Others',
             'App\Models\Questions',
             'App\Models\QuestionDetails',
+            'App\Models\Identification',
+            'App\Models\References',
         ];
         
         foreach($models as $class){
@@ -163,8 +165,7 @@ class AuthController extends Controller
                     'Have you ever been found guilty of any administrative offense?',
                     'Have you been criminally charged before any court?',
                     'Have you ever been convicted of any crime or violation of any law, decree, ordinance or regulation by any court or tribunal?',
-                    'Have you ever been separated from the service in any of the following modes: resignation, 
-                    retirement, dropped from the rolls, dismissal, termination, end of term, finished contract or phased out (abolition) in the public or private sector?',
+                    'Have you ever been separated from the service in any of the following modes: resignation, retirement, dropped from the rolls, dismissal, termination, end of term, finished contract or phased out (abolition) in the public or private sector?',
                     'Have you ever been a candidate in a national or local election held within the last year (except Barangay election)?',
                     'Have you resigned from the government service during the three (3)-month period before the last election to promote/actively campaign for a national or local candidate?',
                     'Have you acquired the status of an immigrant or permanent resident of another country?',
@@ -180,6 +181,9 @@ class AuthController extends Controller
                         }
                         if($key === 'Question'){
                             $model->$key = $type;
+                        }
+                        if($key === 'Answer'){
+                            $model->$key = 'No';
                         }
                     }
                     $model->save();

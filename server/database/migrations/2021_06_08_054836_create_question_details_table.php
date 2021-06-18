@@ -14,7 +14,7 @@ class CreateQuestionDetailsTable extends Migration
             $table->timestamps();
            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('question_id')->nullable();
-            $table->string('Question')->nullable();
+            $table->string('Question',900)->nullable();
             $table->boolean('Answer')->nullable();
             $table->string('Details')->nullable();
         });
