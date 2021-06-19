@@ -16,6 +16,8 @@ class CreateAttachmentsTable extends Migration
             $table->string('Type');
             $table->string('URL');
             $table->string('Name');
+            $table->string('document_id')->nullable();
+            $table->string('award_id')->nullable();
         });
     }
 

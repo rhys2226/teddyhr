@@ -10,10 +10,19 @@ class Award extends Model
     use HasFactory;
     
     protected $fillable = [
-        'attachment_id',
         'employee_id',
         'title',
         'description',
     ];
-}
+    
+    public function files()
+    {
+        return $this->hasMany(Attachments::class,'award_id','id');
+    }
+    
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','employee_id');
+    }
+} 
        

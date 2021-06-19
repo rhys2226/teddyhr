@@ -90,6 +90,7 @@ class AuthController extends Controller
         $path = Storage::disk('public_uploads')->put($userType.'supporting-documents/' , $file);
         $attachments = new Attachments();
         $attachments->user_id = $user_id;
+        $attachments->document_id = $user_id;
         $attachments->URL =   Storage::url( $path );
         $attachments->Type = '/supporting-documents';
         $attachments->Name = $file->getClientOriginalName();

@@ -13,9 +13,8 @@ class CreateAwardsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('employee_id')->references('id')->on('users');
-            $table->foreignId('attachment_id');
             $table->string('title');
-            $table->string('description');
+            $table->string('description',9999);
         });
     }
 
