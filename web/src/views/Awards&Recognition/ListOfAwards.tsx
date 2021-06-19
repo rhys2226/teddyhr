@@ -1,5 +1,7 @@
 import React from 'react'
 import { Alert, Fire } from '../../components/Alerts/Alert';
+import { toDate } from '../../helpers';
+import { Auth } from '../../services/auth.service';
 import AwardListPlaceholder from './AwardListPlaceholder';
 
 export default function ListOfAwards() {
@@ -7,11 +9,15 @@ export default function ListOfAwards() {
     const [ awards, setawards ]: any = React.useState( [] )
 
     React.useEffect( () => {
-        setTimeout( () => {
-            setawards( [ 1, 2, 3, 4, 5, 6, 7, 8, 10 ] )
-        }, 1000 );
+        getAwards()
     }, [] )
 
+
+    const getAwards = () => {
+        const api = new Auth( 'awards' );
+        api.fetch( {} )
+            .then( ( data: any ) => setawards( data ) )
+    }
 
     return (
         <div className="row justify-content-center">
@@ -25,43 +31,35 @@ export default function ListOfAwards() {
                             <AwardListPlaceholder show={awards.length !== 0 ? false : true} />
 
                             {
-                                awards.map( () => (
-                                    <div className="pb-3 timeline-item item-success col-md-12">
-                                        <div className="pl-5">
-                                            <div className="mb-3 row">
-                                                <div className="col-auto md-12">
-                                                    <strong className=" text-success">
-                                                        Teddy Fuentivilla
-                                            </strong>
-                                                    <br />
-                                                    <span className="badge badge-danger mr-5"> Oustanding Employee of 2021 </span>
-                                                    <small >
-                                                        04/21/2020 08:48PM
-                                            </small>
-                                                    <br />
-                                                    <br />
+                                awards.map( ( award: any, index: any ) => (
+                                    <>
+                                        <div className="card">
+                                            <div className="col-md-12  card-body">
+                                                <strong> <span><i className="fe fe-award text-warning"></i></span> {award.user.First}  {award.user.Middle}  {award.user.Last}</strong>
+                                                <br />
+                                                <span className="badge badge-danger">   {award.title} </span>
+                                                <div className="mb-2 mt-3 small">{award.description}</div>
+                                                <div className="card mb-3 bg-light w-50">
+                                                    {
+                                                        award.files.map( ( file: any, index: any ) => (
 
-                                                    <span className="text-muted small ">
-                                                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                        </span>
-                                                </div>
-                                                <div className="col-md-12 mt-3 ml-5 pl-5">
-                                                    <ul className="avatars-list mb-2">
-                                                        <li className="row">
-                                                            <a className="w-100 col-md-12">
-                                                                <img style={{ height: '20vh' }} alt="..." src="http://localhost:3000/assets/products/p1.jpg" />
+                                                            <a href={file.URL} target="_blank" className="row no-gutters align-items-center">
+                                                                <div className="col-md-2 text-center">
+                                                                    <img src={file.URL} alt="..." className="img-fluid rounded m-1" />
+                                                                </div>
+                                                                <div className="col-md-10">
+                                                                    <div className="card-body py-0">
+                                                                        <p className="card-title text-muted mb-0">{file.Name}</p>
+                                                                    </div>
+                                                                </div>
                                                             </a>
-                                                        </li>
-                                                    </ul>
+                                                        ) )
+                                                    }
                                                 </div>
-                                                <button onClick={() => {
-                                                    Fire( 'Remove Award?', 'Are you sure you want to Award Seminar?', 'info', () => {
-                                                        Alert( 'Seminar Award', '', 'success' )
-                                                    } )
-                                                }} className="btn btn-sm btn-outline-danger mt-5 mb-5 ">Remove</button>
+                                                <small className="text-muted">Awarded Last: {toDate( award.created_at )}</small>
                                             </div>
                                         </div>
-                                    </div>
+                                    </>
                                 ) )
                             }
                         </div>
