@@ -27,7 +27,7 @@ class EmployeeController extends Controller
     {
         return Employee::with('user')
             ->with('supervisors')
-            ->with('WorkExperiences')
+            ->with('workExperiences')
             ->with('EducationalAttainments')
             ->with('Eligibilities')
             ->where('user_id',$id)->first();

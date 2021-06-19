@@ -22,7 +22,7 @@ class Employee extends Model
     {
         return $this->hasOne(User::class, 'id','user_id');
     } 
-    
+     
     public function supervisors()
     {
         return $this->hasOneThrough(User::class, Subordiante::class, 'SubordinateID','id', 'user_id','SupervisorID');
@@ -40,19 +40,19 @@ class Employee extends Model
     
     // pds 
     
-     public function WorkExperiences()
+    public function workExperiences()
     {
-        return $this->hasManyThrough(WorkExperience::class, PersonalDataSheet::class, 'employee_id','id', 'id','employee_id');
+        return $this->hasMany(WorkExperience::class,'employee_id','user_id');
     }
     
     public function EducationalAttainments()
     {
-        return $this->hasManyThrough(EducationalBackground::class, PersonalDataSheet::class, 'employee_id','id', 'id','employee_id');
+        return $this->hasMany(EducationalBackground::class,'employee_id','user_id');
     }
     
     public function Eligibilities()
     {
-        return $this->hasManyThrough(Eligibilities::class, PersonalDataSheet::class, 'employee_id','id', 'id','employee_id');
+        return $this->hasMany(Eligibilities::class,'employee_id','user_id');
     }
     
     
