@@ -1,16 +1,27 @@
 import React from 'react'
+import { LearningAndDevelopments } from '../../../components/Doc/PDS/PDSTypes';
+import { toDate } from '../../../helpers';
+import { Auth } from '../../../services/auth.service';
 import SeminarsAttendedPlaceholder from './SeminarsAttendedPlaceholder';
 
 export default function SeminarsAttended() {
 
     const [ seminars, setseminars ]: any = React.useState( [] )
+    const userData: any = localStorage.getItem( 'user' )
 
     React.useEffect( () => {
-        setTimeout( () => {
-            setseminars( [ 1, 2, 3, 4, 5, 6, 7, 8, 10 ] )
-        }, 1000 );
+        getSeminars()
     }, [] )
 
+
+    function getSeminars() {
+        const api = new Auth( 'learning-and-development' )
+        api.fetchOne( JSON.parse( userData ).id )
+            .then( ( data ) => {
+                console.log( data )
+                setseminars( data )
+            } )
+    }
 
     return (
         <div className="row justify-content-center">
@@ -18,94 +29,56 @@ export default function SeminarsAttended() {
                 <div className="col-md-12 mb-4">
                     <div className="card timeline">
                         <div className="card-header">
-                            <strong className="card-title">Seminars Attended</strong>
+                            <strong className="card-title">Seminars Attended </strong>
                         </div>
                         <div className="card-body row">
 
                             <SeminarsAttendedPlaceholder show={seminars.length !== 0 ? false : true} />
 
                             {
-                                seminars.map( () => (
+                                seminars.map( ( seminar: any, index: number ) => (
                                     <>
-                                        <div className="pb-3 timeline-item item-danger">
-                                            <div className="pl-5">
-                                                <div className="mb-3">
-                                                    <strong>@IT Convention</strong>
-                                                    <span className="text-muted small mx-2">
-                                                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                                    </span>
-                                                    <small >
+                                        <div className="pb-3 timeline-item item-success col-md-12">
+                                            <div className="pl-5 w-100">
+                                                <div className="d-flex w-100 row">
+                                                    <div className="col-md-1 d-flex  jcc">
+                                                        <div className="avatar avatar-lg">
+                                                            <img src={seminar.user.Avatar} alt="..." className="avatar-img rounded-circle" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <strong>@{seminar.Title}  </strong>
+                                                        <br />
+                                                        <small>Attended by: {seminar.user.First} {seminar.user.Middle} {seminar.user.Last} </small>
+                                                        <br />
+                                                        <span className="text-info h5  ">
+                                                            {seminar.SponsoredBy}
+                                                        </span>
+                                                        <br />
+                                                        <small >
+                                                            Total hrs:  <small className=''>{seminar.Hours} hrs</small>
+                                                        </small>
+                                                    </div>
+                                                    <div className="col-md-4 text-right">
+                                                        <small >
+                                                            From:  <small className='text-danger'>{toDate( seminar.From )}</small>
+                                                        </small>
+                                                        <br />
+                                                        <small >
+                                                            To:  <small className='text-danger'>{toDate( seminar.To )}</small>
+                                                        </small>
+                                                        <br />
                                                         <span className="badge badge-danger">
-                                                            <i className="fe fe-calendar mr-2"></i>
-
-                                                04/21/2020 08:48PM
-                                            </span>
-                                                    </small>
+                                                            {seminar.Type}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                                <ul className="avatars-list mb-2">
-                                                    <li>
-                                                        <a href="#!" className="avatar avatar-sm">
-                                                            <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-1.jpg" />
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#!" className="avatar avatar-sm">
-                                                            <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-4.jpg" />
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#!" className="avatar avatar-sm">
-                                                            <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-3.jpg" />
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <p className="small text-muted">Teddy Fuentivilla <span className="badge badge-light">1h ago</span>
-                                                </p>
                                             </div>
                                         </div>
 
-                                        <div className="pb-3 timeline-item item-success">
-                                            <div className="pl-5">
-                                                <div className="mb-3">
-                                                    <strong>@Leadership Training</strong>
-                                                    <span className="text-muted small mx-2">
-                                                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                                    </span>
-                                                    <small >
-                                                        <span className="badge badge-secondary">
-                                                            <i className="fe fe-calendar mr-2"></i>
-
-                                                04/21/2020 08:48PM
-                                            </span>
-                                                    </small>
-                                                </div>
-                                                <ul className="avatars-list mb-2">
-                                                    <li>
-                                                        <a href="#!" className="avatar avatar-sm">
-                                                            <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-3.jpg" />
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#!" className="avatar avatar-sm">
-                                                            <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-7.jpg" />
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#!" className="avatar avatar-sm">
-                                                            <img alt="..." className="avatar-img rounded-circle" src="http://localhost:3000/assets/avatars/face-5.jpg" />
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <p className="small text-muted">Teddy Fuentivilla <span className="badge badge-light">1h ago</span>
-                                                </p>
-                                            </div>
-                                        </div>
                                     </>
                                 ) )
                             }
-
-
-
                         </div>
                     </div>
                 </div>

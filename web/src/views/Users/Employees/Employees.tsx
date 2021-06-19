@@ -171,7 +171,7 @@ export default function Employees() {
 
                                                     <button
                                                         onClick={() => {
-                                                            history.push( '/home/leaves' )
+                                                            history.push( '/home/seminars-attended/' + employee.user_id )
                                                         }}
                                                         role="butoon" className="dropdown-item" >Seminars</button>
 

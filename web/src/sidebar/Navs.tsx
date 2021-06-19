@@ -1,3 +1,5 @@
+const userData: any = localStorage.getItem( 'user' )
+
 
 export const performanceManagement = [
     {
@@ -58,7 +60,7 @@ export const HRDLearningAndDevelopment = [
     // },
     {
         title: 'Seminars Attended',
-        route: '/home/seminars-attended',
+        route: '/home/seminars-attended/' + JSON.parse( userData ).id,
         icon: 'fe-mic'
     },
 ]
@@ -107,7 +109,6 @@ export const employemtStatus = [
         route: '/home/employment-Status',
         icon: 'fe-battery'
     },
-
 ]
 
 export const Forms = [

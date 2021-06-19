@@ -71,7 +71,7 @@ export default function Home() {
             component: UpcomingSeminars,
         },
         {
-            path: url( '/seminars-attended' ),
+            path: url( '/seminars-attended/:id' ),
             component: SeminarsAttended,
         },
 

@@ -13,6 +13,9 @@ const TopEmployeePlaceholders: FC<Props> = ( props ) => {
                 rows.map( () => (
                     <tr style={{ display: props.show === true ? 'table-row' : 'none' }} >
                         <td>
+                            <ShimmerEffect type='line' />
+                        </td>
+                        <td>
                             <div className="avatar avatar-sm">
                                 <ShimmerEffect type='circle' />
                             </div>
