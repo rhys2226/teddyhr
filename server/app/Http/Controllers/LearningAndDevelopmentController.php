@@ -34,6 +34,6 @@ class LearningAndDevelopmentController extends Controller
 
     public function show($id)
     {
-        return LearningAndDevelopment::where('employee_id',$id)->get();
+        return LearningAndDevelopment::with('user')->where('employee_id',$id)->get();
     }
 }

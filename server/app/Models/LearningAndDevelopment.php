@@ -12,11 +12,16 @@ class LearningAndDevelopment extends Model
     protected $fillable = [
         'employee_id',
         'Title',
-        'From',
+        'From', 
         'To',
         'Hours',
         'Type',
         'SponsoredBy',
-    ];
+    ]; 
+    
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','employee_id');
+    }
 } 
  
