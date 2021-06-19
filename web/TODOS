@@ -1,35 +1,24 @@
 pagination
 search
-apply now scroll
-application relative to vacancy
 strict tokens
 
-PDS
-PSD add record when creating employee
 profile 
+settings
 
 Leave History
-
 Add Leave
 Get Leave Credits
 Get Leave
 Crud Leave Settings
 
-
-Crud Awards
-
- 
-
 Service Record UI
 Add Service Record
 Tabular Records
 View Service Record
-Top Employees
-
+Employee Performance
 
 LeaveCard Ui for initial Record
 Compute Leave
-
 
 
 verify phone and email
@@ -37,14 +26,12 @@ Email Send
 
 Error Handler
 Backend Validation
-NUllables
 
 
 clear errors
 polish design
 preloaders
 seeders
-
 
 PDS 
 Questions Solo Parent

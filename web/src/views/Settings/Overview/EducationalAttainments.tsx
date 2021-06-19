@@ -23,11 +23,12 @@ export default function EducationalAttainments( props: any ) {
                             <p className="text-danger">
                                 {props.data.length === 0 ? 'No Personal Data Sheet Found' : ''}
                             </p>
+
                             <ul>
                                 {
-                                    props.data.map( ( data: any, index: any ) => {
-                                        <li key={index}>{data}</li>
-                                    } )
+                                    props.data.map( ( data: any, index: any ) => (
+                                        <li key={index}>{data.Degree || data}</li>
+                                    ) )
                                 }
                             </ul>
                         </div>

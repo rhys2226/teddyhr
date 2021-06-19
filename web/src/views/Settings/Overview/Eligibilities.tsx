@@ -24,9 +24,9 @@ export default function Eligibilities( props: any ) {
                             </p>
                             <ul>
                                 {
-                                    props.data.map( ( data: any, index: any ) => {
-                                        <li key={index}>{data}</li>
-                                    } )
+                                    props.data.map( ( data: any, index: any ) => (
+                                        <li key={index}>{data.Title || data}</li>
+                                    ) )
                                 }
                             </ul>
                         </div>

@@ -25,9 +25,12 @@ export default function WorkExperience( props: any ) {
                             </p>
                             <ul>
                                 {
-                                    props.data.map( ( data: any, index: any ) => {
-                                        <li key={index}>{data}</li>
-                                    } )
+                                    props.data.map( ( data: any, index: any ) => (
+                                        <>
+                                            <li key={index}>{data.Position || data}</li>
+                                        </>
+
+                                    ) )
                                 }
                             </ul>
                         </div>
