@@ -11,22 +11,30 @@ class ApplicationForLeave extends Model
     
      protected $fillable = [
         'employee_id',
-        'Office',
-        'Spent',
-        'SpecialPrivilege',
-        'VacationDetails',
-        'SpecialPrivilegeVacation',
+        'Comutation',
+        'Days',
         'IncaseofSickLeave',
         'IncaseofVacationLeave',
-        'SpecifyLocationinAbroad',
+        'Office',
+        'SpecialPrivilege',
+        'Specify',
         'SpecifyHospital',
-        'Days',
-        'Comutation',
-        'From',
-        'To',
-        'Approved',
+        'SpecifyLocationinAbroad',
+        'Spent',
+        'Vacation',
+        'VacationDetails',
+        'SpecialPrivilegeVacation',
     ];
 
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','employee_id');
+    }
+    
+     public function employee()
+    {
+        return $this->hasOne(Employee::class,'user_id','employee_id');
+    }
     
 }
 
