@@ -2,13 +2,12 @@ pagination
 search
 strict tokens
 
-profile 
 settings
 
+employee currency
+
 Leave History
-Add Leave
 Get Leave Credits
-Get Leave
 Crud Leave Settings
 
 Service Record UI
@@ -19,10 +18,9 @@ Employee Performance
 
 LeaveCard Ui for initial Record
 Compute Leave
-
-
+sidebar for user
 verify phone and email
-Email Send
+Email Send after schedule
 
 Error Handler
 Backend Validation
