@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import Pagination from '../../../components/Table/Pagination'
+import { Auth } from '../../../services/auth.service';
 import EmployeeAndPerformancePlaceholders from '../Placeholders/EmployeeAndPerformancePlaceholders';
 
 export default function EmployeesAndPerformance() {
-    const [ employees, setApplicants ]: any = useState( [] )
+    const [ performance, setPerformance ]: any = useState( [] )
 
 
     useEffect( () => {
-        setTimeout( () => {
-            setApplicants( [ 1, 2, 3, 2, 3, ] )
-        }, 1000 );
+        getTopEmployees()
     }, [] )
 
-    async function filter( keyword: string ) {
-        alert( keyword )
+
+    function getTopEmployees() {
+        const api = new Auth( 'employee-performances' )
+        api.fetch( {} )
+            .then( ( data: any ) => {
+                setPerformance( data )
+            } )
     }
+
+    function setColor( rating: Number ) {
+        if ( rating < 26 ) {
+            return 'bg-danger'
+        }
+        if ( rating < 51 ) {
+            return 'bg-warning'
+        }
+        if ( rating < 76 ) {
+            return 'bg-success-lighter'
+        }
+        return 'bg-success'
+    }
+
 
     return (
         <div className="col-md-8 my-4">
@@ -42,25 +60,29 @@ export default function EmployeesAndPerformance() {
                             </tr>
                         </thead>
                         <tbody>
-                            <EmployeeAndPerformancePlaceholders show={employees.length !== 0 ? false : true} />
+                            <EmployeeAndPerformancePlaceholders show={performance.length !== 0 ? false : true} />
                             {
-                                employees.map( ( applicants: any, index: any ) => (
+                                performance.map( ( employee: any, index: any ) => (
                                     <tr>
                                         <td className="text-center">
                                             <div className="avatar avatar-sm">
-                                                <img src="http://localhost:3000/assets/avatars/face-6.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src={employee.user.Avatar} alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 
                                         <td>
-                                            <p className="mb-0 text-muted"><strong>Fuentevilla, Teddy.</strong></p>
+                                            <p className="mb-0 text-muted">
+                                                <strong>
+                                                    {employee.user.First + ' ' + employee.user.Middle + ' ' + employee.user.Last}
+                                                </strong>
+                                            </p>
                                             <p className="small mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}> Developer</span></p>
                                         </td>
 
                                         <td>
-                                            <span className="mb-0">5%</span>
+                                            <span className="mb-0">{employee.overAllRatings}%</span>
                                             <div className="progress my-2" style={{ height: "4px" }}>
-                                                <div className="progress-bar progress-bar-striped bg-warning" role="progressbar" style={{ width: "10%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
+                                                <div className={`progress-bar progress-bar-striped ${ setColor( employee.overAllRatings ) }`} role="progressbar" style={{ width: employee.overAllRatings + "%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
                                             </div>
                                         </td>
 
@@ -87,13 +109,17 @@ export default function EmployeesAndPerformance() {
 
                                         <td className="text-center">
                                             <div className="avatar avatar-lg">
-                                                <img src="http://localhost:3000/assets/avatars/face-7.jpg" alt="..." className="avatar-img rounded-circle" />
+                                                <img src={employee.supervisors.Avatar} alt="..." className="avatar-img rounded-circle" />
                                             </div>
                                         </td>
 
                                         <td>
-                                            <p className="mb-0 text-muted"><strong>Agsaluna, Ryan D.</strong></p>
-                                            <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> MIS Director</span></p>
+                                            <p className="mb-0 text-muted">
+                                                <strong>
+                                                    {employee.supervisors.First + ' ' + employee.supervisors.Middle + ' ' + employee.supervisors.Last}
+                                                </strong>
+                                            </p>
+                                            {/* <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> MIS Director</span></p> */}
                                         </td>
                                     </tr>
                                 ) )

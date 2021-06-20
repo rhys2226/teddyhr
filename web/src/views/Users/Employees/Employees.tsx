@@ -177,25 +177,25 @@ export default function Employees() {
 
                                                     <button
                                                         onClick={() => {
-                                                            history.push( '/home/leaves' )
+                                                            history.push( '/home/settings/personal-data-sheet/' + employee.user_id )
                                                         }}
                                                         role="butoon" className="dropdown-item" >PDS</button>
 
                                                     <button
                                                         onClick={() => {
-                                                            history.push( '/home/leaves' )
+                                                            history.push( '/home/settings/ipcr/' + employee.user_id )
                                                         }}
                                                         role="butoon" className="dropdown-item" >ICPR</button>
 
                                                     <button
                                                         onClick={() => {
-                                                            history.push( '/home/leaves' )
+                                                            history.push( '/home/settings/service-record/' + employee.user_id )
                                                         }}
                                                         role="butoon" className="dropdown-item" >Service Record</button>
 
                                                     <button
                                                         onClick={() => {
-                                                            history.push( '/home/leaves' )
+                                                            history.push( '/home/settings/leave-card/' + employee.user_id )
                                                         }}
                                                         role="butoon" className="dropdown-item" >Leave Card</button>
 

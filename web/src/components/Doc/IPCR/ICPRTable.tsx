@@ -6,6 +6,7 @@ import PrintComponents from "react-print-components";
 import { Auth } from '../../../services/auth.service';
 import { toDate } from '../../../helpers';
 import { Alert, Fire } from '../../Alerts/Alert';
+import { useParams } from 'react-router-dom';
 
 export default function ICPRTable( props: any ) {
 
@@ -13,7 +14,7 @@ export default function ICPRTable( props: any ) {
     const ICPR2 = useRef();
 
     const userData: any = localStorage.getItem( 'user' )
-    const [ user, setUser ]: any = React.useState( JSON.parse( userData )[ 'id' ] )
+    let { id }: any = useParams();
 
     const [ icprs, seticprs ] = React.useState( [] )
 
@@ -26,7 +27,7 @@ export default function ICPRTable( props: any ) {
     }, [] )
 
     function getICPRS() {
-        const api = new Auth( 'ratings/' + user )
+        const api = new Auth( 'ratings/' + id )
         api.fetch( {} )
             .then( ( data: any ) => {
                 seticprs( data )

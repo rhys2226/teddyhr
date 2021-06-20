@@ -9,11 +9,14 @@ import React, { useRef } from 'react';
 import PrintComponents from 'react-print-components'
 import { Auth } from '../../../services/auth.service'
 import * as interfaces from './PDSInterface'
+import {
+    useParams
+} from "react-router-dom";
 
 export default function PDS() {
 
     const [ data, setData ]: any = React.useState<interfaces.PDS>()
-    const userData: any = localStorage.getItem( 'user' )
+    let { id }: any = useParams();
 
     React.useEffect( () => {
         getPDS()
@@ -21,7 +24,7 @@ export default function PDS() {
 
     function getPDS() {
         const api = new Auth( 'pds' )
-        api.fetchOne( JSON.parse( userData ).id )
+        api.fetchOne( id )
             .then( ( data ) => {
                 setData( data )
                 setComponent(

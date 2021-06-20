@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 import { LearningAndDevelopments } from '../../../components/Doc/PDS/PDSTypes';
 import { toDate } from '../../../helpers';
 import { Auth } from '../../../services/auth.service';
@@ -7,7 +8,7 @@ import SeminarsAttendedPlaceholder from './SeminarsAttendedPlaceholder';
 export default function SeminarsAttended() {
 
     const [ seminars, setseminars ]: any = React.useState( [] )
-    const userData: any = localStorage.getItem( 'user' )
+    let { id }: any = useParams();
 
     React.useEffect( () => {
         getSeminars()
@@ -16,7 +17,7 @@ export default function SeminarsAttended() {
 
     function getSeminars() {
         const api = new Auth( 'learning-and-development' )
-        api.fetchOne( JSON.parse( userData ).id )
+        api.fetchOne( id )
             .then( ( data ) => {
                 console.log( data )
                 setseminars( data )

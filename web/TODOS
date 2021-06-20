@@ -4,7 +4,8 @@ strict tokens
 
 settings
 
-employee currency
+employee salary
+employee Place of Birth
 
 Leave History
 Get Leave Credits
