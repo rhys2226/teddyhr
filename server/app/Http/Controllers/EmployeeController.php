@@ -57,6 +57,32 @@ class EmployeeController extends Controller
         }
        return collect($TopEmployees)->sortBy('overAllRatings')->reverse()->toArray();
     }
+    
+    public function employeePerformance(){
+        $employees =  Employee::with('user')->with('supervisors')->get();
+        $employeePerformances = [];
+        foreach($employees as $employee){
+            $overAllRatings = 0;
+            $totalRatings = 0;
+            $ratingCount = 0;
+            $ratings = Rating::where('employee_id',$employee->user_id)->get();
+            foreach($ratings as $rating){
+                $ratingDetails = RatingDetails::where('rating_id',$rating->id)->get();
+                foreach($ratingDetails as $ratingDetail){
+                    $ratingCount += 1;
+                    $totalRatings += $ratingDetail->Q;
+                    $totalRatings += $ratingDetail->E;
+                    $totalRatings += $ratingDetail->T;
+                    $totalRatings += $ratingDetail->A;
+                }
+            }
+            $overAllRatings = (($totalRatings /  $ratingCount) / 4 ) * 20 ;
+            $employee->averagePerformance = $overAllRatings;
+            array_push($employeePerformances,$employee);
+        }
+       return collect($employeePerformances)->sortBy('overAllRatings')->reverse()->toArray();
+    }
+    
 
     public function update(Request $request, Employee $employee)
     {

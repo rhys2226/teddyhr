@@ -72,3 +72,4 @@ Route::resource('/identification', IdentificationController::class);
 
 
 Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);
+Route::get('/employee-performances', [EmployeeController::class, 'topEmployees']);
