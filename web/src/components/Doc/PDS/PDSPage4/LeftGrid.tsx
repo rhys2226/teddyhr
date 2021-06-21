@@ -14,13 +14,13 @@ export default function LeftGrid(
             element.push(
                 <>
                     <div className="col-md-6 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   bold underlined">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   bold underlined"></p>
                     </div>
                     <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   bold underlined">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   bold underlined"></p>
                     </div>
                     <div className="col-md-2 row m-0 p-0 d-flex aic nbr jcc bt bl   p-1i bg-white br">
-                        <p className="m-0 mb-0 pb-0 text-center   bold underlined">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   bold underlined"></p>
                     </div>
                 </>
             )

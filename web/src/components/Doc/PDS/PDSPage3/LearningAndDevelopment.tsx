@@ -13,32 +13,25 @@ export default function LearningAndDevelopment( props: {
             element.push(
                 <>
                     <div className="col-md-5 row  m-0 p-0 d-flex aic nbr jcc bt bl br   bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-1">
-                            N/A
+                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-3">
                         </p>
                     </div>
-
                     <div className="col-md-2 m-0 p-0 row m-0 p-0 d-flex aic nbr jcc bt bl  bg-white">
                         <div className="row p-0 m-0">
                             <p className="m-0 mb-0 text-center  col-md-6  nbl nbr nbb nbt text-center bold underlined ">
-                                N/A
                             </p>
                             <p className="m-0 mb-0 text-center  col-md-6  nbr nbb nbt bold underlined">
-                                N/A
                             </p>
                         </div>
                     </div>
-
                     <div className="col-md-1 row m-0 p-0 d-flex aic nbr jcc bt bl   bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-1">   N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-1">  </p>
                     </div>
-
                     <div className="col-md-1 row m-0 p-0 d-flex aic nbr jcc bt bl    bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-1">   N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-1">  </p>
                     </div>
-
                     <div className="col-md-3 row m-0 p-0 d-flex aic nbr jcc bt bl   bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-1">    N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center  bold underlined p-1"> </p>
                     </div>
                 </>
             )

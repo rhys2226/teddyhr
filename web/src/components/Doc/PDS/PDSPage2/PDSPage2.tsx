@@ -19,23 +19,23 @@ export default function PDSPage2(
             element.push(
                 <>
                     <div className="col-md-4 m-0 p-0 row m-0 p-0 d-flex aic jcc bt bg-white ">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-2">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-3"></p>
                     </div>
 
                     <div className="col-md-2 m-0 p-0 row m-0 p-0 d-flex aic jcc  bt bg-white bl 2">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-2">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-2"></p>
                     </div>
 
                     <div className="col-md-1 row m-0 p-0 d-flex aic jcc   bt bg-white bl br p-12">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-2">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-2"></p>
                     </div>
 
                     <div className="col-md-3 m-0 p-0 row m-0 p-0 d-flex aic jcc  bt bg-white  p-12">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-2">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-2"></p>
                     </div>
                     <div className="col-md-1  row m-0 p-0 d-flex aic jcc from-to   bt bg-white bl p-2" style={{ flex: '0 0 16.6%', maxWidth: '100%' }}>
-                        <p className="m-0 mb-0 text-center fs-sm col-md-6  bold underlined">N/A</p>
-                        <p className="m-0 mb-0 text-center fs-sm col-md-6  bold underlined">N/A</p>
+                        <p className="m-0 mb-0 text-center fs-sm col-md-6  bold underlined"></p>
+                        <p className="m-0 mb-0 text-center fs-sm col-md-6  bold underlined"></p>
                     </div>
                 </>
             )

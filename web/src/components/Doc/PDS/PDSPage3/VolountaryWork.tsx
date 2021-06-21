@@ -12,24 +12,23 @@ export default function VolountaryWork( props: {
             element.push(
                 <>
                     <div className="col-md-5 row  m-0 p-0 d-flex aic nbr jcc bt bl br  p-1i bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   bold underlined">
-                            N/A
+                        <p className="m-0 mb-0 pb-0 text-center   bold underlined p-2">
                         </p>
                     </div>
 
                     <div className="col-md-2 m-0 p-0 row m-0 p-0 d-flex aic nbr jcc bt bl bg-white">
                         <div className="row p-0 m-0">
-                            <p className="m-0 mb-0 text-center   col-md-6  nbl nbr nbb nbt bold underlined">N/A</p>
-                            <p className="m-0 mb-0 text-center   col-md-6  nbr nbb nbt bold underlined">N/A</p>
+                            <p className="m-0 mb-0 text-center   col-md-6  nbl nbr nbb nbt bold underlined"></p>
+                            <p className="m-0 mb-0 text-center   col-md-6  nbr nbb nbt bold underlined"></p>
                         </div>
                     </div>
 
                     <div className="col-md-1 row m-0 p-0 d-flex aic nbr jcc bt bl    bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   bold underlined">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   bold underlined"></p>
                     </div>
 
                     <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   bold underlined">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   bold underlined"></p>
                     </div>
                 </>
             )

@@ -11,15 +11,15 @@ export default function OtherInformation( props: { Others: Others[] } ) {
             element.push(
                 <>
                     <div className="col-md-4 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1"></p>
                     </div>
 
                     <div className="col-md-5 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1"></p>
                     </div>
 
                     <div className="col-md-3 row m-0 p-0 d-flex aic nbr jcc bt bl   p-c bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center   text-center bold underlined p-1"></p>
                     </div>
                 </>
             )

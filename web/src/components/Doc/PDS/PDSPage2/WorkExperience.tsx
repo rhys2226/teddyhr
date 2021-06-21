@@ -15,28 +15,28 @@ export default function WorkExperience(
                 <>
                     <div className="col-md-2 m-0 p-0 row m-0 p-0 d-flex nbr aic jcc bt nbl   bg-white">
                         <div className="row p-0 m-0 w-100">
-                            <p className="m-0 mb-0 text-center  col-md-6 bold underlined p-c">N/A</p>
-                            <p className="m-0 mb-0 text-center  col-md-6 bold underlined p-c">N/A</p>
+                            <p className="m-0 mb-0 text-center  col-md-6 bold underlined p-c"></p>
+                            <p className="m-0 mb-0 text-center  col-md-6 bold underlined p-c"></p>
                         </div>
                     </div>
                     <div className="col-md-2 m-0 p-0 rowm-0 p-0 d-flex aic nbr jcc bt bl   p-ci bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-3"></p>
                     </div>
 
                     <div className="col-md-3 row m-0 p-0 d-flex aic br jcc bt  p-ci bg-white bl">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c"></p>
                     </div>
                     <div className="col-md-1 m-0 p-0 row m-0 p-0 d-flex aic nbr nbl jcc bt   p-ci bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c"></p>
                     </div>
                     <div className="col-md-1 row m-0 p-0 d-flex aic from-to br jcc bt bl   p-ci bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c"></p>
                     </div>
                     <div className="col-md-1 m-0 p-0 row m-0 p-0 d-flex aicnbr br nbl jcc bt   p-ci bg-white">
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c"></p>
                     </div>
                     <div className="col-md-1 m-0 p-0 row m-0 p-0 d-flex aic jcc nbr nbb nbl  border-bottom  p-ci bt bg-white" style={{ flex: '0 0 12.3%', maxWidth: '100%' }}>
-                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c">N/A</p>
+                        <p className="m-0 mb-0 pb-0 text-center bold underlined p-c"></p>
                     </div>
                 </>
             )
