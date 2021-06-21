@@ -53,7 +53,7 @@ export default function Profile() {
             </div>
 
 
-            <h3 className="mb-0">New Documents</h3>
+            {/* <h3 className="mb-0">New Documents</h3>
             <p className="text-muted mt-0">Previous documents will not be overwritten</p>
             <div className='card shadow mb-4 mt-1 mb-5'>
                 <div className='card-body'>
@@ -87,7 +87,7 @@ export default function Profile() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="row mb-4">
                 <div className="col-md-6">

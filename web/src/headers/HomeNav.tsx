@@ -34,14 +34,6 @@ export default function HomeNav() {
                     }}>
                     <i className='fe fe-menu navbar-toggler-icon'></i>
                 </button>
-                <form className='form-inline mr-auto searchform text-muted'>
-                    <input
-                        className='form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted'
-                        type='search'
-                        placeholder='Type something...'
-                        aria-label='Search'
-                    />
-                </form>
                 <ul className='nav'>
                     <li className='nav-item'>
                         <a
