@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
 use App\Models\Applicant;
 use App\Models\Attachments;
-use App\Models\Childrens;
-use App\Models\EducationalBackground;
-use App\Models\Eligibilities;
 use App\Models\Employee;
-use App\Models\FamilyBackground;
-use App\Models\LearningAndDevelopment;
-use App\Models\Others;
 use App\Models\PersonalDataSheet;
-use App\Models\PersonalInformation;
 use App\Models\Subordiante;
 use App\Models\User;
-use App\Models\Volunteer;
-use App\Models\WorkExperience;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -74,9 +64,8 @@ class AuthController extends Controller
         $Supervisor->save();
         AuthController::populatePDS($data);
         return [
-            'message' => $data['First'].'has been registered as an employee of Iloilo State College of Fisheries',
+            'message' => $data['First'].'has been registered as an employee of Iloilo State College of Fisheries. Personal Data Sheet is Ready!',
         ];
-        
     }
     
     public static function storeAvatar($userType,$file)
@@ -126,12 +115,15 @@ class AuthController extends Controller
                 foreach($types as $type){
                     $model = new $class;
                     foreach( $model->getFillable() as $key){
-                        $model->$key = '';
+                        $model->$key = 'N/A';
                         if($key === 'employee_id'){
                             $model->$key = $data['user_id'];
                         }
                         if($key === 'Type'){
                             $model->$key = $type;
+                        }
+                        if($key === 'From' || $key === 'To'){
+                            $model->$key = date('Y-m-d H:i:s');
                         }
                     }
                     $model->save();
@@ -148,12 +140,15 @@ class AuthController extends Controller
                 foreach($types as $type){
                     $model = new $class;
                     foreach( $model->getFillable() as $key){
-                        $model->$key = '';
+                    $model->$key = 'N/A';
                         if($key === 'employee_id'){
                             $model->$key = $data['user_id'];
                         }
                         if($key === 'Type'){
                             $model->$key = $type;
+                        }
+                        if($key === 'From' || $key === 'To'){
+                            $model->$key = date('Y-m-d H:i:s');
                         }
                     }
                     $model->save();
@@ -176,7 +171,7 @@ class AuthController extends Controller
                 foreach($types as $type){
                     $model = new $class;
                     foreach( $model->getFillable() as $key){
-                        $model->$key = '';
+                       $model->$key = 'N/A';
                         if($key === 'employee_id'){
                             $model->$key = $data['user_id'];
                         }
@@ -186,6 +181,9 @@ class AuthController extends Controller
                         if($key === 'Answer'){
                             $model->$key = 'No';
                         }
+                        if($key === 'From' || $key === 'To'){
+                            $model->$key = date('Y-m-d H:i:s');
+                        }
                     }
                     $model->save();
                 }
@@ -193,16 +191,16 @@ class AuthController extends Controller
             else{
                 $model = new $class;
                 foreach( $model->getFillable() as $key){
+                    $model->$key = 'N/A';
                     if($key === 'employee_id'){
                         $model->$key = $data['user_id'];
                     }
-                    else{
-                        $model->$key = '';
+                    if($key === 'From' || $key === 'To'){
+                        $model->$key = date('Y-m-d H:i:s');
                     }
                     $model->save();
                 }
             }
         }
     }
-       
 }
