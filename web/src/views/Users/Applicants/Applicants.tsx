@@ -16,6 +16,7 @@ export default function Applicants() {
     const [ modaldata, setmodaldata ]: any = useState( {} )
     const [ user, setuser ]: any = useState( {} )
     const [ filteredData, setFilteredData ] = useState( [] )
+    const [ fetched, setfetched ]: any = useState( false )
 
 
 
@@ -28,6 +29,7 @@ export default function Applicants() {
         auth.fetch( {} ).then( ( data: any ) => {
             setApplicants( data )
             setFilteredData( data )
+            setfetched( true )
         } )
 
     }
@@ -44,6 +46,15 @@ export default function Applicants() {
                     data.user.Middle.toLowerCase().includes( keyword ) ||
                     data.user.Last.toLowerCase().includes( keyword )
             ) )
+    }
+
+
+    const renderData = () => {
+        if ( applicants.length === 0 ) {
+            return <tr>
+                <td className="text-center text-muted" colSpan={9}>Nothing has applied yet...</td>
+            </tr>
+        }
     }
 
     return (
@@ -80,7 +91,8 @@ export default function Applicants() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <ApplicantPlaceholders show={applicants.length !== 0 ? false : true} />
+                                <ApplicantPlaceholders show={!fetched} />
+                                {renderData()}
                                 {
                                     filteredData.map( ( applicant: any, index: any ) => (
                                         <tr>

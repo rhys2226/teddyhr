@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 export default function Vacancies() {
 
     const [ vacancies, setVacancies ]: any = useState( [] )
+    const [ filteredData, setFilteredData ] = React.useState( [] )
+    const [ fetched, setfetched ]: any = React.useState( false )
 
     useEffect( () => {
         getVacancies()
@@ -16,9 +18,30 @@ export default function Vacancies() {
         const auth = new Auth( 'vacancies' );
         auth.fetch( {} ).then( ( data: any ) => {
             setVacancies( data )
+            setFilteredData( data )
+            setfetched( true )
         } )
     }
 
+    const search = ( e: any ) => {
+        const keyword = e.target.value
+        keyword === '' ?
+            setFilteredData( vacancies ) :
+            setFilteredData( vacancies.filter(
+                ( data: any ) =>
+                    data.Bureau.toLowerCase().includes( keyword ) ||
+                    data.Position.toLowerCase().includes( keyword ) ||
+                    data.Department.toLowerCase().includes( keyword )
+            ) )
+    }
+
+    const renderData = () => {
+        if ( vacancies.length === 0 ) {
+            return <tr>
+                <td className="text-center text-muted" colSpan={7}>No available vacancies yet...</td>
+            </tr>
+        }
+    }
 
     return (
         <div className="col-md-12 my-4">
@@ -30,7 +53,9 @@ export default function Vacancies() {
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label className="sr-only">Search</label>
-                                <input type="text" className="form-control" id="search1" value="" placeholder="Search" />
+                                <input onChange={( e ) => {
+                                    search( e )
+                                }} type="text" className="form-control" id="search1" placeholder="Search" />
                             </div>
                         </div>
                     </div>
@@ -48,9 +73,10 @@ export default function Vacancies() {
                             </tr>
                         </thead>
                         <tbody>
-                            <VacanciesPlaceholders show={vacancies.length !== 0 ? false : true} />
+                            <VacanciesPlaceholders show={!fetched} />
+                            {renderData()}
                             {
-                                vacancies.map( ( vacancy: any, index: any ) => (
+                                filteredData.map( ( vacancy: any, index: any ) => (
                                     <tr >
                                         <td className="text-center"> <i className="fe fe-key"></i> </td>
 

@@ -11,6 +11,7 @@ export default function Leaves() {
     const [ modal, setModal ] = React.useState( <div></div> )
     const [ leaves, setleaves ]: any = React.useState( [] )
     const [ filteredData, setFilteredData ]: any = React.useState( [] )
+    const [ fetched, setfetched ]: any = React.useState( false )
 
     React.useEffect( () => {
         getLeaves()
@@ -21,6 +22,7 @@ export default function Leaves() {
         api.fetch( {} ).then( ( data ) => {
             setleaves( data )
             setFilteredData( data )
+            setfetched( true )
         } )
     }
 
@@ -38,7 +40,13 @@ export default function Leaves() {
             ) )
     }
 
-
+    const renderData = () => {
+        if ( leaves.length === 0 ) {
+            return <tr>
+                <td className="text-center text-muted" colSpan={7}>No available vacancies yet...</td>
+            </tr>
+        }
+    }
     return (
         <div>
             <div className="col-md-12 my-4">
@@ -69,7 +77,8 @@ export default function Leaves() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <LeavesPlaceholders show={leaves.length !== 0 ? false : true} />
+                                <LeavesPlaceholders show={!fetched} />
+                                {renderData()}
                                 {
                                     filteredData.map( ( leave: any, index: number ) => (
                                         <tr>

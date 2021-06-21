@@ -7,6 +7,7 @@ import AwardListPlaceholder from './AwardListPlaceholder';
 export default function ListOfAwards() {
 
     const [ awards, setawards ]: any = React.useState( [] )
+    const [ fetched, setfetched ]: any = React.useState( false )
 
     React.useEffect( () => {
         getAwards()
@@ -16,8 +17,18 @@ export default function ListOfAwards() {
     const getAwards = () => {
         const api = new Auth( 'awards' );
         api.fetch( {} )
-            .then( ( data: any ) => setawards( data ) )
+            .then( ( data: any ) => {
+                setfetched( true )
+                setawards( data )
+            } )
     }
+
+    const renderData = () => {
+        if ( awards.length === 0 ) {
+            return <div className="text-center text-muted w-100" >No posted awards yet...</div>
+        }
+    }
+
 
     return (
         <div className="row justify-content-center">
@@ -28,8 +39,8 @@ export default function ListOfAwards() {
                             <strong className="card-title">Awards</strong>
                         </div>
                         <div className="card-body row">
-                            <AwardListPlaceholder show={awards.length !== 0 ? false : true} />
-
+                            <AwardListPlaceholder show={!fetched} />
+                            {renderData()}
                             {
                                 awards.map( ( award: any, index: any ) => (
                                     <>

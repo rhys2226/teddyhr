@@ -17,7 +17,7 @@ export default function Employees() {
     const [ currentSupervisor, setcurrentSupervisor ]: any = useState( {} )
     const [ currentEmployee, setcurrentEmployee ]: any = useState( {} )
     const [ filteredData, setFilteredData ] = useState( [] )
-
+    const [ fetched, setfetched ]: any = useState( false )
     const [ employees, setEmployees ] = useState( [] )
     const user: any = localStorage.getItem( 'user' )
     const id = JSON.parse( user ).id
@@ -26,11 +26,17 @@ export default function Employees() {
         getEmployees()
     }, [] )
 
+    useEffect( () => {
+        renderData()
+    }, [ employees ] )
+
+
     async function getEmployees() {
         const auth = new Auth( 'employees' );
         auth.fetch( {} ).then( ( data: any ) => {
             setEmployees( data )
             setFilteredData( data )
+            setfetched( true )
         } )
     }
 
@@ -57,6 +63,14 @@ export default function Employees() {
                     data.user.Middle.toLowerCase().includes( keyword ) ||
                     data.user.Last.toLowerCase().includes( keyword )
             ) )
+    }
+
+    const renderData = () => {
+        if ( employees.length === 0 ) {
+            return <tr>
+                <td className="text-center text-muted" colSpan={7}>No Employee Data Yet...</td>
+            </tr>
+        }
     }
 
     return (
@@ -91,7 +105,10 @@ export default function Employees() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <EmployeesPlaceholder show={employees.length !== 0 ? false : true} />
+                                <EmployeesPlaceholder show={!fetched} />
+                                {
+                                    renderData()
+                                }
                                 {
                                     filteredData.map( ( employee: any, index: any ) => (
                                         <tr key={index}>
@@ -222,18 +239,7 @@ export default function Employees() {
                                 }
                             </tbody>
                         </table>
-                        {/* <Pagination
-                            Pages={() => {
-                                let pages = []
-                                for ( let index in employees ) {
-                                    pages.push( parseInt( index ) + 1 )
-                                }
-                                return pages
-                            }}
-                            callback={( callback: Function ) => {
-                                callback()
-                            }}
-                        /> */}
+
                     </div>
                 </div>
             </div>
@@ -258,10 +264,7 @@ export default function Employees() {
                 <ChangeSupervisor supervisor={currentSupervisor} employees={employees} />
             </SlideModal>
             <LargeModal>
-                {
-                    currentEmployee.id === undefined ? '' : <EmployeeICPR data={currentEmployee} />
-                }
-
+                {currentEmployee.id === undefined ? '' : <EmployeeICPR data={currentEmployee} />}
             </LargeModal>
         </div>
     )

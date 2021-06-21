@@ -14,7 +14,7 @@ export default function Supervisor() {
     const [ supervisors, setsupervisors ]: any = React.useState( [] )
     const [ employees, setEmployees ]: any = React.useState( [] )
     const [ filteredData, setFilteredData ] = React.useState( [] )
-
+    const [ fetched, setfetched ]: any = React.useState( false )
     const [ modal, setModal ]: any = React.useState( <div></div> )
 
     React.useEffect( () => {
@@ -34,6 +34,7 @@ export default function Supervisor() {
         api.fetch( {} ).then( ( data: any ) => {
             setsupervisors( data )
             setFilteredData( data )
+            setfetched( true )
         } )
     }
 
@@ -52,6 +53,13 @@ export default function Supervisor() {
             ) )
     }
 
+    const renderData = () => {
+        if ( supervisors.length === 0 ) {
+            return <tr>
+                <td className="text-center text-muted" colSpan={3}>Nothing Supervisors yet...</td>
+            </tr>
+        }
+    }
 
     return (
         <div>
@@ -91,7 +99,8 @@ export default function Supervisor() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <SupervisorPlaceholder show={supervisors.length !== 0 ? false : true} />
+                                <SupervisorPlaceholder show={!fetched} />
+                                {renderData()}
                                 <tr style={{ display: add === true ? 'table-row' : 'none' }}>
                                     <td> <input id="Department" className="form-control" /></td>
                                     <td></td>

@@ -5,6 +5,7 @@ import EmployeeAndPerformancePlaceholders from '../Placeholders/EmployeeAndPerfo
 
 export default function EmployeesAndPerformance() {
     const [ performance, setPerformance ]: any = useState( [] )
+    const [ fetched, setfetched ]: any = useState( false )
 
 
     useEffect( () => {
@@ -17,6 +18,7 @@ export default function EmployeesAndPerformance() {
         api.fetch( {} )
             .then( ( data: any ) => {
                 setPerformance( data )
+                setfetched( true )
             } )
     }
 
@@ -33,6 +35,13 @@ export default function EmployeesAndPerformance() {
         return 'bg-success'
     }
 
+    const renderData = () => {
+        if ( performance.length === 0 ) {
+            return <tr>
+                <td className="text-center text-muted" colSpan={8}>No employee performaces yet...</td>
+            </tr>
+        }
+    }
 
     return (
         <div className="col-md-8 my-4">
@@ -47,7 +56,7 @@ export default function EmployeesAndPerformance() {
 
                     </div>
                     <table className="table ">
-                        <thead className="table-warning">
+                        <thead >
                             <tr>
                                 <th className="text-center text-warning"><i className="fe fe-user"></i></th>
                                 <th className="text-warning">Name</th>
@@ -60,7 +69,8 @@ export default function EmployeesAndPerformance() {
                             </tr>
                         </thead>
                         <tbody>
-                            <EmployeeAndPerformancePlaceholders show={performance.length !== 0 ? false : true} />
+                            <EmployeeAndPerformancePlaceholders show={!fetched} />
+                            {renderData()}
                             {
                                 performance.map( ( employee: any, index: any ) => (
                                     <tr>

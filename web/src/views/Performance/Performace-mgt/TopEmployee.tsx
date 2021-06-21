@@ -5,6 +5,8 @@ import TopEmployeePlaceholders from '../Placeholders/TopEmployeePlaceholders';
 export default function TopEmployee() {
 
     const [ topEmployees, settopEmployees ]: any = useState( [] )
+    const [ filteredData, setFilteredData ]: any = useState( [] )
+    const [ fetched, setfetched ]: any = useState( false )
 
 
     useEffect( () => {
@@ -17,6 +19,8 @@ export default function TopEmployee() {
         api.fetch( {} )
             .then( data => {
                 settopEmployees( data )
+                setFilteredData( data )
+                setfetched( true )
             } )
     }
 
@@ -33,6 +37,27 @@ export default function TopEmployee() {
         return 'bg-success'
     }
 
+    const search = ( e: any ) => {
+        const keyword = e.target.value
+        keyword === '' ?
+            setFilteredData( topEmployees ) :
+            setFilteredData( topEmployees.filter(
+                ( data: any ) =>
+                    data.user.Email.toLowerCase().includes( keyword ) ||
+                    data.user.Phone.toLowerCase().includes( keyword ) ||
+                    data.user.First.toLowerCase().includes( keyword ) ||
+                    data.user.Middle.toLowerCase().includes( keyword ) ||
+                    data.user.Last.toLowerCase().includes( keyword )
+            ) )
+    }
+
+
+    const renderData = () => {
+        if ( topEmployees.length === 0 ) {
+            return <tr><td className="text-center text-muted" colSpan={5}>No top employee data yet...</td> </tr>
+        }
+    }
+
     return (
         <div className="col-md-4 my-4">
             <h2 className=" mb-1">
@@ -41,7 +66,7 @@ export default function TopEmployee() {
             <p className="mb-3 text-muted">Displaying List of Top Employees this Month</p>
             <div className="card shadow">
                 <div className="card-body">
-                    <table className="table  mt-5">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -52,9 +77,10 @@ export default function TopEmployee() {
                             </tr>
                         </thead>
                         <tbody>
-                            <TopEmployeePlaceholders show={topEmployees.length !== 0 ? false : true} />
+                            <TopEmployeePlaceholders show={!fetched} />
+                            {renderData()}
                             {
-                                topEmployees.map( ( employee: any, index: any ) => (
+                                filteredData.map( ( employee: any, index: any ) => (
                                     <tr>
                                         <td>{index + 1}</td>
                                         <td className="text-center">
