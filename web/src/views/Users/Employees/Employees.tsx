@@ -16,7 +16,7 @@ export default function Employees() {
 
     const [ currentSupervisor, setcurrentSupervisor ]: any = useState( {} )
     const [ currentEmployee, setcurrentEmployee ]: any = useState( {} )
-
+    const [ filteredData, setFilteredData ] = useState( [] )
 
     const [ employees, setEmployees ] = useState( [] )
     const user: any = localStorage.getItem( 'user' )
@@ -29,7 +29,8 @@ export default function Employees() {
     async function getEmployees() {
         const auth = new Auth( 'employees' );
         auth.fetch( {} ).then( ( data: any ) => {
-            setEmployees( data.data )
+            setEmployees( data )
+            setFilteredData( data )
         } )
     }
 
@@ -44,6 +45,20 @@ export default function Employees() {
             className="btn btn-sm btn-outline-info ml-2">Rate</button>
     )
 
+    const search = ( e: any ) => {
+        const keyword = e.target.value
+        keyword === '' ?
+            setFilteredData( employees ) :
+            setFilteredData( employees.filter(
+                ( data: any ) =>
+                    data.user.Email.toLowerCase().includes( keyword ) ||
+                    data.user.Phone.toLowerCase().includes( keyword ) ||
+                    data.user.First.toLowerCase().includes( keyword ) ||
+                    data.user.Middle.toLowerCase().includes( keyword ) ||
+                    data.user.Last.toLowerCase().includes( keyword )
+            ) )
+    }
+
     return (
         <div>
             <div className="col-md-12 my-4">
@@ -52,14 +67,14 @@ export default function Employees() {
                 <div className="card shadow">
                     <div className="card-body">
                         <div className="toolbar">
-                            <form className="form">
-                                <div className="form-row">
-                                    <div className="form-group col-auto">
-                                        <label className="sr-only">Search</label>
-                                        <input type="text" className="form-control" id="search1" value="" placeholder="Search" />
-                                    </div>
+                            <div className="form-row">
+                                <div className="form-group col-auto">
+                                    <label className="sr-only">Search</label>
+                                    <input onChange={( e ) => {
+                                        search( e )
+                                    }} type="text" className="form-control" id="search1" placeholder="Search" />
                                 </div>
-                            </form>
+                            </div>
                         </div>
                         <table className="table table-borderless table-hover">
                             <thead className="table-info">
@@ -78,7 +93,7 @@ export default function Employees() {
                             <tbody>
                                 <EmployeesPlaceholder show={employees.length !== 0 ? false : true} />
                                 {
-                                    employees.map( ( employee: any, index: any ) => (
+                                    filteredData.map( ( employee: any, index: any ) => (
                                         <tr key={index}>
                                             <td>
                                                 <div className="avatar avatar-sm">
@@ -207,7 +222,7 @@ export default function Employees() {
                                 }
                             </tbody>
                         </table>
-                        <Pagination
+                        {/* <Pagination
                             Pages={() => {
                                 let pages = []
                                 for ( let index in employees ) {
@@ -218,7 +233,7 @@ export default function Employees() {
                             callback={( callback: Function ) => {
                                 callback()
                             }}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>

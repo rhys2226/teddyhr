@@ -24,7 +24,7 @@ export default function AwardsAndRecognition() {
     async function getEmployees() {
         const api = new Auth( 'employees' );
         api.fetch( {} ).then( ( data: any ) => {
-            setEmployees( data.data )
+            setEmployees( data )
         } )
     }
 

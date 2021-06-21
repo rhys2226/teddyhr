@@ -10,7 +10,7 @@ export default function ICPRPage1( props: Props ) {
 
     return (
         <div className="bg-white landscape docs">
-            <h6 className="text-center bold">OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)</h6>
+            <h5 className="text-center bold text-dark">OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)</h5><br />
             <p>I, <span className="bold underlined" >{props.data.user.Last}, {props.data.user.First} {props.data.user.Middle}</span> of the <span className="bold underlined">College of Information Technology</span>
                 , of ISCOF BAROTAC NUEVO CAMPUS commit to deliver and agree to be rated on the attainment of the following targets in accordance with the indicated measures for the period  <span className="bold underlined">{toDate( props.data.created_at )}.</span>
             </p>
@@ -21,12 +21,12 @@ export default function ICPRPage1( props: Props ) {
             </div>
 
             <table className="w-100 table" >
-                <thead className="table-info">
+                <thead className="table-light">
                     <tr>
-                        <th className="bordered text-info"> Reviewed by:</th>
-                        <th className="bordered text-info" > Date</th>
-                        <th className="bordered text-info"> Approved by:</th>
-                        <th className="bordered text-info" > Date</th>
+                        <th className="bordered text-dark"> Reviewed by:</th>
+                        <th className="bordered text-dark" > Date</th>
+                        <th className="bordered text-dark"> Approved by:</th>
+                        <th className="bordered text-dark" > Date</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -15,7 +15,6 @@ import * as base from '../../constants/base'
 export default function Settings() {
     const url = useURL();
     const history = useHistory()
-    let { id }: any = useParams();
     const userData: any = localStorage.getItem( 'user' )
 
     const SettingRoutes: RouteProps[] = [
@@ -55,7 +54,7 @@ export default function Settings() {
             <div className="col-12 col-lg-10 col-xl-8 card p-5">
                 <h2 className="h3 mb-4 page-title">Account</h2>
                 <div className="my-4">
-                    <ul style={{ display: JSON.parse( userData ).id === id ? '' : 'none' }} className="nav nav-tabs mb-4" id="myTab" role="tablist">
+                    <ul style={{ display: JSON.parse( userData ).Type === 'Employee' ? '' : 'none' }} className="nav nav-tabs mb-4" id="myTab" role="tablist">
                         {
                             settingsNav.map( ( nav, index ) => (
                                 <li className="nav-item">

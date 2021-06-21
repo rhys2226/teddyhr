@@ -8,14 +8,14 @@ type Props = {
 
 export default function ICPRPage2( props: Props ) {
     return (
-        <div className="bg-white landscape docs h-auto">
+        <div className="bg-white landscape docs h-auto icpr">
             <table className="table">
-                <thead className="table-info">
+                <thead className="table-light">
                     <tr>
-                        <th className="bordered text-info" >OUTPUT</th>
-                        <th className="bordered text-info" >Success Indicators(Targets + Measures)</th>
-                        <th className="bordered text-info" >Actual accomplishments</th>
-                        <th className="bordered text-info" colSpan={4} style={{ border: 0 }}>
+                        <th className="bordered text-dark" >OUTPUT</th>
+                        <th className="bordered text-dark" >Success Indicators(Targets + Measures)</th>
+                        <th className="bordered text-dark" >Actual accomplishments</th>
+                        <th className="bordered text-dark" colSpan={4} style={{ border: 0 }}>
                             <p className="text-center">Rating</p>
                             <div className="row" style={{ flex: 1, transform: 'translateY(13px)' }}>
                                 <span className="col-md-3 qeta" style={{ borderLeft: 0 }}> Q </span>
@@ -24,7 +24,7 @@ export default function ICPRPage2( props: Props ) {
                                 <span className="col-md-3 qeta" style={{ borderRight: 0 }}> A</span>
                             </div>
                         </th>
-                        <th className="text-center bordered text-info">Remarks</th>
+                        <th className="text-center bordered text-dark">Remarks</th>
                     </tr>
                 </thead>
                 <thead>
@@ -77,14 +77,14 @@ export default function ICPRPage2( props: Props ) {
                         <td className="bordered" colSpan={8}> <p className="mt-3 w-100">Comments and Recommendations for Development Purposes</p></td>
                     </tr>
                 </thead>
-                <thead className="table-info">
+                <thead className="table-light">
                     <tr>
-                        <th className="bordered text-info">Discussed with:</th>
-                        <th className="bordered text-info">Date</th>
-                        <th className="bordered text-info">Assessed by:</th>
-                        <th className="bordered text-info">Date</th>
-                        <th className="bordered text-info">Final Rating by: </th>
-                        <th className="bordered text-info">Date</th>
+                        <th className="bordered text-dark">Discussed with:</th>
+                        <th className="bordered text-dark">Date</th>
+                        <th className="bordered text-dark">Assessed by:</th>
+                        <th className="bordered text-dark">Date</th>
+                        <th className="bordered text-dark">Final Rating by: </th>
+                        <th className="bordered text-dark">Date</th>
                     </tr>
                 </thead>
                 <tbody>

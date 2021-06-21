@@ -8,11 +8,9 @@ import LeavesPlaceholders from './Placeholders/LeavesPlaceholders'
 
 export default function Leaves() {
 
-
-    const [ add, setadd ] = React.useState( false )
     const [ modal, setModal ] = React.useState( <div></div> )
-
-    const [ leave, setleave ]: any = React.useState( [] )
+    const [ leaves, setleaves ]: any = React.useState( [] )
+    const [ filteredData, setFilteredData ]: any = React.useState( [] )
 
     React.useEffect( () => {
         getLeaves()
@@ -21,9 +19,25 @@ export default function Leaves() {
     function getLeaves() {
         const api = new Auth( 'application-for-leave' )
         api.fetch( {} ).then( ( data ) => {
-            setleave( data )
+            setleaves( data )
+            setFilteredData( data )
         } )
     }
+
+    const search = ( e: any ) => {
+        const keyword = e.target.value
+        keyword === '' ?
+            setFilteredData( leaves ) :
+            setFilteredData( leaves.filter(
+                ( data: any ) =>
+                    data.user.Email.toLowerCase().includes( keyword ) ||
+                    data.user.Phone.toLowerCase().includes( keyword ) ||
+                    data.user.First.toLowerCase().includes( keyword ) ||
+                    data.user.Middle.toLowerCase().includes( keyword ) ||
+                    data.user.Last.toLowerCase().includes( keyword )
+            ) )
+    }
+
 
     return (
         <div>
@@ -33,14 +47,14 @@ export default function Leaves() {
                 <div className="card shadow">
                     <div className="card-body">
                         <div className="toolbar">
-                            <form className="form">
-                                <div className="form-row">
-                                    <div className="form-group col-auto">
-                                        <label className="sr-only">Search</label>
-                                        <input type="text" className="form-control" id="search1" value="" placeholder="Search" />
-                                    </div>
+                            <div className="form-row">
+                                <div className="form-group col-auto">
+                                    <label className="sr-only">Search</label>
+                                    <input onChange={( e ) => {
+                                        search( e )
+                                    }} type="text" className="form-control" id="search1" placeholder="Search" />
                                 </div>
-                            </form>
+                            </div>
                         </div>
                         <table className="table table-borderless table-hover">
                             <thead className="table-success">
@@ -55,9 +69,9 @@ export default function Leaves() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <LeavesPlaceholders show={leave.length !== 0 ? false : true} />
+                                <LeavesPlaceholders show={leaves.length !== 0 ? false : true} />
                                 {
-                                    leave.map( ( leave: any, index: number ) => (
+                                    filteredData.map( ( leave: any, index: number ) => (
                                         <tr>
                                             <th scope="col">
                                                 <div className="avatar avatar-sm">

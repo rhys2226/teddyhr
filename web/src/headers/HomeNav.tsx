@@ -102,12 +102,12 @@ export default function HomeNav() {
                                 history.push( '/home/settings/' + user_id )
                             }} className='dropdown-item'>
                                 Profile
-							</button>
+                            </button>
                             <button style={{ display: type === 'Employee' ? 'block' : 'none' }} onClick={() => {
                                 history.push( '/home/settings/profile/' + user_id )
                             }} className='dropdown-item'>
                                 Settings
-							</button>
+                            </button>
                             <button onClick={() => {
                                 Fire(
                                     'Log-Out',
@@ -119,7 +119,7 @@ export default function HomeNav() {
                                     } )
                             }} className='dropdown-item'>
                                 Log-Out
-							</button>
+                            </button>
                         </div>
                     </li>
                 </ul>

@@ -13,22 +13,19 @@ export default function Supervisor() {
     const [ disabled, setdisabled ] = React.useState( false )
     const [ supervisors, setsupervisors ]: any = React.useState( [] )
     const [ employees, setEmployees ]: any = React.useState( [] )
+    const [ filteredData, setFilteredData ] = React.useState( [] )
 
     const [ modal, setModal ]: any = React.useState( <div></div> )
 
-
-
     React.useEffect( () => {
-        setTimeout( () => {
-            getSupervisors()
-            getEmplyees()
-        }, 1000 );
+        getSupervisors()
+        getEmplyees()
     }, [] )
 
     function getEmplyees() {
         const api = new Auth( 'employees' );
         api.fetch( {} ).then( ( data: any ) => {
-            setEmployees( data.data )
+            setEmployees( data )
         } )
     }
 
@@ -36,7 +33,23 @@ export default function Supervisor() {
         const api = new Auth( 'subordinates' )
         api.fetch( {} ).then( ( data: any ) => {
             setsupervisors( data )
+            setFilteredData( data )
         } )
+    }
+
+    const search = ( e: any ) => {
+        const keyword = e.target.value
+        keyword === '' ?
+            setFilteredData( supervisors ) :
+            setFilteredData( supervisors.filter(
+                ( data: any ) =>
+                    data.supervisors.Email.toLowerCase().includes( keyword ) ||
+                    data.supervisors.Phone.toLowerCase().includes( keyword ) ||
+                    data.supervisors.First.toLowerCase().includes( keyword ) ||
+                    data.supervisors.Middle.toLowerCase().includes( keyword ) ||
+                    data.supervisors.Last.toLowerCase().includes( keyword ) ||
+                    data.Department.toLowerCase().includes( keyword )
+            ) )
     }
 
 
@@ -51,7 +64,9 @@ export default function Supervisor() {
                             <div className="form-row">
                                 <div className="form-group col-auto">
                                     <label className="sr-only">Search</label>
-                                    <input type="text" className="form-control" id="search1" value="" placeholder="Search" />
+                                    <input onChange={( e ) => {
+                                        search( e )
+                                    }} type="text" className="form-control" id="search1" placeholder="Search" />
                                 </div>
                                 <div className="form-group col-auto">
                                     <button
@@ -60,7 +75,7 @@ export default function Supervisor() {
                                         }}
                                         className="btn btn-outline-primary d-flex">
                                         <i className="fe fe-plus"></i>
-                                           &nbsp; {add === false ? 'New Subordinate' : 'Cancel'}
+                                        &nbsp; {add === false ? 'New Subordinate' : 'Cancel'}
                                     </button>
                                 </div>
                             </div>
@@ -154,8 +169,8 @@ export default function Supervisor() {
                                     </td>
                                 </tr>
                                 {
-                                    supervisors.map( ( supervisor: any, index: number ) => (
-                                        <tr>
+                                    filteredData.map( ( supervisor: any, index: number ) => (
+                                        <tr key={index}>
                                             <td> <i className="fe fe-pause"></i> &nbsp; {supervisor.Department}</td>
                                             <td className="text-center">
                                                 <div className="avatar avatar-md">
@@ -184,7 +199,7 @@ export default function Supervisor() {
                             </tbody>
                         </table>
                         <br />
-                        <Pagination
+                        {/* <Pagination
                             Pages={() => {
                                 let pages = []
                                 for ( let index in [ 1, 2, 3, 4, 5, 6 ] ) {
@@ -195,7 +210,7 @@ export default function Supervisor() {
                             callback={( callback: Function ) => {
                                 callback()
                             }}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>

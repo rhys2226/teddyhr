@@ -114,6 +114,7 @@ export interface WorkExperiences {
     Appointment: ''
     Government: ''
     Position: ''
+    created_at: ''
 }
 
 export interface VolunteerInvolvements {

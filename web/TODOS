@@ -1,39 +1,35 @@
-pagination
-search
+after fetching no data
+PDS no N/A
+QETA Change
+asterisks
 strict tokens
-
 settings
-
+Leave Settings
+Cron Job
 employee salary
 employee Place of Birth
-
+employee First Day of Service
 Leave History
 Get Leave Credits
 Crud Leave Settings
-
-Service Record UI
-Add Service Record
-Tabular Records
-View Service Record
 Employee Performance
-
 LeaveCard Ui for initial Record
 Compute Leave
 sidebar for user
 verify phone and email
 Email Send after schedule
-
 Error Handler
 Backend Validation
-
-
 clear errors
 polish design
 preloaders
 seeders
-
+Notification
+form validation
+Cron Jobs
 PDS 
 Questions Solo Parent
 Spouse
 name extension
 PDS Date of Validity
+

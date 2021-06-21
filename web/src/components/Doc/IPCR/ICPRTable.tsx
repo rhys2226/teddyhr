@@ -134,33 +134,23 @@ export default function ICPRTable( props: any ) {
             <div>
                 <PrintComponents
                     trigger={
-                        <button className="btn btn-primary mb-3">
-                            <i className=" fe fe-download"></i>
-                            <span>&nbsp;Print IPCR Page 1</span>
+                        <button className="btn btn-dark mb-3">
+                            <i className=" fe fe-printer"></i>
+                            <span>&nbsp;Print IPCR</span>
                         </button>
                     }
                 >
                     <ICPRPage1
                         data={props.data}
                     />
-                </PrintComponents>
-                <ICPRPage1
-                    data={props.data}
-                />
 
-                <br />
-                <PrintComponents
-                    trigger={
-                        <button className="btn btn-primary mb-3">
-                            <i className=" fe fe-download"></i>
-                            <span>&nbsp;Print IPCR Page 2</span>
-                        </button>
-                    }
-                >
                     <ICPRPage2
                         data={props.data}
                     />
                 </PrintComponents>
+                <ICPRPage1
+                    data={props.data}
+                />
                 <ICPRPage2
                     data={props.data}
                 />

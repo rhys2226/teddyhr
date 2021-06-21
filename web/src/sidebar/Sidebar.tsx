@@ -90,9 +90,9 @@ export default function Sidebar() {
                         ) )
                     }
 
-                    <p className="text-muted nav-heading mt-4 mb-1">
+                    {/* <p className="text-muted nav-heading mt-4 mb-1">
                         <span>HRD</span>
-                    </p>
+                    </p> */}
                     {
                         HRDLearningAndDevelopment.map( ( nav: any, index: any ) => (
                             <li key={index} className={`nav-item w-100 ${ base.route + nav.route === window.location.href ? 'active' : '' }`}>

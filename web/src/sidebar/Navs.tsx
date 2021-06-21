@@ -58,11 +58,11 @@ export const HRDLearningAndDevelopment = [
     //     route: '/home/seminars',
     //     icon: 'fe-calendar'
     // },
-    {
-        title: 'Seminars Attended',
-        route: '/home/seminars-attended/' + JSON.parse( userData ).id,
-        icon: 'fe-mic'
-    },
+    // {
+    //     title: 'Seminars Attended',
+    //     route: '/home/seminars-attended/' + JSON.parse( userData ).id,
+    //     icon: 'fe-mic'
+    // },
 ]
 
 export const awardsAndRecognition = [

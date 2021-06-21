@@ -1,5 +1,6 @@
 .service-record * {
-    font-size: .6rem !important;
+    color: black !important;
+    font-size: .83rem;
 }
 
 .service-record-table th,
