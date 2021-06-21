@@ -75,8 +75,8 @@ export default function Applicants() {
                                 </div>
                             </div>
                         </div>
-                        <table className="table table-borderless ">
-                            <thead className="table-dark">
+                        <table className="table">
+                            <thead >
                                 <tr>
                                     <th className="text-info text-center"><i className="fe fe-user"></i></th>
                                     <th className="text-info">Applicant</th>
@@ -146,7 +146,7 @@ export default function Applicants() {
                                             </td>
 
                                             <td>
-                                                <button className="btn btn-dark btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">

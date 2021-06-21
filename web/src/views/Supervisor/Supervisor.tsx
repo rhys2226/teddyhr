@@ -90,7 +90,7 @@ export default function Supervisor() {
                                 </div>
                             </div>
                         </div>
-                        <table className="table table-borderless table-hover">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th className="text-secondary"><i className="fe fe-pause"></i> &nbsp; Department</th>

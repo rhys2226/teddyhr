@@ -64,8 +64,8 @@ export default function Leaves() {
                                 </div>
                             </div>
                         </div>
-                        <table className="table table-borderless table-hover">
-                            <thead className="table-success">
+                        <table className="table ">
+                            <thead>
                                 <tr role="row">
                                     <th className="text-success"><i className="fe fe-user"></i></th>
                                     <th className="text-success">Name</th>
@@ -100,7 +100,7 @@ export default function Leaves() {
                                             <td><span className="text-success">Yes</span></td>
                                             <td>{leave.Comutation}</td>
                                             <td>
-                                                <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">

@@ -90,15 +90,15 @@ export default function Employees() {
                                 </div>
                             </div>
                         </div>
-                        <table className="table table-borderless table-hover">
-                            <thead className="table-info">
+                        <table className="table">
+                            <thead>
                                 <tr>
                                     <th className="text-info"><i className="fe fe-user"></i></th>
                                     <th className="text-info">Name</th>
                                     <th className="text-info">Contact</th>
                                     <th className="text-info">Alignment</th>
                                     <th className="text-info text-center">Months of Services</th>
-                                    <th className="text-info text-right">Hired Last</th>
+                                    <th className="text-info ">First Day of Service</th>
                                     <th className="text-center text-dark"><i className="fe fe-user"></i></th>
                                     <th className="text-dark">Immediate Supervisor</th>
                                     <th className="text-info"></th>
@@ -124,11 +124,11 @@ export default function Employees() {
                                                         {employee.user.Last} {employee.user.First} {employee.user.Middle}
                                                     </strong>
                                                 </p>
-                                                <p className="small mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}>{employee.Position}</span></p>
+                                                <p className="h5 mb-3"><span className="badge badge-success text-white p-1 br-2" style={{ fontWeight: 900, }}>{employee.Position}</span></p>
                                             </td>
 
                                             <td>
-                                                <p className="mb-0 text-primary ">@{employee.user.Email}</p>
+                                                <p className="mb-0 text-info ">@{employee.user.Email}</p>
                                                 <small className="mb-0 text-muted">{employee.user.Phone}</small>
                                             </td>
 
@@ -136,7 +136,7 @@ export default function Employees() {
 
                                             <td className=" text-center"> 15</td>
 
-                                            <td className="text-muted text-right">{toDate( employee.created_at )}</td>
+                                            <td className="text-muted">{toDate( employee.created_at )}</td>
 
 
                                             <td className="text-center">
@@ -154,7 +154,7 @@ export default function Employees() {
                                             </td>
 
                                             <td>
-                                                <button className="btn btn-sm btn-info dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">

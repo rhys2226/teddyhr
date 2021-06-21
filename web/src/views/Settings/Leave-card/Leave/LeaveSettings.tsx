@@ -60,7 +60,7 @@ export default function LeaveSettings() {
                                     <td>30 days</td>
                                     <td><span className="text-success">Yes</span></td>
                                     <td>
-                                        <button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span className="text-muted sr-only">Action</span>
                                         </button>
                                         <div className="dropdown-menu dropdown-menu-right">
