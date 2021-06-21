@@ -26,28 +26,29 @@ type Inputs = {
 
 export default function ApplicationForLeave() {
 
-    const userData: any = localStorage.getItem( 'user' )
     const [ spend, setSpend ] = React.useState( '' )
     const [ vacation, setvacation ] = React.useState( '' )
     const [ location, setlocation ] = React.useState( '' )
     const [ hospital, sethospital ] = React.useState( '' )
-
+    const [ disabled, setdisabled ] = React.useState( false )
     const { register, handleSubmit } = useForm<Inputs>();
 
     const submit = async ( data: Inputs ) => {
-        console.log( data )
         Fire(
             'Submit Leave Application?',
             'This will be subject for approval from the administrative officer and other related personnels',
             'info',
             () => {
+                setdisabled( true )
 
                 const api = new Auth( 'application-for-leave' )
                 api.create( data ).then( () => {
                     Alert( 'Application for Leave Submitted', 'Your Leave application has been successfully submitted', 'success' )
+                    setdisabled( false )
                 } )
                     .catch( () => {
                         Alert( 'Error', 'Something went wrong. Try Again', 'error' )
+                        setdisabled( false )
                     } )
             }
         )
@@ -197,7 +198,17 @@ export default function ApplicationForLeave() {
                             </div>
 
                             <div className="mt-5 mb-4 d-flex aij jcc">
-                                <button className="btn btn-outline-primary">Submit Leave Application</button>
+                                <button disabled={disabled} className="btn btn-dark float-right">
+                                    {
+                                        disabled == true ?
+
+                                            <div className="d-flex aic jcc">
+                                                <div className="spinner-border spinner-border-sm" role="status" />
+                                            </div>
+                                            :
+                                            'Submit Leave Application'
+                                    }
+                                </button>
                             </div>
                         </div>
                     </div>

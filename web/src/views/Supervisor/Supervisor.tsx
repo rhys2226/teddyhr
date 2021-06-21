@@ -17,6 +17,8 @@ export default function Supervisor() {
     const [ fetched, setfetched ]: any = React.useState( false )
     const [ modal, setModal ]: any = React.useState( <div></div> )
 
+
+
     React.useEffect( () => {
         getSupervisors()
         getEmplyees()
@@ -128,6 +130,7 @@ export default function Supervisor() {
                                         <button
                                             onClick={() => {
                                                 Fire( 'Add Subordinate', 'Are you sure you want to add Employee on MIS?', 'warning', () => {
+                                                    setdisabled( true )
                                                     $( 'input' ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
                                                     const data: any = {
                                                         Department: $( '#Department' ).val(),
@@ -163,13 +166,12 @@ export default function Supervisor() {
                                                         } )
                                                 } )
                                             }}
-                                            className="btn btn-primary">
+                                            className="btn btn-dark" disabled={disabled} >
                                             {
                                                 disabled == true ?
 
                                                     <div className="d-flex aic jcc">
-                                                        <div className="spinner-border spinner-border-sm mr-3 text-white" role="status" />
-                                                        <span className="mt-1">Loading ... </span>
+                                                        <div className="spinner-border spinner-border-sm  text-white" role="status" />
                                                     </div>
                                                     :
                                                     'Submit'

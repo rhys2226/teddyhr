@@ -18,17 +18,20 @@ export default function ApplicationStep4( props: Props ) {
             <p>Credentials to track your employment</p>
             <section className='form-row mt-5'>
                 <div className='form-group mb-3 col-12 col-md-4'>
-                    <label>Email</label>
+                    <div className="d-flex mb-3">
+                        <label>Email</label>
+                        <i title="Verify Email" style={{ cursor: 'pointer' }} className="fe fe-mail ml-auto mr-3"></i>
+                    </div>
                     <input onChange={( e ) => setEmail( e.target.value )} id="Email" type='email' required className='form-control' />
                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-4'>
-                    <label>Password</label>
+                    <label className="mb-4">Password</label>
                     <input onChange={( e ) => setPassword( e.target.value )} id="password" type='text' required className='form-control' />
                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-4'>
-                    <label>Confirm Password</label>
+                    <label className="mb-4">Confirm Password</label>
                     <input onChange={( e ) => setconfirmPassword( e.target.value )} id="confirm-password" type='text' required className='form-control' />
                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
@@ -63,7 +66,7 @@ export default function ApplicationStep4( props: Props ) {
                         }
                         props.step4( data )
                         props.makeStep( 5 )
-                    }} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
+                    }} className='btn btn-dark mx-2 px-md-5'>Next</button>
                 </div>
             </section>
         </div>

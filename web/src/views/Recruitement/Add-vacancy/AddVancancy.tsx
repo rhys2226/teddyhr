@@ -42,13 +42,13 @@ export default function AddVancancy() {
     const [ addForm, setaddForm ] = React.useState( [ 1 ] );
     const [ addDuties, setaddDuties ] = React.useState( [ 1 ] );
     const { register, handleSubmit } = useForm<Inputs>();
+    const [ disabled, setdisabled ] = React.useState( false )
 
     let directlySupervised: any = []
     let coreCompentency: any = []
     let dutiesAndResponsibilities: any = []
 
     const submit = async ( data: Inputs ) => {
-
         for ( let i = 0; i < addDuties.length; i++ ) {
             let object: any = {}
             object[ `PercentageofWorkingTime1${ i }` ] = $( '#' + `PercentageofWorkingTime1${ i }` ).val()
@@ -101,15 +101,18 @@ export default function AddVancancy() {
         )
         Fire( 'Post Vacancy', 'Are you sure you want to Post Vacancy?', 'info', () => {
             const api = new Auth( 'vacancies' )
+            setdisabled( true )
             api.create( form, {} )
                 .then( () => {
                     Alert( 'Vacncy Succesfully Posted', `New Vacancy has been created on the Human Resource Management Office's Landing Page`, 'success' );
                     directlySupervised = []
                     coreCompentency = []
                     dutiesAndResponsibilities = []
+                    setdisabled( false )
                 } )
                 .catch( () => {
                     Alert( 'Error', 'Something went wrong. Try Again', 'error' );
+                    setdisabled( false )
                 } )
         } )
     }
@@ -443,8 +446,16 @@ export default function AddVancancy() {
                             </div>
 
                             <div className='form-group mb-5 d-flex aic jcc'>
-                                <button type='submit' className='btn btn-outline-primary'>
-                                    Post Vacancy
+                                <button disabled={disabled} className="btn btn-dark float-right">
+                                    {
+                                        disabled == true ?
+
+                                            <div className="d-flex aic jcc">
+                                                <div className="spinner-border spinner-border-sm" role="status" />
+                                            </div>
+                                            :
+                                            'Post Vacancy'
+                                    }
                                 </button>
                             </div>
                         </form>

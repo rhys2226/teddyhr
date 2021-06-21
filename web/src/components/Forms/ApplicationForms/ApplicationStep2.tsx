@@ -83,7 +83,7 @@ export default function ApplicationStep2( props: Props ) {
                         }
                         props.makeStep( 3 )
                         props.step2( data )
-                    }} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
+                    }} className='btn btn-dark mx-2 px-md-5'>Next</button>
                 </div>
             </section>
         </div>

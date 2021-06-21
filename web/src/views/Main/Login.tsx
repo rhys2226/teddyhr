@@ -11,7 +11,7 @@ const Login: FC<Props> = ( props ) => {
 
     const [ username, setusername ] = useState( '' )
     const [ password, setpassword ] = useState( '' )
-    const [ disabled, setdisabled ] = useState( false )
+    const [ disabled, setdisabled ] = React.useState( false )
 
     async function login() {
         setdisabled( true )

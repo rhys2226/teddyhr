@@ -1,32 +1,29 @@
-PDS no N/A
-strict tokens
+verify phone and email firebase /modal
+fix unauthenticated
+sounds if no data
+
 settings
-Leave Settings
-
-Sidebar
-Cron Job
-
-Leave History
-Get Leave Credits
-Crud Leave Settings
+Leave Settings CRUD and Search
 Employee Performance
+Sidebar
+UI Restriction
 LeaveCard Ui for initial Record
-Compute Leave
-sidebar for user
-verify phone and email
 Email Send after schedule
-Error Handler
-Backend Validation
-clear errors
-polish design
-preloaders
-seeders
-Notification
-form validation
-Cron Jobs
+
 PDS 
 Questions Solo Parent
 Spouse
 name extension
 PDS Date of Validity
 
+form validation back and front
+Error Handler
+
+
+Backend Validation
+Compute Leave
+Get Leave Credits
+Cron Job
+Notification
+clear errors
+seeders

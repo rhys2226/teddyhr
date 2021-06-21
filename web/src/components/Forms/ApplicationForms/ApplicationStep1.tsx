@@ -10,7 +10,7 @@ type Props = {
 
 export default function ApplicationStep1( props: Props ) {
 
-    const [ phone, setphone ]: any = React.useState()
+    const [ phone, setphone ]: any = React.useState( '' )
 
     return (
         <div>
@@ -36,13 +36,17 @@ export default function ApplicationStep1( props: Props ) {
                     <input id="NameExtension" type='text' className='form-control' />
                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
-                <div className='form-group mb-3 col-12 col-md-6'>
-                    <label>Phone</label>
+                <div className='form-group mb-3 col-12 col-md-4 mt-5'>
+                    <div className="d-flex mb-1">
+                        <label>Phone</label>
+                        <i title="Verify Phone" style={{ cursor: 'pointer' }} className="fe fe-phone-call ml-auto mr-5"></i>
+                    </div>
                     <input id="Phone" style={{ display: 'none' }} value={phone} type='text' className='form-control' />
                     <PhoneInput
                         country={'ph'}
                         onChange={( phone ) => setphone( phone )}
                         containerStyle={{ width: '100%' }}
+                        isValid={phone.length == 12}
                     />
                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
@@ -69,7 +73,7 @@ export default function ApplicationStep1( props: Props ) {
                         }
                         props.makeStep( 2 )
                         props.step1( data )
-                    }} className='btn btn-outline-success mx-2 px-md-5'>Next</button>
+                    }} className='btn btn-dark mx-2 px-md-5'>Next</button>
                 </div>
             </section>
         </div >

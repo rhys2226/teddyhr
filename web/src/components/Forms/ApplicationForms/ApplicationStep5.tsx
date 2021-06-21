@@ -45,7 +45,7 @@ export default function ApplicationStep5( props: Props ) {
                         <div className="col-md-7">
                             <h4 className="mb-1">{props.data.Last}, {props.data.First} {props.data.Middle}</h4>
                             <h3 className="text-muted  mt-0">{props.data.Office || ''}</h3>
-                            <p className="small mb-3"><span className="badge bg-success-lighter text-success p-1 br-2" style={{ fontWeight: 900, }}>Application as {props.data.Position}</span></p>
+                            <p className="h5 mb-3"><span className="badge bg-info-lighter text-info p-1 br-2" style={{ fontWeight: 900, }}> {props.data.Position}</span></p>
                         </div>
                     </div>
                     <div className="row mb-4">
@@ -62,13 +62,12 @@ export default function ApplicationStep5( props: Props ) {
                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
                     <button onClick={() => props.makeStep( 4 )} className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>
                     <button onClick={() => {
-
                         if ( avatar == "" ) {
                             return Alert( 'Please Upload Your Professional Photo', 'Human Resources Management Office requires you to upload your distinguisable professional photo', 'error' )
                         }
                         props.step5( { Avatar: avatar } )
                         props.SubmitForm()
-                    }} className='btn btn-outline-success mx-2 px-md-5'>Apply</button>
+                    }} className='btn btn-dark mx-2 px-md-5'>Apply</button>
                 </div>
             </div>
 

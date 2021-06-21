@@ -15,6 +15,7 @@ export default function AwardsAndRecognition() {
 
     const { register, handleSubmit } = useForm<Inputs>();
     const userData: any = localStorage.getItem( 'user' )
+    const [ disabled, setdisabled ] = React.useState( false )
 
     React.useEffect( () => {
         getEmployees()
@@ -88,14 +89,17 @@ export default function AwardsAndRecognition() {
             i += 1
         }
         Fire( 'Add an Award?', 'Are you sure you want to add an award to this employee?', 'info', () => {
+            setdisabled( true )
             const api = new Auth( 'awards' );
             api.create( formData )
                 .then( () => {
                     Alert( 'Award Added', 'Award of the employee has been successfully record', 'success' )
-                    // setfiles( [] )
+                    setfiles( [] )
+                    setdisabled( false )
                 } )
                 .catch( () => {
                     Alert( 'Error', 'Something went Wrong', 'error' )
+                    setdisabled( false )
                 } )
         } )
     }
@@ -141,7 +145,17 @@ export default function AwardsAndRecognition() {
                                             </div>
                                             <input type="hidden" value={JSON.parse( userData ).id}  {...register( 'employee_id' )} />
                                             <div className="form-group col-md-12 d-flex aic jcc mt-5">
-                                                <button className="btn btn-outline-dark float-right">Save Award</button>
+                                                <button disabled={disabled} className="btn btn-dark float-right">
+                                                    {
+                                                        disabled == true ?
+
+                                                            <div className="d-flex aic jcc">
+                                                                <div className="spinner-border spinner-border-sm" role="status" />
+                                                            </div>
+                                                            :
+                                                            ' Save Award'
+                                                    }
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
