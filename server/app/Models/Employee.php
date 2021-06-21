@@ -15,7 +15,9 @@ class Employee extends Model
         'Position',
         'PreviousEmployer',
         'EmployersContactInformation',
-        'FirstDay'
+        'FirstDay',
+        'PlaceOfBirth',
+        'Salary',
     ];
     
     public function user()

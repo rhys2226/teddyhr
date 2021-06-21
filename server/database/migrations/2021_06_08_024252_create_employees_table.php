@@ -18,6 +18,8 @@ class CreateEmployeesTable extends Migration
             $table->string('PreviousEmployer');
             $table->string('EmployersContactInformation');
             $table->string('FirstDay');
+            $table->string('PlaceOfBirth');
+            $table->string('Salary');
         });
     }
 
