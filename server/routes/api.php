@@ -33,43 +33,43 @@ use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WorkExperienceController;
 use App\Models\Employee;
 
-Route::prefix('/auth')->group(function () {
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/register', [AuthController::class, 'register']);
+Route::middleware('throttle:60,1')->group(function () {
+    Route::prefix('/auth')->group(function () {
+        Route::post('/login', [AuthController::class, 'login']);
+        Route::post('/register', [AuthController::class, 'register']);
+    });
+    Route::resource('/vacancies', VacancyController::class);
+    Route::resource('/applicants', ApplicantController::class);
+    
+    Route::middleware(['auth:sanctum'])->group(function () {
+        Route::resource('/employees', EmployeeController::class);
+        Route::resource('/attachments', AttachmentsController::class);
+        Route::resource('/subordinates', SubordianteController::class);
+        Route::resource('/directly-supervises', DirectlySupervisedController::class);
+        Route::resource('/competencies', CompentenciesController::class);
+        Route::resource('/duties-and-responsibilities', DutiesAndResponsibilitiesController::class);
+        Route::resource('/application-for-leave', ApplicationForLeaveController::class);
+        Route::resource('/leave-settings', LeaveSettingsController::class);
+        Route::resource('/leave-card', LeaveCardController::class);
+        Route::resource('/ratings', RatingController::class);
+        Route::resource('/rating-details', RatingDetailsController::class);
+        Route::resource('/awards', AwardController::class);
+        Route::resource('/notifications', NotificationsController::class);
+        Route::resource('/pds', PersonalDataSheetController::class);
+        Route::resource('/personal-information', PersonalInformationController::class);
+        Route::resource('/address', AddressController::class);
+        Route::resource('/family-background', FamilyBackgroundController::class);
+        Route::resource('/educational-background', EducationalBackgroundController::class);
+        Route::resource('/eligibilities', EligibilitiesController::class);
+        Route::resource('/work-experience', WorkExperienceController::class);  
+        Route::resource('/volounteer', VolunteerController::class);  
+        Route::resource('/learning-and-development', LearningAndDevelopmentController::class);  
+        Route::resource('/others', OthersController::class);  
+        Route::resource('/questions', QuestionsController::class);  
+        Route::resource('/question-details', QuestionDetailsController::class);  
+        Route::resource('/references', ReferencesController::class);  
+        Route::resource('/identification', IdentificationController::class);  
+        Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);
+        Route::get('/employee-performances', [EmployeeController::class, 'topEmployees']);
+    });
 });
-
-Route::resource('/applicants', ApplicantController::class);
-Route::resource('/employees', EmployeeController::class);
-Route::resource('/attachments', AttachmentsController::class);
-Route::resource('/subordinates', SubordianteController::class);
-Route::resource('/vacancies', VacancyController::class);
-Route::resource('/directly-supervises', DirectlySupervisedController::class);
-Route::resource('/competencies', CompentenciesController::class);
-Route::resource('/duties-and-responsibilities', DutiesAndResponsibilitiesController::class);
-Route::resource('/application-for-leave', ApplicationForLeaveController::class);
-Route::resource('/leave-settings', LeaveSettingsController::class);
-Route::resource('/leave-card', LeaveCardController::class);
-Route::resource('/ratings', RatingController::class);
-Route::resource('/rating-details', RatingDetailsController::class);
-Route::resource('/awards', AwardController::class);
-Route::resource('/notifications', NotificationsController::class);
-
-Route::resource('/pds', PersonalDataSheetController::class);
-Route::resource('/personal-information', PersonalInformationController::class);
-Route::resource('/address', AddressController::class);
-Route::resource('/family-background', FamilyBackgroundController::class);
-Route::resource('/educational-background', EducationalBackgroundController::class);
-Route::resource('/eligibilities', EligibilitiesController::class);
-Route::resource('/work-experience', WorkExperienceController::class);  
-Route::resource('/volounteer', VolunteerController::class);  
-Route::resource('/learning-and-development', LearningAndDevelopmentController::class);  
-Route::resource('/others', OthersController::class);  
-Route::resource('/questions', QuestionsController::class);  
-Route::resource('/question-details', QuestionDetailsController::class);  
-Route::resource('/references', ReferencesController::class);  
-Route::resource('/identification', IdentificationController::class);  
-
-
-
-Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);
-Route::get('/employee-performances', [EmployeeController::class, 'topEmployees']);
