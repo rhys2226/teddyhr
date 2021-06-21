@@ -35,6 +35,9 @@ class WorkExperienceController extends Controller
 
     public function show($id)
     {
-        return WorkExperience::where('employee_id',$id)->get();
+        return WorkExperience::with('employee')
+            ->with('user')
+            ->where('employee_id',$id)
+            ->get();
     }
 }

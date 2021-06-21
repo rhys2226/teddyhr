@@ -19,5 +19,15 @@ class WorkExperience extends Model
         'Government',
         'Position',
     ];
+    
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','employee_id');
+    }
+    
+    public function employee()
+    {
+        return $this->hasOne(Employee::class,'user_id','employee_id');
+    }
 }
- 
+  

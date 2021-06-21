@@ -11,7 +11,7 @@ class ApplicantController extends Controller
 {
     public function index()
     { 
-        return Applicant::with('user')->with('attachments')->paginate(20);
+        return Applicant::with('user')->with('attachments')->get();
     }
  
     public function show(Applicant $applicant)
