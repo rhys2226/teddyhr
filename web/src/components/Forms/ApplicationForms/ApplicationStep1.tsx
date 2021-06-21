@@ -19,18 +19,22 @@ export default function ApplicationStep1( props: Props ) {
                 <div className='form-group mb-3 col-12 col-md-3'>
                     <label>First Name</label>
                     <input id="First" type='text' className='form-control' />
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-3'>
                     <label>Middle Name</label>
                     <input id="Middle" type='text' className='form-control' />
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-3'>
                     <label>Last Name</label>
                     <input id="Last" type='text' className='form-control' />
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-3'>
                     <label>Name Extension</label>
                     <input id="NameExtension" type='text' className='form-control' />
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-6'>
                     <label>Phone</label>
@@ -40,6 +44,7 @@ export default function ApplicationStep1( props: Props ) {
                         onChange={( phone ) => setphone( phone )}
                         containerStyle={{ width: '100%' }}
                     />
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
 
                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>

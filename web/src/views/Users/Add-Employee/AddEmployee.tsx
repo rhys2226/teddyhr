@@ -34,7 +34,6 @@ export default function AddEmployee() {
             Position: $( '#Position' ).val(),
             confirmpassword: $( '#confirmpassword' ).val(),
             Type: 'Employee',
-            FirstDay: Date.now(),
             Avatar: avatar
         }
         $( 'input' ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
@@ -102,7 +101,9 @@ export default function AddEmployee() {
                         <div className="card-body">
                             <h5 className="text-info">Professional Photo</h5>
                             <Avatar />
-                            <p className="text-muted  mb-5 mt-2">Professional Photo <br /> is required</p>
+                            <h6 className="text-danger-lighter mt-2 small">* Photo is required</h6>
+                            <br />
+
                             <form className="row">
                                 <div className="col-md-12 mb-2 mt-3">
                                     <h5 className="text-info">Credentials</h5>
@@ -110,33 +111,45 @@ export default function AddEmployee() {
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Email</label>
                                     <input id="Email" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Password</label>
                                     <input id="Password" type='password' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Confirm Password</label>
                                     <input id="confirmpassword" type='password' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
-                                <div className="col-md-12 mb-2 mt-3">
+                                <div className="col-md-12 mb-2 mt-5">
                                     <h5 className="text-info">Personal Information</h5>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-3'>
                                     <label>First Name</label>
                                     <input id="First" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-3'>
                                     <label>Middle Name</label>
                                     <input id="Middle" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-3'>
                                     <label>Last Name</label>
                                     <input id="Last" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-3'>
                                     <label>Name Ext.</label>
                                     <input id="NameExtension" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
+                                </div>
+                                <div className='form-group mb-3 col-12 col-md-3'>
+                                    <label>Place of Birth</label>
+                                    <input id="PlaceOfBirth" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-6'>
                                     <label>Phone</label>
@@ -146,13 +159,16 @@ export default function AddEmployee() {
                                         onChange={( phone ) => setphone( phone )}
                                         containerStyle={{ width: '100%' }}
                                     />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
-                                <div className="col-md-12 mb-2 mt-3">
+
+                                <div className="col-md-12 mb-2 mt-5">
                                     <h5 className="text-info">Professional Information</h5>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Position/Title</label>
                                     <input id="Position" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Alignment </label>
@@ -161,17 +177,29 @@ export default function AddEmployee() {
                                         <option>Vertical</option>
                                         <option>Non-Vertical</option>
                                     </select>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
 
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Previous Employer</label>
                                     <input id="PreviousEmployer" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
-                                <div className='form-group mb-3 col-12 col-md-6'>
+                                <div className='form-group mb-3 col-12 col-md-4'>
                                     <label>Prev Employer's Contact Information</label>
                                     <input id="EmployersContactInformation" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
-
+                                <div className='form-group mb-3 col-12 col-md-4'>
+                                    <label>Salary</label>
+                                    <input id="Salary" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
+                                </div>
+                                <div className='form-group mb-3 col-12 col-md-4'>
+                                    <label>First Day of Service</label>
+                                    <input id="FirstDay" type='date' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
+                                </div>
                                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
                                     <button disabled={disabled} onClick={( e ) => {
                                         e.preventDefault()

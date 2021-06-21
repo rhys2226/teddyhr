@@ -20,30 +20,41 @@ export default function ApplicationStep2( props: Props ) {
                         <option>Vertical</option>
                         <option>Non-Vertical</option>
                     </select>
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-6 mt-2'>
-                    <label>Educational Attainments  (Separated with comma (,))</label>
+                    <label>Educational Attainments</label>
+                    <h6 className="text-info mt-2 small">Separated with comma/s (,)</h6>
                     <textarea id="EducationalAttainments" className='form-control'></textarea>
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-6 mt-2'>
-                    <label>Eligibilities  (Separated with comma (,))</label>
+                    <label>Eligibilities</label>
+                    <h6 className="text-info mt-2 small">Separated with comma/s (,)</h6>
                     <textarea id="Eligibilities" className='form-control'></textarea>
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-12 mt-2'>
-                    <label>Degrees (Separated with comma (,))</label>
-                    <textarea id="Degrees" className='form-control' placeholder="Bachelor or Science in Information Technology, Masters in Information Technology, Phd in Information Technology "></textarea>
+                    <label>Degrees</label>
+                    <h6 className="text-info mt-2 small">Separated with comma/s (,)</h6>
+                    <textarea id="Degrees" className='form-control' ></textarea>
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 mt-2'>
                     <label>Work Experiences</label>
+                    <h6 className="text-info mt-2 small">Separated with comma/s (,)</h6>
                     <textarea id="WorkExperience" className='form-control'></textarea>
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-6'>
                     <label>Previous Employer</label>
                     <input id="PreviousEmployer" type='text' className='form-control' />
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-6'>
                     <label>Employer's Contact Information</label>
                     <input id="EmployersContactInformation" type='text' className='form-control' />
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                 </div>
                 <div className='col-12 mb-5 d-flex align-items-center justify-content-center mt-5'>
                     <button onClick={() => props.makeStep( 1 )} className='btn btn-outline-dark mx-2 px-md-5'>Prev</button>

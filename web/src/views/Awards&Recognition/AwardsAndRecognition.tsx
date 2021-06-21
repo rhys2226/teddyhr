@@ -106,7 +106,7 @@ export default function AwardsAndRecognition() {
                 <div className="card-deck">
                     <div className="card shadow mb-4">
                         <div className="card-header p-3">
-                            <h2 className="card-title mt-2 mb-0">Award Form</h2>
+                            <strong className='card-title'>Award Form</strong>
                         </div>
                         <div className="card-body">
                             <div className="col-md-12 row">
@@ -127,14 +127,17 @@ export default function AwardsAndRecognition() {
                                                         ) )
                                                     }
                                                 </select>
+                                                <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label >Award Title</label>
                                                 <input  {...register( 'title' )} className="form-control bg-light" type="text" />
+                                                <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label >Description</label>
                                                 <textarea  {...register( 'description' )} className="form-control bg-light" />
+                                                <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                             </div>
                                             <input type="hidden" value={JSON.parse( userData ).id}  {...register( 'employee_id' )} />
                                             <div className="form-group col-md-12 d-flex aic jcc mt-5">

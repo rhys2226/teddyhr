@@ -70,9 +70,9 @@ export default function MainOverview( props: any ) {
                 </div>
             </div>
             <div className="row my-4">
-                <WorkExperience data={employee.work_experiences} id={props.id} />
-                <EducationalAttainments data={employee.educational_attainments} id={props.id} />
-                <Eligibilities data={employee.eligibilities} id={props.id} />
+                {/* <WorkExperience data={employee.work_experiences} id={props.id} /> */}
+                {/* <EducationalAttainments data={employee.educational_attainments} id={props.id} /> */}
+                {/* <Eligibilities data={employee.eligibilities} id={props.id} /> */}
                 {/* <PersonalForms id={props.id} />
                 <SupportingDocuments data={[]} /> */}
             </div>

@@ -148,19 +148,19 @@ export default function ApplicationForm( props: any ) {
                         <br />
                         <div className="row  text-center ml-5">
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper === 1 ? ' fe-edit-3 text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `} ></i>
+                                <i className={`${ stepper === 1 ? ' fe-edit-3 text-danger' : 'fe-circle bg-white circle text-muted' } fe-32 fe `} ></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper === 2 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 2 ? ' fe-edit-3  text-danger' : 'fe-circle bg-white circle text-muted' } fe-32 fe `}></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper === 3 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 3 ? ' fe-edit-3  text-danger' : 'fe-circle bg-white circle text-muted' } fe-32 fe `}></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper === 4 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 4 ? ' fe-edit-3  text-danger' : 'fe-circle bg-white circle text-muted' } fe-32 fe `}></i>
                             </div>
                             <div className="col-md-2 ml-3">
-                                <i className={`${ stepper === 5 ? ' fe-edit-3  text-primary' : 'fe-circle bg-secondary-lighter circle text-secondary-lighter' } fe-32 fe `}></i>
+                                <i className={`${ stepper === 5 ? ' fe-edit-3  text-danger' : 'fe-circle bg-white circle text-muted' } fe-32 fe `}></i>
                             </div>
                         </div>
                         <hr style={{ marginTop: '-20px' }} />

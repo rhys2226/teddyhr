@@ -29,6 +29,7 @@ export default function ApplicationStep5( props: Props ) {
                 }} className="avatar avatar-xl">
                     <img id="avatar12" style={{ cursor: 'pointer' }} src="./assets/placeholders/1.png" alt="..." className="avatar-img rounded-circle" />
                 </div>
+                <h6 className="text-danger-lighter mt-2 small">* Photo is required</h6>
             </div>
         )
     }

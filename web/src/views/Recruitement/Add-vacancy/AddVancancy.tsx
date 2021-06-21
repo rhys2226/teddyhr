@@ -127,6 +127,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Position/Title</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Position' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -134,6 +135,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Item Number</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'ItemNumber' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -141,13 +143,14 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Salary Grade</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'SalaryGrade' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
                             <div className='form-group row'>
                                 <label className='col-sm-3 col-form-label'>
                                     Governmental Unit
-									<span className='text-info'> (optional)</span>
+                                    <span className='text-info'> (optional)</span>
                                 </label>
                                 <div className='col-sm-9'>
                                     <select {...register( 'GovernmentalUnit' )} className='form-control'>
@@ -155,13 +158,14 @@ export default function AddVancancy() {
                                         <option>City </option>
                                         <option>Municipality </option>
                                     </select>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
                             <div className='form-group row'>
                                 <label className='col-sm-3 col-form-label'>
                                     Class
-									<span className='text-info'> (optional)</span>
+                                    <span className='text-info'> (optional)</span>
                                 </label>
                                 <div className='col-sm-9'>
                                     <select {...register( 'Class' )} className='form-control'>
@@ -173,6 +177,7 @@ export default function AddVancancy() {
                                         <option>6th</option>
                                         <option>Special</option>
                                     </select>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -180,6 +185,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Department, Corporation or Agency / Local Govt.</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Department' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -187,6 +193,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Bureau OR Office</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Bureau' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -194,6 +201,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Department / Branch / Dviision</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Division' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -201,6 +209,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Workstation / Place of Work</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Workstation' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -208,6 +217,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Present Approp Act</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Present' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -215,6 +225,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Previous Approp Act</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Previous' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -222,6 +233,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Salary Authorized</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'SalaryAuthorized' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -229,6 +241,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Other Compensation</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'OtherCompensation' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -236,6 +249,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Position Title of Immediate Supervisor</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'ImmediateSupervisor' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -251,7 +265,7 @@ export default function AddVancancy() {
                                         type='button'
                                         className='btn btn-outline-primary mb-5'>
                                         Add
-									</button>
+                                    </button>
 
                                     <button
                                         onClick={() => {
@@ -260,16 +274,18 @@ export default function AddVancancy() {
                                         type='button'
                                         className='btn btn-outline-danger ml-2 mb-5'>
                                         Clear All
-									</button>
+                                    </button>
                                     {addForm.map( ( value, index ) => (
                                         <div key={index} className={`row mb-4 DirectlySupervised${ index }`}>
                                             <div className='col-md-6'>
                                                 <label>POSITION TITLE</label>
                                                 <input id={`Position${ index }`} type='text' className='form-control' />
+                                                <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                             </div>
                                             <div className='col-md-6'>
                                                 <label>ITEM NUMBER</label>
                                                 <input id={`ItemNumber${ index }`} type='text' className='form-control' />
+                                                <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                             </div>
                                         </div>
                                     ) )}
@@ -279,17 +295,19 @@ export default function AddVancancy() {
                             <div className='form-group row mt-5'>
                                 <label className='col-sm-3 col-form-label'>
                                     Machine, Equipement, Tools, etc., Used regularly in performance of work
-								</label>
+                                </label>
                                 <div className='col-sm-9'>
                                     <textarea {...register( 'Machine' )} className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
                             <h5 className='col-12 text-center col-form-label  bold mb-0'>17. CONTACTS / CLIENTS / STAKEHOLDERS</h5>
+                            <h6 className="text-danger-lighter mb-2 small text-center">* All fields are required</h6>
 
-                            <div className='col-md-12 row p-1 mt-0 card mb-5'>
+                            <div className='col-md-12 row p-1 mt-2 card mb-5'>
                                 <table className='table '>
-                                    <thead className='table-info'>
+                                    <thead>
                                         <tr>
                                             <th className='text-info'>Internal</th>
                                             <th className='text-center text-info'>Occasional</th>
@@ -307,6 +325,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Unit or Section</label>
                                 <div className='col-sm-9'>
                                     <input {...register( 'Unit' )} type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -314,16 +333,15 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Job Summary</label>
                                 <div className='col-sm-9'>
                                     <textarea {...register( 'Job' )} className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
                             <div className='form-group row mt-5'>
                                 <label className='col-sm-3 col-form-label bold'>
                                     Qualifications
-									<br />
-                                    <span style={{ fontWeight: 200 }} className='text-info'>
-                                        (Separated with comma (,))
-									</span>{' '}
+                                    <br />
+                                    <h6 className="text-info mt-2 small">Fields should be separated with comma/s (,)</h6>
                                 </label>
                                 <div className='col-sm-9'></div>
                             </div>
@@ -332,6 +350,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Education</label>
                                 <div className='col-sm-9'>
                                     <textarea {...register( 'Education' )} className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -339,6 +358,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Experience</label>
                                 <div className='col-sm-9'>
                                     <textarea {...register( 'Experience' )} className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -346,6 +366,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Training</label>
                                 <div className='col-sm-9'>
                                     <textarea  {...register( 'Training' )} className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -353,6 +374,7 @@ export default function AddVancancy() {
                                 <label className='col-sm-3 col-form-label'>Eligibility</label>
                                 <div className='col-sm-9'>
                                     <textarea  {...register( 'Eligibility' )} className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -360,10 +382,12 @@ export default function AddVancancy() {
                                 <label className='col-sm-2 col-form-label'>Core Competencies</label>
                                 <div className='col-sm-4'>
                                     <textarea id="Name0" className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <label className='col-sm-2 col-form-label'>Competency Level</label>
                                 <div className='col-sm-4'>
                                     <textarea id="CompetencyLevel1" className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
@@ -371,20 +395,22 @@ export default function AddVancancy() {
                                 <label className='col-sm-2 col-form-label'>Leadership Competencies</label>
                                 <div className='col-sm-4'>
                                     <textarea id="Name1" className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <label className='col-sm-2 col-form-label'>Competency Level</label>
                                 <div className='col-sm-4'>
                                     <textarea id="CompetencyLevel2" className='form-control'></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                             </div>
 
                             <h5 className='col-12 text-center col-form-label  bold mb-0'>
                                 Statement of Dutioes and Responsibilitiese (Technical Competencies)
-							</h5>
+                            </h5>
 
                             <div className='col-md-12 row p-1 mt-0 card mb-5'>
                                 <table className='table '>
-                                    <thead className='table-success'>
+                                    <thead>
                                         <tr>
                                             <th className='text-success'>Percentage of Working Time </th>
                                             <th className='text-success'>(State the duties and responsibilities here:)</th>
@@ -406,7 +432,7 @@ export default function AddVancancy() {
                                                     type='button'
                                                     className='btn btn-light ml-2'>
                                                     Clear All
-												</button>
+                                                </button>
                                             </th>
                                         </tr>
                                     </thead>
@@ -419,7 +445,7 @@ export default function AddVancancy() {
                             <div className='form-group mb-5 d-flex aic jcc'>
                                 <button type='submit' className='btn btn-outline-primary'>
                                     Post Vacancy
-								</button>
+                                </button>
                             </div>
                         </form>
                     </div>

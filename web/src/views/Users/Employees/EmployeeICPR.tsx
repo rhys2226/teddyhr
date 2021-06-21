@@ -75,6 +75,13 @@ export default function EmployeeICPR( props: any ) {
             } )
     }
 
+    const handleAvarage = ( Q: any, E: any, T: any, ) => (
+        (
+            parseFloat( Q ) +
+            parseFloat( E ) +
+            parseFloat( T )
+        )
+        / 3 )
 
     return (
         <div className="card-body card">
@@ -155,34 +162,65 @@ export default function EmployeeICPR( props: any ) {
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">OUTPUT</label>
                                     <textarea id={`Output${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Success Indicators(Targets + Measures)</label>
                                     <textarea id={`SuccessIndicatiors${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Quality</label>
-                                    <input id={`Q${ index }`} type="number" className="form-control" />
+                                    <input onChange={() => {
+                                        $( `#A${ index }` ).val(
+                                            handleAvarage(
+                                                $( `#Q${ index }` ).val(),
+                                                $( `#E${ index }` ).val(),
+                                                $( `#T${ index }` ).val(),
+                                            )
+                                        )
+                                    }} id={`Q${ index }`} type="number" className="form-control" />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Efficiency</label>
-                                    <input id={`E${ index }`} type="number" className="form-control" />
+                                    <input onChange={() => {
+                                        $( `#A${ index }` ).val(
+                                            handleAvarage(
+                                                $( `#Q${ index }` ).val(),
+                                                $( `#E${ index }` ).val(),
+                                                $( `#T${ index }` ).val(),
+                                            )
+                                        )
+                                    }} id={`E${ index }`} type="number" className="form-control" />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Timeless</label>
-                                    <input id={`T${ index }`} type="number" className="form-control" />
+                                    <input onChange={() => {
+                                        $( `#A${ index }` ).val(
+                                            handleAvarage(
+                                                $( `#Q${ index }` ).val(),
+                                                $( `#E${ index }` ).val(),
+                                                $( `#T${ index }` ).val(),
+                                            )
+                                        )
+                                    }} id={`T${ index }`} type="number" className="form-control" />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
-                                    <label htmlFor="">Average</label>
-                                    <input id={`A${ index }`} type="number" className="form-control" />
+                                    <label className="text-success">Average</label>
+                                    <input disabled id={`A${ index }`} type="number" className="form-control" />
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Actual Accomplishments</label>
                                     <textarea id={`ActualAccomplishments${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Remarks</label>
                                     <textarea id={`Remarks${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <input type="hidden" value="StrategicPriority" id="Type" />
                             </div>
@@ -223,34 +261,65 @@ export default function EmployeeICPR( props: any ) {
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">OUTPUT</label>
                                     <textarea id={`FOutput${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Success Indicators(Targets + Measures)</label>
                                     <textarea id={`FSuccessIndicatiors${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Quality</label>
-                                    <input id={`FQ${ index }`} type="number" className="form-control" />
+                                    <input onChange={() => {
+                                        $( `#FA${ index }` ).val(
+                                            handleAvarage(
+                                                $( `#FQ${ index }` ).val(),
+                                                $( `#FE${ index }` ).val(),
+                                                $( `#FT${ index }` ).val(),
+                                            )
+                                        )
+                                    }} id={`FQ${ index }`} type="number" className="form-control" />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Efficiency</label>
-                                    <input id={`FE${ index }`} type="number" className="form-control" />
+                                    <input onChange={() => {
+                                        $( `#FA${ index }` ).val(
+                                            handleAvarage(
+                                                $( `#FQ${ index }` ).val(),
+                                                $( `#FE${ index }` ).val(),
+                                                $( `#FT${ index }` ).val(),
+                                            )
+                                        )
+                                    }} id={`FE${ index }`} type="number" className="form-control" />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Timeless</label>
-                                    <input id={`FT${ index }`} type="number" className="form-control" />
+                                    <input onChange={() => {
+                                        $( `#FA${ index }` ).val(
+                                            handleAvarage(
+                                                $( `#FQ${ index }` ).val(),
+                                                $( `#FE${ index }` ).val(),
+                                                $( `#FT${ index }` ).val(),
+                                            )
+                                        )
+                                    }} id={`FT${ index }`} type="number" className="form-control" />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
-                                    <label htmlFor="">Average</label>
-                                    <input id={`FA${ index }`} type="number" className="form-control" />
+                                    <label className="text-success">Average</label>
+                                    <input disabled id={`FA${ index }`} type="number" className="form-control" />
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Actual Accomplishments</label>
                                     <textarea id={`FActualAccomplishments${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Remarks</label>
                                     <textarea id={`FRemarks${ index }`} className="form-control" ></textarea>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <input type="hidden" value="CoreFunction" id="FType" />
                             </div>
