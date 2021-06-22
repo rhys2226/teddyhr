@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { noData } from '../../../components/Alerts/Alert';
 import Pagination from '../../../components/Table/Pagination'
 import { Auth } from '../../../services/auth.service';
 import TopEmployeePlaceholders from '../Placeholders/TopEmployeePlaceholders';
@@ -53,6 +54,7 @@ export default function TopEmployee() {
 
 
     const renderData = () => {
+        noData()
         if ( topEmployees.length === 0 ) {
             return <tr><td className="text-center text-muted" colSpan={5}>No top employee data yet...</td> </tr>
         }

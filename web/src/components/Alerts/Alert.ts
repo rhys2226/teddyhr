@@ -41,3 +41,13 @@ export function Alert(
     audio.volume = 0.4;
     audio.play()
 }
+
+export function noData() {
+    const audio = new Audio(`http://localhost:3000/audio/pop.mp3`)
+    audio.volume = 0.4;
+    audio.play()
+    setTimeout(() => {
+        audio.pause();
+        audio.currentTime = 0;
+    },120 );
+}

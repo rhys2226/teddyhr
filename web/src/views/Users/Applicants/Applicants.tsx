@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Alert, Fire } from '../../../components/Alerts/Alert'
+import { Alert, Fire, noData } from '../../../components/Alerts/Alert'
 import LargeModal from '../../../components/Modals/LargeModal'
 import SlideModal from '../../../components/Modals/SlideModal'
 import Pagination from '../../../components/Table/Pagination'
@@ -50,6 +50,7 @@ export default function Applicants() {
 
 
     const renderData = () => {
+        noData()
         if ( applicants.length === 0 ) {
             return <tr>
                 <td className="text-center text-muted" colSpan={9}>Nothing has applied yet...</td>

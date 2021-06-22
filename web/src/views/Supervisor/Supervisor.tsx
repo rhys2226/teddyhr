@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Fire } from '../../components/Alerts/Alert'
+import { Alert, Fire, noData } from '../../components/Alerts/Alert'
 import LargeModal from '../../components/Modals/LargeModal'
 import Pagination from '../../components/Table/Pagination'
 import { Auth } from '../../services/auth.service'
@@ -56,6 +56,7 @@ export default function Supervisor() {
     }
 
     const renderData = () => {
+        noData()
         if ( supervisors.length === 0 ) {
             return <tr>
                 <td className="text-center text-muted" colSpan={3}>Nothing Supervisors yet...</td>

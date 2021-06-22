@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Fire } from '../../components/Alerts/Alert';
+import { Alert, Fire, noData } from '../../components/Alerts/Alert';
 import { toDate } from '../../helpers';
 import { Auth } from '../../services/auth.service';
 import AwardListPlaceholder from './AwardListPlaceholder';
@@ -24,6 +24,7 @@ export default function ListOfAwards() {
     }
 
     const renderData = () => {
+        noData()
         if ( awards.length === 0 ) {
             return <div className="text-center text-muted w-100" >No posted awards yet...</div>
         }

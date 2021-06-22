@@ -80,19 +80,21 @@ export default function ServiceRecordSheet( props: {
                     </tr>
                     {
                         data.map( ( workExperience: any, index: number ) => (
-                            <tr>
-                                <td className="text-center">{toDate( workExperience.From )}</td>
-                                <td className="text-center">{toDate( workExperience.To )}</td>
-                                <td className="text-center">{workExperience.Position}</td>
-                                <td className="text-center">{workExperience.Appointment}</td>
-                                <td className="text-center">{workExperience.Salary}</td>
-                                <td className="text-center">_________</td>
-                                <td className="text-center">{workExperience.Government}</td>
-                                <td className="text-center">__________</td>
-                                <td className="text-center">_________</td>
-                                <td className="text-center">{toDate( workExperience.created_at )}</td>
-                                <td className="text-center">_________</td>
-                            </tr>
+                            <>
+                                <tr className="table">
+                                    <td className="text-center">{toDate( workExperience.From )}</td>
+                                    <td className="text-center">{toDate( workExperience.To )}</td>
+                                    <td className="text-center">{workExperience.Position}</td>
+                                    <td className="text-center">{workExperience.Appointment}</td>
+                                    <td className="text-center">{workExperience.Salary}</td>
+                                    <td className="text-center">{workExperience.Department}</td>
+                                    <td className="text-center">{workExperience.Government}</td>
+                                    <td className="text-center">N/A</td>
+                                    <td className="text-center">_________</td>
+                                    <td className="text-center">{toDate( workExperience.created_at )}</td>
+                                    <td className="text-center">_________</td>
+                                </tr>
+                            </>
                         ) )
                     }
                     <tr>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Pagination from '../../../components/Table/Pagination'
-import { Alert, Fire } from '../../../components/Alerts/Alert';
+import { Alert, Fire, noData } from '../../../components/Alerts/Alert';
 import EmployeesPlaceholder from './EmployeesPlaceholder';
 import SlideModal from '../../../components/Modals/SlideModal';
 import ChangeSupervisor from './ChangeSupervisor';
@@ -66,6 +66,7 @@ export default function Employees() {
     }
 
     const renderData = () => {
+        noData()
         if ( employees.length === 0 ) {
             return <tr>
                 <td className="text-center text-muted" colSpan={7}>No Employee Data Yet...</td>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Fire } from '../../../../components/Alerts/Alert'
+import { Alert, Fire, noData } from '../../../../components/Alerts/Alert'
 import FullScreenModal from '../../../../components/Modals/FullScreenModal'
 import Pagination from '../../../../components/Table/Pagination'
 import { Auth } from '../../../../services/auth.service'
@@ -41,9 +41,10 @@ export default function Leaves() {
     }
 
     const renderData = () => {
+        noData()
         if ( leaves.length === 0 ) {
             return <tr>
-                <td className="text-center text-muted" colSpan={7}>No available vacancies yet...</td>
+                <td className="text-center text-muted" colSpan={7}>No leave applications yet...</td>
             </tr>
         }
     }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import { noData } from '../../../components/Alerts/Alert';
 import { LearningAndDevelopments } from '../../../components/Doc/PDS/PDSTypes';
 import { toDate } from '../../../helpers';
 import { Auth } from '../../../services/auth.service';
@@ -19,7 +20,7 @@ export default function SeminarsAttended() {
         const api = new Auth( 'learning-and-development' )
         api.fetchOne( id )
             .then( ( data ) => {
-                console.log( data )
+                noData()
                 setseminars( data )
             } )
     }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Alert, Fire } from '../../../components/Alerts/Alert'
+import { Alert, Fire, noData } from '../../../components/Alerts/Alert'
 import { Auth } from '../../../services/auth.service'
 import VacanciesPlaceholders from './VacanciesPlaceholders'
 import { useForm } from 'react-hook-form';
@@ -36,6 +36,7 @@ export default function Vacancies() {
     }
 
     const renderData = () => {
+        noData()
         if ( vacancies.length === 0 ) {
             return <tr>
                 <td className="text-center text-muted" colSpan={7}>No available vacancies yet...</td>

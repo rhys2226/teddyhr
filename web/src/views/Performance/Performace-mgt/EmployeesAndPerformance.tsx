@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { noData } from '../../../components/Alerts/Alert';
 import Pagination from '../../../components/Table/Pagination'
 import { Auth } from '../../../services/auth.service';
 import EmployeeAndPerformancePlaceholders from '../Placeholders/EmployeeAndPerformancePlaceholders';
@@ -36,6 +37,7 @@ export default function EmployeesAndPerformance() {
     }
 
     const renderData = () => {
+        noData()
         if ( performance.length === 0 ) {
             return <tr>
                 <td className="text-center text-muted" colSpan={8}>No employee performaces yet...</td>

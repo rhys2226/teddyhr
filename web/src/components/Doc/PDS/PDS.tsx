@@ -12,6 +12,7 @@ import * as interfaces from './PDSInterface'
 import {
     useParams
 } from "react-router-dom";
+import { noData } from '../../Alerts/Alert'
 
 export default function PDS() {
 
@@ -26,6 +27,7 @@ export default function PDS() {
         const api = new Auth( 'pds' )
         api.fetchOne( id )
             .then( ( data ) => {
+                noData()
                 setData( data )
                 setComponent(
                     <div className="bg-white portrait-pds pds">
