@@ -1,24 +1,24 @@
 
 Sidebar
+Seminars on Employees
 individual leaves
-subordinates group by
+
+initial Record if user is created
+Compute Leave ( Leave Balance and Leave Ui)
+Cron Job
 
 PDS 
 Questions Solo Parent
 name extension
 PDS Date of Validity
 
-LeaveCard Ui for initial Record
-Compute Leave
-Get Leave Credits
-Cron Job
-applicant scheduling email
 
+applicant scheduling email
+subordinates group by
 Profile WorkExperience Error
 
 form validation back and front
 Error Handler
 
-Notification
 clear errors
 seeders

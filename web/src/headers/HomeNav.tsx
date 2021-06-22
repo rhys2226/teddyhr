@@ -63,17 +63,17 @@ export default function HomeNav() {
                             <i className='fe fe-sun fe-16'></i>
                         </a>
                     </li>
-                    <li className='nav-item'>
+                    {/* <li className='nav-item'>
                         <a className='nav-link text-muted my-2' href='./#' data-toggle='modal' data-target='.modal-shortcut'>
                             <span className='fe fe-download-cloud fe-16'></span>
                         </a>
-                    </li>
-                    <li className='nav-item nav-notif'>
+                    </li> */}
+                    {/* <li className='nav-item nav-notif'>
                         <a role="button" className='nav-link text-muted my-2' data-toggle='modal' data-target='.modal-notif'>
                             <span className='fe fe-bell fe-16'></span>
                             <span className='dot dot-md bg-danger'></span>
                         </a>
-                    </li>
+                    </li> */}
                     <li className='nav-item dropdown'>
                         <a
                             className='nav-link dropdown-toggle text-muted pr-0'
