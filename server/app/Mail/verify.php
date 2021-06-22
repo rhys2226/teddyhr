@@ -19,7 +19,7 @@ class verify extends Mailable
     public function build()
     {
     return  $this->from(env('APP_EMAIL'), env('APP_NAME') )
-        ->subject('Welcome to'.env('APP_NAME').' Please verify your email' )
+        ->subject('Welcome to '.env('APP_NAME').' Please verify your email' )
         ->view('emails.verify',['data'=> $this->emailData]);
     }
 }

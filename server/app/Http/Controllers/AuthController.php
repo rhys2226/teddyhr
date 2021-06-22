@@ -123,7 +123,7 @@ class AuthController extends Controller
                             $model->$key = $type;
                         }
                         if($key === 'From' || $key === 'To'){
-                            $model->$key = date('Y-m-d H:i:s');
+                            $model->$key =date('Y-m-d');
                         }
                     }
                     $model->save();
@@ -148,7 +148,7 @@ class AuthController extends Controller
                             $model->$key = $type;
                         }
                         if($key === 'From' || $key === 'To'){
-                            $model->$key = date('Y-m-d H:i:s');
+                            $model->$key = date('Y-m-d');
                         }
                     }
                     $model->save();
@@ -182,7 +182,7 @@ class AuthController extends Controller
                             $model->$key = 'No';
                         }
                         if($key === 'From' || $key === 'To'){
-                            $model->$key = date('Y-m-d H:i:s');
+                            $model->$key = date('Y-m-d');
                         }
                     }
                     $model->save();
@@ -196,7 +196,7 @@ class AuthController extends Controller
                         $model->$key = $data['user_id'];
                     }
                     if($key === 'From' || $key === 'To'){
-                        $model->$key = date('Y-m-d H:i:s');
+                        $model->$key = date('Y-m-d');
                     }
                     $model->save();
                 }
