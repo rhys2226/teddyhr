@@ -92,30 +92,30 @@ export default function EmployeesAndPerformance() {
                                         </td>
 
                                         <td>
-                                            <span className="mb-0">{employee.overAllRatings}%</span>
+                                            <span className="mb-0">{employee.AveragePerformance}%</span>
                                             <div className="progress my-2" style={{ height: "4px" }}>
-                                                <div className={`progress-bar progress-bar-striped ${ setColor( employee.overAllRatings ) }`} role="progressbar" style={{ width: employee.overAllRatings + "%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
+                                                <div className={`progress-bar progress-bar-striped ${ setColor( employee.AveragePerformance ) }`} role="progressbar" style={{ width: employee.AveragePerformance + "%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <span className="mb-0">5%</span>
+                                            <span className="mb-0">{employee.RatingThisMonth}%</span>
                                             <div className="progress my-2" style={{ height: "4px" }}>
-                                                <div className="progress-bar progress-bar-striped bg-dark" role="progressbar" style={{ width: "10%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
+                                                <div className={`progress-bar progress-bar-striped ${ setColor( employee.RatingThisMonth ) }`} role="progressbar" style={{ width: employee.RatingThisMonth + "%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <span className="mb-0">5%</span>
+                                            <span className="mb-0">{employee.LowestRating}%</span>
                                             <div className="progress my-2" style={{ height: "4px" }}>
-                                                <div className="progress-bar  progress-bar-striped bg-danger" role="progressbar" style={{ width: "10%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
+                                                <div className={`progress-bar progress-bar-striped ${ setColor( employee.LowestRating ) }`} role="progressbar" style={{ width: employee.LowestRating + "%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <span className="mb-0">35%</span>
+                                            <span className="mb-0">{employee.HighestRating}%</span>
                                             <div className="progress my-2" style={{ height: "4px" }}>
-                                                <div className="progress-bar progress-bar-striped bg-success" style={{ width: "35%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
+                                                <div className={`progress-bar progress-bar-striped ${ setColor( employee.HighestRating ) }`} role="progressbar" style={{ width: employee.HighestRating + "%" }} aria-valuenow={10} aria-valuemin={0} aria-valuemax={100}></div>
                                             </div>
                                         </td>
 
@@ -131,7 +131,6 @@ export default function EmployeesAndPerformance() {
                                                     {employee.supervisors.First + ' ' + employee.supervisors.Middle + ' ' + employee.supervisors.Last}
                                                 </strong>
                                             </p>
-                                            {/* <p className="small mb-3"><span className="badge badge-danger text-white p-1 br-2" style={{ fontWeight: 900, }}> MIS Director</span></p> */}
                                         </td>
                                     </tr>
                                 ) )

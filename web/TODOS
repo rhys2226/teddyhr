@@ -1,8 +1,11 @@
-Leave Settings CRUD and Search
-Employee Performance
+
 Sidebar
-UI Restriction
+
 LeaveCard Ui for initial Record
+Compute Leave
+Get Leave Credits
+Cron Job
+applicant scheduling email
 
 PDS 
 Questions Solo Parent
@@ -10,18 +13,10 @@ Spouse
 name extension
 PDS Date of Validity
 
-Employee First day, Month of Service
 Profile WorkExperience Error
 
 form validation back and front
 Error Handler
-
-strict password  Backend and Front End
-Compute Leave
-Get Leave Credits
-Cron Job
-applicant scheduling email
-
 
 Notification
 clear errors
