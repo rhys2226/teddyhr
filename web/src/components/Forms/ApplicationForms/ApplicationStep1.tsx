@@ -39,7 +39,6 @@ export default function ApplicationStep1( props: Props ) {
                 <div className='form-group mb-3 col-12 col-md-4 mt-5'>
                     <div className="d-flex mb-1">
                         <label>Phone</label>
-                        <i title="Verify Phone" style={{ cursor: 'pointer' }} className="fe fe-phone-call ml-auto mr-5"></i>
                     </div>
                     <input id="Phone" style={{ display: 'none' }} value={phone} type='text' className='form-control' />
                     <PhoneInput

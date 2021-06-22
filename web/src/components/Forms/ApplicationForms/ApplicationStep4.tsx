@@ -1,4 +1,5 @@
 import React from 'react'
+import { Auth } from '../../../services/auth.service'
 import { Alert } from '../../Alerts/Alert'
 
 type Props = {
@@ -11,6 +12,25 @@ export default function ApplicationStep4( props: Props ) {
     const [ Email, setEmail ] = React.useState( '' )
     const [ Password, setPassword ] = React.useState( '' )
     const [ confirmPassword, setconfirmPassword ] = React.useState( '' )
+    const [ verificationCode, setverificationCode ] = React.useState( '' )
+
+    const verifyEmail = () => {
+        const verification_code = random( 30 )
+        setverificationCode( verification_code )
+        const api = new Auth( 'verify-email' )
+        api.create( { verification_code: verification_code, email: Email } )
+    }
+
+    function random( length: number ) {
+        let result = '';
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+            result += characters.charAt( Math.floor( Math.random() *
+                charactersLength ) );
+        }
+        return result;
+    }
 
     return (
         <div>
@@ -20,10 +40,10 @@ export default function ApplicationStep4( props: Props ) {
                 <div className='form-group mb-3 col-12 col-md-4'>
                     <div className="d-flex mb-3">
                         <label>Email</label>
-                        <i title="Verify Email" style={{ cursor: 'pointer' }} className="fe fe-mail ml-auto mr-3"></i>
+                        <i onClick={() => { verifyEmail() }} title="Verify Email" style={{ cursor: 'pointer' }} className="fe fe-mail ml-auto mr-3"></i>
                     </div>
                     <input onChange={( e ) => setEmail( e.target.value )} id="Email" type='email' required className='form-control' />
-                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
+                    <h6 className="text-danger-lighter mt-2 small">* This field is required. Please click the email icon to verify your email addreess so that we can inform you if you were shortlisted.</h6>
                 </div>
                 <div className='form-group mb-3 col-12 col-md-4'>
                     <label className="mb-4">Password</label>
