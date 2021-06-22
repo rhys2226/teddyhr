@@ -62,7 +62,7 @@ export default function ApplicationForLeave() {
                             <strong className='card-title'>Application for Leave Form</strong>
                         </div>
                         <div className='card-body'>
-                            <h6 className="bold mt-2 mb-4 text-primary">TYPE OF LEAVE</h6>
+                            <h6 className="bold mt-2 mb-4 text-info">TYPE OF LEAVE</h6>
                             <div className="row mb-4">
                                 <div className="col-md-3 mb-4">
                                     <label >SPENT</label>
@@ -141,8 +141,8 @@ export default function ApplicationForLeave() {
                                 </div>
                             </div>
 
-                            <h6 style={hide( spend != 'Vacation' )} className="bold mt-2 mb-4 text-primary">WHERE LEAVE WILL BE</h6>
-                            <h6 style={hide( spend != 'Sick' )} className="bold mt-2 mb-4 text-primary">WHERE LEAVE WILL BE</h6>
+                            <h6 style={hide( spend != 'Vacation' )} className="bold mt-2 mb-4 text-info">WHERE LEAVE WILL BE</h6>
+                            <h6 style={hide( spend != 'Sick' )} className="bold mt-2 mb-4 text-info">WHERE LEAVE WILL BE</h6>
                             <div className="row mb-4">
                                 <div style={hide( spend != 'Vacation' )} className="col-md-3 mb-4">
                                     <label >In case of Vacation Leave</label>
@@ -180,13 +180,13 @@ export default function ApplicationForLeave() {
 
                             <div className="row">
                                 <div className="col-md-6">
-                                    <h6 className="bold mt-2 mb-4 text-primary">NUMBER OF DAYS APPLIED FOR</h6>
+                                    <h6 className="bold mt-2 mb-4 text-info">NUMBER OF DAYS APPLIED FOR</h6>
                                     <label >Days</label>
                                     <input {...register( 'Days' )} placeholder="0" className="form-control" />
                                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6">
-                                    <h6 className="bold mt-2 mb-4 text-primary">COMUTATION</h6>
+                                    <h6 className="bold mt-2 mb-4 text-info">COMUTATION</h6>
                                     <label >Select Comutation</label>
                                     <select {...register( 'Comutation' )} className="form-control" >
                                         <option selected disabled value="">Choose..</option>
