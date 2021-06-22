@@ -59,9 +59,7 @@ class EmployeeController extends Controller
                 foreach($rating->RatingDetails as $ratingDetails){
                     $AveragePerformance += $ratingDetails->A;
                     array_push($ratingsArray, $ratingDetails->A );
-                    if($ratingDetails->created_at->format('m') == date('m')){
-                        $RatingThisMonth =  $ratingDetails->A;
-                    }
+                    $ratingDetails->created_at->format('m') === date('m') ? $RatingThisMonth = $ratingDetails->A : $RatingThisMonth = 0;   
                 }
                 $rating->AveragePerformance = $AveragePerformance * 20;
                 $rating->LowestRating = min($ratingsArray) * 20;
