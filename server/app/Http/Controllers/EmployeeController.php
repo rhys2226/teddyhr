@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Http\Controllers\Controller;
 use App\Models\Rating;
-use App\Models\RatingDetails;
-use App\Models\Subordiante;
 use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
 {
@@ -35,11 +32,43 @@ class EmployeeController extends Controller
     }
     
     public function topEmployees(){
-        return [];
+        $ratings = Rating::with('RatingDetails')
+            ->with('user')
+            ->with('supervisors')
+            ->whereMonth('created_at',date('m'))
+            ->get();
+            foreach($ratings as $rating){
+                $overAllRating = 0;
+                foreach($rating->RatingDetails as $ratingDetails){
+                    $overAllRating += $ratingDetails->A;
+                }
+                $rating->overAllRatings = $overAllRating * 20;
+            }
+        return $ratings;
     }
     
     public function employeePerformance(){
-        return [];
+        $ratings = Rating::with('RatingDetails')
+            ->with('user')
+            ->with('supervisors')
+            ->get();
+            foreach($ratings as $rating){
+                $AveragePerformance = 0;
+                $RatingThisMonth = 0;
+                $ratingsArray = [];
+                foreach($rating->RatingDetails as $ratingDetails){
+                    $AveragePerformance += $ratingDetails->A;
+                    array_push($ratingsArray, $ratingDetails->A );
+                    if($ratingDetails->created_at->format('m') == date('m')){
+                        $RatingThisMonth =  $ratingDetails->A;
+                    }
+                }
+                $rating->AveragePerformance = $AveragePerformance * 20;
+                $rating->LowestRating = min($ratingsArray) * 20;
+                $rating->HighestRating = max($ratingsArray) * 20;
+                $rating->RatingThisMonth = $RatingThisMonth * 20;
+            }
+       return $ratings;
     }
     
 

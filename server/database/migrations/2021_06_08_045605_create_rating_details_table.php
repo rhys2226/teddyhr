@@ -14,10 +14,10 @@ class CreateRatingDetailsTable extends Migration
             $table->foreignId('rating_id')->onDelete('cascade');
             $table->string('Output');
             $table->string('SuccessIndicatiors');
-            $table->integer('Q');
-            $table->integer('E');
-            $table->integer('T');
-            $table->integer('A');
+            $table->double('Q');
+            $table->double('E');
+            $table->double('T');
+            $table->double('A');
             $table->string('Type');
             
             $table->string('ActualAccomplishments');

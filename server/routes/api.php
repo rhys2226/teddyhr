@@ -81,7 +81,7 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::resource('/references', ReferencesController::class);  
         Route::resource('/identification', IdentificationController::class);  
         Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);
-        Route::get('/employee-performances', [EmployeeController::class, 'topEmployees']);
+        Route::get('/employee-performances', [EmployeeController::class, 'employeePerformance']);
         Route::post('/update-profile', [EmployeeController::class, 'updateProfile']);
     });
 });
