@@ -24,7 +24,8 @@ class UserSeeder extends Seeder
             'Email'  => 'teddy@gmail.com',
             'NameExtension'  => '',
             'Password'  => Hash::make('admin1'),
+            'email_verified_at' => time()
         ]);
     }
 }
- 
+  

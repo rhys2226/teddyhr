@@ -32,16 +32,31 @@ use App\Http\Controllers\ReferencesController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WorkExperienceController;
 use App\Models\Employee;
+use Illuminate\Support\Facades\Auth;
+
+// ->middleware('auth')->name('verification.notice')
+
+
 
 Route::middleware('throttle:60,1')->group(function () {
     Route::prefix('/auth')->group(function () {
         Route::post('/login', [AuthController::class, 'login']);
         Route::post('/register', [AuthController::class, 'register']);
     });
+    
+    Route::get('verify-email',function(){
+        // Mail::send('emails.schedule',[], function ($message) {
+        //     $email = 'jyassin84@gmail.com';
+        //     $message->from(env('APP_EMAIL'), env('APP_NAME'));
+        //     $message->to( $email )->subject('Verify your Email Address ');
+        // });
+        // return 'Verification has been sent to your Email';
+    });
+        // return view('emails.schedule');
+    
     Route::resource('/vacancies', VacancyController::class);
     Route::resource('/applicants', ApplicantController::class);
-    
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum','verified'])->group(function () {
         Route::resource('/employees', EmployeeController::class);
         Route::resource('/attachments', AttachmentsController::class);
         Route::resource('/subordinates', SubordianteController::class);

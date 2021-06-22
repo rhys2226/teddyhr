@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Applicant;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Mail;
 
 class ApplicantController extends Controller
 {
@@ -21,10 +23,18 @@ class ApplicantController extends Controller
     
     public function update(Request $request, $id)
     {
-        $applicant = Applicant::where('user_id',$id)->first();
+        $applicant = Applicant::with('user')->where('user_id',$id)->first();
         $applicant->Schedule = $request->input('Schedule');
         $applicant->save();
-        return  $applicant;
+        Mail::send('emails.schedule',[
+            'applicant' =>$applicant ,
+            'schedule' => $request->input('on')
+        ], function ($message) {
+            $email = 'jyassin84@gmail.com';
+            $message->from(env('APP_EMAIL'), env('APP_NAME'));
+            $message->to( $email )->subject('You have shortlisted for an interview on Iloilo State College of Fisheries');
+        });
+        return $applicant;
     }
 
     public function destroy($id)

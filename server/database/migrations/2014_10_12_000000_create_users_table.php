@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('Email')->unique();
             $table->string('NameExtension')->nullable();
             $table->string('Password');
+            $table->string('email_verified_at');
         });
     }
 

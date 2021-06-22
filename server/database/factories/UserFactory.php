@@ -24,6 +24,7 @@ class UserFactory extends Factory
             'Email'  => 'teddy@gmail.com',
             'NameExtension'  => '',
             'Password'  => Hash::make('admin'),
+            'email_verified_at' => time()
         ];
     }
 
