@@ -29,12 +29,12 @@ export abstract class BaseService<T> {
 	}
 
 	async create(payload: T, params?: FreeObject) {
-		const { data } = await axios.post( `${this.resolveURL(params)}`, this.setHeaders() );
+		const { data } = await axios.post( `${this.resolveURL(params)}`, payload, this.setHeaders() );
 		return data;
 	}
 
 	async update(id: any, payload: Partial<T>, params?: FreeObject) {
-		const { data } = await axios.put(`${ this.resolveURL(params)}/${id}`, this.setHeaders() );
+		const { data } = await axios.put(`${ this.resolveURL(params)}/${id}`, payload, this.setHeaders() );
 		return data;
 	}
 

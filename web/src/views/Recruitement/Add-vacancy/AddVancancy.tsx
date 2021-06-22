@@ -102,7 +102,7 @@ export default function AddVancancy() {
         Fire( 'Post Vacancy', 'Are you sure you want to Post Vacancy?', 'info', () => {
             const api = new Auth( 'vacancies' )
             setdisabled( true )
-            api.create( form, {} )
+            api.create( form )
                 .then( () => {
                     Alert( 'Vacncy Succesfully Posted', `New Vacancy has been created on the Human Resource Management Office's Landing Page`, 'success' );
                     directlySupervised = []

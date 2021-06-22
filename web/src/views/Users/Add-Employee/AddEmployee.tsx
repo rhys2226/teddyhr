@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Alert } from '../../../components/Alerts/Alert';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { Auth } from '../../../services/auth.service';
 
 
 export default function AddEmployee() {
@@ -90,6 +91,11 @@ export default function AddEmployee() {
         )
     }
 
+    const verifyEmail = () => {
+        const api = new Auth( 'verify-email' )
+        api.fetch( {} )
+    }
+
 
     return (
         <div className="row justify-content-center">
@@ -112,7 +118,7 @@ export default function AddEmployee() {
                                 <div className='form-group mb-3 col-12 col-md-4'>
                                     <div className="d-flex mb-3">
                                         <label>Email</label>
-                                        <i title="Verify Email" style={{ cursor: 'pointer' }} className="fe fe-mail ml-auto mr-3"></i>
+                                        <i onClick={() => { verifyEmail() }} title="Verify Email" style={{ cursor: 'pointer' }} className="fe fe-mail ml-auto mr-3"></i>
                                     </div>
                                     <input id="Email" type='text' className='form-control' />
                                     <h6 className="text-danger-lighter mt-2 small">* This field is required and needs email verification</h6>
@@ -148,7 +154,6 @@ export default function AddEmployee() {
                                 <div className='form-group mb-3 col-12 col-md-3'>
                                     <label>Name Ext.</label>
                                     <input id="NameExtension" type='text' className='form-control' />
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-3  mt-5'>
                                     <label className="mb-4">Place of Birth</label>

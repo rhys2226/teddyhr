@@ -203,18 +203,6 @@ export default function Applicants() {
                                 }
                             </tbody>
                         </table>
-                        {/* <Pagination
-                            Pages={() => {
-                                let pages = []
-                                for ( let index in applicants ) {
-                                    pages.push( parseInt( index ) + 1 )
-                                }
-                                return pages
-                            }}
-                            callback={( callback: Function ) => {
-                                callback()
-                            }}
-                        /> */}
                     </div>
                 </div>
             </div>
@@ -233,7 +221,7 @@ export default function Applicants() {
                     }
                     Fire( `Interview ${ user.user.First }`, `Are you sure you want to Schedule an Interview on ${ user.user.First } at ${ toDate( schedule ) }?`, 'info', () => {
                         const api = new Auth( 'applicants' )
-                        api.update( user.user_id, { Schedule: schedule } ).then( () => {
+                        api.update( user.user_id, { Schedule: schedule, on: toDate( schedule ) } ).then( () => {
                             Alert(
                                 `Scheduled Interview: ${ toDate( schedule ) }`,
                                 `Interview Schedule on ${ toDate( schedule ) }  has been successfully sent to ${ user.user.First }'s email`,

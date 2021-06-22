@@ -58,12 +58,12 @@ export default function EmployeesAndPerformance() {
                     <table className="table ">
                         <thead >
                             <tr>
-                                <th className="text-center text-warning"><i className="fe fe-user"></i></th>
-                                <th className="text-warning">Name</th>
+                                <th className="text-center "><i className="fe fe-user"></i></th>
+                                <th className="text-dark">Name</th>
                                 <th className="text-warning">Average Performance</th>
-                                <th className="text-warning">Rating this Month</th>
-                                <th className="text-warning text-center">Lowest Rating</th>
-                                <th className="text-warning text-center">Highest Rating</th>
+                                <th className="text-info">Rating this Month</th>
+                                <th className="text-danger text-center">Lowest Rating</th>
+                                <th className="text-success text-center">Highest Rating</th>
                                 <th className="text-center text-dark"><i className="fe fe-user"></i></th>
                                 <th className="text-dark">Immediate Supervisor</th>
                             </tr>
