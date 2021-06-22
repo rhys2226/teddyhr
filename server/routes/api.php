@@ -31,11 +31,8 @@ use App\Http\Controllers\RatingDetailsController;
 use App\Http\Controllers\ReferencesController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WorkExperienceController;
-use App\Models\Employee;
 use Illuminate\Support\Facades\Auth;
-
-// ->middleware('auth')->name('verification.notice')
-
+use Illuminate\Http\Request;
 
 
 Route::middleware('throttle:60,1')->group(function () {
@@ -44,15 +41,14 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::post('/register', [AuthController::class, 'register']);
     });
     
-    Route::get('verify-email',function(){
-        // Mail::send('emails.schedule',[], function ($message) {
-        //     $email = 'jyassin84@gmail.com';
-        //     $message->from(env('APP_EMAIL'), env('APP_NAME'));
-        //     $message->to( $email )->subject('Verify your Email Address ');
-        // });
-        // return 'Verification has been sent to your Email';
+    Route::post('verify-email',function(Request $request){
+       $class =  'App\Mail\verify';
+       $emailData = [
+           'verification_code' => $request->input('verification_code'),
+       ];
+       Mail::to($request->email)->send(new $class( $emailData ));
+       return 'Email verification code has been sent to your email';
     });
-        // return view('emails.schedule');
     
     Route::resource('/vacancies', VacancyController::class);
     Route::resource('/applicants', ApplicantController::class);
