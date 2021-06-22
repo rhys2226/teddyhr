@@ -13,7 +13,6 @@ class CreateLeaveSettingsTable extends Migration
             $table->timestamps();
             $table->string('Type');
             $table->string('NextCreditdays');
-            $table->string('WithPay');
         });
     }
 

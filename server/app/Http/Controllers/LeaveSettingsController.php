@@ -11,26 +11,19 @@ class LeaveSettingsController extends Controller
     
     public function index()
     {
-        //
+        return LeaveSettings::all();
     }
 
     public function store(Request $request)
     {
-        //
+        if(count(LeaveSettings::where('Type',$request->input('Type'))->get()) !== 0 ){
+            return response(['message' => 'Leave setting already exist'], 401);
+        }
+        return LeaveSettings::create($request->all());  
     }
 
-    public function show(LeaveSettings $leaveSettings)
+    public function destroy($id)
     {
-        //
-    }
-
-    public function update(Request $request, LeaveSettings $leaveSettings)
-    {
-        //
-    }
-
-    public function destroy(LeaveSettings $leaveSettings)
-    {
-        //
+        return LeaveSettings::find($id)->delete();
     }
 }

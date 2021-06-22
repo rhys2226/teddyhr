@@ -12,6 +12,5 @@ class LeaveSettings extends Model
     protected $fillable = [
         'Type',
         'NextCreditdays',
-        'WithPay',
     ];
 }
