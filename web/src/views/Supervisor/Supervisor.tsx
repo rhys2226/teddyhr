@@ -210,19 +210,6 @@ export default function Supervisor() {
                                 }
                             </tbody>
                         </table>
-                        <br />
-                        {/* <Pagination
-                            Pages={() => {
-                                let pages = []
-                                for ( let index in [ 1, 2, 3, 4, 5, 6 ] ) {
-                                    pages.push( parseInt( index ) + 1 )
-                                }
-                                return pages
-                            }}
-                            callback={( callback: Function ) => {
-                                callback()
-                            }}
-                        /> */}
                     </div>
                 </div>
             </div>
