@@ -70,6 +70,10 @@ export default function ApplicationStep1( props: Props ) {
                                 $( `#${ key }` ).addClass( 'is-valid' )
                             }
                         }
+                        if ( data.Phone.length !== 12 ) {
+                            Alert( 'Invalid Phone Number', 'Please check your phone number', 'error' )
+                            return
+                        }
                         props.makeStep( 2 )
                         props.step1( data )
                     }} className='btn btn-dark mx-2 px-md-5'>Next</button>

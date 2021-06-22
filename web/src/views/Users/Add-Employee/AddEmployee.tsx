@@ -116,20 +116,17 @@ export default function AddEmployee() {
                                     <h5 className="text-info">Credentials</h5>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
-                                    <div className="d-flex mb-3">
-                                        <label>Email</label>
-                                        <i onClick={() => { verifyEmail() }} title="Verify Email" style={{ cursor: 'pointer' }} className="fe fe-mail ml-auto mr-3"></i>
-                                    </div>
+                                    <label>Email</label>
                                     <input id="Email" type='text' className='form-control' />
                                     <h6 className="text-danger-lighter mt-2 small">* This field is required and needs email verification</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
-                                    <label className="mb-4">Password</label>
+                                    <label >Password</label>
                                     <input id="Password" type='password' className='form-control' />
                                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4'>
-                                    <label className="mb-4">Confirm Password</label>
+                                    <label >Confirm Password</label>
                                     <input id="confirmpassword" type='password' className='form-control' />
                                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
@@ -156,15 +153,12 @@ export default function AddEmployee() {
                                     <input id="NameExtension" type='text' className='form-control' />
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-3  mt-5'>
-                                    <label className="mb-4">Place of Birth</label>
+                                    <label >Place of Birth</label>
                                     <input id="PlaceOfBirth" type='text' className='form-control' />
                                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4  mt-5'>
-                                    <div className="d-flex mb-3">
-                                        <label>Phone</label>
-                                        <i title="Verify Phone" style={{ cursor: 'pointer' }} className="fe fe-phone-call ml-auto mr-3"></i>
-                                    </div>
+                                    <label>Phone</label>
                                     <input value={phone} id="Phone" type='hidden' className='form-control' />
                                     <PhoneInput
                                         country={'ph'}
@@ -172,7 +166,7 @@ export default function AddEmployee() {
                                         containerStyle={{ width: '100%' }}
                                         isValid={phone.length == 12}
                                     />
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required and needs phone verification</h6>
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
 
 
