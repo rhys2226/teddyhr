@@ -1,11 +1,3 @@
-password strength
-
-service record station place
-N/A
-
-applicant scheduling email
-
-settings
 Leave Settings CRUD and Search
 Employee Performance
 Sidebar
@@ -28,6 +20,8 @@ strict password  Backend and Front End
 Compute Leave
 Get Leave Credits
 Cron Job
+applicant scheduling email
+
 
 Notification
 clear errors
