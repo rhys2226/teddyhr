@@ -1,23 +1,57 @@
 import React from 'react'
+import { Auth } from '../../../../services/auth.service'
 import { LeaveTypes } from './LeaveTypes'
 
 export default function LeaveBalances() {
+
+    const userData: any = localStorage.getItem( 'user' )
+    const id = JSON.parse( userData ).id
+
+    const [ leaves, setleaves ] = React.useState( {
+        BalanceVacation: 0,
+        BalanceLeave: 0,
+    } )
+
+    React.useEffect( () => {
+        getLeaveCard()
+    }, [] )
+
+    const getLeaveCard = () => {
+        const api = new Auth( 'leave-card' )
+        api.fetchOne( id ).then( ( data ) => {
+            setleaves( data[ data.length - 1 ] )
+        } )
+    }
+
+
     return (
-        <div className="row justify-content-center">
-            <div className="col-12 col-lg-10 col-xl-8">
-                <h2 className="h3 page-title">Accumulated Leave Balances</h2>
-                <h6 className="h5 mb-4 page-title text-muted d-flex">Next Credit: &nbsp;
-                 <span className="text-info">
-                        <i className="fe fe-calendar"></i> &nbsp; July 21, 2021
-                 </span>
-                </h6>
+        <div>
+            <div className="col-md-12 my-4 card">
+                <div className="card-header">
+                    <h2 className="h5 mb-1 ">Your accummulated leave balances</h2>
+                </div>
                 <div className="card card-body ">
+
                     <div className="row pt-5">
-                        {
-                            LeaveTypes.map( ( leave, index ) => (
-                                <p className="col-md-6 text-center" key={index}>{leave} <span><h1 className="text-success mb-5">0</h1></span></p>
-                            ) )
-                        }
+
+                        <p className="col-md-4 text-center" >Vacation Leave
+                            <span>
+                                <h1 className="text-success mb-5">{leaves.BalanceVacation}</h1>
+                            </span>
+                        </p>
+
+                        <p className="col-md-4 text-center" >Sick Leave
+                            <span>
+                                <h1 className="text-warning mb-5">{leaves.BalanceLeave}</h1>
+                            </span>
+                        </p>
+
+                        <p className="col-md-4 text-center" >Total Leaves
+                            <span>
+                                <h1 className="text-info mb-5">{leaves.BalanceVacation + leaves.BalanceLeave}</h1>
+                            </span>
+                        </p>
+
                     </div>
                 </div>
             </div>
