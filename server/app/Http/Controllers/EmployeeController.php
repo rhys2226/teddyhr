@@ -42,10 +42,9 @@ class EmployeeController extends Controller
             ->with('workExperiences')
             ->with('EducationalAttainments')
             ->with('Eligibilities')
-            ->where('user_id',$id)->first();
+            ->where('user_id',$id)
+            ->first();
     }
-    
-    
     
     public function topEmployees(){
         $ratings = Rating::with('RatingDetails')

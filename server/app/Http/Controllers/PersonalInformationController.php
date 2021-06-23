@@ -28,7 +28,7 @@ class PersonalInformationController extends Controller
         if(isset($data['permanent']['HouseNumber']) ){
             Address::create($data['permanent']);
         }
-           if(isset($data['residential']['HouseNumber']) ){
+        if(isset($data['residential']['HouseNumber']) ){
             Address::create($data['residential']);
         }
         return $data;
