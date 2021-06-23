@@ -34,5 +34,8 @@ class Applicant extends Model
     {
         return $this->hasMany(attachments::class,'user_id','user_id');
     }
-
+    
+    public function supportingDocuments(){
+        return $this->hasMany(attachments::class,'user_id','user_id');
+    }
 }

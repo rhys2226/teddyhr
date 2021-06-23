@@ -16,9 +16,12 @@ class ApplicantController extends Controller
         return Applicant::with('user')->with('attachments')->get();
     }
  
-    public function show(Applicant $applicant)
+    public function show($id)
     {
-        return Applicant::find($applicant);
+        return Applicant::where('user_id',$id)
+        ->with('user')
+        ->with('supportingDocuments')
+        ->first();
     }
     
     public function update(Request $request, $id)
