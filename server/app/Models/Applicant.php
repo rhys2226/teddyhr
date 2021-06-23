@@ -18,7 +18,7 @@ class Applicant extends Model
         'WorkExperience',
         'PreviousEmployer',
         'EmployersContactInformation',
-        'Approved',
+        'isPending',
         'Schedule',
         'Position',
         'Office',

@@ -20,7 +20,7 @@ class CreateApplicantsTable extends Migration
             $table->string('WorkExperience',999);
             $table->string('PreviousEmployer');
             $table->string('EmployersContactInformation');
-            $table->boolean('Approved')->nullable();
+            $table->boolean('isPending')->nullable();
             $table->string('Schedule')->nullable();
             $table->string('Position')->nullable();
             $table->string('Office')->nullable();

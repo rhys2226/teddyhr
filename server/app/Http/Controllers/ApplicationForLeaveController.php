@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class ApplicationForLeaveController extends Controller
 {
- 
     public function index()
     {
         return ApplicationForLeave::with('employee')
@@ -21,14 +20,12 @@ class ApplicationForLeaveController extends Controller
         return ApplicationForLeave::create($request->all());
     }
 
-    public function show(ApplicationForLeave $applicationForLeave)
+    public function show($id)
     {
-        //
-    }
-
-    public function update(Request $request, ApplicationForLeave $applicationForLeave)
-    {
-        //
+      return ApplicationForLeave::with('employee')
+            ->with('user')
+            ->where('employee_id',$id)
+            ->get();
     }
 
     public function destroy($id)
