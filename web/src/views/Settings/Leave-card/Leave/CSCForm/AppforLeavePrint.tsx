@@ -1,10 +1,11 @@
 import React from 'react'
 import { toDate } from '../../../../../helpers'
+import { Auth } from '../../../../../services/auth.service'
 import './Docs.css'
 
 export default function AppforLeavePrint( props: any ) {
 
-    const { data } = props
+    const { data, leaves } = props
 
     function setCheck( value: Boolean ) {
         if ( value ) {
@@ -201,28 +202,28 @@ export default function AppforLeavePrint( props: any ) {
                         <td></td>
                     </tr>
                     <tr>
-                        <td className="text-right">As of</td>
-                        <td colSpan={1}>______________</td>
+                        <td className="text-center">As of </td>
+                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{toDate( leaves.created_at )}</td>
                         <td colSpan={3}></td>
                         <td>_______</td>
                         <td colSpan={3}>Approval</td>
                     </tr>
                     <tr>
                         <td className="text-center">Vacation                  </td>
-                        <td colSpan={1}>______________</td>
+                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{leaves.BalanceVacation}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td colSpan={3}></td>
                         <td>_______</td>
                         <td colSpan={3}>Disapproved due to</td>
                     </tr>
                     <tr>
                         <td className="text-center"> Sick </td>
-                        <td colSpan={1}>______________</td>
+                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{leaves.BalanceLeave}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td colSpan={3}></td>
                         <td colSpan={4}>______________________</td>
                     </tr>
                     <tr>
                         <td className="text-center" colSpan={1}> Total </td>
-                        <td colSpan={2}>______________</td>
+                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{leaves.BalanceVacation + leaves.BalanceLeave}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     <tr>
                         <td className="text-center" colSpan={5}>  </td>

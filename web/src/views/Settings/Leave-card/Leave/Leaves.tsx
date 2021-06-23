@@ -16,6 +16,9 @@ export default function Leaves() {
         getLeaves()
     }, [] )
 
+
+
+
     function getLeaves() {
         const api = new Auth( 'application-for-leave' )
         api.fetch( {} ).then( ( data ) => {
@@ -106,12 +109,16 @@ export default function Leaves() {
                                                 <div className="dropdown-menu dropdown-menu-right">
                                                     <button
                                                         onClick={() => {
-                                                            console.log( leave )
-                                                            setModal(
-                                                                <ApplicationForLeaveSheet
-                                                                    data={leave}
-                                                                />
-                                                            )
+                                                            const id = leave.employee_id
+                                                            const api = new Auth( 'leave-card' )
+                                                            api.fetchOne( id ).then( ( data ) => {
+                                                                setModal(
+                                                                    <ApplicationForLeaveSheet
+                                                                        data={leave}
+                                                                        leaves={data[ data.length - 1 ]}
+                                                                    />
+                                                                )
+                                                            } )
                                                         }}
                                                         data-toggle='modal'
                                                         data-target=".modal-full"

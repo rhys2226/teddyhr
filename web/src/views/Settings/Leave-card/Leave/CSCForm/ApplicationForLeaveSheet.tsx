@@ -13,11 +13,11 @@ export default function ApplicationForLeaveSheet( props: any ) {
                         <span>&nbsp;Print Leave Application</span>
                     </button>
                 }>
-                <AppforLeavePrint data={props.data} />
+                <AppforLeavePrint leaves={props.leaves} data={props.data} />
             </PrintComponents>
             <div className="card shadow col-md-12 row m-0" >
                 <div className="card-body col-md-12 row m-0 p-5">
-                    <AppforLeavePrint data={props.data} />
+                    <AppforLeavePrint leaves={props.leaves} data={props.data} />
                 </div>
             </div>
         </div>
