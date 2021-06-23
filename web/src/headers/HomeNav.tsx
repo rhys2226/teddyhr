@@ -106,6 +106,7 @@ export default function HomeNav() {
                                     'Are you sure you want to logout?',
                                     'warning',
                                     () => {
+                                        localStorage.clear()
                                         history.push( '/' )
                                         Alert( 'Thank you for using ISCOF HRMO Application', '', 'success' )
                                     } )
