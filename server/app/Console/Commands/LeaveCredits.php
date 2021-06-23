@@ -21,7 +21,7 @@ class LeaveCredits extends Command{
     {
        $employees = Employee::all();
         foreach( $employees as  $user){
-            $old = LeaveCard::orderBy('created_at','desc')->first();
+            $old = LeaveCard::where('employee_id', $user->user_id)->orderBy('created_at','desc')->first();
             
             $new = new LeaveCard();
             $new->employee_id =  $user->user_id;
