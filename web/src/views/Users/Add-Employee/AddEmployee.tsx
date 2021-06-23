@@ -36,7 +36,10 @@ export default function AddEmployee() {
             Position: $( '#Position' ).val(),
             confirmpassword: $( '#confirmpassword' ).val(),
             Type: 'Employee',
-            Avatar: avatar
+            Avatar: avatar,
+            FirstDay: $( '#FirstDay' ).val(),
+            PlaceOfBirth: $( '#PlaceOfBirth' ).val(),
+            Salary: $( '#Salary' ).val(),
         }
         $( 'input' ).removeClass( 'is-invalid' ).removeClass( 'is-valid' )
 
@@ -155,6 +158,11 @@ export default function AddEmployee() {
                                 <div className='form-group mb-3 col-12 col-md-3  mt-5'>
                                     <label >Place of Birth</label>
                                     <input id="PlaceOfBirth" type='text' className='form-control' />
+                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
+                                </div>
+                                <div className='form-group mb-3 col-12 col-md-3  mt-5'>
+                                    <label >Date of Birth</label>
+                                    <input id="DOB" type='date' className='form-control' />
                                     <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className='form-group mb-3 col-12 col-md-4  mt-5'>
