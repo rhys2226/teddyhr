@@ -29,7 +29,7 @@ export default function ServiceRecordSheet( props: {
             </div>
             <div className="row">
                 <div className="col-md-1">Birth:</div>
-                <h5 className="bold underlined text-center text-dark col-md-2">______________</h5>
+                <h5 className="bold underlined text-center text-dark col-md-2">{data[ 0 ].employee.PlaceOfBirth}</h5>
                 <h5 className="bold underlined text-center text-dark col-md-4">____________________________</h5>
                 <h5 className="col-md-5 text-left text-dark ">(Date herein should be checked from birth <br /> or baptisimal certificate or other related documents)</h5>
             </div>

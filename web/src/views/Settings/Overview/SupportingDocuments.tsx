@@ -6,7 +6,7 @@ export default function SupportingDocuments( props: any ) {
         <div className="col-md-12  mt-4">
             <br />
             <h6 className="mb-3">Supporting Documents</h6>
-            <table className="table table-borderless table-striped table-responsive">
+            <table className="table table-borderless table-striped ">
                 <thead className="table-info">
                     <tr role="row">
                         <th className="text-info">..</th>
@@ -17,6 +17,11 @@ export default function SupportingDocuments( props: any ) {
                     </tr>
                 </thead>
                 <tbody>
+                    {
+                        props.data.length !== 0 ? '' : <tr>
+                            <td className="text-center text-muted" colSpan={5}>No supporting documents yet..</td>
+                        </tr>
+                    }
                     {
                         props.data.map( ( attachment: any, index: any ) => (
                             <tr>
