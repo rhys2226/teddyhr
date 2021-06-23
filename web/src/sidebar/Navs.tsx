@@ -19,7 +19,7 @@ export const applicantNav = ( id: Number ) => {
         },
         {
             title: 'Employment Status',
-            route: '/home/employment-Status',
+            route: '/home/employment-status/' + id,
             icon: 'fe-battery'
         },
         {

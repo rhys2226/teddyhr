@@ -1,16 +1,28 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
+import { Auth } from '../../../services/auth.service'
+import ApplicantProfile from './ApplicantProfile'
 
 export default function EmploymentStatus() {
+
+    React.useEffect( () => {
+        getApplicatns()
+    }, [] )
+
+    let { id }: any = useParams();
+
+    const getApplicatns = () => {
+        const api = new Auth( 'applicants' )
+        api.fetchOne( id ).then( ( data ) => {
+            setcomponent( <ApplicantProfile applicant={data} /> )
+        } )
+    }
+
+    const [ component, setcomponent ]: any = React.useState( <div /> )
+
     return (
         <div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <div className="card card-body text-center">
-                <h1> Scheduled Interview</h1>
-                <p>July 25, 2021</p>
-            </div>
+            {component}
         </div>
     )
 }

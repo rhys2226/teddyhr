@@ -106,7 +106,7 @@ export default function Home() {
             component: LeaveSettings,
         },
         {
-            path: url( '/employment-Status' ),
+            path: url( '/employment-status/:id' ),
             component: EmploymentStatus,
         },
         {

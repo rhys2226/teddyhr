@@ -11,9 +11,7 @@ export default function MyLeaves() {
     const [ leaves, setleaves ]: any = React.useState( [] )
     const [ filteredData, setFilteredData ]: any = React.useState( [] )
     const [ fetched, setfetched ]: any = React.useState( false )
-
     let { id }: any = useParams();
-
 
     React.useEffect( () => {
         getLeaves()
