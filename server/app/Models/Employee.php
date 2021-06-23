@@ -56,9 +56,4 @@ class Employee extends Model
     {
         return $this->hasMany(Eligibilities::class,'employee_id','user_id');
     }
-    
-    
-    
-    
-    
 }

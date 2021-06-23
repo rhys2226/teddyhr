@@ -42,6 +42,7 @@ class PersonalDataSheetController extends Controller
             ->with('immigrant')
             ->with('indigenous')
             ->with('disability')
+            ->with('soloParent')
             
             ->with('references')
             ->with('identification')

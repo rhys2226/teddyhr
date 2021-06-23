@@ -191,6 +191,15 @@ class PersonalDataSheet extends Model
         )->where('Question','Are you a person with disability?');
     }
     
+     public function soloParent()
+    {
+        return $this->hasOne(
+            QuestionDetails::class,
+            'employee_id',
+            'employee_id',
+        )->where('Question','Are you a solo parent?');
+    }
+    
     public function references()
     {
         return $this->hasMany(References::class,'employee_id','employee_id');

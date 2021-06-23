@@ -167,6 +167,7 @@ class AuthController extends Controller
                     'Have you acquired the status of an immigrant or permanent resident of another country?',
                     'Are you a member of any indigenous group?',
                     'Are you a person with disability?',
+                    'Are you a solo parent?',
                 ];  
                 foreach($types as $type){
                     $model = new $class;
@@ -183,6 +184,9 @@ class AuthController extends Controller
                         }
                         if($key === 'From' || $key === 'To'){
                             $model->$key = date('Y-m-d');
+                        }
+                        if($key === 'Details'){
+                            $model->$key = '';
                         }
                     }
                     $model->save();
