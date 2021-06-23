@@ -20,10 +20,10 @@ type LeaveCard = {
     DateAndActionTaken1: any
     DateAndActionTaken2: any
 }
-export default function PrintableLeaveCardSheet(
-    props: {
-        data: any[]
-    } ) {
+
+export default function PrintableLeaveCardSheet( props: {
+    data: any[]
+} ) {
 
     const { data } = props
     return (
@@ -40,7 +40,7 @@ export default function PrintableLeaveCardSheet(
                     <div className="col-md-5 row">
                         <div className="col-md-2">  Name: </div>
                         <div className="col-md-10">
-                            <p className="underlined text-left bold">{data[ 0 ].employee.First} Agsaluna</p>
+                            <p className="underlined text-left bold">{data[ 0 ].user.First} {data[ 0 ].user.Middle} {data[ 0 ].user.Last}</p>
                         </div>
                     </div>
                     <div className="col-md-2"></div>
@@ -126,9 +126,9 @@ export default function PrintableLeaveCardSheet(
                                     <td className="p-2 text-right">{leave.VacationEarned}</td>
                                     <td className="p-2 text-right">{leave.WithPayVacation}</td>
                                     <td className="p-2 text-right">{leave.BalanceVacation}</td>
-                                    <td className="p-2 text-right">{leave.VacationEarned}</td>
+                                    <td className="p-2 text-right">{leave.WithoutPayVacation}</td>
                                     <td className="p-2 text-right">{leave.SickEarned}</td>
-                                    <td className="p-2 text-right">{leave.WithoutPayLeave}</td>
+                                    <td className="p-2 text-right">{leave.WithPayLeave}</td>
                                     <td className="p-2 text-right">{leave.BalanceLeave}</td>
                                     <td className="p-2 text-right">{leave.WithoutPayLeave}</td>
                                     <td className="p-2">{leave.DateAndActionTaken1}</td>
