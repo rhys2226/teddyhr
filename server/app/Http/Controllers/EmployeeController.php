@@ -11,14 +11,28 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-  
     public function index()
     {
-        return Employee::with('user')
+        $employees = Employee::with('user')
         ->with('attachments')
         ->with('supervisors')
         ->with('leaves')
         ->get();
+        foreach($employees as $employee){
+            $employee->MonthOfService = EmployeeController::computeMonthofService( $employee->FirstDay );
+        }
+        return $employees;
+    }
+    public static function computeMonthofService($firstDay)
+    {
+        $today = date('Y-m-d');
+        $firstDayToTimestamp = strtotime($firstDay);
+        $todaytDayToTimestamp = strtotime($today);
+        $firstDayYear = date('Y', $firstDayToTimestamp);
+        $todayYear = date('Y', $todaytDayToTimestamp);
+        $firstDayMonth = date('m', $firstDayToTimestamp);
+        $todayMonth = date('m', $todaytDayToTimestamp);
+        return (($todayYear - $firstDayYear) * 12) + ($todayMonth - $firstDayMonth);
     }
     
     public function show($id)
@@ -30,6 +44,8 @@ class EmployeeController extends Controller
             ->with('Eligibilities')
             ->where('user_id',$id)->first();
     }
+    
+    
     
     public function topEmployees(){
         $ratings = Rating::with('RatingDetails')
@@ -69,12 +85,6 @@ class EmployeeController extends Controller
        return $ratings;
     }
     
-
-    public function update(Request $request, Employee $employee)
-    {
-        
-    }
-
     public function destroy($id)
     {
         return User::find($id)->delete();
