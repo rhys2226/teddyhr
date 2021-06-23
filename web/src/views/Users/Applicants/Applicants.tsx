@@ -17,8 +17,8 @@ export default function Applicants() {
     const [ user, setuser ]: any = useState( {} )
     const [ filteredData, setFilteredData ] = useState( [] )
     const [ fetched, setfetched ]: any = useState( false )
-
-
+    const userData: any = localStorage.getItem( 'user' )
+    const type = JSON.parse( userData ).Type
 
     useEffect( () => {
         getApplicants()
@@ -47,7 +47,6 @@ export default function Applicants() {
                     data.user.Last.toLowerCase().includes( keyword )
             ) )
     }
-
 
     const renderData = () => {
         noData()
@@ -83,11 +82,11 @@ export default function Applicants() {
                                     <th className="text-info">Applicant</th>
                                     <th className="text-info">Prev Employer</th>
                                     <th className="text-info">Contact</th>
-                                    <th className="w-25 text-info">Degrees </th>
                                     <th className="text-info">Alignment</th>
                                     <th className="text-info">DSS Status</th>
                                     <th className="text-info">Application Date</th>
-                                    <th className="text-info">Application Status</th>
+                                    <th className="text-info">Status</th>
+                                    <th className="text-info">Schedule</th>
                                     <th className="text-info"></th>
                                 </tr>
                             </thead>
@@ -124,19 +123,12 @@ export default function Applicants() {
                                                 <small className="mb-0 text-muted">{applicant.user.Email}</small>
                                             </td>
 
-
-                                            <td className="w-25">
-                                                <small >{applicant.Degrees}
-                                                </small>
-                                            </td>
-
                                             <td>{applicant.Alignment}</td>
 
                                             <td>
                                                 <span className={applicant.Alignment === 'Vertical' ? 'badge  text-white rounded p-2 br-2 badge-success' : 'badge  text-white rounded p-2 br-2 badge-warning'}
                                                     style={{ fontWeight: 900, }}>
                                                     {applicant.Alignment === 'Vertical' ? 'Qualified' : 'Underqualified'}
-
                                                 </span>
                                             </td>
 
@@ -146,8 +138,12 @@ export default function Applicants() {
                                                 {applicant.Approved === 'true' ? 'Approved' : 'Pending'}
                                             </td>
 
+                                            <td className={applicant.Schedule !== null ? 'text-success' : 'text-danger'}>
+                                                {applicant.Schedule === null ? 'Not set' : toDate( applicant.Schedule )}
+                                            </td>
+
                                             <td>
-                                                <button className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button style={{ display: type === 'Admin' ? '' : 'none' }} className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">

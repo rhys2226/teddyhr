@@ -16,8 +16,8 @@ export default function Supervisor() {
     const [ filteredData, setFilteredData ] = React.useState( [] )
     const [ fetched, setfetched ]: any = React.useState( false )
     const [ modal, setModal ]: any = React.useState( <div></div> )
-
-
+    const userData: any = localStorage.getItem( 'user' )
+    const type = JSON.parse( userData ).Type
 
     React.useEffect( () => {
         getSupervisors()
@@ -84,7 +84,8 @@ export default function Supervisor() {
                                         onClick={() => {
                                             setAdd( add === false ? true : false )
                                         }}
-                                        className="btn btn-outline-primary d-flex">
+                                        className="btn btn-outline-primary"
+                                        style={{ display: type === 'Admin' ? 'flex' : 'none' }} >
                                         <i className="fe fe-plus"></i>
                                         &nbsp; {add === false ? 'New Subordinate' : 'Cancel'}
                                     </button>

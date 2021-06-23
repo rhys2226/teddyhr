@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 import LargeModal from '../../../components/Modals/LargeModal';
 import EmployeeICPR from './EmployeeICPR';
 import { Auth } from '../../../services/auth.service';
-import { toDate } from '../../../helpers';
+import { fromNow, toDate } from '../../../helpers';
 
 
 export default function Employees() {
@@ -21,6 +21,8 @@ export default function Employees() {
     const [ employees, setEmployees ] = useState( [] )
     const user: any = localStorage.getItem( 'user' )
     const id = JSON.parse( user ).id
+    const userData: any = localStorage.getItem( 'user' )
+    const type = JSON.parse( userData ).Type
 
     useEffect( () => {
         getEmployees()
@@ -29,7 +31,6 @@ export default function Employees() {
     useEffect( () => {
         renderData()
     }, [ employees ] )
-
 
     async function getEmployees() {
         const auth = new Auth( 'employees' );
@@ -130,14 +131,18 @@ export default function Employees() {
 
                                             <td>
                                                 <p className="mb-0 text-info ">@{employee.user.Email}</p>
-                                                <small className="mb-0 text-muted">{employee.user.Phone}</small>
+                                                <small className="mb-0 text-muted">+{employee.user.Phone}</small>
                                             </td>
 
-                                            <td>{employee.Alignment}</td>
+                                            <td>
+                                                <span className={`${ employee.Alignment === 'Vertical' ? 'text-success' : 'text-warning' }`}>
+                                                    {employee.Alignment}
+                                                </span>
+                                            </td>
 
-                                            <td className=" text-center"> 15</td>
+                                            <td className=" text-center">{employee.MonthOfService} <span className="text-muted">months</span> </td>
 
-                                            <td className="text-muted">{toDate( employee.created_at )}</td>
+                                            <td className="text-muted">{toDate( employee.FirstDay )}</td>
 
 
                                             <td className="text-center">
@@ -155,7 +160,7 @@ export default function Employees() {
                                             </td>
 
                                             <td>
-                                                <button className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button style={{ display: type === 'Admin' ? '' : 'none' }} className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span className="text-muted sr-only">Action</span>
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">

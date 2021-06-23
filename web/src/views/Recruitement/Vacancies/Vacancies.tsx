@@ -8,11 +8,12 @@ export default function Vacancies() {
     const [ vacancies, setVacancies ]: any = useState( [] )
     const [ filteredData, setFilteredData ] = React.useState( [] )
     const [ fetched, setfetched ]: any = React.useState( false )
+    const userData: any = localStorage.getItem( 'user' )
+    const type = JSON.parse( userData ).Type
 
     useEffect( () => {
         getVacancies()
     }, [] )
-
 
     function getVacancies() {
         const auth = new Auth( 'vacancies' );
@@ -107,7 +108,7 @@ export default function Vacancies() {
 
 
                                         <td className={`vacancy${ index }`}>
-                                            <button className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <button style={{ display: type === 'Admin' ? '' : 'none' }} className="btn fe fe-24 fe-chevron-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span className="text-muted sr-only">Action</span>
                                             </button>
                                             <div className="dropdown-menu dropdown-menu-right">

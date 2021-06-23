@@ -32,6 +32,7 @@ export default function ApplicationForLeave() {
     const [ hospital, sethospital ] = React.useState( '' )
     const [ disabled, setdisabled ] = React.useState( false )
     const { register, handleSubmit } = useForm<Inputs>();
+    const userData: any = localStorage.getItem( 'user' )
 
     const submit = async ( data: Inputs ) => {
         Fire(
@@ -57,6 +58,7 @@ export default function ApplicationForLeave() {
         <div className='row justify-content-center'>
             <div className='col-12 col-lg-10 col-xl-8'>
                 <form onSubmit={handleSubmit( submit )}>
+                    <input type="hidden" {...register( 'employee_id' )} value={JSON.parse( userData ).id} className="form-control" />
                     <div className='card shadow mb-4'>
                         <div className='card-header'>
                             <strong className='card-title'>Application for Leave Form</strong>
