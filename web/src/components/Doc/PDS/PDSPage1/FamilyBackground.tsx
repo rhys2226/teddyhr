@@ -55,8 +55,12 @@ export default function FamilyBackground( props: {
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">{family_background.SpouseLast}</p>
                         </div>
-                        <div className="col-md-12 m-0 p-0 row border-bottom br">
-                            <p className="m-0 p-0 pl-2 pt-1 bold underlined">{family_background.FatherFirst}</p>
+                        <div className="col-md-12 m-0 p-0 row border-bottom br ">
+                            <div className="col-md-7  pt-2 m-0 p-0 pl-2 bold underlined">{family_background.SpouseFirst} </div>
+                            <div className="col-md-5 m-0 p-0  sub-title nbr nbt nbb">
+                                <p className="m-0 pl-2">NAME EXTENSION (JR., SR)</p>
+                                <div className="m-0 bold p-0 underlined text-center">{family_background.SpouseExt}</div>
+                            </div>
                         </div>
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">{family_background.SpouseMiddle}</p>
@@ -103,8 +107,12 @@ export default function FamilyBackground( props: {
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">{family_background.FatherLast}</p>
                         </div>
-                        <div className="col-md-12 m-0 p-0 row border-bottom br">
-                            <p className="m-0 p-0 pl-2 pt-1 bold underlined">{family_background.FatherFirst}</p>
+                        <div className="col-md-12 m-0 p-0 row border-bottom br ">
+                            <div className="col-md-7  pt-2 m-0 p-0 pl-2 bold underlined">{family_background.FatherFirst} </div>
+                            <div className="col-md-5 m-0 p-0  sub-title nbr nbt nbb">
+                                <p className="m-0 pl-2">NAME EXTENSION (JR., SR)</p>
+                                <div className="m-0 bold p-0 underlined text-center">{family_background.FatherExt}</div>
+                            </div>
                         </div>
                         <div className="col-md-12 m-0 p-0 row border-bottom br">
                             <p className="m-0 p-0 pl-2 pt-1 bold underlined">{family_background.FatherMiddle}</p>
