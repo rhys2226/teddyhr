@@ -38,5 +38,10 @@ class LeaveCard extends Model
     {
         return $this->hasOne(Employee::class,'user_id','employee_id');
     }
+    
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','employee_id');
+    }
 }
        

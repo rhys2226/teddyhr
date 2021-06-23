@@ -20,6 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string('FirstDay');
             $table->string('PlaceOfBirth');
             $table->string('Salary');
+            $table->string('DOB');
         });
     }
 
