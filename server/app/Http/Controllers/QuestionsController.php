@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class QuestionsController extends Controller
 {
-
     public function store(Request $request)
     {
         $data = $request->all();
