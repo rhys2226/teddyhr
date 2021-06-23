@@ -93,7 +93,7 @@ class AuthController extends Controller
         $leaveCard->employee_id =  $data['user_id'];
         $leaveCard->Year =  date('Y');
         $leaveCard->Month =  date('F');
-        $leaveCard->Particulars1 =  '';
+        $leaveCard->Particulars1 =  'First Day of Service';
         $leaveCard->Particulars2 =  '';
         
         $leaveCard->VacationEarned =  1.125;
@@ -103,6 +103,10 @@ class AuthController extends Controller
         $leaveCard->WithPayVacation =  0;
         $leaveCard->WithPayLeave =  0;
         $leaveCard->WithPayServiceCredit =  0;
+        
+        $leaveCard->BalanceVacation = 1.125;
+        $leaveCard->BalanceLeave =  1.125;
+        $leaveCard->BalanceServiceCredit =  0;
         
         $leaveCard->WithoutPayVacation =  0;
         $leaveCard->WithoutPayLeave =  0;
