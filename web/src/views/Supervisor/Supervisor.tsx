@@ -59,7 +59,7 @@ export default function Supervisor() {
         noData()
         if ( supervisors.length === 0 ) {
             return <tr>
-                <td className="text-center text-muted" colSpan={3}>Nothing Supervisors yet...</td>
+                <td className="text-center text-muted" colSpan={4}>Nothing department supervisors yet...</td>
             </tr>
         }
     }
