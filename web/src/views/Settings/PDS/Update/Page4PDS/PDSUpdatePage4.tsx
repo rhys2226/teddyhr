@@ -31,6 +31,7 @@ export default function PDSUpdatePage4() {
                         Immigrant={data.immigrant}
                         Indigenous={data.indigenous}
                         Disability={data.disability}
+                        solo_parent={data.solo_parent}
                     />
                 )
             } )

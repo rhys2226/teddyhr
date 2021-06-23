@@ -3,6 +3,7 @@ import { Alert, Fire, noData } from '../../../components/Alerts/Alert'
 import { Auth } from '../../../services/auth.service'
 import VacanciesPlaceholders from './VacanciesPlaceholders'
 import { useForm } from 'react-hook-form';
+import { formatCurrency } from '../../../helpers';
 export default function Vacancies() {
 
     const [ vacancies, setVacancies ]: any = useState( [] )
@@ -95,11 +96,11 @@ export default function Vacancies() {
                                         <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.Department} id="Department" /></td>
 
 
-                                        <td className={`vacancy${ index } text-center`}> {vacancy.SalaryGrade} </td>
+                                        <td className={`vacancy${ index } text-center text-danger`}> {formatCurrency( vacancy.SalaryGrade )} </td>
                                         <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.SalaryGrade} id="SalaryGrade" /></td>
 
 
-                                        <td className={`vacancy${ index } text-center`}>{vacancy.SalaryAuthorized} </td>
+                                        <td className={`vacancy${ index } text-center`}>{formatCurrency( vacancy.SalaryAuthorized )} </td>
                                         <td className={`vacancy1${ index }`} style={{ display: 'none' }}><input className="form-control" placeholder={vacancy.SalaryAuthorized} id="SalaryAuthorized" /></td>
 
 

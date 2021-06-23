@@ -21,6 +21,7 @@ export default function PDSPage4(
         Immigrant: interfaces.QuestionDetails
         Indigenous: interfaces.QuestionDetails
         Disability: interfaces.QuestionDetails
+        solo_parent: interfaces.QuestionDetails
     }
 ) {
 
@@ -36,6 +37,7 @@ export default function PDSPage4(
         Immigrant,
         Indigenous,
         Disability,
+        solo_parent
     } = props
 
     return (
@@ -54,11 +56,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0" >
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={ThirdDegree.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={ThirdDegree.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={ThirdDegree.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={ThirdDegree.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -66,11 +68,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={ForuthDegree.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={ForuthDegree.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={ForuthDegree.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={ForuthDegree.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -94,11 +96,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={FoundGuility.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={FoundGuility.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={FoundGuility.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={FoundGuility.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -113,11 +115,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={CriminallyCharged.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={CriminallyCharged.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={CriminallyCharged.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={CriminallyCharged.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -139,11 +141,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={BeenConvicted.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={BeenConvicted.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={BeenConvicted.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={BeenConvicted.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -165,11 +167,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={Seperated.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Seperated.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={Seperated.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Seperated.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -194,11 +196,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={Candidate.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Candidate.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={Candidate.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Candidate.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -212,11 +214,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={Resigned.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Resigned.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={Resigned.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Resigned.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -238,11 +240,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={Immigrant.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Immigrant.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={Immigrant.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Immigrant.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -268,11 +270,11 @@ export default function PDSPage4(
                         <div className="col-md-12 row m-0 p-0 pt-3 ">
                             <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                 <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input defaultChecked={Indigenous.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Indigenous.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; Yes</label>
                                 </div>
                                 <div className="d-flex" style={{ flex: 1 }}>
-                                    <input defaultChecked={Indigenous.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                    <input defaultChecked={Indigenous.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                     <label >&nbsp; No</label>
                                 </div>
                             </div>
@@ -287,11 +289,11 @@ export default function PDSPage4(
                             <div className="col-md-12 row m-0 p-0 pt-3 ">
                                 <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
                                     <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                        <input defaultChecked={Disability.Answer !== 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                        <input defaultChecked={Disability.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
                                         <label >&nbsp; Yes</label>
                                     </div>
                                     <div className="d-flex" style={{ flex: 1 }}>
-                                        <input defaultChecked={Disability.Answer === 'No'} disabled className="m-0 checkbox" type="checkbox" />
+                                        <input defaultChecked={Disability.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
                                         <label >&nbsp; No</label>
                                     </div>
                                 </div>
@@ -304,21 +306,24 @@ export default function PDSPage4(
                             </div>
                         </div>
                         <div className="col-md-12 row m-0 p-0">
-                            <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
-                                <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
-                                    <input disabled className="m-0 checkbox" type="checkbox" />
-                                    <label >&nbsp; Yes</label>
-                                </div>
-                                <div className="d-flex" style={{ flex: 1 }}>
-                                    <input disabled className="m-0 checkbox" type="checkbox" />
-                                    <label >&nbsp; No</label>
+                            <div className="col-md-12 row m-0 p-0 pt-3 ">
+                                <div className="d-flex w-100 m-0 col-md-6 w-100" style={{ transform: 'translate(5px,-10px)' }}>
+                                    <div className="d-flex ml-1 m-0" style={{ flex: 1 }}>
+                                        <input defaultChecked={solo_parent.Answer !== 0} disabled className="m-0 checkbox" type="checkbox" />
+                                        <label >&nbsp; Yes</label>
+                                    </div>
+                                    <div className="d-flex" style={{ flex: 1 }}>
+                                        <input defaultChecked={solo_parent.Answer === 0} disabled className="m-0 checkbox" type="checkbox" />
+                                        <label >&nbsp; No</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-md-12 row m-0 p-0 pl-4">
-                            <p style={{ display: 'inline-flex' }}>If YES, give details:
-                                <span className="bold underlined">N/A</span>
-                            </p>
+                            <div className="col-md-12 row m-0 p-0 pl-3  mt-1">
+                                <p className="mb-1">If YES, give details:
+                                    <br /> <span className="bold underlined">{solo_parent.Details}</span>
+                                    <br />
+                                </p>
+                            </div>
                         </div>
 
 

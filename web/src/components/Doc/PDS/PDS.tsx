@@ -111,6 +111,7 @@ export default function PDS() {
                 Immigrant={data.immigrant}
                 Indigenous={data.indigenous}
                 Disability={data.disability}
+                solo_parent={data.solo_parent}
             />
         )
     }

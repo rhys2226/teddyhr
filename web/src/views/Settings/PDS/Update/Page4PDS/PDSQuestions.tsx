@@ -26,7 +26,7 @@ export default function PDSQuestions( props: any ): any {
 
 
     function distribute() {
-        let array = [ 'ThirdDegree', 'ForuthDegree', 'FoundGuility', 'CriminallyCharged', 'BeenConvicted', 'Seperated', 'Candidate', 'Resigned', 'Immigrant', 'Indigenous', 'Disability' ]
+        let array = [ 'ThirdDegree', 'ForuthDegree', 'FoundGuility', 'CriminallyCharged', 'BeenConvicted', 'Seperated', 'Candidate', 'Resigned', 'Immigrant', 'Indigenous', 'Disability', 'solo_parent' ]
         let index = 0
         for ( let i = 0; i < 11; i++ ) {
             for ( let key in props[ array[ i ] ] ) {
@@ -100,8 +100,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq0( false )
                     }} id="Answer0" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-0" style={{ display: q0 == false ? 'none' : '' }}>
                         <br />
@@ -123,8 +123,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq1( false )
                     }} id="Answer1" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q1 == false ? 'none' : '' }}>
                         <br />
@@ -149,8 +149,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq2( false )
                     }} id="Answer2" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q2 == false ? 'none' : '' }}>
                         <br />
@@ -172,8 +172,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq3( false )
                     }} id="Answer3" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q3 == false ? 'none' : '' }}>
                         <br />
@@ -198,8 +198,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq4( false )
                     }} id="Answer4" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q4 == false ? 'none' : '' }}>
                         <br />
@@ -224,8 +224,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq5( false )
                     }} id="Answer5" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q5 == false ? 'none' : '' }}>
                         <br />
@@ -250,8 +250,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq6( false )
                     }} id="Answer6" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q6 == false ? 'none' : '' }}>
                         <br />
@@ -276,8 +276,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq7( false )
                     }} id="Answer7" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q7 == false ? 'none' : '' }}>
                         <br />
@@ -301,8 +301,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq8( false )
                     }} id="Answer8" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q8 == false ? 'none' : '' }}>
                         <br />
@@ -327,8 +327,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq9( false )
                     }} id="Answer9" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q9 == false ? 'none' : '' }}>
                         <br />
@@ -352,8 +352,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq10( false )
                     }} id="Answer10" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q10 == false ? 'none' : '' }}>
                         <br />
@@ -377,8 +377,8 @@ export default function PDSQuestions( props: any ): any {
                         }
                         return setq10( false )
                     }} id="Answer11" className="form-control">
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value="0">No</option>
+                        <option value="1"> Yes</option>
                     </select>
                     <div className="col-md-12 mb-2" style={{ display: q11 == false ? 'none' : '' }}>
                         <br />
