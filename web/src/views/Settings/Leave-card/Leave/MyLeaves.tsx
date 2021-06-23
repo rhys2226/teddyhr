@@ -1,16 +1,19 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { Alert, Fire, noData } from '../../../../components/Alerts/Alert'
 import FullScreenModal from '../../../../components/Modals/FullScreenModal'
 import { Auth } from '../../../../services/auth.service'
 import ApplicationForLeaveSheet from './CSCForm/ApplicationForLeaveSheet'
 import LeavesPlaceholders from './Placeholders/LeavesPlaceholders'
 
-export default function Leaves() {
-
+export default function MyLeaves() {
     const [ modal, setModal ] = React.useState( <div></div> )
     const [ leaves, setleaves ]: any = React.useState( [] )
     const [ filteredData, setFilteredData ]: any = React.useState( [] )
     const [ fetched, setfetched ]: any = React.useState( false )
+
+    let { id }: any = useParams();
+
 
     React.useEffect( () => {
         getLeaves()
@@ -18,7 +21,7 @@ export default function Leaves() {
 
     function getLeaves() {
         const api = new Auth( 'application-for-leave' )
-        api.fetch( {} ).then( ( data ) => {
+        api.fetchOne( id ).then( ( data ) => {
             setleaves( data )
             setFilteredData( data )
             setfetched( true )

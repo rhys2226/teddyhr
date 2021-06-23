@@ -18,10 +18,9 @@ import ApplicationForLeave from '../Settings/Leave-card/Leave/ApplicationForLeav
 import LeaveBalances from '../Settings/Leave-card/Leave/LeaveBalances';
 import Leaves from '../Settings/Leave-card/Leave/Leaves';
 import LeaveSettings from '../Settings/Leave-card/Leave/LeaveSettings';
+import MyLeaves from '../Settings/Leave-card/Leave/MyLeaves';
 import Settings from '../Settings/Settings';
 import EmploymentStatus from '../Settings/Status/EmploymentStatus';
-import Approvals from '../Supervisor/Approvals/Approvals';
-import AssignatorySettings from '../Supervisor/AssignatorySettings/AssignatorySettings';
 import Supervisor from '../Supervisor/Supervisor';
 import AddEmployee from '../Users/Add-Employee/AddEmployee';
 import Applicants from '../Users/Applicants/Applicants';
@@ -29,7 +28,6 @@ import Employees from '../Users/Employees/Employees';
 
 export default function Home() {
     const url = useURL();
-
     const HomeRoutes: RouteProps[] = [
         {
             path: url( '/' ),
@@ -41,7 +39,6 @@ export default function Home() {
             component: PerformanceMgt,
             exact: true,
         },
-
         {
             path: url( '/applicants' ),
             component: Applicants,
@@ -56,7 +53,6 @@ export default function Home() {
             path: url( '/employees-add' ),
             component: AddEmployee,
         },
-
         {
             path: url( '/vancancy-add' ),
             component: AddVancancy,
@@ -65,7 +61,6 @@ export default function Home() {
             path: url( '/vacancies' ),
             component: Vacancies,
         },
-
         {
             path: url( '/seminars' ),
             component: UpcomingSeminars,
@@ -74,7 +69,6 @@ export default function Home() {
             path: url( '/seminars-attended/:id' ),
             component: SeminarsAttended,
         },
-
         {
             path: url( '/leave' ),
             component: Applicants,
@@ -87,7 +81,6 @@ export default function Home() {
             path: url( '/awards-lists' ),
             component: ListOfAwards,
         },
-
         {
             path: url( '/settings' ),
             component: Settings,
@@ -116,20 +109,11 @@ export default function Home() {
             path: url( '/employment-Status' ),
             component: EmploymentStatus,
         },
-
         {
-            path: url( '/approvals' ),
-            component: Approvals,
+            path: url( '/my-leaves/:id' ),
+            component: MyLeaves,
         },
-
-        {
-            path: url( '/assignatories' ),
-            component: AssignatorySettings,
-        },
-
-
     ];
-
 
     return (
         <>

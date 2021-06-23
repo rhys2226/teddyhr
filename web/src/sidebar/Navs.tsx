@@ -30,7 +30,6 @@ export const applicantNav = ( id: Number ) => {
     ]
 }
 
-
 export const employeeNav = ( id: Number ) => {
     return [
         {
@@ -38,7 +37,7 @@ export const employeeNav = ( id: Number ) => {
             route: '/home/',
             icon: 'fe-bar-chart-2'
         },
-        { Heading: 'Users' },
+        { Heading: 'System Users' },
         {
             title: 'Employees',
             route: '/home/employees',
@@ -49,24 +48,19 @@ export const employeeNav = ( id: Number ) => {
             route: '/home/applicants',
             icon: 'fe-mail'
         },
-        { Heading: 'Supervisions' },
+        { Heading: 'Department' },
         {
             title: 'Supervisors',
             route: '/home/supervisors',
-            icon: 'fe-hexagon'
+            icon: 'fe-shield'
         },
         { Heading: 'Recruitment' },
         {
-            title: 'View Vacancies',
+            title: 'Vacancies',
             route: '/home/vacancies',
             icon: 'fe-layers'
         },
-        { Heading: 'Leave' },
-        {
-            title: 'Application for Leave',
-            route: '/home/leave-application',
-            icon: 'fe-edit-3'
-        },
+        { Heading: 'Leaves' },
         {
             title: 'Leave Balances',
             route: '/home/leave-balances',
@@ -74,10 +68,15 @@ export const employeeNav = ( id: Number ) => {
         },
         {
             title: 'Leaves',
-            route: '/home/leaves',
+            route: '/home/my-leaves/' + id,
             icon: 'fe-truck'
         },
-        { Heading: 'Learning and Development' },
+        {
+            title: 'Application for Leave',
+            route: '/home/leave-application',
+            icon: 'fe-edit-3'
+        },
+        { Heading: 'Learning & Development' },
         {
             title: 'Seminars Attended',
             route: '/home/seminars-attended/' + id,
@@ -91,7 +90,6 @@ export const employeeNav = ( id: Number ) => {
         },
     ]
 }
-
 
 export const adminNav = ( id: Number ) => {
     return [
@@ -112,47 +110,38 @@ export const adminNav = ( id: Number ) => {
             icon: 'fe-user-check'
         },
         {
-            title: 'Add Employee',
+            title: 'Add an employee',
             route: '/home/employees-add',
             icon: 'fe-user-plus'
         },
-        { Heading: 'Supervisions' },
+        { Heading: 'Department' },
         {
             title: 'Supervisors',
             route: '/home/supervisors',
             icon: 'fe-hexagon'
         },
-        { Heading: 'Leave' },
+        { Heading: 'Leaves' },
         {
-            title: 'Application for Leave',
-            route: '/home/leave-application',
-            icon: 'fe-edit-3'
-        },
-        {
-            title: 'Leave Balances',
-            route: '/home/leave-balances',
-            icon: 'fe-credit-card'
+            title: 'Leave Settings',
+            route: '/home/leave-settings',
+            icon: 'fe-tool'
         },
         {
             title: 'Leaves',
             route: '/home/leaves',
             icon: 'fe-truck'
         },
-        {
-            title: 'Leave Settings',
-            route: '/home/leave-settings',
-            icon: 'fe-tool'
-        },
+
         { Heading: 'Awards & Recognition' },
-        {
-            title: 'Add Award',
-            route: '/home/awards',
-            icon: 'fe-award'
-        },
         {
             title: 'List of Awards',
             route: '/home/awards-lists',
             icon: 'fe-list'
+        },
+        {
+            title: 'Add Award',
+            route: '/home/awards',
+            icon: 'fe-award'
         },
     ]
 }
