@@ -12,6 +12,8 @@ export default function LeaveCard() {
     const [ fetched, setfetched ] = React.useState( false )
     const [ edit, setedit ] = React.useState( false )
     const [ leaveCardData, setleaveCardData ] = React.useState( [] )
+    const userData: any = localStorage.getItem( 'user' )
+    const type = JSON.parse( userData ).Type
 
     React.useEffect( () => {
         getLeaveCard()
@@ -30,7 +32,7 @@ export default function LeaveCard() {
 
     return (
         <div style={{ display: !fetched ? 'none' : '' }}>
-            <div className="d-flex" style={{ transform: 'translate(-150px)', marginBottom: '-150px' }}>
+            <div style={{ transform: 'translate(-150px)', marginBottom: '-150px', display: type === 'Admin' ? '' : 'none' }}>
                 <button
                     onClick={() => {
                         setedit( edit === true ? false : true )
@@ -45,7 +47,7 @@ export default function LeaveCard() {
                 </button>
             </div>
 
-            <PrintComponents
+            {/* <PrintComponents
                 trigger={
                     <button className="btn btn-dark mb-3 mt-5" style={{ transform: 'translate(-50px,66px)', marginBottom: '-50px' }}>
                         <i className=" fe fe-printer"></i>
@@ -53,7 +55,7 @@ export default function LeaveCard() {
                     </button>
                 }>
                 {component}
-            </PrintComponents>
+            </PrintComponents> */}
 
 
             {component}
