@@ -89,8 +89,8 @@ export default function PDSPage2(
                                     <p className="m-0 mb-0 pb-0 text-center bold underlined p-2">{eligibility.Place}</p>
                                 </div>
                                 <div className="col-md-1  row m-0 p-0 d-flex aic jcc from-to   bt bg-white bl p-2" style={{ flex: '0 0 16.6%', maxWidth: '100%' }}>
-                                    <p className="m-0 mb-0 text-center fs-sm col-md-6  bold underlined">{eligibility.License}</p>
-                                    <p className="m-0 mb-0 text-center fs-sm col-md-6  bold underlined">N/A</p>
+                                    <p className="m-0 mb-0 text-center  col-md-6  bold underlined">{eligibility.License}</p>
+                                    <p className="m-0 mb-0 text-center  col-md-6  bold underlined">{eligibility.Validity}</p>
                                 </div>
                             </>
                         ) )
