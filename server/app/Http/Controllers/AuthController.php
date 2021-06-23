@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Applicant;
 use App\Models\Attachments;
 use App\Models\Employee;
+use App\Models\LeaveCard;
 use App\Models\PersonalDataSheet;
 use App\Models\Subordiante;
 use App\Models\User;
@@ -63,6 +64,7 @@ class AuthController extends Controller
         $Supervisor->Department = 'Human Resource Management Office';
         $Supervisor->save();
         AuthController::populatePDS($data);
+         AuthController::createLeaveRecord($data);
         return [
             'message' => $data['First'].'has been registered as an employee of Iloilo State College of Fisheries. Personal Data Sheet is Ready!',
         ];
@@ -86,6 +88,30 @@ class AuthController extends Controller
         $attachments->save();
     } 
     
+    public static function createLeaveRecord($data){
+        $leaveCard = new LeaveCard();
+        $leaveCard->employee_id =  $data['user_id'];
+        $leaveCard->Year =  date('Y');
+        $leaveCard->Month =  date('F');
+        $leaveCard->Particulars1 =  '';
+        $leaveCard->Particulars2 =  '';
+        
+        $leaveCard->VacationEarned =  1.125;
+        $leaveCard->SickEarned =  1.125;
+        $leaveCard->ServiceCreditEarned =  0;
+        
+        $leaveCard->WithPayVacation =  0;
+        $leaveCard->WithPayLeave =  0;
+        $leaveCard->WithPayServiceCredit =  0;
+        
+        $leaveCard->WithoutPayVacation =  0;
+        $leaveCard->WithoutPayLeave =  0;
+        
+        $leaveCard->DateAndActionTaken1 =  '';
+        $leaveCard->DateAndActionTaken2 =  '';
+        
+        $leaveCard->save();
+    }
     
     public static function populatePDS($data)
     {

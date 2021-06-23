@@ -12,29 +12,29 @@ class CreateLeaveCardsTable extends Migration
         Schema::create('leave_cards', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('employee_id')->references('id')->on('users');
-            $table->string('Year');
-            $table->string('Month');
-            $table->string('Particulars1');
-            $table->string('Particulars2');
+            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('Year')->nullable();
+            $table->string('Month')->nullable();
+            $table->string('Particulars1')->nullable();
+            $table->string('Particulars2')->nullable();
             
-            $table->integer('VacationEarned');
-            $table->integer('SickEarned');
-            $table->integer('ServiceCreditEarned');
+            $table->double('VacationEarned')->nullable();
+            $table->double('SickEarned')->nullable();
+            $table->double('ServiceCreditEarned')->nullable();
             
-            $table->integer('WithPayVacation');
-            $table->integer('WithPayLeave');
-            $table->integer('WithPayServiceCredit');
+            $table->double('WithPayVacation')->nullable();
+            $table->double('WithPayLeave')->nullable();
+            $table->double('WithPayServiceCredit')->nullable();
             
-            $table->integer('BalanceVacation');
-            $table->integer('BalanceLeave');
-            $table->integer('BalanceServiceCredit');
+            $table->double('BalanceVacation')->nullable();
+            $table->double('BalanceLeave')->nullable();
+            $table->double('BalanceServiceCredit')->nullable();
             
-            $table->integer('WithoutPayVacation');
-            $table->integer('WithoutPayLeave');
+            $table->double('WithoutPayVacation')->nullable();
+            $table->double('WithoutPayLeave')->nullable();
             
-            $table->string('DateAndActionTaken1');
-            $table->string('DateAndActionTaken2');
+            $table->string('DateAndActionTaken1')->nullable();
+            $table->string('DateAndActionTaken2')->nullable();
         });
     }
 
