@@ -48,12 +48,6 @@ export const employeeNav = ( id: Number ) => {
             route: '/home/applicants',
             icon: 'fe-mail'
         },
-        { Heading: 'Department' },
-        {
-            title: 'Supervisors',
-            route: '/home/supervisors',
-            icon: 'fe-shield'
-        },
         { Heading: 'Recruitment' },
         {
             title: 'Vacancies',
@@ -76,9 +70,20 @@ export const employeeNav = ( id: Number ) => {
             route: '/home/leave-application',
             icon: 'fe-edit-3'
         },
-        { Heading: 'Learning & Development' },
+        { Heading: 'HRD' },
         {
-            title: 'Seminars Attended',
+            title: 'Seminars',
+            route: '/home/hrd/seminars',
+            icon: 'fe-airplay'
+        },
+        {
+            title: 'Scholarships',
+            route: '/home/hrd/scholarships',
+            icon: 'fe-columns'
+        },
+        { Heading: 'Seminars' },
+        {
+            title: 'My Seminars',
             route: '/home/seminars-attended/' + id,
             icon: 'fe-mic'
         },
@@ -87,6 +92,12 @@ export const employeeNav = ( id: Number ) => {
             title: 'List of Awards',
             route: '/home/awards-lists',
             icon: 'fe-list'
+        },
+        { Heading: 'Department' },
+        {
+            title: 'Supervisors',
+            route: '/home/supervisors',
+            icon: 'fe-shield'
         },
     ]
 }
@@ -131,7 +142,6 @@ export const adminNav = ( id: Number ) => {
             route: '/home/leaves',
             icon: 'fe-truck'
         },
-
         { Heading: 'HRD' },
         {
             title: 'Add as Seminar',

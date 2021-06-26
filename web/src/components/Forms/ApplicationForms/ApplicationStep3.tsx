@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { route } from '../../../constants/base'
 import { Alert } from '../../Alerts/Alert'
 
 type Props = {
@@ -26,7 +27,7 @@ export default function ApplicationStep3( props: Props ) {
                             <div className='circle circle-lg bg-primary'>
                                 <i className='fe fe-upload fe-24 text-white'></i>
                             </div>
-                            <h5 className="text-muted m-5">Drag & Drop your Resume, CV, Application Letter and other Supporting Documents Here</h5>
+                            <h5 className="text-muted m-5">Drag & Drop your Resume, CV, Application Letter, Personal Data Sheet and other Supporting Documents Here</h5>
                         </div>
                     </form>
                     <div className='dropzone-previews mt-3' id='file-previews'></div>
@@ -59,8 +60,12 @@ export default function ApplicationStep3( props: Props ) {
         <div>
 
             <h3 className="mb-0">Attachments</h3>
-            <p className="text-muted mt-0">Upload your CV or Resume, Application letter and other Supporting Documents</p>
-
+            <p className="text-muted mt-0 m-0">Upload your CV or Resume, Application letter and other Supporting Documents</p>
+            <h6 className="text-danger small m-0">*Important Notice! Personal Data Sheet is required is required. No PDS invalid application</h6>
+            <a href={route + '/Personal-Data-Sheet.xlsx'} target="_blank" className="btn btn-success mt-2  ">
+                <i className="fe fe-download"></i> &nbsp;
+                Download Personal Data Sheet Form
+            </a>
             <DropZone />
 
             <table className="table" style={{ display: files.length == 0 ? 'none' : 'table' }}>

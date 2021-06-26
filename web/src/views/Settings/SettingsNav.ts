@@ -1,7 +1,10 @@
 import React from 'react'
 
 const userData: any = localStorage.getItem( 'user' )
-const user: any = JSON.parse( userData )[ 'id' ]
+let user: any = 0
+if (userData != undefined) {
+    user = JSON.parse( userData )[ 'id' ]
+}
 
 export const settingsNav = [
     {
