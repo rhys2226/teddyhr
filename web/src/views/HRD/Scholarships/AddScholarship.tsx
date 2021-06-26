@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { Alert, Fire } from '../../../components/Alerts/Alert'
 import { useDropzone } from 'react-dropzone'
 import { useForm } from 'react-hook-form';
+import { Auth } from '../../../services/auth.service';
 
 type Props = {
     show: Boolean
@@ -9,7 +10,7 @@ type Props = {
 }
 
 type Inputs = {
-
+    Title: any
 }
 
 export default function AddScholarship( props: Props ) {
@@ -65,7 +66,33 @@ export default function AddScholarship( props: Props ) {
     }
 
     const submit = async ( data: any ) => {
-
+        data[ 'files' ] = files
+        console.log( files )
+        const formData = new FormData()
+        for ( let key in data ) {
+            if ( key !== 'files' ) {
+                formData.append( key, data[ key ] )
+            }
+        }
+        let i = 0;
+        for ( let index of data[ 'files' ] ) {
+            formData.append( `files${ i }`, index )
+            i += 1
+        }
+        Fire( 'Add Scholarship?', 'Are you sure you want to add a scholarship?', 'info', () => {
+            setdisabled( true )
+            const api = new Auth( 'scholarships' );
+            api.create( formData )
+                .then( () => {
+                    Alert( 'Seminar Added', 'Scholarship successfully added', 'success' )
+                    setfiles( [] )
+                    setdisabled( false )
+                } )
+                .catch( () => {
+                    Alert( 'Error', 'Something went Wrong', 'error' )
+                    setdisabled( false )
+                } )
+        } )
     }
 
     return (
@@ -86,7 +113,7 @@ export default function AddScholarship( props: Props ) {
                                         <div className="row">
                                             <div className="form-group col-md-12">
                                                 <label >Title of Scholarship</label>
-                                                <input className="form-control bg-light" type="text" />
+                                                <input    {...register( 'Title' )} className="form-control bg-light" type="text" />
                                             </div>
                                             <div className="form-group col-md-12 d-flex aic jcc mt-5">
                                                 <button disabled={disabled} className="btn btn-dark float-right">
