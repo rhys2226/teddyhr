@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { Alert, Fire } from '../../../components/Alerts/Alert'
 import { useDropzone } from 'react-dropzone'
 import { useForm } from 'react-hook-form';
+import { Auth } from '../../../services/auth.service';
 
 type Props = {
     show: Boolean
@@ -9,7 +10,12 @@ type Props = {
 }
 
 type Inputs = {
-
+    From: any
+    To: any
+    Title: any
+    Venue: any
+    Type: any
+    Agency: any
 }
 
 export default function AddSeminar( props: Props ) {
@@ -65,8 +71,36 @@ export default function AddSeminar( props: Props ) {
     }
 
     const submit = async ( data: any ) => {
-
+        data[ 'files' ] = files
+        console.log( files )
+        const formData = new FormData()
+        for ( let key in data ) {
+            if ( key !== 'files' ) {
+                formData.append( key, data[ key ] )
+            }
+        }
+        let i = 0;
+        for ( let index of data[ 'files' ] ) {
+            formData.append( `files${ i }`, index )
+            i += 1
+        }
+        Fire( 'Add an Seminar?', 'Are you sure you want to add a seminar?', 'info', () => {
+            setdisabled( true )
+            const api = new Auth( 'seminars' );
+            api.create( formData )
+                .then( () => {
+                    Alert( 'Seminar Added', 'Seminar successfully added', 'success' )
+                    setfiles( [] )
+                    setdisabled( false )
+                } )
+                .catch( () => {
+                    Alert( 'Error', 'Something went Wrong', 'error' )
+                    setdisabled( false )
+                } )
+        } )
     }
+
+
 
     return (
         <div className="row justify-content-center">
@@ -86,23 +120,23 @@ export default function AddSeminar( props: Props ) {
                                         <div className="row">
                                             <div className="form-group col-md-12 mb-4 mt-4">
                                                 <label >Title of Seminar</label>
-                                                <input className="form-control bg-light" type="text" />
+                                                <input  {...register( 'Title' )} className="form-control bg-light" type="text" />
                                             </div>
                                             <div className="form-group col-md-6 mb-4">
                                                 <label >From</label>
-                                                <input className="form-control bg-light" type="date" />
+                                                <input  {...register( 'From' )} className="form-control bg-light" type="date" />
                                             </div>
                                             <div className="form-group col-md-6 mb-4">
                                                 <label >To</label>
-                                                <input className="form-control bg-light" type="date" />
+                                                <input  {...register( 'To' )} className="form-control bg-light" type="date" />
                                             </div>
                                             <div className="form-group col-md-6 mb-4">
                                                 <label >Venue</label>
-                                                <input className="form-control bg-light" type="text" />
+                                                <input   {...register( 'Venue' )} className="form-control bg-light" type="text" />
                                             </div>
                                             <div className="form-group col-md-6 mb-4">
                                                 <label >Type of Seminar </label>
-                                                <select className="form-control bg-light" >
+                                                <select  {...register( 'Type' )} className="form-control bg-light" >
                                                     <option >International</option>
                                                     <option >National</option>
                                                     <option >Regional</option>
@@ -111,7 +145,7 @@ export default function AddSeminar( props: Props ) {
                                             </div>
                                             <div className="form-group col-md-12 mb-4">
                                                 <label >Conducting Agency</label>
-                                                <input className="form-control bg-light" type="text" />
+                                                <input  {...register( 'Agency' )} className="form-control bg-light" type="text" />
                                             </div>
                                             <div className="form-group col-md-12 d-flex aic jcc mt-5">
                                                 <button disabled={disabled} className="btn btn-dark float-right">

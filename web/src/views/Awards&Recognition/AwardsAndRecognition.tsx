@@ -76,7 +76,6 @@ export default function AwardsAndRecognition() {
 
     const submit = async ( data: any ) => {
         data[ 'files' ] = files
-        console.log( data[ 'files' ] )
         const formData = new FormData()
         for ( let key in data ) {
             if ( key !== 'files' ) {
