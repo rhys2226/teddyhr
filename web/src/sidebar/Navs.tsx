@@ -120,12 +120,6 @@ export const adminNav = ( id: Number ) => {
             route: '/home/vancancy-add',
             icon: 'fe-layers'
         },
-        { Heading: 'Department' },
-        {
-            title: 'Supervisors',
-            route: '/home/supervisors',
-            icon: 'fe-hexagon'
-        },
         { Heading: 'Leaves' },
         {
             title: 'Leave Settings',
@@ -138,6 +132,28 @@ export const adminNav = ( id: Number ) => {
             icon: 'fe-truck'
         },
 
+        { Heading: 'HRD' },
+        {
+            title: 'Add as Seminar',
+            route: '/home/hrd/seminars-add',
+            icon: 'fe-mic'
+        },
+        {
+            title: 'Seminars',
+            route: '/home/hrd/seminars',
+            icon: 'fe-airplay'
+        },
+        {
+            title: 'Add as Scholarship',
+            route: '/home/hrd/scholarships-add',
+            icon: 'fe-copy'
+        },
+        {
+            title: 'Scholarships',
+            route: '/home/hrd/scholarships',
+            icon: 'fe-columns'
+        },
+
         { Heading: 'Awards & Recognition' },
         {
             title: 'List of Awards',
@@ -148,6 +164,12 @@ export const adminNav = ( id: Number ) => {
             title: 'Add Award',
             route: '/home/awards',
             icon: 'fe-award'
+        },
+        { Heading: 'Department' },
+        {
+            title: 'Supervisors',
+            route: '/home/supervisors',
+            icon: 'fe-hexagon'
         },
     ]
 }

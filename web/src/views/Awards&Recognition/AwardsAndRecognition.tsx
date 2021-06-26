@@ -43,9 +43,9 @@ export default function AwardsAndRecognition() {
                     <form action='/file-upload' className='dropzone bg-light rounded-lg' id='tinydash-dropzone'>
                         <div className='dz-message needsclick'>
                             <div className='circle circle-lg bg-dark'>
-                                <i className='fe fe-upload fe-24 text-white'></i>
+                                <i className='fe fe-award fe-24 text-white'></i>
                             </div>
-                            <h5 className='text-muted mt-4'>Drop files here or click to upload</h5>
+                            <h5 className='text-muted mt-4'>Drop Award files here or click to upload</h5>
                         </div>
                     </form>
                     <div className='dropzone-previews mt-3' id='file-previews'></div>

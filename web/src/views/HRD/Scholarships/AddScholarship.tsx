@@ -12,7 +12,7 @@ type Inputs = {
 
 }
 
-export default function AddSeminar( props: Props ) {
+export default function AddScholarship( props: Props ) {
 
     const [ files, setfiles ] = React.useState( [] )
     const { register, handleSubmit } = useForm<Inputs>();
@@ -70,11 +70,11 @@ export default function AddSeminar( props: Props ) {
 
     return (
         <div className="row justify-content-center">
-            <div className="col-12 col-lg-10 col-xl-8">
+            <div className="col-12 col-lg-10 col-xl-6">
                 <div className="card-deck">
                     <div className="card shadow mb-4">
                         <div className="card-header p-3">
-                            <h2 className="card-title mt-2 mb-0">Seminar Form</h2>
+                            <strong className='card-title'>Scholarship Form</strong>
                         </div>
                         <div className="card-body">
                             <div className="col-md-12 row">
@@ -84,33 +84,8 @@ export default function AddSeminar( props: Props ) {
                                 <div className="col-md-12 ">
                                     <form encType="multipart/form-data" onSubmit={handleSubmit( submit )}>
                                         <div className="row">
-                                            <div className="form-group col-md-12 mb-4 mt-4">
-                                                <label >Title of Seminar</label>
-                                                <input className="form-control bg-light" type="text" />
-                                            </div>
-                                            <div className="form-group col-md-6 mb-4">
-                                                <label >From</label>
-                                                <input className="form-control bg-light" type="date" />
-                                            </div>
-                                            <div className="form-group col-md-6 mb-4">
-                                                <label >To</label>
-                                                <input className="form-control bg-light" type="date" />
-                                            </div>
-                                            <div className="form-group col-md-6 mb-4">
-                                                <label >Venue</label>
-                                                <input className="form-control bg-light" type="text" />
-                                            </div>
-                                            <div className="form-group col-md-6 mb-4">
-                                                <label >Type of Seminar </label>
-                                                <select className="form-control bg-light" >
-                                                    <option >International</option>
-                                                    <option >National</option>
-                                                    <option >Regional</option>
-                                                    <option >Local</option>
-                                                </select>
-                                            </div>
-                                            <div className="form-group col-md-12 mb-4">
-                                                <label >Conducting Agency</label>
+                                            <div className="form-group col-md-12">
+                                                <label >Title of Scholarship</label>
                                                 <input className="form-control bg-light" type="text" />
                                             </div>
                                             <div className="form-group col-md-12 d-flex aic jcc mt-5">

@@ -9,6 +9,10 @@ import { useURL } from '../../hooks';
 import Sidebar from '../../sidebar/Sidebar';
 import AwardsAndRecognition from '../Awards&Recognition/AwardsAndRecognition';
 import ListOfAwards from '../Awards&Recognition/ListOfAwards';
+import AddScholarship from '../HRD/Scholarships/AddScholarship';
+import Scholarship from '../HRD/Scholarships/Scholarship';
+import AddSeminar from '../HRD/Upcomming-seminars/AddSeminar';
+import NewSeminarsAttended from '../HRD/Upcomming-seminars/NewSeminarsAttended';
 import SeminarsAttended from '../HRD/Upcomming-seminars/SeminarsAttended';
 import UpcomingSeminars from '../HRD/Upcomming-seminars/UpcomingSeminars';
 import PerformanceMgt from '../Performance/Performace-mgt/PerformanceMgt';
@@ -113,6 +117,26 @@ export default function Home() {
             path: url( '/my-leaves/:id' ),
             component: MyLeaves,
         },
+        {
+            path: url( '/hrd/seminars-add' ),
+            component: AddSeminar,
+        },
+        {
+            path: url( '/hrd/seminars' ),
+            component: NewSeminarsAttended,
+        },
+        {
+            path: url( '/hrd/scholarships-add' ),
+            component: AddScholarship,
+        },
+        {
+            path: url( '/hrd/scholarships' ),
+            component: Scholarship,
+        },
+
+
+
+
     ];
 
     return (
