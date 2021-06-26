@@ -12,7 +12,7 @@ class ScholarshipsController extends Controller
 {
     public function index()
     {
-        return Scholarships::get()->with('attachments');
+        return Scholarships::with('attachments')->get();
     }
     
     public function store(Request $request)
