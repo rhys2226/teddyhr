@@ -114,6 +114,12 @@ export const adminNav = ( id: Number ) => {
             route: '/home/employees-add',
             icon: 'fe-user-plus'
         },
+        { Heading: 'Recruitment' },
+        {
+            title: 'Add a vacancy',
+            route: '/home/vancancy-add',
+            icon: 'fe-layers'
+        },
         { Heading: 'Department' },
         {
             title: 'Supervisors',

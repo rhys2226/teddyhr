@@ -46,7 +46,7 @@ export default function AppforLeavePrint( props: any ) {
                         <td className="p-0 pl-2"></td>
                     </tr>
                     <tr className="bb">
-                        <td className="br bold pl-2" colSpan={3}>{data.Office}</td>
+                        <td className="br bold pl-2" colSpan={3}>{data.Office || 'Iloilo State College of Fisheries'}</td>
                         <td className=" pl-2  underlined" colSpan={3}>{data.user.Last}</td>
                         <td className=" pl-2 underlined" colSpan={2}>{data.user.First}</td>
                         <td className=" pl-2 underlined" colSpan={2}>{data.user.Middle}</td>
@@ -210,20 +210,20 @@ export default function AppforLeavePrint( props: any ) {
                     </tr>
                     <tr>
                         <td className="text-center">Vacation                  </td>
-                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{leaves.BalanceVacation}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{data.Spent === 'Vacation' || data.Spent === 'Special Privilege' ? leaves.BalanceVacation - data.Days : leaves.BalanceVacation}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td colSpan={3}></td>
                         <td>_______</td>
                         <td colSpan={3}>Disapproved due to</td>
                     </tr>
                     <tr>
                         <td className="text-center"> Sick </td>
-                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{leaves.BalanceLeave}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{data.Spent === 'Sick' ? leaves.BalanceVacation - data.Days : leaves.BalanceVacation}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td colSpan={3}></td>
                         <td colSpan={4}>______________________</td>
                     </tr>
                     <tr>
                         <td className="text-center" colSpan={1}> Total </td>
-                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{leaves.BalanceVacation + leaves.BalanceLeave}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td className="underlined bold" colSpan={1}>&nbsp;&nbsp;{( leaves.BalanceVacation + leaves.BalanceLeave ) - data.Days}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     <tr>
                         <td className="text-center" colSpan={5}>  </td>

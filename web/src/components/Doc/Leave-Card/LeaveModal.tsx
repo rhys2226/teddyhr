@@ -159,21 +159,21 @@ export default function LeaveModal( props: {
 
                         <div className="col-md-4 mb-4">
                             <label htmlFor="">Earned</label>
-                            <input  {...register( 'ServiceCreditEarned' )} type="text" className="form-control" disabled />
+                            <input  {...register( 'ServiceCreditEarned' )} type="text" className="form-control" />
                         </div>
 
 
                         <div className="col-md-4 mb-4">
                             <label htmlFor="">	Absence Undertime W/o Pay</label>
                             <input onInput={( e: any ) => {
-                                setValue( 'BalanceServiceCredit', props.leave.BalanceServiceCredit - e.target.value )
+                                setValue( 'BalanceServiceCredit', props.leave.ServiceCreditEarned - e.target.value )
                             }}{...register( 'WithPayServiceCredit' )} type="text" className="form-control" />
                         </div>
 
 
                         <div className="col-md-4 mb-4">
                             <label htmlFor="">Balance</label>
-                            <input   {...register( 'BalanceServiceCredit' )} type="text" className="form-control" disabled />
+                            <input   {...register( 'BalanceServiceCredit' )} type="text" className="form-control" />
                         </div>
 
                         <div className="col-md-12 mb-4">
