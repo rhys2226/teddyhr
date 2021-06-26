@@ -7,6 +7,46 @@ export default function EmployeeICPR( props: any ) {
     const [ strategicPriority, setstrategicPriority ] = React.useState( [ 1 ] );
     const [ coreFunctions, setcoreFunctions ] = React.useState( [ 1 ] );
 
+
+    React.useEffect( () => {
+        setstrategicPriority( [] )
+        setcoreFunctions( [] )
+        const api = new Auth( 'icpr-settings' )
+        api.fetchOne( props.data.user_id ).then( ( data: any ) => {
+            data.StrategicPriorities.forEach( ( child: any ) => {
+                setstrategicPriority( [ ...[], 1 ] )
+            } )
+            data.CoreFunctions.forEach( ( child: any ) => {
+                setcoreFunctions( [ ...[], 1 ] )
+            } )
+            console.log( data )
+            setTimeout( () => {
+                distributeStrategicPriorities( data.StrategicPriorities )
+                distributeCoreFunctions( data.CoreFunctions )
+            }, 3000 );
+        } )
+    }, [] )
+
+    function distributeStrategicPriorities( priorities: any ) {
+        let index = 0
+        priorities.forEach( ( child: any ) => {
+            for ( let key in child ) {
+                console.log( key )
+                $( '#' + key + index ).val( child[ key ] )
+            }
+            index += 1
+        } )
+    }
+    function distributeCoreFunctions( functions: any ) {
+        let index = 0
+        functions.forEach( ( child: any ) => {
+            for ( let key in child ) {
+                $( '#F' + key + index ).val( child[ key ] )
+            }
+            index += 1
+        } )
+    }
+
     let StrategicPriorities: any = []
     let CoreFunctions: any = []
 
@@ -138,11 +178,11 @@ export default function EmployeeICPR( props: any ) {
                                 <h5 className="text-info">Strategic Priority #{index + 1}</h5>
                             </div>
                             <div className={`col-md-12 row  pt-1 card-header StrategicPriorities${ index }`} >
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">OUTPUT</label>
                                     <textarea id={`Output${ index }`} className="form-control" ></textarea>
                                 </div>
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">Success Indicators(Targets + Measures)</label>
                                     <textarea id={`SuccessIndicatiors${ index }`} className="form-control" ></textarea>
                                 </div>
@@ -189,11 +229,11 @@ export default function EmployeeICPR( props: any ) {
                                     <label className="text-success">Average</label>
                                     <input disabled id={`A${ index }`} type="number" className="form-control" />
                                 </div>
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">Actual Accomplishments</label>
                                     <textarea id={`ActualAccomplishments${ index }`} className="form-control" ></textarea>
                                 </div>
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">Remarks</label>
                                     <textarea id={`Remarks${ index }`} className="form-control" ></textarea>
                                 </div>
@@ -212,11 +252,11 @@ export default function EmployeeICPR( props: any ) {
                                 <h5 className="text-info">Core Function #{index + 1}</h5>
                             </div>
                             <div className={`col-md-12 row  pt-1 card-header CoreFunctions${ index }`} >
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">OUTPUT</label>
                                     <textarea id={`FOutput${ index }`} className="form-control" ></textarea>
                                 </div>
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">Success Indicators(Targets + Measures)</label>
                                     <textarea id={`FSuccessIndicatiors${ index }`} className="form-control" ></textarea>
                                 </div>
@@ -263,11 +303,11 @@ export default function EmployeeICPR( props: any ) {
                                     <label className="text-success">Average</label>
                                     <input disabled id={`FA${ index }`} type="number" className="form-control" />
                                 </div>
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">Actual Accomplishments</label>
                                     <textarea id={`FActualAccomplishments${ index }`} className="form-control" ></textarea>
                                 </div>
-                                <div className="col-md-6 mb-4">
+                                <div className="col-md-12 mb-4">
                                     <label htmlFor="">Remarks</label>
                                     <textarea id={`FRemarks${ index }`} className="form-control" ></textarea>
                                 </div>
