@@ -14,7 +14,7 @@ export default function PDSWorkExperience( props: {
     React.useEffect( () => {
         setaddForm( [] )
         props.WorkExperiences.forEach( ( child: any ) => {
-            setaddForm( [ ...addForm, 1 ] )
+            setaddForm( [ ...[], 1 ] )
         } )
         setTimeout( () => {
             distribute()

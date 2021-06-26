@@ -14,7 +14,7 @@ export default function PDSEligibility( props: {
     React.useEffect( () => {
         setaddForm( [] )
         props.Eligibilities.forEach( ( child: any ) => {
-            setaddForm( [ ...addForm, 1 ] )
+            setaddForm( [ ...[], 1 ] )
         } )
         setTimeout( () => {
             distribute()

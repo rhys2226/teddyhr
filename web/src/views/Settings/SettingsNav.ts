@@ -19,9 +19,13 @@ export const settingsNav = [
         title:  'Personal Data Sheet',
         route:'/home/settings/personal-data-sheet/'  + user
     },
-        {
+    {
         title:  'IPCR',
         route:'/home/settings/ipcr/'  + user
+    },
+      {
+        title:  'IPCR Settings',
+        route:'/home/settings/ipcr-settings/'  + user
     },
     {
         title:  'Service Record',

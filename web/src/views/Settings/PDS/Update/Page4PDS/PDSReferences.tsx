@@ -13,7 +13,7 @@ export default function PDSReferences( props: {
     React.useEffect( () => {
         setaddForm( [] )
         props.References.forEach( ( child: any ) => {
-            setaddForm( [ ...addForm, 1 ] )
+            setaddForm( [ ...[], 1 ] )
         } )
         setTimeout( () => {
             distribute()

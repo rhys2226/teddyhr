@@ -13,7 +13,7 @@ export default function PDSOtherInformation( props: {
     React.useEffect( () => {
         setaddForm( [] )
         props.Others.forEach( ( child: any ) => {
-            setaddForm( [ ...addForm, 1 ] )
+            setaddForm( [ ...[], 1 ] )
         } )
         setTimeout( () => {
             distribute()

@@ -11,6 +11,7 @@ import ICPRSettings from './ICPR/ICPRSettings';
 import ServiceRecordSettings from './Service-record/ServiceRecordSettings';
 import LeaveCardSettings from './Leave-card/LeaveCardSettings';
 import * as base from '../../constants/base'
+import ICPRNewSetting from './ICPR/ICPRNewSetting';
 
 export default function Settings() {
     const url = useURL();
@@ -46,6 +47,10 @@ export default function Settings() {
         {
             path: url( '/leave-card/:id' ),
             component: LeaveCardSettings,
+        },
+        {
+            path: url( '/ipcr-settings/:id' ),
+            component: ICPRNewSetting,
         },
     ]
 

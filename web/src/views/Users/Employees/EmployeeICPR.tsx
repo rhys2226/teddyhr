@@ -86,7 +86,7 @@ export default function EmployeeICPR( props: any ) {
     return (
         <div className="card-body card">
             <h5 className="bold mt-4 mb-0 text-center">OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)</h5>
-            <p className="text-info small mb-5 mt-0 text-center">This form will generate ICPR. Please review before submitting</p>
+            <p className="text-info small mb-5 mt-0 text-center">This form will generate ICPR. Please review after submitting</p>
             <div className="row mb-4">
                 <div className="col-md-6 mb-4">
                     <label htmlFor="">Reviewed by (Immediate Supervisor)</label>
@@ -131,27 +131,6 @@ export default function EmployeeICPR( props: any ) {
             </div>
 
             <div className="row mt-5 m-0">
-                <div className="d-flex mb-2">
-                    <button
-                        onClick={() => {
-                            setstrategicPriority( [ ...strategicPriority, 1 ] );
-                        }}
-                        style={{ whiteSpace: 'nowrap' }}
-                        className="btn btn-outline-dark ">Add Strategic Priority</button>
-                    <button
-                        onClick={() => {
-                            Fire(
-                                `Reset All Strategic Priority?`,
-                                `Are you sure you want to Reset All Strategic Priority?`,
-                                `info`,
-                                () => {
-                                    setstrategicPriority( [ 1 ] )
-                                },
-                            )
-                        }}
-                        style={{ whiteSpace: 'nowrap' }}
-                        className="btn btn-outline-danger ml-2 ">Reset All Strategic Priority</button>
-                </div>
                 {
                     strategicPriority.map( ( value: any, index: any ) => (
                         <>
@@ -162,12 +141,10 @@ export default function EmployeeICPR( props: any ) {
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">OUTPUT</label>
                                     <textarea id={`Output${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Success Indicators(Targets + Measures)</label>
                                     <textarea id={`SuccessIndicatiors${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Quality</label>
@@ -215,12 +192,10 @@ export default function EmployeeICPR( props: any ) {
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Actual Accomplishments</label>
                                     <textarea id={`ActualAccomplishments${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Remarks</label>
                                     <textarea id={`Remarks${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <input type="hidden" value="StrategicPriority" id="Type" />
                             </div>
@@ -230,27 +205,6 @@ export default function EmployeeICPR( props: any ) {
             </div>
 
             <div className="row mt-5 m-0">
-                <div className="d-flex mb-2">
-                    <button
-                        onClick={() => {
-                            setcoreFunctions( [ ...coreFunctions, 1 ] );
-                        }}
-                        style={{ whiteSpace: 'nowrap' }}
-                        className="btn btn-outline-dark ">Add Core Functions</button>
-                    <button
-                        onClick={() => {
-                            Fire(
-                                `Reset All Core Functions?`,
-                                `Are you sure you want to Reset All Core Functions?`,
-                                `info`,
-                                () => {
-                                    setcoreFunctions( [ 1 ] )
-                                },
-                            )
-                        }}
-                        style={{ whiteSpace: 'nowrap' }}
-                        className="btn btn-outline-danger ml-2 ">Reset All Core Functions</button>
-                </div>
                 {
                     coreFunctions.map( ( value: any, index: any ) => (
                         <>
@@ -261,12 +215,10 @@ export default function EmployeeICPR( props: any ) {
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">OUTPUT</label>
                                     <textarea id={`FOutput${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Success Indicators(Targets + Measures)</label>
                                     <textarea id={`FSuccessIndicatiors${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-3 mb-4">
                                     <label htmlFor="">Quality</label>
@@ -314,12 +266,10 @@ export default function EmployeeICPR( props: any ) {
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Actual Accomplishments</label>
                                     <textarea id={`FActualAccomplishments${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <div className="col-md-6 mb-4">
                                     <label htmlFor="">Remarks</label>
                                     <textarea id={`FRemarks${ index }`} className="form-control" ></textarea>
-                                    <h6 className="text-danger-lighter mt-2 small">* This field is required</h6>
                                 </div>
                                 <input type="hidden" value="CoreFunction" id="FType" />
                             </div>

@@ -13,7 +13,7 @@ export default function PDSVolountaryWork( props: {
     React.useEffect( () => {
         setaddForm( [] )
         props.VolunteerInvolvements.forEach( ( child: any ) => {
-            setaddForm( [ ...addForm, 1 ] )
+            setaddForm( [ ...[], 1 ] )
         } )
         setTimeout( () => {
             distribute()

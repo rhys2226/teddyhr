@@ -14,7 +14,7 @@ export default function PDSLearningAndDevelopment( props: {
     React.useEffect( () => {
         setaddForm( [] )
         props.LearningAndDevelopments.forEach( ( child: any ) => {
-            setaddForm( [ ...addForm, 1 ] )
+            setaddForm( [ ...[], 1 ] )
         } )
         setTimeout( () => {
             distribute()

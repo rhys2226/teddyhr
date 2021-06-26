@@ -55,7 +55,7 @@ export default function PDSFamilyBG( props: {
         setValue( 'BusinessAddress', FamilyBackground.BusinessAddress )
         setValue( 'Telephone', FamilyBackground.Telephone )
         Children.forEach( ( child: any ) => {
-            setaddForm( [ ...addForm, 1 ] )
+            setaddForm( [ ...[], 1 ] )
         } )
         setTimeout( () => {
             distribute()
