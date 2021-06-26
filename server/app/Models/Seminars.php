@@ -19,6 +19,6 @@ class Seminars extends Model
     ];
     
     public function attachments(){
-        return $this->hasMany(Attachments::class, 'scholarship_id','id');
+        return $this->hasMany(Attachments::class, 'seminar_id','id');
     }
 }

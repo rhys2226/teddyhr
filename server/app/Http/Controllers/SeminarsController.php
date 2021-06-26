@@ -12,7 +12,7 @@ class SeminarsController extends Controller
 {
  public function index()
     {
-        return Seminars::get()->with('attachments');
+        return Seminars::with('attachments')->get();
     }
     
     public function store(Request $request)
@@ -26,7 +26,7 @@ class SeminarsController extends Controller
             $file =  $data['files'.$i];
             $path = Storage::disk('public_uploads')->put('hrd/seminars/' , $file);
             $attachments = new Attachments();
-            $attachments->scholarship_id =  $seminar->id;
+            $attachments->seminar_id =  $seminar->id;
             $attachments->URL =   Storage::url( $path );
             $attachments->Type = 'Seminars';
             $attachments->Name = $file->getClientOriginalName();
