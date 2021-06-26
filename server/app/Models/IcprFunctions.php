@@ -5,22 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RatingDetails extends Model
+class IcprFunctions extends Model
 {
     use HasFactory;
-    
-    protected $fillable = [
-        'rating_id',
-        'Q',
-        'E',
-        'T',
-        'A',
+      protected $fillable = [
         'Type',
         'Output',
         'SuccessIndicatiors',
         'ActualAccomplishments',
         'Remarks'
     ];
+    
 }
-
- 

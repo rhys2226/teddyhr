@@ -34,20 +34,20 @@ class RatingController extends Controller
         }
         $i = 0;
         foreach($data['CoreFunctions'] as $functions){
-           if(isset($functions['CoreFunctions'.$index])){
+           if(isset($functions['CoreFunctions'.$i])){
                 $details = new RatingDetails();
                 $details->rating_id = $rating->id;
-                $details->Output = $functions['Output'.$index];
-                $details->SuccessIndicatiors = $functions['SuccessIndicatiors'.$index];
-                $details->ActualAccomplishments = $functions['ActualAccomplishments'.$index];
-                $details->Remarks = $functions['Remarks'.$index];
+                $details->Output = $functions['Output'.$i];
+                $details->SuccessIndicatiors = $functions['SuccessIndicatiors'.$i];
+                $details->ActualAccomplishments = $functions['ActualAccomplishments'.$i];
+                $details->Remarks = $functions['Remarks'.$i];
                 $details->Type = $functions['Type'];
                 
-                $details->Q = $functions['Q'.$index];
-                $details->E = $functions['E'.$index];
-                $details->T = $functions['T'.$index];
-                $details->A = $functions['A'.$index];
-                $index += 1;
+                $details->Q = $functions['Q'.$i];
+                $details->E = $functions['E'.$i];
+                $details->T = $functions['T'.$i];
+                $details->A = $functions['A'.$i];
+                $i += 1;
                 $details->save();
             }
         }

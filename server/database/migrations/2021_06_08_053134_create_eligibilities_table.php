@@ -11,7 +11,7 @@ class CreateEligibilitiesTable extends Migration
         Schema::create('eligibilities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-        $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('employee_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('Title')->nullable();
             $table->string('Rating')->nullable();
             $table->string('Date')->nullable();

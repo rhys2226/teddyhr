@@ -16,6 +16,7 @@ use App\Http\Controllers\DutiesAndResponsibilitiesController;
 use App\Http\Controllers\EducationalBackgroundController;
 use App\Http\Controllers\EligibilitiesController;
 use App\Http\Controllers\FamilyBackgroundController;
+use App\Http\Controllers\IcprFunctionsController;
 use App\Http\Controllers\IdentificationController;
 use App\Http\Controllers\LearningAndDevelopmentController;
 use App\Http\Controllers\LeaveCardController;
@@ -83,6 +84,7 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::resource('/identification', IdentificationController::class);  
         Route::resource('/seminars', SeminarsController::class);  
         Route::resource('/scholarships', ScholarshipsController::class);  
+        Route::resource('/icpr-settings', IcprFunctionsController::class);  
         Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);
         Route::get('/employee-performances', [EmployeeController::class, 'employeePerformance']);
         Route::post('/update-profile', [EmployeeController::class, 'updateProfile']);

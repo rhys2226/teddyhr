@@ -12,16 +12,15 @@ class CreateRatingDetailsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('rating_id')->onDelete('cascade');
-            $table->string('Output');
-            $table->string('SuccessIndicatiors');
+            $table->string('Output')->nullbale();
+            $table->string('SuccessIndicatiors')->nullbale();
             $table->double('Q');
             $table->double('E');
             $table->double('T');
             $table->double('A');
-            $table->string('Type');
-            
-            $table->string('ActualAccomplishments');
-            $table->string('Remarks');
+            $table->string('Type')->nullbale();
+            $table->string('ActualAccomplishments')->nullbale();
+            $table->string('Remarks')->nullbale();
         });
     }
 
