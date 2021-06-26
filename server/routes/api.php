@@ -29,9 +29,10 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\RatingDetailsController;
 use App\Http\Controllers\ReferencesController;
+use App\Http\Controllers\ScholarshipsController;
+use App\Http\Controllers\SeminarsController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\WorkExperienceController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
@@ -80,6 +81,8 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::resource('/question-details', QuestionDetailsController::class);  
         Route::resource('/references', ReferencesController::class);  
         Route::resource('/identification', IdentificationController::class);  
+        Route::resource('/seminars', SeminarsController::class);  
+        Route::resource('/scholarships', ScholarshipsController::class);  
         Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);
         Route::get('/employee-performances', [EmployeeController::class, 'employeePerformance']);
         Route::post('/update-profile', [EmployeeController::class, 'updateProfile']);

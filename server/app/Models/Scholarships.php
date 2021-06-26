@@ -12,4 +12,9 @@ class Scholarships extends Model
     protected $fillable = [
         'Title',
     ];
+    
+    public function attachments(){
+        return $this->hasMany(Attachments::class, 'scholarship_id','id');
+    }
 }
+ 

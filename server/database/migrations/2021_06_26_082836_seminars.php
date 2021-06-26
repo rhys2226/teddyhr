@@ -20,7 +20,12 @@ class Seminars extends Migration
             $table->string('To');
             $table->string('Title');
             $table->string('Venue');
-            $table->string('Type');
+            $table->enum('Type',[
+                'International',
+                'National',
+                'Regional',
+                'Local',
+            ]);
             $table->string('Agency');
         }); 
     }

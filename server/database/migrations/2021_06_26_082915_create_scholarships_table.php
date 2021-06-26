@@ -17,6 +17,7 @@ class CreateScholarshipsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('Title');
+            $table->boolean('isAvailable');
         });
     }
 
