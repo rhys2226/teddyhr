@@ -11,7 +11,7 @@ class CreateVacanciesTable extends Migration
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('Position')->nullable();
+            $table->text('Position')->nullable();
             $table->string('ItemNumber')->nullable();
             $table->string('SalaryGrade')->nullable();
             $table->string('GovernmentalUnit')->nullable();
@@ -34,13 +34,12 @@ class CreateVacanciesTable extends Migration
             $table->string('OtherAgencies')->nullable();
             $table->string('Others')->nullable();
             $table->string('Unit')->nullable();
-            $table->text('Job',9999)->nullable();
-            $table->string('Experience',9999)->nullable();
-            $table->text('Training',9999)->nullable();
-            $table->text('Eligibility',9999)->nullable();
+            $table->text('Job', 9999)->nullable();
+            $table->string('Experience', 9999)->nullable();
+            $table->text('Training', 9999)->nullable();
+            $table->text('Eligibility', 9999)->nullable();
             $table->string('Machine')->nullable();
-            $table->text('Education',9999)->nullable();
-            
+            $table->text('Education', 9999)->nullable();
         });
     }
 

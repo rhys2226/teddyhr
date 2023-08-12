@@ -1,185 +1,183 @@
-
-
-export const applicantNav = ( id: Number ) => {
+export const applicantNav = (id: Number) => {
     return [
         {
             title: 'Dashboard',
             route: '/home/',
-            icon: 'fe-bar-chart-2'
+            icon: 'fe-bar-chart-2',
         },
         {
             title: 'Applicants',
             route: '/home/applicants',
-            icon: 'fe-mail'
+            icon: 'fe-mail',
         },
         {
             title: 'Employees',
             route: '/home/employees',
-            icon: 'fe-user-check'
+            icon: 'fe-user-check',
         },
         {
             title: 'Employment Status',
             route: '/home/employment-status/' + id,
-            icon: 'fe-battery'
+            icon: 'fe-battery',
         },
         {
             title: 'View Vacancies',
             route: '/home/vacancies',
-            icon: 'fe-layers'
+            icon: 'fe-layers',
         },
     ]
 }
 
-export const employeeNav = ( id: Number ) => {
+export const employeeNav = (id: Number) => {
     return [
         {
             title: 'Dashboard',
             route: '/home/',
-            icon: 'fe-bar-chart-2'
+            icon: 'fe-bar-chart-2',
         },
-        { Heading: 'System Users' },
+        {Heading: 'System Users'},
         {
             title: 'Employees',
             route: '/home/employees',
-            icon: 'fe-user-check'
+            icon: 'fe-user-check',
         },
         {
             title: 'Applicants',
             route: '/home/applicants',
-            icon: 'fe-mail'
+            icon: 'fe-mail',
         },
-        { Heading: 'Recruitment' },
+        {Heading: 'Recruitment'},
         {
             title: 'Vacancies',
             route: '/home/vacancies',
-            icon: 'fe-layers'
+            icon: 'fe-layers',
         },
-        { Heading: 'Leaves' },
+        {Heading: 'Leaves'},
         {
             title: 'Leave Balances',
             route: '/home/leave-balances',
-            icon: 'fe-credit-card'
+            icon: 'fe-credit-card',
         },
         {
             title: 'Leaves',
             route: '/home/my-leaves/' + id,
-            icon: 'fe-truck'
+            icon: 'fe-truck',
         },
         {
             title: 'Application for Leave',
             route: '/home/leave-application',
-            icon: 'fe-edit-3'
+            icon: 'fe-edit-3',
         },
-        { Heading: 'HRD' },
+        {Heading: 'HRD'},
         {
             title: 'Seminars',
             route: '/home/hrd/seminars',
-            icon: 'fe-airplay'
+            icon: 'fe-airplay',
         },
         {
             title: 'Scholarships',
             route: '/home/hrd/scholarships',
-            icon: 'fe-columns'
+            icon: 'fe-columns',
         },
-        { Heading: 'Seminars' },
+        {Heading: 'Seminars'},
         {
             title: 'My Seminars',
             route: '/home/seminars-attended/' + id,
-            icon: 'fe-mic'
+            icon: 'fe-mic',
         },
-        { Heading: 'Awards & Recognition' },
+        {Heading: 'Awards & Recognition'},
         {
             title: 'List of Awards',
             route: '/home/awards-lists',
-            icon: 'fe-list'
+            icon: 'fe-list',
         },
-        { Heading: 'Department' },
+        {Heading: 'Department'},
         {
             title: 'Supervisors',
             route: '/home/supervisors',
-            icon: 'fe-shield'
+            icon: 'fe-shield',
         },
     ]
 }
 
-export const adminNav = ( id: Number ) => {
+export const adminNav = (id: Number) => {
     return [
         {
             title: 'Dashboard',
             route: '/home/',
-            icon: 'fe-bar-chart-2'
+            icon: 'fe-bar-chart-2',
         },
-        { Heading: 'Users' },
+        {Heading: 'Users'},
         {
             title: 'Applicants',
             route: '/home/applicants',
-            icon: 'fe-mail'
+            icon: 'fe-mail',
         },
         {
             title: 'Employees',
             route: '/home/employees',
-            icon: 'fe-user-check'
+            icon: 'fe-user-check',
         },
         {
-            title: 'Add an employee',
+            title: 'New employee',
             route: '/home/employees-add',
-            icon: 'fe-user-plus'
+            icon: 'fe-user-plus',
         },
-        { Heading: 'Recruitment' },
+        {Heading: 'Recruitment'},
         {
-            title: 'Add a vacancy',
+            title: 'New vacancy',
             route: '/home/vancancy-add',
-            icon: 'fe-layers'
+            icon: 'fe-layers',
         },
-        { Heading: 'Leaves' },
+        {Heading: 'Leaves'},
         {
             title: 'Leave Settings',
             route: '/home/leave-settings',
-            icon: 'fe-tool'
+            icon: 'fe-tool',
         },
         {
             title: 'Leaves',
             route: '/home/leaves',
-            icon: 'fe-truck'
+            icon: 'fe-truck',
         },
-        { Heading: 'HRD' },
+        {Heading: 'HRD'},
         {
-            title: 'Add as Seminar',
+            title: 'New Seminar',
             route: '/home/hrd/seminars-add',
-            icon: 'fe-mic'
+            icon: 'fe-mic',
         },
         {
             title: 'Seminars',
             route: '/home/hrd/seminars',
-            icon: 'fe-airplay'
+            icon: 'fe-airplay',
         },
         {
-            title: 'Add as Scholarship',
+            title: 'New Scholarship',
             route: '/home/hrd/scholarships-add',
-            icon: 'fe-copy'
+            icon: 'fe-copy',
         },
         {
             title: 'Scholarships',
             route: '/home/hrd/scholarships',
-            icon: 'fe-columns'
+            icon: 'fe-columns',
         },
 
-        { Heading: 'Awards & Recognition' },
+        {Heading: 'Awards & Recognition'},
         {
             title: 'List of Awards',
             route: '/home/awards-lists',
-            icon: 'fe-list'
+            icon: 'fe-list',
         },
         {
-            title: 'Add Award',
+            title: 'New Award',
             route: '/home/awards',
-            icon: 'fe-award'
+            icon: 'fe-award',
         },
-        { Heading: 'Department' },
+        {Heading: 'Department'},
         {
             title: 'Supervisors',
             route: '/home/supervisors',
-            icon: 'fe-hexagon'
+            icon: 'fe-hexagon',
         },
     ]
 }

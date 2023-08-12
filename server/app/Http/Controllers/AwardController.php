@@ -21,16 +21,16 @@ class AwardController extends Controller
     {
         $data = $request->all();
         $award = Award::create($data);
-        for($i = 0;$i < 15;$i++) {
-            if(!isset($data['files'.$i])){
+        for ($i = 0; $i < 15; $i++) {
+            if (!isset($data['files' . $i])) {
                 break;
             }
-            $file =  $data['files'.$i];
-            $path = Storage::disk('public_uploads')->put('employees/awards/' , $file);
+            $file =  $data['files' . $i];
+            $path = Storage::disk('public_uploads')->put('employees/awards', $file);
             $attachments = new Attachments();
             $attachments->award_id =  $award->id;
             $attachments->user_id = $data['employee_id'];
-            $attachments->URL =   Storage::url( $path );
+            $attachments->URL =   Storage::url($path);
             $attachments->Type = '/award';
             $attachments->Name = $file->getClientOriginalName();
             $attachments->save();

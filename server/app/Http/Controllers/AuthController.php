@@ -18,7 +18,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $user = User::where('Email',$request->input('Email'))->first();
+        $user = User::where('Email', $request->input('Email'))->first();
         if (!$user) {
             return response(['message' => 'Email does not exist.'], 404);
         }
@@ -29,29 +29,30 @@ class AuthController extends Controller
         return [
             'user' => $user,
             'token' => $token->plainTextToken,
-            'message' => 'Welcome Back! '. $user->First
+            'message' => 'Welcome Back! ' . $user->First
         ];
-    } 
+    }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         $data = $request->all();
         $userType = $data['Type'] == 'Employees' ? 'employees/' : 'applicants/';
-        
-        if(isset($data['Avatar'])){
-            $data['Avatar'] = AuthController::storeAvatar( $userType , $data['Avatar']) ;
+
+        if (isset($data['Avatar'])) {
+            $data['Avatar'] = AuthController::storeAvatar($userType, $data['Avatar']);
         }
         $data['Password'] = Hash::make($data['Password']);
         $user = User::create($data);
         $data['user_id'] = $user->id;
-        
-        for($i = 0;$i < 15;$i++) {
-            if(!isset($data['Attachments'.$i])){
+
+        for ($i = 0; $i < 15; $i++) {
+            if (!isset($data['Attachments' . $i])) {
                 break;
             }
-            AuthController::storeFiles( $userType ,  $data['Attachments'.$i],  $user->id );;
+            AuthController::storeFiles($userType,  $data['Attachments' . $i],  $user->id);;
         }
-        
-        if( $data['Type'] === 'Applicant' ){
+
+        if ($data['Type'] === 'Applicant') {
             Applicant::create($data);
             return [
                 'message' => 'Plese Log-in to see your application status',
@@ -64,59 +65,60 @@ class AuthController extends Controller
         $Supervisor->Department = 'Human Resource Management Office';
         $Supervisor->save();
         AuthController::populatePDS($data);
-         AuthController::createLeaveRecord($data);
+        AuthController::createLeaveRecord($data);
         return [
-            'message' => $data['First'].'has been registered as an employee of Iloilo State College of Fisheries. Personal Data Sheet is Ready!',
+            'message' => $data['First'] . 'has been registered as an employee of Iloilo State College of Fisheries. Personal Data Sheet is Ready!',
         ];
     }
-    
-    public static function storeAvatar($userType,$file)
+
+    public static function storeAvatar($userType, $file)
     {
-        $path = Storage::disk('public_uploads')->put($userType.'avatars/' , $file);
-        return Storage::url( $path );
+        $path = Storage::disk('public_uploads')->put($userType . 'avatars', $file);
+        return Storage::url($path);
     }
-    
-    public static function storeFiles($userType, $file, $user_id  )
+
+    public static function storeFiles($userType, $file, $user_id)
     {
-        $path = Storage::disk('public_uploads')->put($userType.'supporting-documents/' , $file);
+        $path = Storage::disk('public_uploads')->put($userType . 'supporting-documents', $file);
         $attachments = new Attachments();
         $attachments->user_id = $user_id;
         $attachments->document_id = $user_id;
-        $attachments->URL =   Storage::url( $path );
+        $attachments->URL =   Storage::url($path);
         $attachments->Type = '/supporting-documents';
         $attachments->Name = $file->getClientOriginalName();
         $attachments->save();
-    } 
-    
-    public static function createLeaveRecord($data){
+    }
+
+    public static function createLeaveRecord($data)
+    {
         $leaveCard = new LeaveCard();
         $leaveCard->employee_id =  $data['user_id'];
         $leaveCard->Year =  date('Y');
         $leaveCard->Month =  date('F');
         $leaveCard->Particulars1 =  'First Day of Service';
         $leaveCard->Particulars2 =  '';
-        
+
         $leaveCard->VacationEarned =  1.125;
         $leaveCard->SickEarned =  1.125;
         $leaveCard->ServiceCreditEarned =  0;
-        
+
         $leaveCard->WithPayVacation =  0;
         $leaveCard->WithPayLeave =  0;
         $leaveCard->WithPayServiceCredit =  0;
-        
+
         $leaveCard->BalanceVacation = 1.125;
         $leaveCard->BalanceLeave =  1.125;
         $leaveCard->BalanceServiceCredit =  0;
-        
+
         $leaveCard->WithoutPayVacation =  0;
         $leaveCard->WithoutPayLeave =  0;
-        
+
         $leaveCard->DateAndActionTaken1 =  '';
         $leaveCard->DateAndActionTaken2 =  '';
-        
+
         $leaveCard->save();
     }
-    
+
     public static function populatePDS($data)
     {
         $pds = new PersonalDataSheet();
@@ -138,56 +140,56 @@ class AuthController extends Controller
             'App\Models\Identification',
             'App\Models\References',
         ];
-        
-        foreach($models as $class){
-            if( $class === 'App\Models\Address' ){
+
+        foreach ($models as $class) {
+            if ($class === 'App\Models\Address') {
                 $types = ['ResidentialAddress', 'PermanentAddress'];
-                foreach($types as $type){
+                foreach ($types as $type) {
                     $model = new $class;
-                    foreach( $model->getFillable() as $key){
+                    foreach ($model->getFillable() as $key) {
                         $model->$key = 'N/A';
-                        if($key === 'employee_id'){
+                        if ($key === 'employee_id') {
                             $model->$key = $data['user_id'];
                         }
-                        if($key === 'Type'){
+                        if ($key === 'Type') {
                             $model->$key = $type;
                         }
-                        if($key === 'From' || $key === 'To'){
-                            $model->$key =date('Y-m-d');
-                        }
-                    }
-                    $model->save();
-                }
-            } 
-            if( $class === 'App\Models\EducationalBackground' ){
-                $types = [
-                    'Elementary', 
-                    'Secondary',
-                    'College',
-                    'Vocational',
-                    'GraduateStudies',
-                ];
-                foreach($types as $type){
-                    $model = new $class;
-                    foreach( $model->getFillable() as $key){
-                    $model->$key = 'N/A';
-                        if($key === 'employee_id'){
-                            $model->$key = $data['user_id'];
-                        }
-                        if($key === 'Type'){
-                            $model->$key = $type;
-                        }
-                        if($key === 'From' || $key === 'To'){
+                        if ($key === 'From' || $key === 'To') {
                             $model->$key = date('Y-m-d');
                         }
                     }
                     $model->save();
                 }
-            } 
-            if( $class === 'App\Models\QuestionDetails' ){
+            }
+            if ($class === 'App\Models\EducationalBackground') {
                 $types = [
-                    'Within the third degree?', 
-                    'Within the fourth degree (for Local Government Unit - Career Employees)?', 
+                    'Elementary',
+                    'Secondary',
+                    'College',
+                    'Vocational',
+                    'GraduateStudies',
+                ];
+                foreach ($types as $type) {
+                    $model = new $class;
+                    foreach ($model->getFillable() as $key) {
+                        $model->$key = 'N/A';
+                        if ($key === 'employee_id') {
+                            $model->$key = $data['user_id'];
+                        }
+                        if ($key === 'Type') {
+                            $model->$key = $type;
+                        }
+                        if ($key === 'From' || $key === 'To') {
+                            $model->$key = date('Y-m-d');
+                        }
+                    }
+                    $model->save();
+                }
+            }
+            if ($class === 'App\Models\QuestionDetails') {
+                $types = [
+                    'Within the third degree?',
+                    'Within the fourth degree (for Local Government Unit - Career Employees)?',
                     'Have you ever been found guilty of any administrative offense?',
                     'Have you been criminally charged before any court?',
                     'Have you ever been convicted of any crime or violation of any law, decree, ordinance or regulation by any court or tribunal?',
@@ -198,38 +200,37 @@ class AuthController extends Controller
                     'Are you a member of any indigenous group?',
                     'Are you a person with disability?',
                     'Are you a solo parent?',
-                ];  
-                foreach($types as $type){
+                ];
+                foreach ($types as $type) {
                     $model = new $class;
-                    foreach( $model->getFillable() as $key){
-                       $model->$key = 'N/A';
-                        if($key === 'employee_id'){
+                    foreach ($model->getFillable() as $key) {
+                        $model->$key = 'N/A';
+                        if ($key === 'employee_id') {
                             $model->$key = $data['user_id'];
                         }
-                        if($key === 'Question'){
+                        if ($key === 'Question') {
                             $model->$key = $type;
                         }
-                        if($key === 'Answer'){
+                        if ($key === 'Answer') {
                             $model->$key = 'No';
                         }
-                        if($key === 'From' || $key === 'To'){
+                        if ($key === 'From' || $key === 'To') {
                             $model->$key = date('Y-m-d');
                         }
-                        if($key === 'Details'){
+                        if ($key === 'Details') {
                             $model->$key = '';
                         }
                     }
                     $model->save();
                 }
-            } 
-            else{
+            } else {
                 $model = new $class;
-                foreach( $model->getFillable() as $key){
+                foreach ($model->getFillable() as $key) {
                     $model->$key = 'N/A';
-                    if($key === 'employee_id'){
+                    if ($key === 'employee_id') {
                         $model->$key = $data['user_id'];
                     }
-                    if($key === 'From' || $key === 'To'){
+                    if ($key === 'From' || $key === 'To') {
                         $model->$key = date('Y-m-d');
                     }
                     $model->save();

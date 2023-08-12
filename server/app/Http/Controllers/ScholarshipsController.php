@@ -14,26 +14,25 @@ class ScholarshipsController extends Controller
     {
         return Scholarships::with('attachments')->get();
     }
-    
+
     public function store(Request $request)
     {
         $data = $request->all();
         $scholarship = Scholarships::create($data);
-        for($i = 0;$i < 15;$i++) {
-            if(!isset($data['files'.$i])){
+        for ($i = 0; $i < 15; $i++) {
+            if (!isset($data['files' . $i])) {
                 break;
             }
-            $file =  $data['files'.$i];
-            $path = Storage::disk('public_uploads')->put('hrd/scholarships/' , $file);
+            $file =  $data['files' . $i];
+            $path = Storage::disk('public_uploads')->put('hrd/scholarships', $file);
             $attachments = new Attachments();
             $attachments->scholarship_id =  $scholarship->id;
-            $attachments->URL =   Storage::url( $path );
+            $attachments->URL =   Storage::url($path);
             $attachments->Type = 'Scholarships';
             $attachments->Name = $file->getClientOriginalName();
             $attachments->save();
         }
         return  $data;
-        
     }
 
     public function destroy($id)

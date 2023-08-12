@@ -42,19 +42,19 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::post('/login', [AuthController::class, 'login']);
         Route::post('/register', [AuthController::class, 'register']);
     });
-    
-    Route::post('verify-email',function(Request $request){
-       $class =  'App\Mail\verify';
-       $emailData = [
-           'verification_code' => $request->input('verification_code'),
-       ];
-       Mail::to($request->email)->send(new $class( $emailData ));
-       return 'Email verification code has been sent to your email';
+
+    Route::post('verify-email', function (Request $request) {
+        $class =  'App\Mail\verify';
+        $emailData = [
+            'verification_code' => $request->input('verification_code'),
+        ];
+        Mail::to($request->email)->send(new $class($emailData));
+        return 'Email verification code has been sent to your email';
     });
-    
+
     Route::resource('/vacancies', VacancyController::class);
     Route::resource('/applicants', ApplicantController::class);
-    Route::middleware(['auth:sanctum','verified'])->group(function () {
+    Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::resource('/employees', EmployeeController::class);
         Route::resource('/attachments', AttachmentsController::class);
         Route::resource('/subordinates', SubordianteController::class);
@@ -74,17 +74,19 @@ Route::middleware('throttle:60,1')->group(function () {
         Route::resource('/family-background', FamilyBackgroundController::class);
         Route::resource('/educational-background', EducationalBackgroundController::class);
         Route::resource('/eligibilities', EligibilitiesController::class);
-        Route::resource('/work-experience', WorkExperienceController::class);  
-        Route::resource('/volounteer', VolunteerController::class);  
-        Route::resource('/learning-and-development', LearningAndDevelopmentController::class);  
-        Route::resource('/others', OthersController::class);  
-        Route::resource('/questions', QuestionsController::class);  
-        Route::resource('/question-details', QuestionDetailsController::class);  
-        Route::resource('/references', ReferencesController::class);  
-        Route::resource('/identification', IdentificationController::class);  
-        Route::resource('/seminars', SeminarsController::class);  
-        Route::resource('/scholarships', ScholarshipsController::class);  
-        Route::resource('/icpr-settings', IcprFunctionsController::class);  
+        Route::resource('/work-experience', WorkExperienceController::class);
+        Route::resource('/volounteer', VolunteerController::class);
+        Route::resource('/learning-and-development', LearningAndDevelopmentController::class);
+        Route::resource('/others', OthersController::class);
+        Route::resource('/questions', QuestionsController::class);
+        Route::resource('/question-details', QuestionDetailsController::class);
+        Route::resource('/references', ReferencesController::class);
+        Route::resource('/identification', IdentificationController::class);
+        Route::resource('/seminars', SeminarsController::class);
+        Route::resource('/scholarships', ScholarshipsController::class);
+        Route::resource('/icpr-settings', IcprFunctionsController::class);
+        Route::get('/analytics', [EmployeeController::class, 'getAnalytics']);
+        Route::get('/misc', [EmployeeController::class, 'getMisc']);
         Route::get('/top-employees', [EmployeeController::class, 'topEmployees']);
         Route::get('/employee-performances', [EmployeeController::class, 'employeePerformance']);
         Route::post('/update-profile', [EmployeeController::class, 'updateProfile']);
