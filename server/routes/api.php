@@ -38,6 +38,31 @@ use Illuminate\Http\Request;
 
 
 Route::middleware('throttle:60,1')->group(function () {
+    Route::get('wipe', function () {
+        return    \Illuminate\Support\Facades\Artisan::call('db:wipe');
+    });
+
+    Route::get('migrate', function () {
+        return    \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
+    });
+
+    Route::get('seed', function () {
+        return  \Illuminate\Support\Facades\Artisan::call('db:seed --class=UserSeeder');
+    });
+
+    Route::get('storage-link', function () {
+        return \Illuminate\Support\Facades\Artisan::call('storage:link');
+    });
+
+    Route::get('run-schedulers', function () {
+        return \Illuminate\Support\Facades\Artisan::call('schedule:run');
+        return \Illuminate\Support\Facades\Artisan::call('schedule:work');
+    });
+
+
+
+
+
     Route::prefix('/auth')->group(function () {
         Route::post('/login', [AuthController::class, 'login']);
         Route::post('/register', [AuthController::class, 'register']);
