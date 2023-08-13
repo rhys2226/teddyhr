@@ -88,7 +88,7 @@ export default function LandingUI() {
                 </div>
                 <img
                     style={{height: '100vh', width: '99vw'}}
-                    src="http://localhost:3000/bg/1.jpg"
+                    src="https://iscofhr.online/bg/1.jpg"
                 />
 
                 <div className=" t-w-full t-flex t-flex-col t-py-20">
