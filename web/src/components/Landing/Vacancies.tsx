@@ -1,36 +1,56 @@
 import React from 'react'
-import { formatCurrency } from '../../helpers'
+import {formatCurrency} from '../../helpers'
 
-export default function Vacancies( props: any ) {
+export default function Vacancies(props: any) {
     return (
-        <div className="col-md-4 m-0 p-0">
-            <div className="card shadow mb-0 ">
+        <div className="p-0 m-0 col-md-4">
+            <div className="mb-0 shadow card ">
                 <div className="card-body ">
-                    <div className="card-text my-2 ">
+                    <div className="my-2 card-text ">
                         <div className="d-flex">
-                            <div className="avatar avatar-xl mr-4">
-                                <img src="http://localhost:3000/assets/placeholders/dev.png" alt="..." className="avatar-img rounded-circle" />
+                            <div className="mr-4 avatar avatar-xl">
+                                <img
+                                    src="https://iscofhr.online/assets/placeholders/dev.png"
+                                    alt="..."
+                                    className="avatar-img rounded-circle"
+                                />
                             </div>
                             <div>
-                                <strong className="card-title my-0">{props.data.Position}</strong>
-                                <p className="small  mb-0">{props.data.Bureau}</p>
-                                <h5><span className="badge badge-info p-2 mt-2">Salary: {formatCurrency( props.data.SalaryAuthorized )}</span></h5>
+                                <strong className="my-0 card-title">
+                                    {props.data.Position}
+                                </strong>
+                                <p className="mb-0 small">
+                                    {props.data.Bureau}
+                                </p>
+                                <h5>
+                                    <span className="p-2 mt-2 badge badge-info">
+                                        Salary: {props.data.SalaryAuthorized}
+                                    </span>
+                                </h5>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="card-footer" style={{ display: 'flex', }}>
-                    <div className="row align-items-center justify-content-between  m-2">
+                <div className="card-footer" style={{display: 'flex'}}>
+                    <div className="m-2 row align-items-center justify-content-between">
                         <button
                             onClick={() => {
-                                props.modal( 'apply' )
+                                props.modal('apply')
                             }}
-                            data-toggle="modal" data-target=".modal-full" className="btn btn-danger mr-1">Apply for {props.data.Position}</button>
+                            data-toggle="modal"
+                            data-target=".modal-full"
+                            className="mr-1 btn btn-danger">
+                            Apply for {props.data.Position}
+                        </button>
                         <button
                             onClick={() => {
-                                props.modal( 'descriptions' )
+                                props.modal('descriptions')
                             }}
-                            data-toggle="modal" data-target=".modal-full" className="btn btn-outline-info mr-1">View Qualifications</button>
+                            data-toggle="modal"
+                            data-target=".modal-full"
+                            className="mr-1 btn btn-outline-info">
+                            View Qualifications
+                        </button>
                     </div>
                 </div>
             </div>

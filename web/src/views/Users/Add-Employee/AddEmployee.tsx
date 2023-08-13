@@ -108,7 +108,7 @@ export default function AddEmployee() {
                     <img
                         id="avatar12"
                         style={{cursor: 'pointer'}}
-                        src="http://localhost:3000/assets/placeholders/1.png"
+                        src="https://iscofhr.online/assets/placeholders/1.png"
                         alt="..."
                         className="avatar-img rounded-circle"
                     />

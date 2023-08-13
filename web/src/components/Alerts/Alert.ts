@@ -17,7 +17,7 @@ export function Fire(title: any, text: any, type: any, callback: Function) {
     if (type == 'error') {
         type = 'warning'
     }
-    // const audio = new Audio(`http://localhost:3000/audio/${type}.mp3`)
+    // const audio = new Audio(`https://iscofhr.online/audio/${type}.mp3`)
     // audio.volume = 0.4;
     // audio.play()
 }
@@ -27,13 +27,13 @@ export function Alert(title: any, text: any, type: any) {
     if (type == 'error') {
         type = 'warning'
     }
-    // const audio = new Audio(`http://localhost:3000/audio/${type}.mp3`)
+    // const audio = new Audio(`https://iscofhr.online/audio/${type}.mp3`)
     // audio.volume = 0.4;
     // audio.play()
 }
 
 export function noData() {
-    // const audio = new Audio(`http://localhost:3000/audio/pop.mp3`)
+    // const audio = new Audio(`https://iscofhr.online/audio/pop.mp3`)
     // audio.volume = 0.4;
     // audio.play()
     // setTimeout(() => {
