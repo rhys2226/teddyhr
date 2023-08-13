@@ -8,13 +8,6 @@ import Vacancies from './Vacancies'
 import {Auth} from '../../services/auth.service'
 
 export default function LandingUI() {
-    const styles = {
-        headline: {
-            fontWeight: 900,
-            fontSize: '4rem',
-        },
-    }
-
     const [vacancies, setVacancies]: any = useState([])
 
     React.useEffect(() => {
@@ -37,12 +30,12 @@ export default function LandingUI() {
                     setModal(<Login />)
                 }}
             />
-            <div className="wrapper bg-light">
+            <div className="wrapper bg-light t-flex t-flex-col">
                 <div
                     style={{
                         height: '100vh',
                         width: '99vw',
-                        background: 'rgba(0,0,0,0.76)',
+                        background: 'rgba(0,64,120,0.7)',
                         position: 'absolute',
                         zIndex: 0,
                     }}></div>
@@ -50,17 +43,18 @@ export default function LandingUI() {
                     style={{
                         position: 'absolute',
                         zIndex: 2,
-                        top: '20vh',
+                        top: '30vh',
                         width: '100%',
                     }}>
-                    <h1
-                        className="text-center p-5 text-white h1"
-                        style={styles.headline}>
-                        Get hired and work for
-                        <br />
-                        IloIlo State College of Fisheries
-                    </h1>
-                    <div className="w-100 text-center">
+                    <div className="p-5 text-center text-white ">
+                        <div className="t-text-5xl">
+                            Oceans of Opportunity Await!
+                        </div>
+                        Explore Your Career with Iloilo State University of
+                        Fisheries Science and Technology!
+                    </div>
+
+                    <div className="mx-auto t-grid t-grid-cols-2 t-w-1/4 t-gap-2">
                         <button
                             onClick={() => {
                                 $([
@@ -73,49 +67,60 @@ export default function LandingUI() {
                                     500,
                                 )
                             }}
-                            className="btn btn-dark ml-4">
-                            <h1 className="text-white pt-2 pl-5 pr-5 h3">
-                                Apply Now
-                            </h1>
+                            className="ml-4 btn t-bg-sky-700 md:hover:t-bg-blue-700">
+                            <div className="  text-white  t-py-2.5 t-px-5  ">
+                                Get Started
+                            </div>
                         </button>
+
                         <button
                             onClick={() => {
                                 setModal(<Login />)
                             }}
                             data-toggle="modal"
                             data-target=".modal-full"
-                            className="btn btn-light ml-4">
-                            <h1 className="pt-2 pl-5 pr-5 h3">
-                                Login as Applicant
+                            className="ml-4 btn t-border t-border-white md:hover:t-bg-white/10">
+                            <h1 className="  text-white  t-py-2.5 t-px-5 ">
+                                Sign-in
                             </h1>
                         </button>
                     </div>
                 </div>
                 <img
                     style={{height: '100vh', width: '99vw'}}
-                    src="https://iscofhr.online/bg/1.jpg"
+                    src="http://localhost:3000/bg/1.jpg"
                 />
-                <h2
-                    className="text-center bg-info p-5 text-white mt-0"
-                    style={styles.headline}>
-                    Available Vacancies
-                </h2>
-                <div className="row">
-                    {vacancies.map((vacancy: any, index: any) => (
-                        <Vacancies
-                            data={vacancy}
-                            modal={(modal: any) => {
-                                setModal(
-                                    modal == 'descriptions' ? (
-                                        <Descriptions data={vacancy} />
-                                    ) : (
-                                        <ApplicationForm data={vacancy} />
-                                    ),
-                                )
-                            }}
-                        />
-                    ))}
+
+                <div className=" t-w-full t-flex t-flex-col t-py-20">
+                    <div className=" t-max-w-screen-xl t-mx-auto t-w-full">
+                        <div className="t-text-4xl t-mb-4 ">
+                            Available Vacancies
+                        </div>
+                        <div>
+                            Pathways to Excellence: Your Dream Job Awaits!
+                        </div>
+
+                        <div className="row t-mt-8">
+                            {vacancies.map((vacancy: any, index: any) => (
+                                <Vacancies
+                                    data={vacancy}
+                                    modal={(modal: any) => {
+                                        setModal(
+                                            modal == 'descriptions' ? (
+                                                <Descriptions data={vacancy} />
+                                            ) : (
+                                                <ApplicationForm
+                                                    data={vacancy}
+                                                />
+                                            ),
+                                        )
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 </div>
+
                 <br />
                 <br />
                 <br />
