@@ -8,19 +8,19 @@ export default function LoginNav(props: any) {
                     <div className="t-flex t-items-center">
                         <img
                             src=" https://iscofhr.online/assets/logos/iscof.png"
-                            className=" t-mr-3 t-h-[50px]"
+                            className=" t-mr-5 t-h-[50px] t-scale-150"
                             alt="..."
                         />
 
-                        <div>
-                            <p className="m-0 text-white text-muted !t-text-blue-900">
+                        <div className="t-hidden md:t-block">
+                            <div className="m-0 text-white text-muted !t-text-blue-900 t-font-bold">
                                 Iloilo State University of Fisheries Science and
                                 Technology{' '}
-                            </p>
+                            </div>
 
-                            <h5 className="m-0 text-white !t-text-black">
+                            <div className="m-0 text-white !t-text-gray-600">
                                 Human Resource Management Office
-                            </h5>
+                            </div>
                         </div>
                     </div>
                 </div>

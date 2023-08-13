@@ -47,14 +47,14 @@ export default function LandingUI() {
                         width: '100%',
                     }}>
                     <div className="p-5 text-center text-white ">
-                        <div className="t-text-5xl">
+                        <div className="t-text-xl md:t-text-5xl t-font-semibold">
                             Oceans of Opportunity Await!
                         </div>
                         Explore Your Career with Iloilo State University of
                         Fisheries Science and Technology!
                     </div>
 
-                    <div className="mx-auto t-grid t-grid-cols-2 t-w-1/4 t-gap-2">
+                    <div className="mx-auto t-grid t-grid-cols-1 md:t-grid-cols-2 t-w-3/4 md:t-w-1/4 t-gap-3">
                         <button
                             onClick={() => {
                                 $([
@@ -87,20 +87,19 @@ export default function LandingUI() {
                     </div>
                 </div>
                 <img
+                    className="t-object-cover"
                     style={{height: '100vh', width: '99vw'}}
                     src="https://iscofhr.online/bg/1.jpg"
                 />
 
-                <div className=" t-w-full t-flex t-flex-col t-py-20">
+                <div className="t-p-6 t-w-full t-flex t-flex-col t-py-20">
                     <div className=" t-max-w-screen-xl t-mx-auto t-w-full">
-                        <div className="t-text-4xl t-mb-4 ">
-                            Available Vacancies
-                        </div>
-                        <div>
+                        <div className="t-text-4xl ">Available Vacancies</div>
+                        <div className="t-mb-4">
                             Pathways to Excellence: Your Dream Job Awaits!
                         </div>
 
-                        <div className="row t-mt-8">
+                        <div className="t-grid md:t-grid-cols-3 t-mt-8 t-gap-5">
                             {vacancies.map((vacancy: any, index: any) => (
                                 <Vacancies
                                     data={vacancy}

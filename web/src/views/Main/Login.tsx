@@ -25,6 +25,7 @@ const Login: FC<Props> = (props) => {
                 history.replace('home')
                 $('.large-modal').hide()
                 $('.modal-backdrop').hide()
+                window.location.reload()
             })
             .catch(() => {
                 Alert('Error!', 'Something went wrong', 'error')
@@ -35,13 +36,13 @@ const Login: FC<Props> = (props) => {
     return (
         <div className="row align-items-center h-100">
             <form className="col-lg-5">
-                <div className="mt-2 p-0 mr-3">
-                    <h1 className="text-info m-0">
+                <div className="p-0 mt-2 mr-3">
+                    <h1 className="m-0 text-info">
                         Human Resource Management Office
                     </h1>
                 </div>
                 <br />
-                <div className="input-group mb-3">
+                <div className="mb-3 input-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">
                             <i className=" fe fe-user"></i>
@@ -57,7 +58,7 @@ const Login: FC<Props> = (props) => {
                         placeholder="Email"
                     />
                 </div>
-                <div className="input-group mb-3">
+                <div className="mb-3 input-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">
                             <i className=" fe fe-lock"></i>
@@ -84,7 +85,7 @@ const Login: FC<Props> = (props) => {
                     {disabled == true ? (
                         <div className="d-flex aic jcc">
                             <div
-                                className="spinner-border spinner-border-sm mr-3 text-white"
+                                className="mr-3 text-white spinner-border spinner-border-sm"
                                 role="status"
                             />
                             <span className="mt-1">Loading ... </span>
