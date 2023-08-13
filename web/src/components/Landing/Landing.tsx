@@ -126,6 +126,16 @@ export default function LandingUI() {
                 <br />
             </div>
 
+            <footer className="t-py-6 t-text-white t-bg-gray-900">
+                <div className="mx-auto t-containert- t-text-center">
+                    <p>
+                        &copy; 2023 Iloilo State University of Fisheries Science
+                        and Technology. All rights reserved.
+                    </p>
+                    <p className="t-mt-2">Iloilo, Philippines,</p>
+                </div>
+            </footer>
+
             <FullScreenModal>{modal}</FullScreenModal>
         </div>
     )

@@ -23,8 +23,8 @@ export default function Vacancies(props: any) {
                                     {props.data.Bureau}
                                 </p>
                                 <h5>
-                                    <span className="p-2 mt-2 badge badge-info">
-                                        Salary: {props.data.SalaryAuthorized}
+                                    <span className="p-2 mt-2 badge t-bg-emerald-200 t-text-emerald-700 t-font-bold">
+                                        PHP {props.data.SalaryAuthorized}
                                     </span>
                                 </h5>
                             </div>
@@ -32,24 +32,25 @@ export default function Vacancies(props: any) {
                     </div>
                 </div>
                 <div className="card-footer" style={{display: 'flex'}}>
-                    <div className="m-2 row align-items-center justify-content-between">
+                    <div className=" align-items-center t-grid t-grid-cols-2 t-w-full">
                         <button
                             onClick={() => {
                                 props.modal('apply')
                             }}
                             data-toggle="modal"
                             data-target=".modal-full"
-                            className="mr-1 btn btn-danger">
-                            Apply for {props.data.Position}
+                            className="t-mr-4 t-py-2.5 t-bg-sky-600 t-text-white hover:t-bg-blue-600 t-rounded-md">
+                            Easy Apply
                         </button>
+
                         <button
                             onClick={() => {
                                 props.modal('descriptions')
                             }}
                             data-toggle="modal"
                             data-target=".modal-full"
-                            className="mr-1 btn btn-outline-info">
-                            View Qualifications
+                            className="mr-1    t-py-2.5 t-border  t-rounded-md ">
+                            See more
                         </button>
                     </div>
                 </div>
