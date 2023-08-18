@@ -22,47 +22,32 @@ export default function Analytics() {
     React.useEffect(() => {
         getPositions()
         getMisc()
-
-        if (typeof Chart !== 'undefined') {
-            // Call the function for different chart types
-            renderChart(
-                'administrative-chart',
-                'Administrative Officers',
-                ['Administrative'],
-                positions as any,
-            )
-            renderChart(
-                'accountant-chart',
-                'Accountants',
-                ['Accountant'],
-                positions as any,
-            )
-            renderChart(
-                'professor-chart',
-                'Professors',
-                ['Professor'],
-                positions as any,
-            )
-            renderChart(
-                'instructor-chart',
-                'Instructors',
-                ['Instructor'],
-                positions as any,
-            )
-            renderChart(
-                'other-chart',
-                'Others',
-                ['Job', 'Guard'],
-                positions as any,
-            )
-        }
     }, [])
 
     function getPositions() {
         const api = new Auth('analytics')
         api.fetch({}).then((data) => {
             setPositions(data)
+
+            setTimeout(() => {
+                renderCharts(data)
+            }, 1500)
         })
+    }
+
+    const renderCharts = (data: {position: string; count: string}[]) => {
+        if (typeof Chart !== 'undefined') {
+            renderChart(
+                'administrative-chart',
+                'Administrative Officers',
+                ['Administrative'],
+                data,
+            )
+            renderChart('accountant-chart', 'Accountants', ['Accountant'], data)
+            renderChart('professor-chart', 'Professors', ['Professor'], data)
+            renderChart('instructor-chart', 'Instructors', ['Instructor'], data)
+            renderChart('other-chart', 'Others', ['Job', 'Guard'], data)
+        }
     }
 
     function getMisc() {

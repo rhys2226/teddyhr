@@ -256,3 +256,11 @@ export function toDate(date: any) {
 export function toArray(string: String) {
     return string.split(',')
 }
+
+export function formatImageUrl(originalUrl: string) {
+    return originalUrl.replace('/public/api//storage', '/storage/app/public')
+}
+// Incorrect
+// https://iscofhr.online/backend/public/api//storage/applicants/avatars/[image-name]
+// Correct
+// https://iscofhr.online/backend/storage/app/public/applicants/avatars/[image-name]

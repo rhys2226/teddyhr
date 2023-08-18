@@ -2,34 +2,34 @@ import {useState, useEffect} from 'react'
 import {Alert, Fire, noData} from '../../../components/Alerts/Alert'
 import LargeModal from '../../../components/Modals/LargeModal'
 import SlideModal from '../../../components/Modals/SlideModal'
-import Pagination from '../../../components/Table/Pagination'
 import ApplicantPlaceholders from './ApplicantPlaceholders'
 import ApplicantINformation from './ApplicantINformation'
 import ApplicantSupportingDocument from './ApplicantSupportingDocument'
 import ScheduleAnInterview from './ScheduleAnInterview'
 import {Auth} from '../../../services/auth.service'
-import {toDate} from '../../../helpers'
+import {formatImageUrl, toDate} from '../../../helpers'
 
 export default function Applicants() {
     const [applicants, setApplicants]: any = useState([])
     const [modal, setModal]: any = useState()
-    const [modaldata, setmodaldata]: any = useState({})
-    const [user, setuser]: any = useState({})
+    const [modalData, setModalData]: any = useState({})
+    const [user, setUser]: any = useState({})
     const [filteredData, setFilteredData] = useState([])
-    const [fetched, setfetched]: any = useState(false)
+    const [fetched, setFetched]: any = useState(false)
     const userData: any = localStorage.getItem('user')
     const type = JSON.parse(userData).Type
 
     useEffect(() => {
         getApplicants()
-    }, [modaldata])
+    }, [modalData])
 
     function getApplicants() {
         const auth = new Auth('applicants')
         auth.fetch({}).then((data: any) => {
+            console.log('ari')
             setApplicants(data)
             setFilteredData(data)
-            setfetched(true)
+            setFetched(true)
         })
     }
 
@@ -49,7 +49,7 @@ export default function Applicants() {
               )
     }
 
-    const renderData = () => {
+    const NoDataComponent = () => {
         noData()
         if (applicants.length === 0) {
             return (
@@ -84,6 +84,48 @@ export default function Applicants() {
                             Alert(
                                 'Something Went Wrong',
                                 `Error on rejecting  ${user.user.First}. Please try again later`,
+                                'error',
+                            ),
+                        )
+                },
+            )
+        }
+    }
+
+    const scheduleAnInterview = () => {
+        {
+            const schedule = $('#scheduled_date').val()
+            if (schedule === '') {
+                Alert('Error!', 'Schedule Date should not be empty', 'error')
+                return
+            }
+            Fire(
+                `Interview ${user.user.First}`,
+                `Are you sure you want to Schedule an Interview on ${
+                    user.user.First
+                } at ${toDate(schedule)}?`,
+                'info',
+                () => {
+                    const api = new Auth('applicants')
+                    api.update(user.user_id, {
+                        Schedule: schedule,
+                        on: toDate(schedule),
+                    })
+                        .then(() => {
+                            Alert(
+                                `Scheduled Interview: ${toDate(schedule)}`,
+                                `Interview Schedule on ${toDate(
+                                    schedule,
+                                )}  has been successfully sent to ${
+                                    user.user.First
+                                }'s email`,
+                                'success',
+                            )
+                        })
+                        .catch(() =>
+                            Alert(
+                                'Something Went Wrong',
+                                'Error Scheduling an Interview. Please try again later',
                                 'eror',
                             ),
                         )
@@ -94,17 +136,17 @@ export default function Applicants() {
 
     return (
         <div>
-            <div className="col-md-12 my-4">
-                <h2 className=" mb-1"> Applicants</h2>
+            <div className="my-4 col-md-12">
+                <h2 className="mb-1 "> Applicants</h2>
                 <p className="mb-3 text-muted">
                     Displaying applicants in descending order
                 </p>
-                <div className="card t-border-none shadow">
+                <div className="shadow card t-border-none">
                     <div className="card-body">
                         <div className="toolbar">
                             <div className="toolbar">
                                 <div className="form-row">
-                                    <div className="form-group col-auto">
+                                    <div className="col-auto form-group">
                                         <label className="sr-only">
                                             Search
                                         </label>
@@ -124,7 +166,7 @@ export default function Applicants() {
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th className="text-info text-center">
+                                    <th className="text-center text-info">
                                         <i className="fe fe-user"></i>
                                     </th>
                                     <th className="text-info">Applicant</th>
@@ -142,19 +184,21 @@ export default function Applicants() {
                             </thead>
                             <tbody>
                                 <ApplicantPlaceholders show={!fetched} />
-                                {renderData()}
+
+                                {NoDataComponent()}
+
                                 {filteredData.map(
                                     (applicant: any, index: any) => (
-                                        <tr>
+                                        <tr key={index}>
                                             <td className="text-center">
                                                 <div className="avatar avatar-xl">
                                                     <img
-                                                        src={
+                                                        src={formatImageUrl(
                                                             applicant.user
-                                                                .Avatar
-                                                        }
-                                                        alt="..."
-                                                        className="avatar-img rounded-circle"
+                                                                .Avatar,
+                                                        )}
+                                                        alt=""
+                                                        className="avatar-img rounded-circle t-w-[50px] t-h-[50px] t-object-fill"
                                                     />
                                                 </div>
                                             </td>
@@ -165,9 +209,9 @@ export default function Applicants() {
                                                         {`${applicant.user.Last} ${applicant.user.First} ${applicant.user.Middle}`}
                                                     </strong>
                                                 </p>
-                                                <p className="small mb-3">
+                                                <p className="mb-3 small">
                                                     <span
-                                                        className="badge badge-dark p-1 br-2"
+                                                        className="p-1 badge badge-dark br-2"
                                                         style={{
                                                             fontWeight: 900,
                                                         }}>
@@ -183,6 +227,7 @@ export default function Applicants() {
                                                     {applicant.PreviousEmployer}
                                                 </p>
                                                 <small className="mb-0 text-muted">
+                                                    Employer Contact:{' '}
                                                     {
                                                         applicant.EmployersContactInformation
                                                     }
@@ -260,7 +305,7 @@ export default function Applicants() {
                                                     data-toggle="dropdown"
                                                     aria-haspopup="true"
                                                     aria-expanded="false">
-                                                    <span className="text-muted sr-only">
+                                                    <span className="sr-only text-muted">
                                                         Action
                                                     </span>
                                                 </button>
@@ -270,7 +315,7 @@ export default function Applicants() {
                                                         data-toggle="modal"
                                                         data-target=".large-modal"
                                                         onClick={async () => {
-                                                            await setmodaldata(
+                                                            await setModalData(
                                                                 applicant,
                                                             )
                                                             setModal(
@@ -290,7 +335,7 @@ export default function Applicants() {
                                                         data-toggle="modal"
                                                         data-target=".large-modal"
                                                         onClick={async () => {
-                                                            await setmodaldata(
+                                                            await setModalData(
                                                                 applicant,
                                                             )
                                                             setModal(
@@ -319,7 +364,7 @@ export default function Applicants() {
 
                                                     <button
                                                         onClick={() =>
-                                                            setuser(applicant)
+                                                            setUser(applicant)
                                                         }
                                                         data-toggle="modal"
                                                         data-target=".slide-modal"
@@ -338,54 +383,11 @@ export default function Applicants() {
             </div>
 
             <LargeModal>{modal}</LargeModal>
+
             <SlideModal
                 title="Schedule an Interview"
                 buttonName="Schedule Interview"
-                callback={() => {
-                    const schedule = $('#scheduled_date').val()
-                    if (schedule === '') {
-                        Alert(
-                            'Error!',
-                            'Schedule Date should not be empty',
-                            'error',
-                        )
-                        return
-                    }
-                    Fire(
-                        `Interview ${user.user.First}`,
-                        `Are you sure you want to Schedule an Interview on ${
-                            user.user.First
-                        } at ${toDate(schedule)}?`,
-                        'info',
-                        () => {
-                            const api = new Auth('applicants')
-                            api.update(user.user_id, {
-                                Schedule: schedule,
-                                on: toDate(schedule),
-                            })
-                                .then(() => {
-                                    Alert(
-                                        `Scheduled Interview: ${toDate(
-                                            schedule,
-                                        )}`,
-                                        `Interview Schedule on ${toDate(
-                                            schedule,
-                                        )}  has been successfully sent to ${
-                                            user.user.First
-                                        }'s email`,
-                                        'success',
-                                    )
-                                })
-                                .catch(() =>
-                                    Alert(
-                                        'Something Went Wrong',
-                                        'Error Scheduling an Interview. Please try again later',
-                                        'eror',
-                                    ),
-                                )
-                        },
-                    )
-                }}>
+                callback={scheduleAnInterview}>
                 <ScheduleAnInterview />
             </SlideModal>
         </div>

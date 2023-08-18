@@ -3,6 +3,7 @@ import {noData} from '../../../components/Alerts/Alert'
 import Pagination from '../../../components/Table/Pagination'
 import {Auth} from '../../../services/auth.service'
 import TopEmployeePlaceholders from '../Placeholders/TopEmployeePlaceholders'
+import {formatImageUrl} from '../../../helpers'
 export default function TopEmployee() {
     const [topEmployees, settopEmployees]: any = useState([])
     const [filteredData, setFilteredData]: any = useState([])
@@ -64,9 +65,9 @@ export default function TopEmployee() {
     }
 
     return (
-        <div className="col-md-4 my-4">
-            <div className="t-bg-white p-3">
-                <div className="t-font-bold mb-1">Employees of the month</div>
+        <div className="my-4 col-md-6">
+            <div className="p-3 t-bg-white">
+                <div className="mb-1 t-font-bold">Employees of the month</div>
                 <p className="mb-3 text-muted">
                     Displaying List of Top Employees this Month
                 </p>
@@ -81,7 +82,7 @@ export default function TopEmployee() {
                                 <th className="text-center">
                                     <i className="fe fe-user"></i>
                                 </th>
-                                <th>Name</th>
+                                <th className="text-dark">Name</th>
                                 <th className="text-success">
                                     Overall Rating{' '}
                                 </th>
@@ -95,13 +96,13 @@ export default function TopEmployee() {
                                 <tr key={index}>
                                     <td>{index + 1}</td>
                                     <td className="text-center">
-                                        <div className="avatar avatar-md">
-                                            <img
-                                                src={employee.user.Avatar}
-                                                alt="..."
-                                                className="avatar-img rounded-circle"
-                                            />
-                                        </div>
+                                        <img
+                                            src={formatImageUrl(
+                                                employee.user.Avatar,
+                                            )}
+                                            alt="..."
+                                            className="t-w-[50px] t-h-[50px] rounded-circle"
+                                        />
                                     </td>
 
                                     <td>
@@ -113,7 +114,7 @@ export default function TopEmployee() {
                                                 {employee.user.Middle}
                                             </strong>
                                         </p>
-                                        <p className="small mb-3">
+                                        <p className="mb-3 small">
                                             <span
                                                 className={`badge text-white p-1 br-2 badge-success`}
                                                 style={{fontWeight: 900}}>
@@ -127,7 +128,7 @@ export default function TopEmployee() {
                                             {employee.overAllRatings}%
                                         </span>
                                         <div
-                                            className="progress my-2"
+                                            className="my-2 progress"
                                             style={{height: '4px'}}>
                                             <div
                                                 className={`progress-bar progress-bar-striped ${setColor(

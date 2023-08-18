@@ -3,6 +3,7 @@ import {noData} from '../../../components/Alerts/Alert'
 import Pagination from '../../../components/Table/Pagination'
 import {Auth} from '../../../services/auth.service'
 import EmployeeAndPerformancePlaceholders from '../Placeholders/EmployeeAndPerformancePlaceholders'
+import {formatImageUrl} from '../../../helpers'
 
 export default function EmployeesAndPerformance() {
     const [performance, setPerformance]: any = useState([])
@@ -47,8 +48,8 @@ export default function EmployeesAndPerformance() {
     }
 
     return (
-        <div className="col-md-8 my-4">
-            <div className="t-bg-white p-3">
+        <div className="my-4 col-md-6">
+            <div className="p-3 t-bg-white">
                 <div className="mb-1 t-font-bold">Employee Performance</div>
                 <p className="mb-3 text-muted">
                     Displaying List of Employee's Performance in descending
@@ -56,7 +57,7 @@ export default function EmployeesAndPerformance() {
                 </p>
             </div>
 
-            <div className="card t-border-none  ">
+            <div className="card t-border-none ">
                 <div className="card-body">
                     <div className="toolbar"></div>
                     <table className="table ">
@@ -66,22 +67,16 @@ export default function EmployeesAndPerformance() {
                                     <i className="fe fe-user"></i>
                                 </th>
                                 <th className="text-dark">Name</th>
-                                <th className="text-warning">
-                                    Average Performance
+                                <th className="text-warning">Average</th>
+                                <th className="text-info">Month</th>
+                                <th className="text-center text-danger">
+                                    Lowest
                                 </th>
-                                <th className="text-info">Rating this Month</th>
-                                <th className="text-danger text-center">
-                                    Lowest Rating
+                                <th className="text-center text-success">
+                                    Highest
                                 </th>
-                                <th className="text-success text-center">
-                                    Highest Rating
-                                </th>
-                                <th className="text-center text-dark">
-                                    <i className="fe fe-user"></i>
-                                </th>
-                                <th className="text-dark">
-                                    Immediate Supervisor
-                                </th>
+
+                                <th className="text-dark">Supervisor</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -92,13 +87,13 @@ export default function EmployeesAndPerformance() {
                             {performance.map((employee: any, index: any) => (
                                 <tr key={index}>
                                     <td className="text-center">
-                                        <div className="avatar avatar-sm">
-                                            <img
-                                                src={employee.user.Avatar}
-                                                alt="..."
-                                                className="avatar-img rounded-circle"
-                                            />
-                                        </div>
+                                        <img
+                                            src={formatImageUrl(
+                                                employee.user.Avatar,
+                                            )}
+                                            alt="..."
+                                            className="avatar-img rounded-circle t-w-[50px] t-h-[50px]"
+                                        />
                                     </td>
 
                                     <td>
@@ -111,9 +106,9 @@ export default function EmployeesAndPerformance() {
                                                     employee.user.Last}
                                             </strong>
                                         </p>
-                                        <p className="small mb-3">
+                                        <p className="mb-3 small">
                                             <span
-                                                className="badge badge-success text-white p-1 br-2"
+                                                className="p-1 text-white badge badge-success br-2"
                                                 style={{fontWeight: 900}}>
                                                 {' '}
                                                 Developer
@@ -126,7 +121,7 @@ export default function EmployeesAndPerformance() {
                                             {employee.AveragePerformance}%
                                         </span>
                                         <div
-                                            className="progress my-2"
+                                            className="my-2 progress"
                                             style={{height: '4px'}}>
                                             <div
                                                 className={`progress-bar progress-bar-striped ${setColor(
@@ -149,7 +144,7 @@ export default function EmployeesAndPerformance() {
                                             {employee.RatingThisMonth}%
                                         </span>
                                         <div
-                                            className="progress my-2"
+                                            className="my-2 progress"
                                             style={{height: '4px'}}>
                                             <div
                                                 className={`progress-bar progress-bar-striped ${setColor(
@@ -172,7 +167,7 @@ export default function EmployeesAndPerformance() {
                                             {employee.LowestRating}%
                                         </span>
                                         <div
-                                            className="progress my-2"
+                                            className="my-2 progress"
                                             style={{height: '4px'}}>
                                             <div
                                                 className={`progress-bar progress-bar-striped ${setColor(
@@ -195,7 +190,7 @@ export default function EmployeesAndPerformance() {
                                             {employee.HighestRating}%
                                         </span>
                                         <div
-                                            className="progress my-2"
+                                            className="my-2 progress"
                                             style={{height: '4px'}}>
                                             <div
                                                 className={`progress-bar progress-bar-striped ${setColor(
@@ -210,18 +205,6 @@ export default function EmployeesAndPerformance() {
                                                 aria-valuenow={10}
                                                 aria-valuemin={0}
                                                 aria-valuemax={100}></div>
-                                        </div>
-                                    </td>
-
-                                    <td className="text-center">
-                                        <div className="avatar avatar-lg">
-                                            <img
-                                                src={
-                                                    employee.supervisors.Avatar
-                                                }
-                                                alt="..."
-                                                className="avatar-img rounded-circle"
-                                            />
                                         </div>
                                     </td>
 

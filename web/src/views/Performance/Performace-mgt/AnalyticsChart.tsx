@@ -35,10 +35,8 @@ export const renderChart = (
 }
 
 const generateColorPalette = (length: number) => {
-    // Replace with your desired color palette or generation logic
     const palette = ['black', '#0282E1', '#001651', '#37A76D', '#D72011']
 
-    // Ensure we have enough colors in the palette
     while (palette.length < length) {
         palette.push(...palette)
     }
