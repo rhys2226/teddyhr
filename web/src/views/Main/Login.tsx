@@ -1,7 +1,6 @@
 import React, {FC, useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import {Alert, Fire} from '../../components/Alerts/Alert'
-import 'firebase/auth'
 import {Auth} from '../../services/auth.service'
 
 type Props = {}

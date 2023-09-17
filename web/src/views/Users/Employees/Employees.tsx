@@ -9,6 +9,7 @@ import LargeModal from '../../../components/Modals/LargeModal'
 import EmployeeICPR from './EmployeeICPR'
 import {Auth} from '../../../services/auth.service'
 import {formatImageUrl, fromNow, toDate} from '../../../helpers'
+import EmployeeStatusButton from './EmployeeStatusButton'
 
 export default function Employees() {
     const history = useHistory()
@@ -82,6 +83,34 @@ export default function Employees() {
         }
     }
 
+    const removeEmployee = (employee: any) => {
+        Fire(
+            'Remove Employee?',
+            `Are you sure you want to remove ${employee.user.First} as an employee?`,
+            'info',
+            () => {
+                const api = new Auth('employees')
+
+                api.delete(employee.user.id)
+                    .then(() => {
+                        Alert(
+                            'Employee has been removed',
+                            `${employee.user.First} has been removed as an employee`,
+                            'success',
+                        )
+                        getEmployees()
+                    })
+                    .catch(() => {
+                        Alert(
+                            'Error',
+                            `Something went wrong. Try again`,
+                            'error',
+                        )
+                    })
+            },
+        )
+    }
+
     return (
         <div>
             <div className="my-4 col-md-12">
@@ -114,6 +143,7 @@ export default function Employees() {
                                         <i className="fe fe-user"></i>
                                     </th>
                                     <th className="text-info">Name</th>
+                                    <th className="text-info">Status</th>
                                     <th className="text-info">Contact</th>
                                     <th className="text-info">Alignment</th>
                                     <th className="text-center text-info">
@@ -160,6 +190,12 @@ export default function Employees() {
                                                         {employee.Position}
                                                     </span>
                                                 </p>
+                                            </td>
+
+                                            <td>
+                                                {employee.status === ''
+                                                    ? 'Job Hire'
+                                                    : employee.status}
                                             </td>
 
                                             <td>
@@ -245,7 +281,7 @@ export default function Employees() {
                                                         data-toggle="modal"
                                                         data-target=".slide-modal"
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         Add/Change Supervisor
                                                     </button>
 
@@ -257,50 +293,15 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         View Profile
                                                     </button>
                                                     <button
-                                                        onClick={() => {
-                                                            Fire(
-                                                                'Remove Employee?',
-                                                                `Are you sure you want to remove ${employee.user.First} as an employee?`,
-                                                                'info',
-                                                                () => {
-                                                                    const api =
-                                                                        new Auth(
-                                                                            'employees',
-                                                                        )
-
-                                                                    api.delete(
-                                                                        employee
-                                                                            .user
-                                                                            .id,
-                                                                    )
-                                                                        .then(
-                                                                            () => {
-                                                                                Alert(
-                                                                                    'Employee has been removed',
-                                                                                    `${employee.user.First} has been removed as an employee`,
-                                                                                    'success',
-                                                                                )
-                                                                                getEmployees()
-                                                                            },
-                                                                        )
-                                                                        .catch(
-                                                                            () => {
-                                                                                Alert(
-                                                                                    'Error',
-                                                                                    `Something went wrong. Try again`,
-                                                                                    'error',
-                                                                                )
-                                                                            },
-                                                                        )
-                                                                },
-                                                            )
-                                                        }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2"
+                                                        onClick={
+                                                            removeEmployee
+                                                        }>
                                                         Remove as Employee
                                                     </button>
 
@@ -311,7 +312,7 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         Leave History
                                                     </button>
                                                     <button
@@ -321,7 +322,7 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         Leave Balances
                                                     </button>
 
@@ -333,7 +334,7 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         Seminars
                                                     </button>
 
@@ -345,7 +346,7 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         PDS
                                                     </button>
 
@@ -357,7 +358,7 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         ICPR
                                                     </button>
 
@@ -369,7 +370,7 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         Service Record
                                                     </button>
 
@@ -381,9 +382,16 @@ export default function Employees() {
                                                             )
                                                         }}
                                                         role="butoon"
-                                                        className="dropdown-item">
+                                                        className="dropdown-item t-py-2">
                                                         Leave Card
                                                     </button>
+
+                                                    <EmployeeStatusButton
+                                                        employee={employee}
+                                                        getEmployees={
+                                                            getEmployees
+                                                        }
+                                                    />
                                                 </div>
                                                 {employee.supervisors.id === id
                                                     ? rateButton(employee)

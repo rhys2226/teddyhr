@@ -8,6 +8,8 @@ import ApplicantSupportingDocument from './ApplicantSupportingDocument'
 import ScheduleAnInterview from './ScheduleAnInterview'
 import {Auth} from '../../../services/auth.service'
 import {formatImageUrl, toDate} from '../../../helpers'
+import {ApplicantButtons} from './ApplicantButtons'
+import {ApplicationStatusEnum} from '../../../core/enum/application-status.enum'
 
 export default function Applicants() {
     const [applicants, setApplicants]: any = useState([])
@@ -191,14 +193,14 @@ export default function Applicants() {
                                     (applicant: any, index: any) => (
                                         <tr key={index}>
                                             <td className="text-center">
-                                                <div className="avatar avatar-xl">
+                                                <div className="avatar avatar-xl t-flex-none">
                                                     <img
                                                         src={formatImageUrl(
                                                             applicant.user
                                                                 .Avatar,
                                                         )}
                                                         alt=""
-                                                        className="avatar-img rounded-circle t-w-[50px] t-h-[50px] t-object-fill"
+                                                        className="avatar-img rounded-circle t-w-[50px] t-h-[40px] t-border-gray-300 t-border t-object-cover  t-flex-none"
                                                     />
                                                 </div>
                                             </td>
@@ -216,8 +218,8 @@ export default function Applicants() {
                                                             fontWeight: 900,
                                                         }}>
                                                         as{' '}
-                                                        {applicant.Position ||
-                                                            'Developer'}
+                                                        {applicant.Position ??
+                                                            'N/A'}
                                                     </span>
                                                 </p>
                                             </td>
@@ -267,16 +269,34 @@ export default function Applicants() {
                                                 )}
                                             </td>
 
-                                            <td
-                                                className={
-                                                    applicant.Approved !==
-                                                    'true'
-                                                        ? 'text-danger'
-                                                        : 'text-success'
-                                                }>
-                                                {applicant.Approved === 'true'
-                                                    ? 'Approved'
-                                                    : 'Pending'}
+                                            <td>
+                                                <div
+                                                    className={`badge t-text-white ${
+                                                        applicant.isPending ===
+                                                        null
+                                                            ? 't-bg-red-500'
+                                                            : applicant.isPending ===
+                                                              ApplicationStatusEnum.SUBMITTED
+                                                            ? 't-bg-blue-500'
+                                                            : applicant.isPending ===
+                                                              ApplicationStatusEnum.UNDER_REVIEW
+                                                            ? 't-bg-purple-500'
+                                                            : applicant.isPending ===
+                                                              ApplicationStatusEnum.ON_HOLD
+                                                            ? 't-bg-amber-500'
+                                                            : applicant.isPending ===
+                                                              ApplicationStatusEnum.ACCEPTED
+                                                            ? 't-bg-emerald-500'
+                                                            : applicant.isPending ===
+                                                              ApplicationStatusEnum.HIRED
+                                                            ? 't-bg-teal-500'
+                                                            : 't-bg-gray-500'
+                                                    }`}>
+                                                    {applicant.isPending ===
+                                                    null
+                                                        ? 'Pending'
+                                                        : applicant.isPending}
+                                                </div>
                                             </td>
 
                                             <td
@@ -293,85 +313,16 @@ export default function Applicants() {
                                             </td>
 
                                             <td>
-                                                <button
-                                                    style={{
-                                                        display:
-                                                            type === 'Admin'
-                                                                ? ''
-                                                                : 'none',
-                                                    }}
-                                                    className="btn fe fe-24 fe-chevron-down"
-                                                    type="button"
-                                                    data-toggle="dropdown"
-                                                    aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <span className="sr-only text-muted">
-                                                        Action
-                                                    </span>
-                                                </button>
-
-                                                <div className="dropdown-menu dropdown-menu-right">
-                                                    <button
-                                                        data-toggle="modal"
-                                                        data-target=".large-modal"
-                                                        onClick={async () => {
-                                                            await setModalData(
-                                                                applicant,
-                                                            )
-                                                            setModal(
-                                                                <ApplicantINformation
-                                                                    data={
-                                                                        applicant
-                                                                    }
-                                                                />,
-                                                            )
-                                                        }}
-                                                        className="dropdown-item">
-                                                        {' '}
-                                                        View Information{' '}
-                                                    </button>
-
-                                                    <button
-                                                        data-toggle="modal"
-                                                        data-target=".large-modal"
-                                                        onClick={async () => {
-                                                            await setModalData(
-                                                                applicant,
-                                                            )
-                                                            setModal(
-                                                                <ApplicantSupportingDocument
-                                                                    data={
-                                                                        applicant.attachments
-                                                                    }
-                                                                />,
-                                                            )
-                                                        }}
-                                                        className="dropdown-item">
-                                                        {' '}
-                                                        Check Supporting
-                                                        Documents{' '}
-                                                    </button>
-
-                                                    <button
-                                                        onClick={async () =>
-                                                            await reject(
-                                                                applicant,
-                                                            )
-                                                        }
-                                                        className="dropdown-item">
-                                                        Reject
-                                                    </button>
-
-                                                    <button
-                                                        onClick={() =>
-                                                            setUser(applicant)
-                                                        }
-                                                        data-toggle="modal"
-                                                        data-target=".slide-modal"
-                                                        className="dropdown-item ">
-                                                        Schedule an Interview
-                                                    </button>
-                                                </div>
+                                                <ApplicantButtons
+                                                    reject={reject}
+                                                    setUser={setUser}
+                                                    setModal={setModal}
+                                                    application={applicant}
+                                                    setModalData={setModalData}
+                                                    getApplicants={
+                                                        getApplicants
+                                                    }
+                                                />
                                             </td>
                                         </tr>
                                     ),

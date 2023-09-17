@@ -5,6 +5,7 @@ import {Auth} from '../../../../services/auth.service'
 import ApplicationForLeaveSheet from './CSCForm/ApplicationForLeaveSheet'
 import LeavesPlaceholders from './Placeholders/LeavesPlaceholders'
 import {formatImageUrl} from '../../../../helpers'
+import {LeaveStatusEnum} from '../../../../core/enum/leave-status.enum'
 
 export default function Leaves() {
     const [modal, setModal] = React.useState(<div></div>)
@@ -53,6 +54,16 @@ export default function Leaves() {
             )
         }
     }
+
+    const setStatus = async (leave: any, status: LeaveStatusEnum) => {
+        const api = new Auth('application-for-leave')
+
+        await api.update(leave.id, {
+            status: status,
+        })
+
+        getLeaves()
+    }
     return (
         <div>
             <div className="my-4 col-md-12">
@@ -85,7 +96,9 @@ export default function Leaves() {
                                         <i className="fe fe-user"></i>
                                     </th>
                                     <th className="text-success">Name</th>
+                                    <th className="text-success">Status</th>
                                     <th className="text-success">Type</th>
+                                    <th className="text-success">When</th>
                                     <th className="text-success">Days</th>
                                     <th className="text-success">With Pay</th>
                                     <th className="text-success">
@@ -100,7 +113,7 @@ export default function Leaves() {
                                 {filteredData.map(
                                     (leave: any, index: number) => (
                                         <tr>
-                                            <th scope="col">
+                                            <td>
                                                 <div className="avatar avatar-sm">
                                                     <img
                                                         src={formatImageUrl(
@@ -110,7 +123,8 @@ export default function Leaves() {
                                                         className="t-object-fill t-w-[50px] t-rounded-full t-h-[50px]"
                                                     />
                                                 </div>
-                                            </th>
+                                            </td>
+
                                             <td>
                                                 <p className="mb-0 text-muted">
                                                     <strong>
@@ -119,6 +133,7 @@ export default function Leaves() {
                                                         {leave.user.Middle}
                                                     </strong>
                                                 </p>
+
                                                 <p className="mb-3 small">
                                                     <span
                                                         className="p-1 text-white badge badge-success br-2"
@@ -132,7 +147,19 @@ export default function Leaves() {
                                                     </span>
                                                 </p>
                                             </td>
+
+                                            <td>{leave.status}</td>
+
                                             <td>{leave.Spent}</td>
+                                            <td>
+                                                {new Date(
+                                                    leave.from_date,
+                                                ).toLocaleDateString()}{' '}
+                                                {'-'}
+                                                {new Date(
+                                                    leave.to_date,
+                                                ).toLocaleDateString()}{' '}
+                                            </td>
                                             <td>{leave.Days}</td>
                                             <td>
                                                 <span className="text-success">
@@ -226,6 +253,34 @@ export default function Leaves() {
                                                         className="dropdown-item">
                                                         Remove Application
                                                     </button>
+
+                                                    <br />
+                                                    <hr />
+                                                    <br />
+
+                                                    {Object.values(
+                                                        LeaveStatusEnum,
+                                                    ).map(
+                                                        (
+                                                            applicationStatus,
+                                                            index,
+                                                        ) => (
+                                                            <button
+                                                                key={index}
+                                                                onClick={async () =>
+                                                                    await setStatus(
+                                                                        leave,
+                                                                        applicationStatus,
+                                                                    )
+                                                                }
+                                                                className="dropdown-item t-py-2">
+                                                                Set as{' '}
+                                                                {
+                                                                    applicationStatus
+                                                                }
+                                                            </button>
+                                                        ),
+                                                    )}
                                                 </div>
                                             </td>
                                         </tr>

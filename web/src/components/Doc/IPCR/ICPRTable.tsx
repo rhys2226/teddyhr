@@ -33,16 +33,16 @@ export default function ICPRTable(props: any) {
     return (
         <div>
             <br />
-            <h2 className=" mb-1">IPCR</h2>
+            <h2 className="mb-1 ">IPCR</h2>
             <p className="mb-3 text-muted">
                 OFFICE PERFORMANCE EVALUATION AND REVIEW (IPCR)
             </p>
-            <div className="card t-border-none shadow">
+            <div className="shadow card t-border-none">
                 <div className="card-body">
                     <div className="toolbar">
                         <form className="form">
                             <div className="form-row">
-                                <div className="form-group col-auto">
+                                <div className="col-auto form-group">
                                     <label className="sr-only">Search</label>
                                     <input
                                         type="text"
@@ -58,23 +58,12 @@ export default function ICPRTable(props: any) {
                     <table className="table table-striped ">
                         <thead className="table-light">
                             <tr>
-                                <th className="text-info text-center">
-                                    <i className="fe fe-file"></i>
-                                </th>
-                                <th className="text-info text-center">Date</th>
-                                <th className="text-info text-center">
-                                    Reviewed by
-                                </th>
-                                <th className="text-info text-center">
-                                    Approved by
-                                </th>
-                                <th className="text-info text-center">
-                                    Discussed with
-                                </th>
-                                <th className="text-info text-center">
-                                    Assessed by
-                                </th>
-                                <th className="text-warning text-center">
+                                <th className=" text-info">Date</th>
+                                <th className=" text-info">Reviewed by</th>
+                                <th className=" text-info">Approved by</th>
+                                <th className=" text-info">Discussed with</th>
+                                <th className=" text-info">Assessed by</th>
+                                <th className=" text-warning">
                                     Final Rating by
                                 </th>
                                 <th></th>
@@ -83,30 +72,19 @@ export default function ICPRTable(props: any) {
                         <tbody>
                             {icprs.map((data: any, index: any) => (
                                 <tr>
-                                    <td className="text-center"></td>
-                                    <td className="text-center">
-                                        {toDate(data.created_at)}
-                                    </td>
-                                    <td className="text-center">
-                                        {data.ReviewedBy}
-                                    </td>
-                                    <td className="text-center">
-                                        {data.ApprovedBy}
-                                    </td>
-                                    <td className="text-center">
-                                        {data.DiscussedBy}
-                                    </td>
-                                    <td className="text-center">
-                                        {data.AssessedBy}
-                                    </td>
+                                    <td>{toDate(data.created_at)}</td>
+                                    <td>{data.ReviewedBy}</td>
+                                    <td>{data.ApprovedBy}</td>
+                                    <td>{data.DiscussedBy}</td>
+                                    <td>{data.AssessedBy}</td>
                                     <td>
                                         <button
-                                            className="btn btn-sm  dropdown-toggle more-horizontal"
+                                            className="btn btn-sm dropdown-toggle more-horizontal"
                                             type="button"
                                             data-toggle="dropdown"
                                             aria-haspopup="true"
                                             aria-expanded="false">
-                                            <span className="text-muted sr-only">
+                                            <span className="sr-only text-muted">
                                                 Action
                                             </span>
                                         </button>
@@ -174,7 +152,7 @@ export default function ICPRTable(props: any) {
             <div>
                 <PrintComponents
                     trigger={
-                        <button className="btn btn-dark mb-3">
+                        <button className="mb-3 btn btn-dark">
                             <i className=" fe fe-printer"></i>
                             <span>&nbsp;Print IPCR</span>
                         </button>

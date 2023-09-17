@@ -6,6 +6,7 @@ import {Auth} from '../../../../services/auth.service'
 import ApplicationForLeaveSheet from './CSCForm/ApplicationForLeaveSheet'
 import LeavesPlaceholders from './Placeholders/LeavesPlaceholders'
 import {formatImageUrl} from '../../../../helpers'
+import {LeaveStatusEnum} from '../../../../core/enum/leave-status.enum'
 
 export default function MyLeaves() {
     const [modal, setModal] = React.useState(<div></div>)
@@ -13,6 +14,7 @@ export default function MyLeaves() {
     const [filteredData, setFilteredData]: any = React.useState([])
     const [fetched, setfetched]: any = React.useState(false)
     let {id}: any = useParams()
+    const userType = JSON.parse(localStorage.getItem('user') as string).Type
 
     React.useEffect(() => {
         getLeaves()
@@ -55,6 +57,55 @@ export default function MyLeaves() {
             )
         }
     }
+
+    const viewLeaveDetails = (leave: any) => {
+        const id = leave.employee_id
+        const api = new Auth('leave-card')
+        api.fetchOne(id).then((data) => {
+            setModal(
+                <ApplicationForLeaveSheet
+                    data={leave}
+                    leaves={data[data.length - 1]}
+                />,
+            )
+        })
+    }
+
+    const removeLeave = (leave: any) => {
+        Fire(
+            'Remove Leave Application?',
+            'Are you sure you want to remove this leave application?',
+            'warning',
+            () => {
+                const api = new Auth('application-for-leave')
+                api.delete(leave.id)
+                    .then((data) => {
+                        Alert(
+                            'Application Removed',
+                            'Leave application has been romved',
+                            'success',
+                        )
+                        getLeaves()
+                    })
+                    .catch(() => {
+                        Alert(
+                            'Error!',
+                            'Something went wrong. Try again',
+                            'error',
+                        )
+                    })
+            },
+        )
+    }
+
+    const setStatus = async (leave: any, status: LeaveStatusEnum) => {
+        const api = new Auth('application-for-leave')
+
+        await api.update(leave.id, {
+            status: status,
+        })
+    }
+
     return (
         <div>
             <div className="my-4 col-md-12">
@@ -87,7 +138,9 @@ export default function MyLeaves() {
                                         <i className="fe fe-user"></i>
                                     </th>
                                     <th className="text-success">Name</th>
+                                    <th className="text-success">Status</th>
                                     <th className="text-success">Type</th>
+                                    <th className="text-success">When</th>
                                     <th className="text-success">Days</th>
                                     <th className="text-success">With Pay</th>
                                     <th className="text-success">
@@ -113,6 +166,7 @@ export default function MyLeaves() {
                                                     />
                                                 </div>
                                             </td>
+
                                             <td>
                                                 <p className="mb-0 text-muted">
                                                     <strong>
@@ -134,7 +188,20 @@ export default function MyLeaves() {
                                                     </span>
                                                 </p>
                                             </td>
+
+                                            <td>{leave.status}</td>
+
                                             <td>{leave.Spent}</td>
+                                            <td>
+                                                {new Date(
+                                                    leave.from_date,
+                                                ).toLocaleDateString()}{' '}
+                                                {'-'}
+                                                {new Date(
+                                                    leave.to_date,
+                                                ).toLocaleDateString()}{' '}
+                                            </td>
+
                                             <td>{leave.Days}</td>
                                             <td>
                                                 <span className="text-success">
@@ -155,79 +222,61 @@ export default function MyLeaves() {
                                                 </button>
                                                 <div className="dropdown-menu dropdown-menu-right">
                                                     <button
-                                                        onClick={() => {
-                                                            const id =
-                                                                leave.employee_id
-                                                            const api =
-                                                                new Auth(
-                                                                    'leave-card',
-                                                                )
-                                                            api.fetchOne(
-                                                                id,
-                                                            ).then((data) => {
-                                                                setModal(
-                                                                    <ApplicationForLeaveSheet
-                                                                        data={
-                                                                            leave
-                                                                        }
-                                                                        leaves={
-                                                                            data[
-                                                                                data.length -
-                                                                                    1
-                                                                            ]
-                                                                        }
-                                                                    />,
-                                                                )
-                                                            })
-                                                        }}
+                                                        onClick={() =>
+                                                            viewLeaveDetails(
+                                                                leave,
+                                                            )
+                                                        }
                                                         data-toggle="modal"
                                                         data-target=".modal-full"
                                                         role="butoon"
                                                         className="dropdown-item">
                                                         View Leave Details
                                                     </button>
+
                                                     <button
-                                                        onClick={() => {
-                                                            Fire(
-                                                                'Remove Leave Application?',
-                                                                'Are you sure you want to remove this leave application?',
-                                                                'warning',
-                                                                () => {
-                                                                    const api =
-                                                                        new Auth(
-                                                                            'application-for-leave',
-                                                                        )
-                                                                    api.delete(
-                                                                        leave.id,
-                                                                    )
-                                                                        .then(
-                                                                            (
-                                                                                data,
-                                                                            ) => {
-                                                                                Alert(
-                                                                                    'Application Removed',
-                                                                                    'Leave application has been romved',
-                                                                                    'success',
-                                                                                )
-                                                                                getLeaves()
-                                                                            },
-                                                                        )
-                                                                        .catch(
-                                                                            () => {
-                                                                                Alert(
-                                                                                    'Error!',
-                                                                                    'Something went wrong. Try again',
-                                                                                    'error',
-                                                                                )
-                                                                            },
-                                                                        )
-                                                                },
-                                                            )
-                                                        }}
+                                                        onClick={() =>
+                                                            removeLeave(leave)
+                                                        }
                                                         role="butoon"
                                                         className="dropdown-item">
                                                         Remove Application
                                                     </button>
+
+                                                    <div
+                                                        className={`${
+                                                            userType === 'Admin'
+                                                                ? ''
+                                                                : 't-hidden'
+                                                        }`}>
+                                                        <br />
+                                                        <hr />
+                                                        <br />
+
+                                                        {Object.values(
+                                                            LeaveStatusEnum,
+                                                        ).map(
+                                                            (
+                                                                applicationStatus,
+                                                                index,
+                                                            ) => (
+                                                                <button
+                                                                    key={index}
+                                                                    onClick={async () =>
+                                                                        await setStatus(
+                                                                            leave,
+                                                                            applicationStatus,
+                                                                        )
+                                                                    }
+                                                                    className="dropdown-item t-py-2">
+                                                                    Set as{' '}
+                                                                    {
+                                                                        applicationStatus
+                                                                    }
+                                                                </button>
+                                                            ),
+                                                        )}
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>

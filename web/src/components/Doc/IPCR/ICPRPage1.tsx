@@ -31,16 +31,17 @@ export default function ICPRPage1(props: Props) {
                 </span>
             </p>
 
-            <div className="float-right assignatory">
-                <p className="underlined text-center">
+            <div className="float-right assignatory t-mt-8">
+                <p className="text-center underlined">
                     {props.data.supervisors.First}{' '}
                     {props.data.supervisors.Middle}{' '}
                     {props.data.supervisors.Last}
                 </p>
-                <h6 className=" text-center ratee">Ratee</h6>
+                <br />
+                <h6 className="text-center ratee">Ratee</h6>
             </div>
 
-            <table className="w-100 table">
+            <table className="table w-100">
                 <thead className="table-light">
                     <tr>
                         <th className="bordered text-dark"> Reviewed by:</th>
@@ -52,22 +53,22 @@ export default function ICPRPage1(props: Props) {
                 <tbody>
                     <tr>
                         <td className="bordered">
-                            <p className="underlined text-center mt-3">
+                            <p className="mt-3 text-center underlined">
                                 {props.data.ReviewedBy}
                             </p>
                         </td>
                         <td rowSpan={2} className="bordered">
-                            <p className="underlined text-center mt-3">
+                            <p className="mt-3 text-center underlined">
                                 {props.data.ReviewedByDate}
                             </p>{' '}
                         </td>
                         <td className="bordered">
-                            <p className="underlined text-center mt-3">
+                            <p className="mt-3 text-center underlined">
                                 {props.data.ApprovedBy}
                             </p>
                         </td>
                         <td rowSpan={2} className="bordered">
-                            <p className="underlined text-center mt-3">
+                            <p className="mt-3 text-center underlined">
                                 {props.data.ApprovedByDate}
                             </p>{' '}
                         </td>
@@ -88,7 +89,7 @@ export default function ICPRPage1(props: Props) {
                 <div className="col-md-5 ">
                     <div
                         style={{border: '1px solid rgba(150,150,150,0.7)'}}
-                        className="rating card t-border-none  p-3">
+                        className="p-3 rating card t-border-none">
                         <p className="text-center">Rating Scale</p>
                         <p className="text-secodary">5- OUTSANDING</p>
                         <p className="text-secodary">4- VERY SATISFACTORY</p>

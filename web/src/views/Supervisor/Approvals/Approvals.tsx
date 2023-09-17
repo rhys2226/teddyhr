@@ -16,17 +16,17 @@ export default function Approvals() {
 
     return (
         <div>
-            <div className="col-md-12 my-4">
-                <h2 className=" mb-1">Aprpovals</h2>
+            <div className="my-4 col-md-12">
+                <h2 className="mb-1 ">Aprpovals</h2>
                 <p className="mb-3 text-muted">
                     Displaying List of Approvals in descending order
                 </p>
-                <div className="card shadow">
+                <div className="shadow card">
                     <div className="card-body">
                         <div className="toolbar">
                             <form className="form">
                                 <div className="form-row">
-                                    <div className="form-group col-auto">
+                                    <div className="col-auto form-group">
                                         <label className="sr-only">
                                             Search
                                         </label>
@@ -66,7 +66,7 @@ export default function Approvals() {
                                             <i className="fe fe-folder text-success"></i>
                                         </th>
                                         <td>ICPR</td>
-                                        <td>Jamel Eid Yassin</td>
+                                        {/* <td>Jamel Eid Yassin</td> */}
                                         <td>
                                             <ul className="avatars-list">
                                                 <li>
@@ -159,7 +159,7 @@ export default function Approvals() {
                                                 data-toggle="dropdown"
                                                 aria-haspopup="true"
                                                 aria-expanded="false">
-                                                <span className="text-muted sr-only">
+                                                <span className="sr-only text-muted">
                                                     Action
                                                 </span>
                                             </button>

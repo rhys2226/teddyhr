@@ -17,15 +17,15 @@ export default function UpcomingSeminars() {
         <div className="row justify-content-center">
             <div className=" card col-12 col-lg-10 col-xl-8">
                 <div className="card-header d-flex">
-                    <span className=" mr-1">
-                        <i className="fe fe-mic  "></i>4
+                    <span className="mr-1 ">
+                        <i className="fe fe-mic "></i>4
                     </span>
                     <strong className="card-title">Upcoming Seminars</strong>
                     <button
                         onClick={() => {
                             setwantsToAdd(wantsToAdd === false ? true : false)
                         }}
-                        className="btn btn-outline-primary ml-auto d-flex">
+                        className="ml-auto btn btn-outline-primary d-flex">
                         <i className="fe fe-plus"></i>
                         {wantsToAdd !== false ? 'Cancel' : 'Add Seminar'}
                     </button>
@@ -48,7 +48,7 @@ export default function UpcomingSeminars() {
                                     display:
                                         wantsToAdd !== false ? 'none' : 'block',
                                 }}
-                                className="row align-items-center card-body card ml-2 mr-2 mb-3 shadow">
+                                className="mb-3 ml-2 mr-2 shadow row align-items-center card-body card">
                                 <div className="col">
                                     <strong>
                                         IT Convention{' '}
@@ -64,21 +64,21 @@ export default function UpcomingSeminars() {
                                     <small className="text-muted">
                                         2020-04-21
                                     </small>
-                                    <div className="card mt-2 mb-3 bg-light w-50">
+                                    <div className="mt-2 mb-3 card bg-light w-50">
                                         <div className="row no-gutters align-items-center">
-                                            <div className="col-md-2 text-center">
+                                            <div className="text-center col-md-2">
                                                 <img
                                                     src="https://iscofhr.online//assets/products/p1.jpg"
                                                     alt="..."
-                                                    className="img-fluid rounded m-1"
+                                                    className="m-1 rounded img-fluid"
                                                 />
                                             </div>
                                             <div className="col-md-10">
-                                                <div className="card-body py-0">
-                                                    <p className="card-title mb-0">
+                                                <div className="py-0 card-body">
+                                                    <p className="mb-0 card-title">
                                                         New screenshot-12.png
                                                     </p>
-                                                    <div className="card-text my-0 text-muted small">
+                                                    <div className="my-0 card-text text-muted small">
                                                         <span className="mr-2">
                                                             1.2M
                                                         </span>
@@ -90,7 +90,7 @@ export default function UpcomingSeminars() {
                                             </div>
                                         </div>
                                     </div>
-                                    <ul className="avatars-list mb-2">
+                                    <ul className="mb-2 avatars-list">
                                         <li>
                                             <a
                                                 href="#!"

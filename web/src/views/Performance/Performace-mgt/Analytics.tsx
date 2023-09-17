@@ -35,7 +35,15 @@ export default function Analytics() {
         })
     }
 
-    const renderCharts = (data: {position: string; count: string}[]) => {
+    const renderCharts = (
+        data: {
+            position: string
+            count: string
+            part_time: string
+            regular: string
+            job_order: string
+        }[],
+    ) => {
         if (typeof Chart !== 'undefined') {
             renderChart(
                 'administrative-chart',

@@ -20,7 +20,7 @@ export default function HomeNav() {
             <nav className="topnav navbar navbar-light t-bg-white">
                 <button
                     type="button"
-                    className="navbar-toggler text-muted mt-2 p-0 mr-3"
+                    className="p-0 mt-2 mr-3 navbar-toggler text-muted"
                     onClick={(e) => {
                         e.preventDefault()
                         const body = $(document.body)
@@ -35,12 +35,12 @@ export default function HomeNav() {
                 </button>
                 <ul className="nav">
                     {/* <li className='nav-item'>
-                        <a className='nav-link text-muted my-2' href='./#' data-toggle='modal' data-target='.modal-shortcut'>
+                        <a className='my-2 nav-link text-muted' href='./#' data-toggle='modal' data-target='.modal-shortcut'>
                             <span className='fe fe-download-cloud fe-16'></span>
                         </a>
                     </li> */}
                     {/* <li className='nav-item nav-notif'>
-                        <a role="button" className='nav-link text-muted my-2' data-toggle='modal' data-target='.modal-notif'>
+                        <a role="button" className='my-2 nav-link text-muted' data-toggle='modal' data-target='.modal-notif'>
                             <span className='fe fe-bell fe-16'></span>
                             <span className='dot dot-md bg-danger'></span>
                         </a>
@@ -55,7 +55,9 @@ export default function HomeNav() {
                             aria-haspopup="true"
                             aria-expanded="false">
                             <span className="!t-text-white t-font-bold t-text-center -t-translate-x-2">
-                                T
+                                {JSON.parse(
+                                    JSON.stringify(Array.from(user)[0]),
+                                )}
                             </span>
                         </a>
                         <div
@@ -123,7 +125,7 @@ export default function HomeNav() {
 {
     /* <li className="nav-item">
                         <a
-                            className="nav-link text-muted my-2"
+                            className="my-2 nav-link text-muted"
                             href="#"
                             id="modeSwitcher"
                             data-mode="light"
